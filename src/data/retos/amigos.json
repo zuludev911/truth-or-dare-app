@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "tipo": "verdad",
+    "texto": "¿Cuál es el peor hábito que tienes y tus amigos odian?"
+  },
+  {
+    "id": 2,
+    "tipo": "reto",
+    "texto": "Imita al amigo del grupo que tenga la risa más peculiar."
+  },
+  {
+    "id": 3,
+    "tipo": "verdad",
+    "texto": "¿Alguna vez has contado un secreto que te confiaron?"
+  },
+  {
+    "id": 4,
+    "tipo": "reto",
+    "texto": "Deja que el grupo vea tu galería de fotos por 10 segundos."
+  },
+  {
+    "id": 5,
+    "tipo": "verdad",
+    "texto": "¿Qué es lo más vergonzoso que has hecho por quedar bien con alguien?"
+  },
+  {
+    "id": 6,
+    "tipo": "reto",
+    "texto": "Envía un mensaje de voz cantando a un contacto aleatorio."
+  },
+  {
+    "id": 7,
+    "tipo": "verdad",
+    "texto": "¿Quién del grupo te cae peor y por qué?"
+  },
+  {
+    "id": 8,
+    "tipo": "reto",
+    "texto": "Haz 10 sentadillas con alguien del grupo a cuestas."
+  },
+  {
+    "id": 9,
+    "tipo": "verdad",
+    "texto": "¿Qué mentira le has dicho a tus amigos y nunca se enteraron?"
+  },
+  {
+    "id": 10,
+    "tipo": "reto",
+    "texto": "Publica en tu estado: 'Busco novi@, interesados al DM'."
+  },
+  {
+    "id": 11,
+    "tipo": "verdad",
+    "texto": "¿Qué es lo más raro que has buscado en Internet?"
+  },
+  {
+    "id": 12,
+    "tipo": "reto",
+    "texto": "Come una cucharada de algo condimentado (ají, limón, etc.)."
+  },
+  {
+    "id": 13,
+    "tipo": "verdad",
+    "texto": "¿Alguna vez te han gustado dos amigos del mismo grupo?"
+  },
+  {
+    "id": 14,
+    "tipo": "reto",
+    "texto": "Deja que el grupo te maquille con los ojos cerrados."
+  },
+  {
+    "id": 15,
+    "tipo": "verdad",
+    "texto": "¿Qué es lo más tóxico que has hecho en una relación?"
+  },
+  {
+    "id": 16,
+    "tipo": "reto",
+    "texto": "Baila como si estuvieras en una discoteca por 30 segundos."
+  },
+  {
+    "id": 17,
+    "tipo": "verdad",
+    "texto": "¿Qué cosa de ti crees que tus amigos critican a tus espaldas?"
+  },
+  {
+    "id": 18,
+    "tipo": "reto",
+    "texto": "Habla por 1 minuto sin decir las palabras 'sí', 'no' o 'eh'."
+  },
+  {
+    "id": 19,
+    "tipo": "verdad",
+    "texto": "¿Qué persona famosa te gustaría que fuera tu pareja?"
+  },
+  {
+    "id": 20,
+    "tipo": "reto",
+    "texto": "Pon tu canción más vergonzosa y cántala frente al grupo."
+  }
+]

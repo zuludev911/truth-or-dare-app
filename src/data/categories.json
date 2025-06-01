@@ -1,0 +1,6 @@
+[
+  { "id": "clasico", "nombre": "Clásico", "icono": "gamepad" },
+  { "id": "picante", "nombre": "Picante", "icono": "pepper-hot" },
+  { "id": "parejas", "nombre": "Parejas", "icono": "people-carry" },
+  { "id": "amigos", "nombre": "Amigos", "icono": "user-friends" }
+]

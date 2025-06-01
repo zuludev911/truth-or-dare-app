@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "tipo": "verdad",
+    "texto": "¿Qué fue lo primero que pensaste cuando me viste?"
+  },
+  {
+    "id": 2,
+    "tipo": "reto",
+    "texto": "Dale un beso en la mano a tu pareja como un caballero/dama."
+  },
+  {
+    "id": 3,
+    "tipo": "verdad",
+    "texto": "¿Qué es lo que más te molesta de mí?"
+  },
+  {
+    "id": 4,
+    "tipo": "reto",
+    "texto": "Susúrrame algo al oído que me haga sonreír."
+  },
+  {
+    "id": 5,
+    "tipo": "verdad",
+    "texto": "¿Alguna vez has fantaseado con alguien más estando conmigo?"
+  },
+  {
+    "id": 6,
+    "tipo": "reto",
+    "texto": "Haz un masaje de 1 minuto en los hombros de tu pareja."
+  },
+  {
+    "id": 7,
+    "tipo": "verdad",
+    "texto": "¿Qué es lo más loco que harías por amor?"
+  },
+  {
+    "id": 8,
+    "tipo": "reto",
+    "texto": "Imita mi forma de caminar."
+  },
+  {
+    "id": 9,
+    "tipo": "verdad",
+    "texto": "¿Cuál ha sido nuestro peor momento juntos?"
+  },
+  {
+    "id": 10,
+    "tipo": "reto",
+    "texto": "Dime un piropo cursi sin reírte."
+  },
+  {
+    "id": 11,
+    "tipo": "verdad",
+    "texto": "¿Qué cambiarías de nuestra relación?"
+  },
+  {
+    "id": 12,
+    "tipo": "reto",
+    "texto": "Dame un abrazo por 20 segundos sin soltarme."
+  },
+  {
+    "id": 13,
+    "tipo": "verdad",
+    "texto": "¿Qué es lo más raro que te gusta de mí?"
+  },
+  {
+    "id": 14,
+    "tipo": "reto",
+    "texto": "Dibuja un retrato rápido de tu pareja."
+  },
+  {
+    "id": 15,
+    "tipo": "verdad",
+    "texto": "¿Alguna vez has revisado mi celular a escondidas?"
+  },
+  {
+    "id": 16,
+    "tipo": "reto",
+    "texto": "Baila con tu pareja como si fuera tu primera cita."
+  },
+  {
+    "id": 17,
+    "tipo": "verdad",
+    "texto": "¿Qué no sabes de mí pero te gustaría descubrir?"
+  },
+  {
+    "id": 18,
+    "tipo": "reto",
+    "texto": "Dime tres cosas que te gusten de mí (sin repetir)."
+  },
+  {
+    "id": 19,
+    "tipo": "verdad",
+    "texto": "¿Qué mentira me has dicho?"
+  },
+  {
+    "id": 20,
+    "tipo": "reto",
+    "texto": "Dame un beso en la mejilla sin usar las manos."
+  }
+]

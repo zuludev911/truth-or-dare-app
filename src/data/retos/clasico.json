@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "tipo": "verdad",
+    "texto": "¿Cuál es tu mayor miedo?"
+  },
+  {
+    "id": 2,
+    "tipo": "reto",
+    "texto": "Bebe un vaso de agua sin usar las manos."
+  },
+  {
+    "id": 3,
+    "tipo": "verdad",
+    "texto": "¿Qué es lo más extraño que has comido?"
+  },
+  {
+    "id": 4,
+    "tipo": "reto",
+    "texto": "Camina como modelo por la habitación."
+  },
+  {
+    "id": 5,
+    "tipo": "verdad",
+    "texto": "¿Alguna vez has llorado por un examen o trabajo?"
+  },
+  {
+    "id": 6,
+    "tipo": "reto",
+    "texto": "Haz 10 flexiones seguidas."
+  },
+  {
+    "id": 7,
+    "tipo": "verdad",
+    "texto": "¿Cuál es tu peor recuerdo de la infancia?"
+  },
+  {
+    "id": 8,
+    "tipo": "reto",
+    "texto": "Dibuja algo con los ojos cerrados y que el grupo adivine."
+  },
+  {
+    "id": 9,
+    "tipo": "verdad",
+    "texto": "¿Qué es lo más peligroso que has hecho?"
+  },
+  {
+    "id": 10,
+    "tipo": "reto",
+    "texto": "Imita a un famoso hasta que alguien adivine."
+  },
+  {
+    "id": 11,
+    "tipo": "verdad",
+    "texto": "¿Qué es lo más caro que has robado (o 'tomado prestado')?"
+  },
+  {
+    "id": 12,
+    "tipo": "reto",
+    "texto": "Come algo sin usar las manos."
+  },
+  {
+    "id": 13,
+    "tipo": "verdad",
+    "texto": "¿Qué canción te da vergüenza que te guste?"
+  },
+  {
+    "id": 14,
+    "tipo": "reto",
+    "texto": "Habla con acento extranjero por 3 turnos."
+  },
+  {
+    "id": 15,
+    "tipo": "verdad",
+    "texto": "¿Qué mentira dijiste en una entrevista de trabajo?"
+  },
+  {
+    "id": 16,
+    "tipo": "reto",
+    "texto": "Haz un baile ridículo por 20 segundos."
+  },
+  {
+    "id": 17,
+    "tipo": "verdad",
+    "texto": "¿Qué cosa infantil aún disfrutas?"
+  },
+  {
+    "id": 18,
+    "tipo": "reto",
+    "texto": "Dile a alguien por mensaje: 'Sé tu secreto'."
+  },
+  {
+    "id": 19,
+    "tipo": "verdad",
+    "texto": "¿Qué app usas más y por qué?"
+  },
+  {
+    "id": 20,
+    "tipo": "reto",
+    "texto": "Ponte hielo en la espalda por 10 segundos."
+  }
+]
