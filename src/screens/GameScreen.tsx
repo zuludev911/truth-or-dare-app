@@ -7,7 +7,11 @@ import {
   Platform,
   Image,
 } from "react-native";
-import { InterstitialAd, TestIds } from "react-native-google-mobile-ads";
+import {
+  AdEventType,
+  InterstitialAd,
+  TestIds,
+} from "react-native-google-mobile-ads";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../navigation/Navigation";
@@ -38,9 +42,30 @@ export default function GameScreen({ route }: Props) {
   const [retosVistos, setRetosVistos] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const [isAdLoaded, setIsAdLoaded] = useState(false);
+
   useEffect(() => {
-    const loadAd = () => interstitial.load();
-    loadAd(); // Precarga el anuncio al montar
+    const unsubscribe = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => {
+        setIsAdLoaded(true);
+      }
+    );
+
+    const unsubscribeError = interstitial.addAdEventListener(
+      AdEventType.ERROR,
+      (err) => {
+        console.warn("Interstitial error:", err);
+        setIsAdLoaded(false);
+      }
+    );
+
+    interstitial.load();
+
+    return () => {
+      unsubscribe();
+      unsubscribeError();
+    };
   }, []);
 
   const handleNext = async () => {
@@ -48,10 +73,14 @@ export default function GameScreen({ route }: Props) {
     const newCount = retosVistos + 1;
     setRetosVistos(newCount);
 
-    if (newCount % 10 === 0) {
-      // Cada 10 retos
-      interstitial.show();
-      await interstitial.load(); // Recarga para el próximo
+    if (newCount % 10 === 0 && isAdLoaded && adUnitId) {
+      try {
+        await interstitial.show();
+        setIsAdLoaded(false);
+        interstitial.load(); // prepara el próximo
+      } catch (error) {
+        console.warn("Interstitial show error:", error);
+      }
     }
 
     setRetoActual(
@@ -156,7 +185,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: "50%",
   },
   cardImage: {
-    width: 300,
-    height: 300,
+    maxWidth: 300,
+    maxHeight: 300,
   },
 });

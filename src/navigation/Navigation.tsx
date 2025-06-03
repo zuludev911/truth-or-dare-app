@@ -17,17 +17,17 @@ export default function Navigation() {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{ title: "Verdad o Reto" }}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="Game"
         component={GameScreen}
-        options={{ title: "¡A jugar!" }}
+        options={{ title: "" }}
       />
       <Stack.Screen
         name="Categories"
         component={CategoryScreen}
-        options={{ title: "Categorías" }}
+        options={{ title: "" }}
       />
     </Stack.Navigator>
   );

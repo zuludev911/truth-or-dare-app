@@ -23,7 +23,11 @@ export default function CategoryScreen({ navigation }: Props) {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.card}
-            onPress={() => navigation.navigate("Game", { category: item.id })}
+            onPress={() =>
+              navigation.navigate("Game", {
+                category: item.id,
+              })
+            }
           >
             <FontAwesome5 name={item.icono} size={24} color="white" />
             <Text style={styles.text}>{item.nombre}</Text>

@@ -98,5 +98,55 @@
     "id": 20,
     "tipo": "reto",
     "texto": "Ponte hielo en la espalda por 10 segundos."
+  },
+  {
+    "id": 21,
+    "tipo": "verdad",
+    "texto": "¿Qué habilidad te gustaría tener y por qué nunca la aprendiste?"
+  },
+  {
+    "id": 22,
+    "tipo": "verdad",
+    "texto": "Si solo pudieras comer un alimento por el resto de tu vida, ¿cuál sería?"
+  },
+  {
+    "id": 23,
+    "tipo": "verdad",
+    "texto": "¿Qué personaje de ficción odias con toda tu alma?"
+  },
+  {
+    "id": 24,
+    "tipo": "verdad",
+    "texto": "¿Cuál es el peor regalo que has recibido y fingiste que te gustó?"
+  },
+  {
+    "id": 25,
+    "tipo": "verdad",
+    "texto": "¿Qué cosa 'normal' te parece extrañamente aterradora?"
+  },
+  {
+    "id": 26,
+    "tipo": "reto",
+    "texto": "Equilibra una cuchara en tu nariz durante 15 segundos."
+  },
+  {
+    "id": 27,
+    "tipo": "reto",
+    "texto": "Escribe tu nombre en el aire con el codo (¡el grupo debe adivinar qué escribiste!)."
+  },
+  {
+    "id": 28,
+    "tipo": "reto",
+    "texto": "Sostén un cubo de hielo en tu mano hasta que se derrita por completo."
+  },
+  {
+    "id": 29,
+    "tipo": "reto",
+    "texto": "Canta el abecedario en reversa lo más rápido que puedas."
+  },
+  {
+    "id": 30,
+    "tipo": "reto",
+    "texto": "Deja que alguien del grupo te haga un peinado extravagante y exhibelo por 5 minutos."
   }
 ]

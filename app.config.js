@@ -12,17 +12,19 @@ export default {
     userInterfaceStyle: "light",
     newArchEnabled: true,
     splash: {
-      image: "./assets/splash-icon.png",
+      image: "./assets/icon.png",
       resizeMode: "contain",
       backgroundColor: "#ffffff",
     },
     ios: {
+      buildNumber: "2",
       supportsTablet: true,
       bundleIdentifier: "com.anfezuar.truthordareapp",
     },
     android: {
+      versionCode: 2,
       adaptiveIcon: {
-        foregroundImage: "./assets/adaptive-icon.png",
+        foregroundImage: "./assets/icon.png",
         backgroundColor: "#ffffff",
       },
       edgeToEdgeEnabled: true,
@@ -32,6 +34,7 @@ export default {
       favicon: "./assets/favicon.png",
     },
     plugins: [
+      "expo-updates",
       // Configuración de AdMob (como array separado)
       [
         "react-native-google-mobile-ads",
@@ -48,6 +51,10 @@ export default {
       ],
     ],
     extra: {
+      sentryDsn: process.env.DSN_SENTRY,
+      eas: {
+        projectId: process.env.EAS_PROJECT_ID,
+      },
       admobAndroidBannerId: isDev
         ? "ca-app-pub-3940256099942544/6300978111" // ID de prueba para banner
         : process.env.ADMOB_ANDROID_BANNER_ID,

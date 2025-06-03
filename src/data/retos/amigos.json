@@ -98,5 +98,55 @@
     "id": 20,
     "tipo": "reto",
     "texto": "Pon tu canción más vergonzosa y cántala frente al grupo."
+  },
+  {
+    "id": 21,
+    "tipo": "verdad",
+    "texto": "¿Cuál es el mayor elogio que has recibido y nunca olvidaste?"
+  },
+  {
+    "id": 22,
+    "tipo": "verdad",
+    "texto": "Si tuvieras que elegir a un amigo para sobrevivir en una isla desierta, ¿a quién escogerías y por qué?"
+  },
+  {
+    "id": 23,
+    "tipo": "verdad",
+    "texto": "¿Alguna vez has fingido estar enfermo para evitar un plan con amigos?"
+  },
+  {
+    "id": 24,
+    "tipo": "verdad",
+    "texto": "¿Qué app usas en secreto y no quieres que tus amigos sepan?"
+  },
+  {
+    "id": 25,
+    "tipo": "verdad",
+    "texto": "Si pudieras borrar un recuerdo de tu mente, ¿cuál sería y por qué?"
+  },
+  {
+    "id": 26,
+    "tipo": "reto",
+    "texto": "¡Haz stand-up! Inventa un chiste sobre el grupo. Si nadie se ríe, bebe un trago de agua con sal."
+  },
+  {
+    "id": 27,
+    "tipo": "reto",
+    "texto": "Acepta que el grupo elija un zapato tuyo y huélelo frente a todos (¡sin hacer muecas!)."
+  },
+  {
+    "id": 28,
+    "tipo": "reto",
+    "texto": "Graba un TikTok ridículo con la persona que tengas más cerca."
+  },
+  {
+    "id": 29,
+    "tipo": "reto",
+    "texto": "Camina como modelo en una pasarela improvisada mientras el grupo te juzga con puntajes del 1 al 10."
+  },
+  {
+    "id": 30,
+    "tipo": "reto",
+    "texto": "Dile a alguien por mensaje: \"Perdón por lo de anoche… ¿Podemos hablar?\" y no respondas por 10 minutos."
   }
 ]
