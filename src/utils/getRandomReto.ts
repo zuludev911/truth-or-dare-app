@@ -7,7 +7,6 @@ const data: Record<string, Reto[]> = {
   amigos: require("../data/retos/amigos.json"),
 };
 
-// Módulo de estado temporal
 const usadosPorCategoria: Record<string, Set<number>> = {};
 
 export function getRandomReto(categoria: string): Reto {
@@ -15,7 +14,7 @@ export function getRandomReto(categoria: string): Reto {
   const usados = usadosPorCategoria[categoria] ?? new Set<number>();
 
   if (usados.size >= retos.length) {
-    usados.clear(); // Reinicia si ya se mostraron todos
+    usados.clear();
   }
 
   let index;

@@ -45,25 +45,42 @@ export default function GameScreen({ route }: Props) {
   const [isAdLoaded, setIsAdLoaded] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = interstitial.addAdEventListener(
-      AdEventType.LOADED,
-      () => {
-        setIsAdLoaded(true);
-      }
-    );
+    const loadAd = () => {
+      interstitial.load();
+    };
 
+    const onAdLoaded = () => {
+      setIsAdLoaded(true);
+    };
+
+    const onAdClosed = () => {
+      setIsAdLoaded(false);
+      interstitial.load(); // cargar nuevo
+    };
+
+    const onAdError = (err: any) => {
+      console.warn("Interstitial error:", err);
+      setIsAdLoaded(false);
+    };
+
+    const unsubscribeLoaded = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      onAdLoaded
+    );
+    const unsubscribeClosed = interstitial.addAdEventListener(
+      AdEventType.CLOSED,
+      onAdClosed
+    );
     const unsubscribeError = interstitial.addAdEventListener(
       AdEventType.ERROR,
-      (err) => {
-        console.warn("Interstitial error:", err);
-        setIsAdLoaded(false);
-      }
+      onAdError
     );
 
-    interstitial.load();
+    loadAd();
 
     return () => {
-      unsubscribe();
+      unsubscribeLoaded();
+      unsubscribeClosed();
       unsubscribeError();
     };
   }, []);
@@ -74,13 +91,10 @@ export default function GameScreen({ route }: Props) {
     setRetosVistos(newCount);
 
     if (newCount % 10 === 0 && isAdLoaded && adUnitId) {
-      try {
-        await interstitial.show();
-        setIsAdLoaded(false);
-        interstitial.load(); // prepara el próximo
-      } catch (error) {
-        console.warn("Interstitial show error:", error);
-      }
+      interstitial
+        .show()
+        .catch((err) => console.warn("Error al mostrar interstitial:", err));
+      setIsAdLoaded(false); // prevent que vuelva a intentar mostrar el mismo
     }
 
     setRetoActual(
