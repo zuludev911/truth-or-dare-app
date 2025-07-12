@@ -35,6 +35,7 @@ const interstitial = InterstitialAd.createForAdRequest(adUnitId);
 
 export default function GameScreen({ route }: Props) {
   const { category } = route.params;
+  console.warn("adUnitId", !!adUnitId);
   const [retoActual, setRetoActual] = useState<Reto>(() => {
     const reto = getRandomReto(category);
     return reto ?? { tipo: "reto", texto: "No se encontró un reto." };
@@ -46,16 +47,19 @@ export default function GameScreen({ route }: Props) {
 
   useEffect(() => {
     const loadAd = () => {
+      console.warn("Cargando interstitial");
       interstitial.load();
     };
 
     const onAdLoaded = () => {
+      console.warn("Interstitial cargado");
       setIsAdLoaded(true);
     };
 
     const onAdClosed = () => {
+      console.warn("Interstitial cerrado");
       setIsAdLoaded(false);
-      interstitial.load(); // cargar nuevo
+      interstitial.load();
     };
 
     const onAdError = (err: any) => {
@@ -89,12 +93,22 @@ export default function GameScreen({ route }: Props) {
     setIsFlipped(true);
     const newCount = retosVistos + 1;
     setRetosVistos(newCount);
-
-    if (newCount % 10 === 0 && isAdLoaded && adUnitId) {
-      interstitial
-        .show()
-        .catch((err) => console.warn("Error al mostrar interstitial:", err));
-      setIsAdLoaded(false); // prevent que vuelva a intentar mostrar el mismo
+    console.log("isAdLoaded:", isAdLoaded);
+    console.log("interstitial.loaded:", interstitial?.loaded);
+    if (newCount % 20 === 0 && isAdLoaded && adUnitId) {
+      if (interstitial?.loaded) {
+        console.warn("Mostrando interstitial");
+        try {
+          await interstitial.show();
+          console.warn("Interstitial mostrado");
+        } catch (err) {
+          console.warn("Error al mostrar interstitial:", err);
+        }
+        setIsAdLoaded(false);
+      } else {
+        console.warn("Interstitial aún no está listo, se omite");
+        interstitial.load();
+      }
     }
 
     setRetoActual(
@@ -115,7 +129,7 @@ export default function GameScreen({ route }: Props) {
           key={`${retoActual.texto}-back`}
         >
           <Image
-            source={require("../assets/card-back.jpg")} // Añade tu imagen
+            source={require("../assets/card-back.jpg")}
             style={styles.cardImage}
           />
         </Animated.View>

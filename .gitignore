@@ -38,3 +38,7 @@ yarn-error.*
 *.tsbuildinfo
 
 .env.local
+
+# Build
+*.apk
+*.aab

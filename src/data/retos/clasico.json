@@ -148,5 +148,105 @@
     "id": 30,
     "tipo": "reto",
     "texto": "Deja que alguien del grupo te haga un peinado extravagante y exhibelo por 5 minutos."
+  },
+  {
+    "id": 31,
+    "tipo": "verdad",
+    "texto": "¿Qué cosa común haces de manera completamente incorrecta y nunca te diste cuenta hasta que alguien te lo señaló?"
+  },
+  {
+    "id": 32,
+    "tipo": "verdad",
+    "texto": "Si fueras un villano, ¿cuál sería tu origen trágico y tu plan malvado?"
+  },
+  {
+    "id": 33,
+    "tipo": "verdad",
+    "texto": "¿Cuál es la mentira más inútil que has mantenido por años?"
+  },
+  {
+    "id": 34,
+    "tipo": "verdad",
+    "texto": "¿Qué habilidad inútil dominaste durante la cuarentena?"
+  },
+  {
+    "id": 35,
+    "tipo": "verdad",
+    "texto": "¿Qué objeto en tu casa parece normal pero tiene una historia ridícula detrás?"
+  },
+  {
+    "id": 36,
+    "tipo": "reto",
+    "texto": "Intenta lamer tu codo (no importa si no puedes, ¡pero haz el intento dramático!)."
+  },
+  {
+    "id": 37,
+    "tipo": "reto",
+    "texto": "Con una cuchara en la boca, di 'Cuchara de palo' 5 veces rápido."
+  },
+  {
+    "id": 38,
+    "tipo": "reto",
+    "texto": "Usa calcetines en las manos y intenta abrir una botella o paquete de galletas."
+  },
+  {
+    "id": 39,
+    "tipo": "reto",
+    "texto": "Con los ojos cerrados, adivina qué objeto del grupo te están poniendo en las manos (tienes 3 intentos)."
+  },
+  {
+    "id": 40,
+    "tipo": "reto",
+    "texto": "Inventa un eslogan publicitario ridículo para el último miembro del grupo que habló."
+  },
+  {
+    "id": 41,
+    "tipo": "verdad",
+    "texto": "¿Qué cosa 'de adulto' te emociona tanto que te sientes ridícul@?"
+  },
+  {
+    "id": 42,
+    "tipo": "verdad",
+    "texto": "Si tu vida fuera un reality show, ¿cuál sería el título y por qué?"
+  },
+  {
+    "id": 43,
+    "tipo": "verdad",
+    "texto": "¿Qué regla familiar de tu infancia te parecía normal hasta que creciste?"
+  },
+  {
+    "id": 44,
+    "tipo": "verdad",
+    "texto": "¿Qué trabajo harías aunque te pagaran el mínimo salario, solo por diversión?"
+  },
+  {
+    "id": 45,
+    "tipo": "verdad",
+    "texto": "¿Qué película o serie te da vergüenza admitir que nunca has visto?"
+  },
+  {
+    "id": 46,
+    "tipo": "reto",
+    "texto": "Con una moneda en la frente, intenta que caiga dentro de un vaso sin usar las manos."
+  },
+  {
+    "id": 47,
+    "tipo": "reto",
+    "texto": "Con una mano en la cabeza y otra en el estómago, frota círculos en ambas mientras cantas 'Cumpleaños feliz'."
+  },
+  {
+    "id": 48,
+    "tipo": "reto",
+    "texto": "Con una cuchara sostenida con los dientes, intenta recoger un objeto pequeño (ej: un garbanzo)."
+  },
+  {
+    "id": 49,
+    "tipo": "reto",
+    "texto": "Con los ojos vendados, identifica a un miembro del grupo solo tocando su cabello (tienes 2 intentos)."
+  },
+  {
+    "id": 50,
+    "tipo": "reto",
+    "texto": "Inventa un lenguaje alienígena y explica cómo pedirías pizza en él (el grupo debe adivinar)."
   }
 ]

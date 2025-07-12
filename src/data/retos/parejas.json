@@ -148,5 +148,105 @@
     "id": 30,
     "tipo": "reto",
     "texto": "Inventa un apodo ridículo para tu pareja y úsalo sin reírte durante los próximos 5 minutos."
+  },
+  {
+    "id": 31,
+    "tipo": "verdad",
+    "texto": "¿Qué detalle pequeño mío te parece inexplicablemente sexy?"
+  },
+  {
+    "id": 32,
+    "tipo": "verdad",
+    "texto": "Si nuestra relación tuviera un soundtrack, ¿qué 3 canciones no podrían faltar y por qué?"
+  },
+  {
+    "id": 33,
+    "tipo": "verdad",
+    "texto": "¿Qué tradición curiosa te gustaría que empezáramos juntos?"
+  },
+  {
+    "id": 34,
+    "tipo": "verdad",
+    "texto": "¿Qué película o serie nos describe mejor como pareja?"
+  },
+  {
+    "id": 35,
+    "tipo": "verdad",
+    "texto": "¿Qué outfit mío te vuelve loc@ y por qué?"
+  },
+  {
+    "id": 36,
+    "tipo": "verdad",
+    "texto": "Si pudieras teleportarnos a cualquier lugar ahora mismo, ¿dónde iríamos y qué haríamos?"
+  },
+  {
+    "id": 37,
+    "tipo": "verdad",
+    "texto": "¿Qué frase o gesto mío te derrite incluso cuando estás enojad@?"
+  },
+  {
+    "id": 38,
+    "tipo": "verdad",
+    "texto": "¿Qué sueño o fantasía nuestra (no sexual) te gustaría cumplir este año?"
+  },
+  {
+    "id": 39,
+    "tipo": "verdad",
+    "texto": "¿Qué app o red social mía revisarías si tuvieras acceso libre (y por qué)?"
+  },
+  {
+    "id": 40,
+    "tipo": "verdad",
+    "texto": "Si mañana despertáramos intercambiando cuerpos, ¿qué sería lo primero que harías con el mío?"
+  },
+  {
+    "id": 41,
+    "tipo": "reto",
+    "texto": "Con los ojos vendados, reconoce a tu pareja solo oliendo su perfume o loción."
+  },
+  {
+    "id": 42,
+    "tipo": "reto",
+    "texto": "Escribe un poema de 4 líneas sobre tu pareja usando solo palabras que empiecen con la primera letra de su nombre."
+  },
+  {
+    "id": 43,
+    "tipo": "reto",
+    "texto": "Haz un striptease lento... pero quitándote capas de ropa exageradas (bufanda, chaqueta, etc.)."
+  },
+  {
+    "id": 44,
+    "tipo": "reto",
+    "texto": "Con un hielo en la boca, dibuja un corazón en el cuello de tu pareja."
+  },
+  {
+    "id": 45,
+    "tipo": "reto",
+    "texto": "Graba un video de 10 segundos imitando nuestro primer beso (puede ser exagerado)."
+  },
+  {
+    "id": 46,
+    "tipo": "reto",
+    "texto": "Dale a tu pareja un 'masaje' solo con codos y nariz (sin usar manos)."
+  },
+  {
+    "id": 47,
+    "tipo": "reto",
+    "texto": "Susurra una fantasía romántica (no sexual) que tengas para nuestra relación."
+  },
+  {
+    "id": 48,
+    "tipo": "reto",
+    "texto": "Construye una 'escultura' con 3 objetos cercanos que represente nuestra relación."
+  },
+  {
+    "id": 49,
+    "tipo": "reto",
+    "texto": "Dale un beso en cada lugar del cuerpo que nombres (ej: 'esta mejilla es por París, esta frente es por Tokio...')."
+  },
+  {
+    "id": 50,
+    "tipo": "reto",
+    "texto": "Mírame a los ojos sin hablar ni reírte durante 30 segundos (el que rompa el contacto pierde)."
   }
 ]

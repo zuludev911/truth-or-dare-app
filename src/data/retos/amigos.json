@@ -148,5 +148,105 @@
     "id": 30,
     "tipo": "reto",
     "texto": "Dile a alguien por mensaje: \"Perdón por lo de anoche… ¿Podemos hablar?\" y no respondas por 10 minutos."
+  },
+  {
+    "id": 31,
+    "tipo": "verdad",
+    "texto": "¿Qué cosa 'inocente' has hecho que podría malinterpretarse como algo turbio?"
+  },
+  {
+    "id": 32,
+    "tipo": "verdad",
+    "texto": "Si tuvieras que vender a un amigo del grupo, ¿a quién subastarías y qué dirías para promocionarlo?"
+  },
+  {
+    "id": 33,
+    "tipo": "verdad",
+    "texto": "¿Cuál es el rumor más absurdo que has escuchado sobre ti mismo?"
+  },
+  {
+    "id": 34,
+    "tipo": "verdad",
+    "texto": "¿Qué cosa ridícula has hecho solo por seguir una tendencia en redes?"
+  },
+  {
+    "id": 35,
+    "tipo": "verdad",
+    "texto": "Si el grupo fuera una familia de mafiosos, ¿qué rol tendría cada uno (y por qué serías tú el/la traidor/a)?"
+  },
+  {
+    "id": 36,
+    "tipo": "reto",
+    "texto": "Actúa como si fueras un/a influencer hablando de un producto absurdo (¡el grupo debe adivinar qué 'vendes'!)."
+  },
+  {
+    "id": 37,
+    "tipo": "reto",
+    "texto": "Inventa una historia épica sobre cómo te lastimaste el dedo pequeño del pie... pero con 3 mentiras obvias."
+  },
+  {
+    "id": 38,
+    "tipo": "reto",
+    "texto": "Deja que el grupo elija un emoji al azar: debes describir tu última cita usando solo ese emoji como pista."
+  },
+  {
+    "id": 39,
+    "tipo": "reto",
+    "texto": "Pon música y baila como si estuvieras atrapado en una tormenta de viento (¡sin reírte!)."
+  },
+  {
+    "id": 40,
+    "tipo": "reto",
+    "texto": "Envía un mensaje de voz a un contacto aleatorio diciendo: 'El plan salió mal, necesitamos desaparecer'."
+  },
+  {
+    "id": 41,
+    "tipo": "verdad",
+    "texto": "¿Qué miembro del grupo sería el peor compañero de cuarto y por qué?"
+  },
+  {
+    "id": 42,
+    "tipo": "verdad",
+    "texto": "Si el grupo formara una banda, ¿qué instrumento tocaría cada uno y qué nombre tendrían?"
+  },
+  {
+    "id": 43,
+    "tipo": "verdad",
+    "texto": "¿Qué meme o chiste interno del grupo nunca debería morir?"
+  },
+  {
+    "id": 44,
+    "tipo": "verdad",
+    "texto": "¿Qué apodo vergonzoso te pusieron de niño que nadie aquí conoce?"
+  },
+  {
+    "id": 45,
+    "tipo": "verdad",
+    "texto": "Si pudieras eliminar una palabra del vocabulario de un amigo del grupo, ¿cuál sería y por qué?"
+  },
+  {
+    "id": 46,
+    "tipo": "reto",
+    "texto": "Convence al grupo de que tu talento oculto es útil en una situación apocalíptica (aunque sea falso)."
+  },
+  {
+    "id": 47,
+    "tipo": "reto",
+    "texto": "Con una toalla como capa, actúa como un superhéroe cuyo poder está relacionado con tu peor hábito."
+  },
+  {
+    "id": 48,
+    "tipo": "reto",
+    "texto": "Usa tres objetos cercanos para crear un 'invento' y explícale al grupo para qué sirve."
+  },
+  {
+    "id": 49,
+    "tipo": "reto",
+    "texto": "Elige a dos personas del grupo: una será tu voz y la otra tus gestos. Juntos deben contar una historia absurda."
+  },
+  {
+    "id": 50,
+    "tipo": "reto",
+    "texto": "Envía un mensaje a un contacto aleatorio diciendo: 'El código es: patos de goma'. No des explicaciones."
   }
 ]

@@ -6,15 +6,15 @@ export default {
   expo: {
     name: "truth-or-dare-app",
     slug: "truth-or-dare-app",
-    version: "1.0.0",
+    version: "1.0.1",
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
     newArchEnabled: true,
     splash: {
-      image: "./assets/icon.png",
-      resizeMode: "contain",
-      backgroundColor: "#ffffff",
+      image: "./assets/splash-icon.png",
+      resizeMode: "cover",
+      backgroundColor: "#E63140",
     },
     ios: {
       buildNumber: "2",
@@ -22,7 +22,7 @@ export default {
       bundleIdentifier: "com.anfezuar.truthordareapp",
     },
     android: {
-      versionCode: 2,
+      versionCode: 10,
       adaptiveIcon: {
         foregroundImage: "./assets/icon.png",
         backgroundColor: "#ffffff",
@@ -62,10 +62,10 @@ export default {
         ? "ca-app-pub-3940256099942544/2934735716" // ID de prueba para banner iOS
         : process.env.ADMOB_IOS_BANNER_ID,
       admobAndroidInterstitialId: isDev
-        ? "ca-app-pub-3940256099942544/1033173712" // ID de prueba intersticial
+        ? "ca-app-pub-3940256099942544/1033173712"
         : process.env.ADMOB_ANDROID_INTERSTITIAL_ID,
       admobIosInterstitialId: isDev
-        ? "ca-app-pub-3940256099942544/4411468940" // ID de prueba intersticial iOS
+        ? "ca-app-pub-3940256099942544/4411468940"
         : process.env.ADMOB_IOS_INTERSTITIAL_ID,
     },
   },

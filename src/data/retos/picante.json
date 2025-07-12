@@ -148,5 +148,105 @@
     "id": 30,
     "tipo": "reto",
     "texto": "Juega a ser un/a stripper por 20 segundos (usa una chaqueta o bufanda como 'prop')."
+  },
+  {
+    "id": 31,
+    "tipo": "verdad",
+    "texto": "¿Qué fantasía sexual has tenido que nunca te atreviste a compartir con nadie?"
+  },
+  {
+    "id": 32,
+    "tipo": "verdad",
+    "texto": "Si tuvieras que elegir un lugar público para tener relaciones, ¿dónde sería y por qué?"
+  },
+  {
+    "id": 33,
+    "tipo": "verdad",
+    "texto": "¿Qué parte del cuerpo de alguien del grupo te resulta más atractiva y por qué?"
+  },
+  {
+    "id": 34,
+    "tipo": "verdad",
+    "texto": "¿Alguna vez has tenido un encuentro sexual que terminó siendo cómico? Cuenta los detalles."
+  },
+  {
+    "id": 35,
+    "tipo": "verdad",
+    "texto": "¿Qué tipo de ropa interior te pones cuando quieres sentirte sexy?"
+  },
+  {
+    "id": 36,
+    "tipo": "verdad",
+    "texto": "¿Cuál es tu posición favorita y qué le cambiarías para hacerla más interesante?"
+  },
+  {
+    "id": 37,
+    "tipo": "verdad",
+    "texto": "¿Qué sonido o gemido te excita particularmente?"
+  },
+  {
+    "id": 38,
+    "tipo": "verdad",
+    "texto": "Si pudieras tener una noche íntima con un personaje ficticio, ¿quién sería y qué harían?"
+  },
+  {
+    "id": 39,
+    "tipo": "verdad",
+    "texto": "¿Qué es lo más arriesgado que has hecho por excitación?"
+  },
+  {
+    "id": 40,
+    "tipo": "verdad",
+    "texto": "¿Prefieres ser dominante o sumiso/a? ¿O alternar según el momento?"
+  },
+  {
+    "id": 41,
+    "tipo": "reto",
+    "texto": "Con los ojos vendados, identifica a una persona del grupo solo tocando sus labios con un dedo."
+  },
+  {
+    "id": 42,
+    "tipo": "reto",
+    "texto": "Susurra al oído de alguien una fantasía que tengas sobre esa persona (puede ser inventada)."
+  },
+  {
+    "id": 43,
+    "tipo": "reto",
+    "texto": "Con una cereza en la boca (sin manos), pásasela a alguien del grupo."
+  },
+  {
+    "id": 44,
+    "tipo": "reto",
+    "texto": "Escribe con miel o chocolate en el brazo de alguien una palabra provocativa y lámbela para 'borrarla'."
+  },
+  {
+    "id": 45,
+    "tipo": "reto",
+    "texto": "Acaricia con una pluma o cepillo la parte más sensible del cuello de alguien (sin hablar)."
+  },
+  {
+    "id": 46,
+    "tipo": "reto",
+    "texto": "Interpreta a un/a profesor/a de 'clases de seducción' dando un consejo absurdamente exagerado."
+  },
+  {
+    "id": 47,
+    "tipo": "reto",
+    "texto": "Con una toalla alrededor de tu cintura, haz un striptease lento hasta quedarte con una capa de ropa normal."
+  },
+  {
+    "id": 48,
+    "tipo": "reto",
+    "texto": "Dile a alguien del grupo qué olor crees que tendría su perfume ideal (ej: 'olor a playa al atardecer')."
+  },
+  {
+    "id": 49,
+    "tipo": "reto",
+    "texto": "Mira fijamente a alguien mientras te pasas lentamente un cubo de hielo por los labios (10 segundos)."
+  },
+  {
+    "id": 50,
+    "tipo": "reto",
+    "texto": "Elige a dos personas del grupo: una será tus 'manos' y la otra tu 'voz'. Juntos deben seducir a una tercera persona."
   }
 ]
