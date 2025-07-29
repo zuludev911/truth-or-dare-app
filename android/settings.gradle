@@ -31,7 +31,7 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
 }
 expoAutolinking.useExpoModules()
 
-rootProject.name = 'truth-or-dare-app'
+rootProject.name = 'Verdad o Reto'
 
 expoAutolinking.useExpoVersionCatalog()
 

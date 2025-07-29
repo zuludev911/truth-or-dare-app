@@ -1,18 +1,8 @@
 [
   {
-    "id": 1,
-    "type": "verdad",
-    "text": "¿Cuál es el peor hábito que tienes y tus amigos odian?"
-  },
-  {
     "id": 2,
     "type": "reto",
     "text": "Imita al amigo del grupo que tenga la risa más peculiar."
-  },
-  {
-    "id": 3,
-    "type": "verdad",
-    "text": "¿Alguna vez has contado un secreto que te confiaron?"
   },
   {
     "id": 4,
@@ -20,19 +10,9 @@
     "text": "Deja que el grupo vea tu galería de fotos por 10 segundos."
   },
   {
-    "id": 5,
-    "type": "verdad",
-    "text": "¿Qué es lo más vergonzoso que has hecho por quedar bien con alguien?"
-  },
-  {
     "id": 6,
     "type": "reto",
     "text": "Envía un mensaje de voz cantando a un contacto aleatorio."
-  },
-  {
-    "id": 7,
-    "type": "verdad",
-    "text": "¿Quién del grupo te cae peor y por qué?"
   },
   {
     "id": 8,
@@ -40,19 +20,9 @@
     "text": "Haz 10 sentadillas con alguien del grupo a cuestas."
   },
   {
-    "id": 9,
-    "type": "verdad",
-    "text": "¿Qué mentira le has dicho a tus amigos y nunca se enteraron?"
-  },
-  {
     "id": 10,
     "type": "reto",
     "text": "Publica en tu estado: 'Busco novi@, interesados al DM'."
-  },
-  {
-    "id": 11,
-    "type": "verdad",
-    "text": "¿Qué es lo más raro que has buscado en Internet?"
   },
   {
     "id": 12,
@@ -60,19 +30,9 @@
     "text": "Come una cucharada de algo condimentado (ají, limón, etc.)."
   },
   {
-    "id": 13,
-    "type": "verdad",
-    "text": "¿Alguna vez te han gustado dos amigos del mismo grupo?"
-  },
-  {
     "id": 14,
     "type": "reto",
     "text": "Deja que el grupo te maquille con los ojos cerrados."
-  },
-  {
-    "id": 15,
-    "type": "verdad",
-    "text": "¿Qué es lo más tóxico que has hecho en una relación?"
   },
   {
     "id": 16,
@@ -80,49 +40,14 @@
     "text": "Baila como si estuvieras en una discoteca por 30 segundos."
   },
   {
-    "id": 17,
-    "type": "verdad",
-    "text": "¿Qué cosa de ti crees que tus amigos critican a tus espaldas?"
-  },
-  {
     "id": 18,
     "type": "reto",
     "text": "Habla por 1 minuto sin decir las palabras 'sí', 'no' o 'eh'."
   },
   {
-    "id": 19,
-    "type": "verdad",
-    "text": "¿Qué persona famosa te gustaría que fuera tu pareja?"
-  },
-  {
     "id": 20,
     "type": "reto",
     "text": "Pon tu canción más vergonzosa y cántala frente al grupo."
-  },
-  {
-    "id": 21,
-    "type": "verdad",
-    "text": "¿Cuál es el mayor elogio que has recibido y nunca olvidaste?"
-  },
-  {
-    "id": 22,
-    "type": "verdad",
-    "text": "Si tuvieras que elegir a un amigo para sobrevivir en una isla desierta, ¿a quién escogerías y por qué?"
-  },
-  {
-    "id": 23,
-    "type": "verdad",
-    "text": "¿Alguna vez has fingido estar enfermo para evitar un plan con amigos?"
-  },
-  {
-    "id": 24,
-    "type": "verdad",
-    "text": "¿Qué app usas en secreto y no quieres que tus amigos sepan?"
-  },
-  {
-    "id": 25,
-    "type": "verdad",
-    "text": "Si pudieras borrar un recuerdo de tu mente, ¿cuál sería y por qué?"
   },
   {
     "id": 26,
@@ -150,31 +75,6 @@
     "text": "Dile a alguien por mensaje: \"Perdón por lo de anoche… ¿Podemos hablar?\" y no respondas por 10 minutos."
   },
   {
-    "id": 31,
-    "type": "verdad",
-    "text": "¿Qué cosa 'inocente' has hecho que podría malinterpretarse como algo turbio?"
-  },
-  {
-    "id": 32,
-    "type": "verdad",
-    "text": "Si tuvieras que vender a un amigo del grupo, ¿a quién subastarías y qué dirías para promocionarlo?"
-  },
-  {
-    "id": 33,
-    "type": "verdad",
-    "text": "¿Cuál es el rumor más absurdo que has escuchado sobre ti mismo?"
-  },
-  {
-    "id": 34,
-    "type": "verdad",
-    "text": "¿Qué cosa ridícula has hecho solo por seguir una tendencia en redes?"
-  },
-  {
-    "id": 35,
-    "type": "verdad",
-    "text": "Si el grupo fuera una familia de mafiosos, ¿qué rol tendría cada uno (y por qué serías tú el/la traidor/a)?"
-  },
-  {
     "id": 36,
     "type": "reto",
     "text": "Actúa como si fueras un/a influencer hablando de un producto absurdo (¡el grupo debe adivinar qué 'vendes'!)."
@@ -200,31 +100,6 @@
     "text": "Envía un mensaje de voz a un contacto aleatorio diciendo: 'El plan salió mal, necesitamos desaparecer'."
   },
   {
-    "id": 41,
-    "type": "verdad",
-    "text": "¿Qué miembro del grupo sería el peor compañero de cuarto y por qué?"
-  },
-  {
-    "id": 42,
-    "type": "verdad",
-    "text": "Si el grupo formara una banda, ¿qué instrumento tocaría cada uno y qué nombre tendrían?"
-  },
-  {
-    "id": 43,
-    "type": "verdad",
-    "text": "¿Qué meme o chiste interno del grupo nunca debería morir?"
-  },
-  {
-    "id": 44,
-    "type": "verdad",
-    "text": "¿Qué apodo vergonzoso te pusieron de niño que nadie aquí conoce?"
-  },
-  {
-    "id": 45,
-    "type": "verdad",
-    "text": "Si pudieras eliminar una palabra del vocabulario de un amigo del grupo, ¿cuál sería y por qué?"
-  },
-  {
     "id": 46,
     "type": "reto",
     "text": "Convence al grupo de que tu talento oculto es útil en una situación apocalíptica (aunque sea falso)."
@@ -248,56 +123,6 @@
     "id": 50,
     "type": "reto",
     "text": "Envía un mensaje a un contacto aleatorio diciendo: 'El código es: patos de goma'. No des explicaciones."
-  },
-  {
-    "id": 51,
-    "type": "verdad",
-    "text": "¿Qué miembro del grupo sería el mejor actor porno y por qué? (basado en personalidad, no en apariencia)"
-  },
-  {
-    "id": 52,
-    "type": "verdad",
-    "text": "Si tuvieras que elegir un amigo para aparecer en un reality show de vergüenzas, ¿a quién escogerías y por qué?"
-  },
-  {
-    "id": 53,
-    "type": "verdad",
-    "text": "¿Cuál es la mentira más elaborada que le has hecho creer a tus amigos?"
-  },
-  {
-    "id": 54,
-    "type": "verdad",
-    "text": "¿Qué cosa 'normal' haces cuando estás solo que nunca admitirías en público?"
-  },
-  {
-    "id": 55,
-    "type": "verdad",
-    "text": "Si el grupo tuviera que recrear una escena de Titanic, ¿quién sería Jack y quién Rose (y por qué morirían de forma ridícula)?"
-  },
-  {
-    "id": 56,
-    "type": "verdad",
-    "text": "¿Qué canción infantil te pone de mal humor inexplicablemente?"
-  },
-  {
-    "id": 57,
-    "type": "verdad",
-    "text": "¿Qué miembro del grupo sería el peor presidente del mundo y qué ley absurda implementaría?"
-  },
-  {
-    "id": 58,
-    "type": "verdad",
-    "text": "¿Qué hábito de tus amigos te provoca ganas de gritar pero nunca lo has dicho?"
-  },
-  {
-    "id": 59,
-    "type": "verdad",
-    "text": "Si tus amigos fueran tus hijos, ¿qué rasgo tuyo heredarían que los arruinaría?"
-  },
-  {
-    "id": 60,
-    "type": "verdad",
-    "text": "¿Qué cosa totalmente inútil guardas 'por si acaso' que revelaría lo desastre que eres?"
   },
   {
     "id": 61,

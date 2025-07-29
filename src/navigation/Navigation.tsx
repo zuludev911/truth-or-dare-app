@@ -22,12 +22,12 @@ export default function Navigation() {
       <Stack.Screen
         name="Game"
         component={GameScreen}
-        options={{ title: "" }}
+        options={{ title: "", headerShown: false }}
       />
       <Stack.Screen
         name="Categories"
         component={CategoryScreen}
-        options={{ title: "" }}
+        options={{ title: "", headerShown: false }}
       />
     </Stack.Navigator>
   );

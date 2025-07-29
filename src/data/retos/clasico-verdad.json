@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "type": "verdad",
+    "text": "¿Cuál es tu mayor miedo?"
+  },
+  {
+    "id": 3,
+    "type": "verdad",
+    "text": "¿Qué es lo más extraño que has comido?"
+  },
+  {
+    "id": 5,
+    "type": "verdad",
+    "text": "¿Alguna vez has llorado por un examen o trabajo?"
+  },
+  {
+    "id": 7,
+    "type": "verdad",
+    "text": "¿Cuál es tu peor recuerdo de la infancia?"
+  },
+  {
+    "id": 9,
+    "type": "verdad",
+    "text": "¿Qué es lo más peligroso que has hecho?"
+  },
+  {
+    "id": 11,
+    "type": "verdad",
+    "text": "¿Qué es lo más caro que has robado (o 'tomado prestado')?"
+  },
+  {
+    "id": 13,
+    "type": "verdad",
+    "text": "¿Qué canción te da vergüenza que te guste?"
+  },
+  {
+    "id": 15,
+    "type": "verdad",
+    "text": "¿Qué mentira dijiste en una entrevista de trabajo?"
+  },
+  {
+    "id": 17,
+    "type": "verdad",
+    "text": "¿Qué cosa infantil aún disfrutas?"
+  },
+  {
+    "id": 19,
+    "type": "verdad",
+    "text": "¿Qué app usas más y por qué?"
+  },
+  {
+    "id": 21,
+    "type": "verdad",
+    "text": "¿Qué habilidad te gustaría tener y por qué nunca la aprendiste?"
+  },
+  {
+    "id": 22,
+    "type": "verdad",
+    "text": "Si solo pudieras comer un alimento por el resto de tu vida, ¿cuál sería?"
+  },
+  {
+    "id": 23,
+    "type": "verdad",
+    "text": "¿Qué personaje de ficción odias con toda tu alma?"
+  },
+  {
+    "id": 24,
+    "type": "verdad",
+    "text": "¿Cuál es el peor regalo que has recibido y fingiste que te gustó?"
+  },
+  {
+    "id": 25,
+    "type": "verdad",
+    "text": "¿Qué cosa 'normal' te parece extrañamente aterradora?"
+  },
+  {
+    "id": 31,
+    "type": "verdad",
+    "text": "¿Qué cosa común haces de manera completamente incorrecta y nunca te diste cuenta hasta que alguien te lo señaló?"
+  },
+  {
+    "id": 32,
+    "type": "verdad",
+    "text": "Si fueras un villano, ¿cuál sería tu origen trágico y tu plan malvado?"
+  },
+  {
+    "id": 33,
+    "type": "verdad",
+    "text": "¿Cuál es la mentira más inútil que has mantenido por años?"
+  },
+  {
+    "id": 34,
+    "type": "verdad",
+    "text": "¿Qué habilidad inútil dominaste durante la cuarentena?"
+  },
+  {
+    "id": 35,
+    "type": "verdad",
+    "text": "¿Qué objeto en tu casa parece normal pero tiene una historia ridícula detrás?"
+  },
+  {
+    "id": 41,
+    "type": "verdad",
+    "text": "¿Qué cosa 'de adulto' te emociona tanto que te sientes ridícul@?"
+  },
+  {
+    "id": 42,
+    "type": "verdad",
+    "text": "Si tu vida fuera un reality show, ¿cuál sería el título y por qué?"
+  },
+  {
+    "id": 43,
+    "type": "verdad",
+    "text": "¿Qué regla familiar de tu infancia te parecía normal hasta que creciste?"
+  },
+  {
+    "id": 44,
+    "type": "verdad",
+    "text": "¿Qué trabajo harías aunque te pagaran el mínimo salario, solo por diversión?"
+  },
+  {
+    "id": 45,
+    "type": "verdad",
+    "text": "¿Qué película o serie te da vergüenza admitir que nunca has visto?"
+  },
+  {
+    "id": 51,
+    "type": "verdad",
+    "text": "¿Qué canción infantil te avergüenza conocer completa (letra y movimientos)?"
+  },
+  {
+    "id": 52,
+    "type": "verdad",
+    "text": "Si tuvieras que vivir en una década pasada, ¿cuál sería y qué extrañarías más del presente?"
+  },
+  {
+    "id": 53,
+    "type": "verdad",
+    "text": "¿Qué mentira inocente le dijiste a tus padres que aún creen?"
+  },
+  {
+    "id": 54,
+    "type": "verdad",
+    "text": "¿Qué objeto de tu infancia guardas 'por nostalgia' aunque sea completamente inútil?"
+  },
+  {
+    "id": 55,
+    "type": "verdad",
+    "text": "Si pudieras borrar un programa de TV o película de la existencia, ¿cuál sería y por qué?"
+  },
+  {
+    "id": 56,
+    "type": "verdad",
+    "text": "¿Qué habilidad básica de adulto aún no dominas (ej: cambiar llanta, cocinar huevo)?"
+  },
+  {
+    "id": 57,
+    "type": "verdad",
+    "text": "¿Qué chiste malo siempre te hace reír aunque no debería?"
+  },
+  {
+    "id": 58,
+    "type": "verdad",
+    "text": "¿Qué moda pasada (ej: pantalones ultra bajos) extrañas secretamente?"
+  },
+  {
+    "id": 59,
+    "type": "verdad",
+    "text": "¿Qué frase de tu abuela/madre repites sin darte cuenta?"
+  },
+  {
+    "id": 60,
+    "type": "verdad",
+    "text": "Si tu vida tuviera un narrador como en los documentales, ¿qué diría ahora mismo sobre ti?"
+  }
+]

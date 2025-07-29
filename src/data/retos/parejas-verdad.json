@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "type": "verdad",
+    "text": "¿Qué fue lo primero que pensaste cuando me viste?"
+  },
+  {
+    "id": 3,
+    "type": "verdad",
+    "text": "¿Qué es lo que más te molesta de mí?"
+  },
+  {
+    "id": 5,
+    "type": "verdad",
+    "text": "¿Alguna vez has fantaseado con alguien más estando conmigo?"
+  },
+  {
+    "id": 7,
+    "type": "verdad",
+    "text": "¿Qué es lo más loco que has hecho por amor?"
+  },
+  {
+    "id": 9,
+    "type": "verdad",
+    "text": "¿Cuál ha sido nuestro peor momento juntos?"
+  },
+  {
+    "id": 11,
+    "type": "verdad",
+    "text": "¿Qué cambiarías de nuestra relación?"
+  },
+  {
+    "id": 13,
+    "type": "verdad",
+    "text": "¿Qué es lo más raro que te gusta de mí?"
+  },
+  {
+    "id": 15,
+    "type": "verdad",
+    "text": "¿Alguna vez has revisado mi celular a escondidas?"
+  },
+  {
+    "id": 17,
+    "type": "verdad",
+    "text": "¿Qué no sabes de mí pero te gustaría descubrir?"
+  },
+  {
+    "id": 19,
+    "type": "verdad",
+    "text": "¿Qué mentira me has dicho?"
+  },
+  {
+    "id": 21,
+    "type": "verdad",
+    "text": "¿Qué momento juntos te hizo sentir más orgullos@ de nuestra relación?"
+  },
+  {
+    "id": 22,
+    "type": "verdad",
+    "text": "Si tuvieras que describir nuestra relación con una película, ¿cuál sería y por qué?"
+  },
+  {
+    "id": 23,
+    "type": "verdad",
+    "text": "¿Qué hábito mío te encanta pero nunca me has dicho?"
+  },
+  {
+    "id": 24,
+    "type": "verdad",
+    "text": "¿Qué canción asocias conmigo y por qué?"
+  },
+  {
+    "id": 25,
+    "type": "verdad",
+    "text": "Si pudieras planear nuestra cita ideal, ¿qué incluiría (detalles específicos)?"
+  },
+  {
+    "id": 31,
+    "type": "verdad",
+    "text": "¿Qué detalle pequeño mío te parece inexplicablemente sexy?"
+  },
+  {
+    "id": 32,
+    "type": "verdad",
+    "text": "Si nuestra relación tuviera un soundtrack, ¿qué 3 canciones no podrían faltar y por qué?"
+  },
+  {
+    "id": 33,
+    "type": "verdad",
+    "text": "¿Qué tradición curiosa te gustaría que empezáramos juntos?"
+  },
+  {
+    "id": 34,
+    "type": "verdad",
+    "text": "¿Qué película o serie nos describe mejor como pareja?"
+  },
+  {
+    "id": 35,
+    "type": "verdad",
+    "text": "¿Qué outfit mío te vuelve loc@ y por qué?"
+  },
+  {
+    "id": 36,
+    "type": "verdad",
+    "text": "Si pudieras teleportarnos a cualquier lugar ahora mismo, ¿dónde iríamos y qué haríamos?"
+  },
+  {
+    "id": 37,
+    "type": "verdad",
+    "text": "¿Qué frase o gesto mío te derrite incluso cuando estás enojad@?"
+  },
+  {
+    "id": 38,
+    "type": "verdad",
+    "text": "¿Qué sueño o fantasía nuestra (no sexual) te gustaría cumplir este año?"
+  },
+  {
+    "id": 39,
+    "type": "verdad",
+    "text": "¿Qué app o red social mía revisarías si tuvieras acceso libre (y por qué)?"
+  },
+  {
+    "id": 40,
+    "type": "verdad",
+    "text": "Si mañana despertáramos intercambiando cuerpos, ¿qué sería lo primero que harías con el mío?"
+  },
+  {
+    "id": 51,
+    "type": "verdad",
+    "text": "¿Qué parte de mi personalidad te sorprendió gratamente cuando empezamos a salir?"
+  },
+  {
+    "id": 52,
+    "type": "verdad",
+    "text": "Si nuestra relación fuera un meme, ¿cuál sería y por qué?"
+  },
+  {
+    "id": 53,
+    "type": "verdad",
+    "text": "¿Qué mentira piadosa me sigues diciendo para no herir mis sentimientos?"
+  },
+  {
+    "id": 54,
+    "type": "verdad",
+    "text": "¿Qué cosa hago cuando creo que no estás mirando que te parece adorable?"
+  },
+  {
+    "id": 55,
+    "type": "verdad",
+    "text": "Si tuvieras que describir nuestro primer beso con un título de película, ¿cuál sería?"
+  },
+  {
+    "id": 56,
+    "type": "verdad",
+    "text": "¿Qué hábito mío has adoptado sin darte cuenta?"
+  },
+  {
+    "id": 57,
+    "type": "verdad",
+    "text": "¿Qué apodo me pondrías si tuvieras que usarlo frente a mis amigos?"
+  },
+  {
+    "id": 58,
+    "type": "verdad",
+    "text": "¿Qué momento nuestro te gustaría revivir en cámara lenta?"
+  },
+  {
+    "id": 59,
+    "type": "verdad",
+    "text": "¿Qué canción de amor odias pero finges que te gusta porque a mí me encanta?"
+  },
+  {
+    "id": 60,
+    "type": "verdad",
+    "text": "Si solo pudiéramos tener una foto juntos para el resto de nuestra vida, ¿cuál sería y por qué?"
+  }
+]

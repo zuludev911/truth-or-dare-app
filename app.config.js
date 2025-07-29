@@ -4,9 +4,19 @@ const isDev = process.env.NODE_ENV === "development";
 
 export default {
   expo: {
-    name: "truth-or-dare-app",
+    name: "Verdad o Reto",
     slug: "truth-or-dare-app",
-    version: "1.0.1",
+    version: "1.0.3",
+    description: "Juego de Verdad o Reto para fiestas, parejas y amigos.",
+    keywords: [
+      "verdad o reto",
+      "truth or dare",
+      "juego",
+      "retos",
+      "parejas",
+      "amigos",
+    ],
+    githubUrl: "https://github.com/zuludev911/truth-or-dare-app",
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
@@ -19,10 +29,12 @@ export default {
     ios: {
       buildNumber: "2",
       supportsTablet: true,
+      displayName: "Verdad o Reto 🔥",
       bundleIdentifier: "com.anfezuar.truthordareapp",
     },
     android: {
-      versionCode: 10,
+      applicationLabel: "Verdad o Reto 🔥",
+      versionCode: 14,
       adaptiveIcon: {
         foregroundImage: "./assets/icon.png",
         backgroundColor: "#ffffff",
@@ -69,4 +81,5 @@ export default {
         : process.env.ADMOB_IOS_INTERSTITIAL_ID,
     },
   },
+  jsEngine: "hermes",
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   View,
   Text,
@@ -6,21 +6,25 @@ import {
   TouchableOpacity,
   Platform,
   Image,
+  ImageBackground,
 } from "react-native";
+import Animated, { FlipInEasyY, FlipOutEasyY } from "react-native-reanimated";
 import {
   AdEventType,
   InterstitialAd,
   TestIds,
 } from "react-native-google-mobile-ads";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 import { RootStackParamList } from "../navigation/Navigation";
 import { Reto } from "../types";
 import { getRandomReto } from "../utils/getRandomReto";
 import { AD_IDS } from "../services/ads";
-import { COLORS } from "../constants";
+import { CATEGORIES, COLORS } from "../constants";
 import AdBanner from "../components/AdBanner";
-import Animated, { FlipInEasyY, FlipOutEasyY } from "react-native-reanimated";
+import backgroundGame from "../assets/background-game.webp";
+import closeIcon from "../assets/close-icon.webp";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Game">;
 
@@ -33,12 +37,12 @@ const adUnitId = __DEV__
 
 const interstitial = InterstitialAd.createForAdRequest(adUnitId);
 
-export default function GameScreen({ route }: Props) {
+export default function GameScreen({ route, navigation }: Props) {
   const { category } = route.params;
   console.warn("adUnitId", !!adUnitId);
   const [retoActual, setRetoActual] = useState<Reto>(() => {
     const reto = getRandomReto(category);
-    return reto ?? { tipo: "reto", texto: "No se encontró un reto." };
+    return reto ?? { type: "reto", text: "No se encontró un reto." };
   });
   const [retosVistos, setRetosVistos] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -88,6 +92,7 @@ export default function GameScreen({ route }: Props) {
       unsubscribeError();
     };
   }, []);
+  const shotsCount = Math.floor(Math.random() * 3) + 1;
 
   const handleNext = async () => {
     setIsFlipped(true);
@@ -112,24 +117,40 @@ export default function GameScreen({ route }: Props) {
     }
 
     setRetoActual(
-      getRandomReto(category) || { tipo: "reto", texto: "No hay más retos." }
+      getRandomReto(category) || { type: "reto", text: "No hay más retos." }
     );
     setTimeout(() => {
       setIsFlipped(false);
     }, 700);
   };
 
+  const goBack = () => navigation.goBack();
+  const isTrue = retoActual.type === "verdad";
+
+  const categoryImage = useMemo(
+    () => CATEGORIES.find((c) => c.id === category)?.icon,
+    [category]
+  );
+
   return (
-    <View style={styles.container}>
+    <ImageBackground source={backgroundGame} style={styles.container}>
+      <TouchableOpacity onPress={goBack} hitSlop={8} style={styles.buttonExit}>
+        <Image
+          source={closeIcon}
+          style={styles.closeIcon}
+          resizeMode="contain"
+        />
+      </TouchableOpacity>
+      <Image source={categoryImage} style={styles.categoryImage} />
       {isFlipped ? (
         <Animated.View
           style={styles.card}
           entering={FlipInEasyY.duration(600)}
           exiting={FlipOutEasyY.duration(600)}
-          key={`${retoActual.texto}-back`}
+          key={`${retoActual.text}-back`}
         >
           <Image
-            source={require("../assets/card-back.jpg")}
+            source={require("../assets/card-back.webp")}
             style={styles.cardImage}
           />
         </Animated.View>
@@ -137,39 +158,47 @@ export default function GameScreen({ route }: Props) {
         <Animated.View
           entering={FlipInEasyY.duration(600)}
           exiting={FlipOutEasyY.duration(600)}
-          key={retoActual.texto}
+          key={retoActual.text}
           style={styles.card}
         >
           <View
             style={[
               styles.cardHeader,
-              {
-                backgroundColor:
-                  retoActual.tipo === "verdad"
-                    ? COLORS.PRIMARY
-                    : COLORS.SECONDARY,
-              },
+              { backgroundColor: isTrue ? COLORS.PRIMARY : COLORS.SECONDARY },
             ]}
           >
-            <Text style={styles.tipo}>{retoActual.tipo.toUpperCase()}</Text>
+            <Text style={styles.tipo}>{retoActual.type.toUpperCase()}</Text>
           </View>
-          <Text style={styles.texto}>{retoActual.texto}</Text>
+          <Text style={styles.texto}>{retoActual.text}</Text>
+          {shotsCount > 0 && (
+            <View style={styles.footer}>
+              <Text>
+                {isTrue ? "Si no respondes toma" : "Si no lo haces toma"}
+              </Text>
+              <View style={styles.iconContainer}>
+                {Array.from({ length: shotsCount }).map((_, index) => (
+                  <FontAwesome5 key={index} name="glass-whiskey" size={24} />
+                ))}
+              </View>
+            </View>
+          )}
         </Animated.View>
       )}
       <TouchableOpacity style={styles.button} onPress={handleNext}>
         <Text style={styles.buttonText}>Siguiente</Text>
       </TouchableOpacity>
       <AdBanner />
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: COLORS.PRIMARY,
     justifyContent: "center",
     alignItems: "center",
-    padding: 24,
+    padding: 18,
   },
   tipo: {
     fontSize: 24,
@@ -178,18 +207,20 @@ const styles = StyleSheet.create({
   },
   texto: { fontSize: 24, textAlign: "center" },
   button: {
-    backgroundColor: COLORS.PRIMARY,
+    backgroundColor: COLORS.WHITE,
     paddingHorizontal: 30,
     paddingVertical: 14,
     borderRadius: 10,
   },
-  buttonText: { color: "white", fontWeight: "bold", fontSize: 18 },
+  buttonText: { color: COLORS.BLACK, fontWeight: "bold", fontSize: 18 },
   card: {
+    borderWidth: 2,
+    borderColor: COLORS.WHITE,
     backgroundColor: "white",
     padding: 20,
     borderRadius: 10,
     marginBottom: 20,
-    height: "60%",
+    height: "55%",
     justifyContent: "center",
     alignItems: "center",
     shadowColor: "black",
@@ -215,5 +246,28 @@ const styles = StyleSheet.create({
   cardImage: {
     maxWidth: 300,
     maxHeight: 300,
+  },
+  iconContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: 6,
+  },
+  footer: {
+    position: "absolute",
+    bottom: 40,
+    gap: 6,
+  },
+  categoryImage: {
+    width: 190,
+    height: 90,
+  },
+  closeIcon: {
+    width: 30,
+    height: 30,
+  },
+  buttonExit: {
+    position: "absolute",
+    top: 50,
+    right: 20,
   },
 });

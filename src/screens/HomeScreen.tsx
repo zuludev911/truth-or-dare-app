@@ -1,25 +1,26 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../navigation/Navigation";
-import AdBanner from "../components/AdBanner";
 import { COLORS } from "../constants";
+import background from "../assets/background.webp";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
 export default function HomeScreen({ navigation }: Props) {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>🎉 Verdad o Reto</Text>
+  const onPressPlay = () => navigation.navigate("Categories");
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Categories")}
-      >
-        <Text style={styles.buttonText}>Jugar</Text>
+  return (
+    <ImageBackground style={styles.container} source={background}>
+      <TouchableOpacity style={styles.button} onPress={onPressPlay}>
+        <Text style={styles.buttonText}>JUGAR</Text>
       </TouchableOpacity>
-      <AdBanner />
-    </View>
+    </ImageBackground>
   );
 }
 
@@ -30,17 +31,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
   },
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    marginBottom: 40,
-    color: COLORS.PRIMARY,
-  },
   button: {
-    backgroundColor: COLORS.PRIMARY,
+    backgroundColor: COLORS.WHITE,
     paddingVertical: 15,
     paddingHorizontal: 40,
     borderRadius: 10,
+    position: "absolute",
+    bottom: 100,
+    alignSelf: "center",
+    shadowColor: COLORS.BLACK,
+    shadowOffset: { width: 2, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
-  buttonText: { color: "white", fontSize: 20, fontWeight: "bold" },
+  buttonText: { color: COLORS.BLACK, fontSize: 20, fontWeight: "bold" },
 });

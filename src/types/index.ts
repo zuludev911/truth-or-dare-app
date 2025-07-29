@@ -1,5 +1,13 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface Reto {
   id: number;
-  tipo: "verdad" | "reto";
-  texto: string;
+  type: "verdad" | "reto";
+  text: string;
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  icon: ImageSourcePropType;
 }
