@@ -173,5 +173,55 @@
     "id": 70,
     "type": "reto",
     "text": "Envía un mensaje de voz a un contacto aleatorio diciendo: 'Confirmado: el dragón llegó al castillo'."
+  },
+  {
+    "id": 71,
+    "type": "reto",
+    "text": "Con una cuchara en cada mano, intenta aplaudir sin soltarlas (¡el sonido más ridículo gana!)."
+  },
+  {
+    "id": 72,
+    "type": "reto",
+    "text": "Imita a un animal mientras comes un snack sin reírte (el grupo adivina qué animal eres)."
+  },
+  {
+    "id": 73,
+    "type": "reto",
+    "text": "Con los ojos vendados, identifica 3 objetos comunes solo por el olfato (¡nada de zapatos sucios!)."
+  },
+  {
+    "id": 74,
+    "type": "reto",
+    "text": "Inventa un baile inspirado en un electrodoméstico (ej: la licuadora) y enséñaselo al grupo."
+  },
+  {
+    "id": 75,
+    "type": "reto",
+    "text": "Con un libro en la cabeza, camina en línea recta mientras recitas un trabalenguas."
+  },
+  {
+    "id": 76,
+    "type": "reto",
+    "text": "Usa una fruta como micrófono y canta una canción de amor... como si fueras un gallo."
+  },
+  {
+    "id": 77,
+    "type": "reto",
+    "text": "Con las manos dentro de camisetas (como muñones), intenta abrir una botella de agua."
+  },
+  {
+    "id": 78,
+    "type": "reto",
+    "text": "Escribe tu nombre en el suelo con el pie dominante, mientras mantienes equilibrio en un pie."
+  },
+  {
+    "id": 79,
+    "type": "reto",
+    "text": "Con una cinta adhesiva en la boca (sin sellarla), cuenta un chiste y que el grupo adivine."
+  },
+  {
+    "id": 80,
+    "type": "reto",
+    "text": "Envía un audio a un contacto aleatorio diciendo: 'El experimento salió mal... repito, SALIÓ MAL'."
   }
 ]

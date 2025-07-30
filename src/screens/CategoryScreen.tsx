@@ -7,6 +7,7 @@ import {
   Image,
   ListRenderItem,
   Text,
+  View,
 } from "react-native";
 import Animated, { SlideInLeft } from "react-native-reanimated";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -30,6 +31,11 @@ export default function CategoryScreen({ navigation }: Props) {
     ({ item, index }) => (
       <Animated.View entering={SlideInLeft.duration(300).delay(index * 100)}>
         <TouchableOpacity style={styles.card} onPress={onPressItem(item.id)}>
+          {item.id === "chicas" && (
+            <View style={styles.newCategoryContainer}>
+              <Text style={styles.newCategoryText}>Nueva</Text>
+            </View>
+          )}
           <Image source={item.icon} style={styles.icon} />
         </TouchableOpacity>
       </Animated.View>
@@ -43,7 +49,7 @@ export default function CategoryScreen({ navigation }: Props) {
         data={CATEGORIES}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
-        contentContainerStyle={{ flex: 1, justifyContent: "center" }}
+        contentContainerStyle={{ paddingTop: 100 }}
       />
       <AdBanner />
     </ImageBackground>
@@ -70,7 +76,27 @@ const styles = StyleSheet.create({
   },
   text: { color: "white", fontSize: 20, fontWeight: "bold" },
   icon: {
-    width: 190,
+    width: 220,
     height: 90,
+  },
+  newCategoryContainer: {
+    position: "absolute",
+    top: 10,
+    right: 6,
+    backgroundColor: COLORS.PRIMARY,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+    shadowColor: COLORS.BLACK,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    transform: [{ rotate: "20deg" }],
+  },
+  newCategoryText: {
+    color: COLORS.WHITE,
+    fontSize: 12,
+    fontWeight: "bold",
   },
 });

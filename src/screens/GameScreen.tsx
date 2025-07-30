@@ -41,7 +41,7 @@ export default function GameScreen({ route, navigation }: Props) {
   const { category } = route.params;
   console.warn("adUnitId", !!adUnitId);
   const [retoActual, setRetoActual] = useState<Reto>(() => {
-    const reto = getRandomReto(category);
+    const reto = getRandomReto(category, "verdad");
     return reto ?? { type: "reto", text: "No se encontró un reto." };
   });
   const [retosVistos, setRetosVistos] = useState(0);
@@ -94,7 +94,7 @@ export default function GameScreen({ route, navigation }: Props) {
   }, []);
   const shotsCount = Math.floor(Math.random() * 3) + 1;
 
-  const handleNext = async () => {
+  const handleNext = (type: "verdad" | "reto") => async () => {
     setIsFlipped(true);
     const newCount = retosVistos + 1;
     setRetosVistos(newCount);
@@ -117,7 +117,10 @@ export default function GameScreen({ route, navigation }: Props) {
     }
 
     setRetoActual(
-      getRandomReto(category) || { type: "reto", text: "No hay más retos." }
+      getRandomReto(category, type) || {
+        type: "reto",
+        text: "No hay más retos.",
+      }
     );
     setTimeout(() => {
       setIsFlipped(false);
@@ -184,9 +187,20 @@ export default function GameScreen({ route, navigation }: Props) {
           )}
         </Animated.View>
       )}
-      <TouchableOpacity style={styles.button} onPress={handleNext}>
-        <Text style={styles.buttonText}>Siguiente</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonsContainer}>
+        <TouchableOpacity
+          style={[styles.button, { backgroundColor: COLORS.PRIMARY }]}
+          onPress={handleNext("verdad")}
+        >
+          <Text style={styles.buttonText}>Verdad</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button, { backgroundColor: COLORS.SECONDARY }]}
+          onPress={handleNext("reto")}
+        >
+          <Text style={styles.buttonText}>Reto</Text>
+        </TouchableOpacity>
+      </View>
       <AdBanner />
     </ImageBackground>
   );
@@ -211,8 +225,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     paddingVertical: 14,
     borderRadius: 10,
+    borderWidth: 1,
+    borderColor: COLORS.WHITE,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    elevation: 5,
   },
-  buttonText: { color: COLORS.BLACK, fontWeight: "bold", fontSize: 18 },
+  buttonText: { color: COLORS.WHITE, fontWeight: "bold", fontSize: 18 },
   card: {
     borderWidth: 2,
     borderColor: COLORS.WHITE,
@@ -220,7 +241,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     marginBottom: 20,
-    height: "55%",
+    height: "50%",
     justifyContent: "center",
     alignItems: "center",
     shadowColor: "black",
@@ -269,5 +290,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 50,
     right: 20,
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+    gap: 10,
   },
 });
