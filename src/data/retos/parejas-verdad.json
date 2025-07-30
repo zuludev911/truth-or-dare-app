@@ -173,5 +173,55 @@
     "id": 60,
     "type": "verdad",
     "text": "Si solo pudiéramos tener una foto juntos para el resto de nuestra vida, ¿cuál sería y por qué?"
+  },
+  {
+    "id": 61,
+    "type": "verdad",
+    "text": "¿Qué momento cotidiano juntos (como lavar platos o hacer mercado) te parece inexplicablemente romántico?"
+  },
+  {
+    "id": 62,
+    "type": "verdad",
+    "text": "Si nuestra relación tuviera un aroma, ¿qué olor sería y por qué?"
+  },
+  {
+    "id": 63,
+    "type": "verdad",
+    "text": "¿Qué cosa que hago sin pensar te hace sentir más amado/a?"
+  },
+  {
+    "id": 64,
+    "type": "verdad",
+    "text": "¿Qué error mío has aprendido a amar porque es parte de quién soy?"
+  },
+  {
+    "id": 65,
+    "type": "verdad",
+    "text": "Si tuvieras que describir nuestro amor con un sabor de helado, ¿cuál sería y por qué?"
+  },
+  {
+    "id": 66,
+    "type": "verdad",
+    "text": "¿Qué rasgo de personalidad mío te resultó chocante al principio pero ahora aprecias?"
+  },
+  {
+    "id": 67,
+    "type": "verdad",
+    "text": "¿Qué promesa de pareja hemos roto que en realidad nos benefició?"
+  },
+  {
+    "id": 68,
+    "type": "verdad",
+    "text": "Si pudiéramos intercambiar un talento o habilidad, ¿qué te gustaría que yo aprendiera de ti?"
+  },
+  {
+    "id": 69,
+    "type": "verdad",
+    "text": "¿Qué tradición familiar mía te gustaría incorporar a nuestra relación?"
+  },
+  {
+    "id": 70,
+    "type": "verdad",
+    "text": "Si nuestra relación fuera un libro, ¿qué capítulo estamos viviendo ahora y cómo terminaría la historia?"
   }
 ]

@@ -173,5 +173,55 @@
     "id": 70,
     "type": "reto",
     "text": "Elige a dos personas: una será tus 'ojos' (te guiará con palabras) y la otra tu 'víctima'. Deberás seducirla sin ver."
+  },
+  {
+    "id": 71,
+    "type": "reto",
+    "text": "Con una cereza en tu boca, ofrece el tallo a alguien para que lo jale con sus dientes (sin usar manos)"
+  },
+  {
+    "id": 72,
+    "type": "reto",
+    "text": "Susurra al oído de alguien qué parte de su ropa resalta mejor sus atributos (debes ser específico/a)"
+  },
+  {
+    "id": 73,
+    "type": "reto",
+    "text": "Con los ojos vendados, identifica a una persona solo por el tacto de sus muñecas (tienes 2 intentos)"
+  },
+  {
+    "id": 74,
+    "type": "reto",
+    "text": "Usando una cucharita, alimenta a alguien mientras describes el 'sabor' en voz sensual de sommelier"
+  },
+  {
+    "id": 75,
+    "type": "reto",
+    "text": "Con un lápiz labial, dibuja un camino de besos desde el cuello hasta la mano de alguien"
+  },
+  {
+    "id": 76,
+    "type": "reto",
+    "text": "Interpreta a un/a director/a de cine explicando cómo filmarías una escena de amor con alguien del grupo"
+  },
+  {
+    "id": 77,
+    "type": "reto",
+    "text": "Con una pluma, escribe un mensaje secreto en la espalda de alguien que otro debe descifrar al tacto"
+  },
+  {
+    "id": 78,
+    "type": "reto",
+    "text": "Con una toalla enrollada como cinturón, demuestra cómo quitarías imaginariamente una prenda con los dientes"
+  },
+  {
+    "id": 79,
+    "type": "reto",
+    "text": "Describe la personalidad de alguien usando solo comparaciones con postres sensuales (ej: 'eres como un...')"
+  },
+  {
+    "id": 80,
+    "type": "reto",
+    "text": "Con dos voluntarios: uno será tus ojos vendados y el otro tus manos - juntos deben seducir a una tercera persona"
   }
 ]

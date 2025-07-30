@@ -173,5 +173,55 @@
     "id": 60,
     "type": "verdad",
     "text": "¿Qué rumor sexual sobre ti te gustaría que fuera cierto?"
+  },
+  {
+    "id": 61,
+    "type": "verdad",
+    "text": "¿Qué prenda de vestir ajena te excitaría encontrar en tu habitación y por qué?"
+  },
+  {
+    "id": 62,
+    "type": "verdad",
+    "text": "Si tuvieras que recrear una escena histórica con connotaciones sexuales, ¿cuál sería y qué rol tomarías?"
+  },
+  {
+    "id": 63,
+    "type": "verdad",
+    "text": "¿Qué experiencia sensual te gustaría tener con alguien que no sea tu pareja (famoso, personaje, etc.)?"
+  },
+  {
+    "id": 64,
+    "type": "verdad",
+    "text": "¿Qué parte de tu cuerpo te avergüenza que te excite tanto cuando la tocan?"
+  },
+  {
+    "id": 65,
+    "type": "verdad",
+    "text": "Si pudieras añadir un nuevo sentido al placer sexual, ¿cuál sería y cómo funcionaría?"
+  },
+  {
+    "id": 66,
+    "type": "verdad",
+    "text": "¿Qué objeto no sexual has usado con fines eróticos y cómo funcionó?"
+  },
+  {
+    "id": 67,
+    "type": "verdad",
+    "text": "¿Qué situación social normal (ej: reunión de trabajo) has fantaseado convertir en íntima?"
+  },
+  {
+    "id": 68,
+    "type": "verdad",
+    "text": "Si tuvieras un super poder sexual, ¿cuál sería y qué limitación cómica tendría?"
+  },
+  {
+    "id": 69,
+    "type": "verdad",
+    "text": "¿Qué juguete sexual inventarías y cómo se usaría?"
+  },
+  {
+    "id": 70,
+    "type": "verdad",
+    "text": "Si tu vida sexual fuera una serie de Netflix, ¿qué título tendría y cuál sería el plot twist de la temporada 2?"
   }
 ]
