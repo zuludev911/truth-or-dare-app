@@ -37,13 +37,13 @@ const adUnitId = __DEV__
 
 const interstitial = InterstitialAd.createForAdRequest(adUnitId);
 
+const AnimatedTouchableOpacity =
+  Animated.createAnimatedComponent(TouchableOpacity);
+
 export default function GameScreen({ route, navigation }: Props) {
   const { category } = route.params;
   console.warn("adUnitId", !!adUnitId);
-  const [retoActual, setRetoActual] = useState<Reto>(() => {
-    const reto = getRandomReto(category, "verdad");
-    return reto ?? { type: "reto", text: "No se encontró un reto." };
-  });
+  const [retoActual, setRetoActual] = useState<Reto>();
   const [retosVistos, setRetosVistos] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -128,11 +128,17 @@ export default function GameScreen({ route, navigation }: Props) {
   };
 
   const goBack = () => navigation.goBack();
-  const isTrue = retoActual.type === "verdad";
+  const isTruth = retoActual?.type === "verdad";
 
   const categoryImage = useMemo(
     () => CATEGORIES.find((c) => c.id === category)?.icon,
     [category]
+  );
+
+  const questionType: ("verdad" | "reto")[] = ["verdad", "reto"];
+
+  const selectedQuestionTypeIndex = Math.floor(
+    Math.random() * questionType.length
   );
 
   return (
@@ -145,29 +151,30 @@ export default function GameScreen({ route, navigation }: Props) {
         />
       </TouchableOpacity>
       <Image source={categoryImage} style={styles.categoryImage} />
-      {isFlipped ? (
-        <Animated.View
+      {isFlipped || !retoActual ? (
+        <AnimatedTouchableOpacity
           style={styles.card}
           entering={FlipInEasyY.duration(600)}
           exiting={FlipOutEasyY.duration(600)}
-          key={`${retoActual.text}-back`}
+          onPress={handleNext(questionType[selectedQuestionTypeIndex])}
         >
           <Image
             source={require("../assets/card-back.webp")}
             style={styles.cardImage}
           />
-        </Animated.View>
+        </AnimatedTouchableOpacity>
       ) : (
-        <Animated.View
+        <AnimatedTouchableOpacity
           entering={FlipInEasyY.duration(600)}
           exiting={FlipOutEasyY.duration(600)}
           key={retoActual.text}
           style={styles.card}
+          onPress={handleNext(questionType[selectedQuestionTypeIndex])}
         >
           <View
             style={[
               styles.cardHeader,
-              { backgroundColor: isTrue ? COLORS.PRIMARY : COLORS.SECONDARY },
+              { backgroundColor: isTruth ? COLORS.PRIMARY : COLORS.SECONDARY },
             ]}
           >
             <Text style={styles.tipo}>{retoActual.type.toUpperCase()}</Text>
@@ -176,7 +183,7 @@ export default function GameScreen({ route, navigation }: Props) {
           {shotsCount > 0 && (
             <View style={styles.footer}>
               <Text>
-                {isTrue ? "Si no respondes toma" : "Si no lo haces toma"}
+                {isTruth ? "Si no respondes toma" : "Si no lo haces toma"}
               </Text>
               <View style={styles.iconContainer}>
                 {Array.from({ length: shotsCount }).map((_, index) => (
@@ -185,7 +192,7 @@ export default function GameScreen({ route, navigation }: Props) {
               </View>
             </View>
           )}
-        </Animated.View>
+        </AnimatedTouchableOpacity>
       )}
       <View style={styles.buttonsContainer}>
         <TouchableOpacity
@@ -221,6 +228,7 @@ const styles = StyleSheet.create({
   },
   texto: { fontSize: 24, textAlign: "center" },
   button: {
+    minWidth: 120,
     backgroundColor: COLORS.WHITE,
     paddingHorizontal: 30,
     paddingVertical: 14,
@@ -233,7 +241,12 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 5,
   },
-  buttonText: { color: COLORS.WHITE, fontWeight: "bold", fontSize: 18 },
+  buttonText: {
+    textAlign: "center",
+    color: COLORS.WHITE,
+    fontWeight: "bold",
+    fontSize: 18,
+  },
   card: {
     borderWidth: 2,
     borderColor: COLORS.WHITE,
@@ -279,7 +292,7 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   categoryImage: {
-    width: 190,
+    width: 210,
     height: 90,
   },
   closeIcon: {

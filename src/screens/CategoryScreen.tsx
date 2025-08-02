@@ -1,25 +1,23 @@
 import React, { useCallback } from "react";
 import {
   StyleSheet,
-  FlatList,
   TouchableOpacity,
   ImageBackground,
   Image,
-  ListRenderItem,
   Text,
-  View,
 } from "react-native";
-import Animated, { SlideInLeft } from "react-native-reanimated";
+import Animated, { FadeIn, FadeInLeft } from "react-native-reanimated";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../navigation/Navigation";
 import AdBanner from "../components/AdBanner";
 import { COLORS, CATEGORIES } from "../constants";
-import { Category } from "../types";
 import backgroundEmpty from "../assets/background-empty.webp";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Categories">;
 
+const AnimatedTouchableOpacity =
+  Animated.createAnimatedComponent(TouchableOpacity);
 export default function CategoryScreen({ navigation }: Props) {
   const onPressItem = useCallback(
     (id: string) => () => {
@@ -27,32 +25,34 @@ export default function CategoryScreen({ navigation }: Props) {
     },
     [navigation]
   );
-  const renderItem: ListRenderItem<Category> = useCallback(
-    ({ item, index }) => (
-      <Animated.View entering={SlideInLeft.duration(300).delay(index * 100)}>
-        <TouchableOpacity style={styles.card} onPress={onPressItem(item.id)}>
-          {item.id === "chicas" && (
-            <View style={styles.newCategoryContainer}>
-              <Text style={styles.newCategoryText}>Nueva</Text>
-            </View>
-          )}
-          <Image source={item.icon} style={styles.icon} />
-        </TouchableOpacity>
-      </Animated.View>
-    ),
-    [onPressItem]
-  );
 
   return (
-    <ImageBackground source={backgroundEmpty} style={styles.container}>
-      <FlatList
-        data={CATEGORIES}
-        keyExtractor={(item) => item.id}
-        renderItem={renderItem}
-        contentContainerStyle={{ paddingTop: 100 }}
-      />
-      <AdBanner />
-    </ImageBackground>
+    <Animated.View style={{ flex: 1 }}>
+      <ImageBackground source={backgroundEmpty} style={styles.container}>
+        {CATEGORIES.map((item, index) => {
+          const entering = FadeInLeft.delay(index * 200).duration(300);
+          return (
+            <AnimatedTouchableOpacity
+              style={styles.card}
+              onPress={onPressItem(item.id)}
+              entering={entering}
+              key={item.id}
+            >
+              {item.id === "chicas" && (
+                <Animated.View
+                  style={styles.newCategoryContainer}
+                  entering={FadeIn.delay(500).duration(500)}
+                >
+                  <Text style={styles.newCategoryText}>Nueva</Text>
+                </Animated.View>
+              )}
+              <Image source={item.icon} style={styles.icon} />
+            </AnimatedTouchableOpacity>
+          );
+        })}
+        <AdBanner />
+      </ImageBackground>
+    </Animated.View>
   );
 }
 
@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 30,
+    paddingTop: 50,
     backgroundColor: COLORS.PRIMARY,
   },
   card: {
