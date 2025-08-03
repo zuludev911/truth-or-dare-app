@@ -37,13 +37,13 @@ const adUnitId = __DEV__
 
 const interstitial = InterstitialAd.createForAdRequest(adUnitId);
 
+const AnimatedTouchableOpacity =
+  Animated.createAnimatedComponent(TouchableOpacity);
+
 export default function GameScreen({ route, navigation }: Props) {
   const { category } = route.params;
   console.warn("adUnitId", !!adUnitId);
-  const [retoActual, setRetoActual] = useState<Reto>(() => {
-    const reto = getRandomReto(category);
-    return reto ?? { type: "reto", text: "No se encontró un reto." };
-  });
+  const [retoActual, setRetoActual] = useState<Reto>();
   const [retosVistos, setRetosVistos] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -94,7 +94,7 @@ export default function GameScreen({ route, navigation }: Props) {
   }, []);
   const shotsCount = Math.floor(Math.random() * 3) + 1;
 
-  const handleNext = async () => {
+  const handleNext = (type: "verdad" | "reto") => async () => {
     setIsFlipped(true);
     const newCount = retosVistos + 1;
     setRetosVistos(newCount);
@@ -117,7 +117,10 @@ export default function GameScreen({ route, navigation }: Props) {
     }
 
     setRetoActual(
-      getRandomReto(category) || { type: "reto", text: "No hay más retos." }
+      getRandomReto(category, type) || {
+        type: "reto",
+        text: "No hay más retos.",
+      }
     );
     setTimeout(() => {
       setIsFlipped(false);
@@ -125,11 +128,17 @@ export default function GameScreen({ route, navigation }: Props) {
   };
 
   const goBack = () => navigation.goBack();
-  const isTrue = retoActual.type === "verdad";
+  const isTruth = retoActual?.type === "verdad";
 
   const categoryImage = useMemo(
     () => CATEGORIES.find((c) => c.id === category)?.icon,
     [category]
+  );
+
+  const questionType: ("verdad" | "reto")[] = ["verdad", "reto"];
+
+  const selectedQuestionTypeIndex = Math.floor(
+    Math.random() * questionType.length
   );
 
   return (
@@ -142,29 +151,30 @@ export default function GameScreen({ route, navigation }: Props) {
         />
       </TouchableOpacity>
       <Image source={categoryImage} style={styles.categoryImage} />
-      {isFlipped ? (
-        <Animated.View
+      {isFlipped || !retoActual ? (
+        <AnimatedTouchableOpacity
           style={styles.card}
           entering={FlipInEasyY.duration(600)}
           exiting={FlipOutEasyY.duration(600)}
-          key={`${retoActual.text}-back`}
+          onPress={handleNext(questionType[selectedQuestionTypeIndex])}
         >
           <Image
             source={require("../assets/card-back.webp")}
             style={styles.cardImage}
           />
-        </Animated.View>
+        </AnimatedTouchableOpacity>
       ) : (
-        <Animated.View
+        <AnimatedTouchableOpacity
           entering={FlipInEasyY.duration(600)}
           exiting={FlipOutEasyY.duration(600)}
           key={retoActual.text}
           style={styles.card}
+          onPress={handleNext(questionType[selectedQuestionTypeIndex])}
         >
           <View
             style={[
               styles.cardHeader,
-              { backgroundColor: isTrue ? COLORS.PRIMARY : COLORS.SECONDARY },
+              { backgroundColor: isTruth ? COLORS.PRIMARY : COLORS.SECONDARY },
             ]}
           >
             <Text style={styles.tipo}>{retoActual.type.toUpperCase()}</Text>
@@ -173,7 +183,7 @@ export default function GameScreen({ route, navigation }: Props) {
           {shotsCount > 0 && (
             <View style={styles.footer}>
               <Text>
-                {isTrue ? "Si no respondes toma" : "Si no lo haces toma"}
+                {isTruth ? "Si no respondes toma" : "Si no lo haces toma"}
               </Text>
               <View style={styles.iconContainer}>
                 {Array.from({ length: shotsCount }).map((_, index) => (
@@ -182,11 +192,22 @@ export default function GameScreen({ route, navigation }: Props) {
               </View>
             </View>
           )}
-        </Animated.View>
+        </AnimatedTouchableOpacity>
       )}
-      <TouchableOpacity style={styles.button} onPress={handleNext}>
-        <Text style={styles.buttonText}>Siguiente</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonsContainer}>
+        <TouchableOpacity
+          style={[styles.button, { backgroundColor: COLORS.PRIMARY }]}
+          onPress={handleNext("verdad")}
+        >
+          <Text style={styles.buttonText}>Verdad</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button, { backgroundColor: COLORS.SECONDARY }]}
+          onPress={handleNext("reto")}
+        >
+          <Text style={styles.buttonText}>Reto</Text>
+        </TouchableOpacity>
+      </View>
       <AdBanner />
     </ImageBackground>
   );
@@ -207,12 +228,25 @@ const styles = StyleSheet.create({
   },
   texto: { fontSize: 24, textAlign: "center" },
   button: {
+    minWidth: 120,
     backgroundColor: COLORS.WHITE,
     paddingHorizontal: 30,
     paddingVertical: 14,
     borderRadius: 10,
+    borderWidth: 1,
+    borderColor: COLORS.WHITE,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    elevation: 5,
   },
-  buttonText: { color: COLORS.BLACK, fontWeight: "bold", fontSize: 18 },
+  buttonText: {
+    textAlign: "center",
+    color: COLORS.WHITE,
+    fontWeight: "bold",
+    fontSize: 18,
+  },
   card: {
     borderWidth: 2,
     borderColor: COLORS.WHITE,
@@ -220,7 +254,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     marginBottom: 20,
-    height: "55%",
+    height: "50%",
     justifyContent: "center",
     alignItems: "center",
     shadowColor: "black",
@@ -258,7 +292,7 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   categoryImage: {
-    width: 190,
+    width: 210,
     height: 90,
   },
   closeIcon: {
@@ -269,5 +303,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 50,
     right: 20,
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+    gap: 10,
   },
 });

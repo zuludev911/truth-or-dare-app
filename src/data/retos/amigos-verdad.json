@@ -173,5 +173,55 @@
     "id": 60,
     "type": "verdad",
     "text": "¿Qué cosa totalmente inútil guardas 'por si acaso' que revelaría lo desastre que eres?"
+  },
+  {
+    "id": 61,
+    "type": "verdad",
+    "text": "¿Qué miembro del grupo sería el peor consejero sentimental y por qué?"
+  },
+  {
+    "id": 62,
+    "type": "verdad",
+    "text": "Si tuvieras que intercambiar cuerpos con un amigo por una semana, ¿a quién elegirías y qué harías?"
+  },
+  {
+    "id": 63,
+    "type": "verdad",
+    "text": "¿Qué conversación grupal te hizo pensar: 'Nunca debí haber abierto la boca'?"
+  },
+  {
+    "id": 64,
+    "type": "verdad",
+    "text": "¿Qué foto comprometedora tienes de algún amigo que nunca has compartido?"
+  },
+  {
+    "id": 65,
+    "type": "verdad",
+    "text": "Si el grupo fuera arrestado, ¿cuál sería el motivo más probable para tu detención?"
+  },
+  {
+    "id": 66,
+    "type": "verdad",
+    "text": "¿Qué mentira has mantenido por años que todos creen pero nadie ha verificado?"
+  },
+  {
+    "id": 67,
+    "type": "verdad",
+    "text": "¿Qué miembro del grupo sería el más molesto si fueran roommates y por qué?"
+  },
+  {
+    "id": 68,
+    "type": "verdad",
+    "text": "¿Qué excusa ridícula has usado para cancelar planes que todos sabían era falsa?"
+  },
+  {
+    "id": 69,
+    "type": "verdad",
+    "text": "Si pudieras eliminar un recuerdo vergonzoso de la mente de todos los presentes, ¿cuál sería?"
+  },
+  {
+    "id": 70,
+    "type": "verdad",
+    "text": "¿Qué cosa 'normal' hace el grupo que los haría parecer psicópatas si los vieran hacerlo en público?"
   }
 ]

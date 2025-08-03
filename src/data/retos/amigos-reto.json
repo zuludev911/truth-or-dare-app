@@ -173,5 +173,55 @@
     "id": 70,
     "type": "reto",
     "text": "Envía a un contacto aleatorio: '¿Recuerdas nuestro pacto de sangre?' y no respondas por 1 hora."
+  },
+  {
+    "id": 71,
+    "type": "reto",
+    "text": "Con una cuchara sostenida con los dientes, intenta recoger un objeto pequeño del suelo (como una moneda)."
+  },
+  {
+    "id": 72,
+    "type": "reto",
+    "text": "Imita a un famoso mientras comes una galleta sin dejar caer migas (el grupo adivina quién eres)."
+  },
+  {
+    "id": 73,
+    "type": "reto",
+    "text": "Con los ojos vendados, dibuja un retrato de alguien del grupo y que adivinen de quién se trata."
+  },
+  {
+    "id": 74,
+    "type": "reto",
+    "text": "Inventa un lenguaje alienígena y explica cómo pedirías pizza en él (el grupo debe adivinar)."
+  },
+  {
+    "id": 75,
+    "type": "reto",
+    "text": "Con una mano en la cabeza y otra en el pie, gira en círculos 5 veces y luego camina en línea recta."
+  },
+  {
+    "id": 76,
+    "type": "reto",
+    "text": "Actúa como si fueras un/a detective resolviendo un crimen absurdo (ej: 'el caso del calcetín desaparecido')."
+  },
+  {
+    "id": 77,
+    "type": "reto",
+    "text": "Con una bolsa en cada pie, deslízate por el piso como si estuvieras patinando por 20 segundos."
+  },
+  {
+    "id": 78,
+    "type": "reto",
+    "text": "Escribe tu nombre en el aire con el codo mientras el grupo trata de adivinarlo."
+  },
+  {
+    "id": 79,
+    "type": "reto",
+    "text": "Con una cinta adhesiva en la boca (sin cubrirla completamente), intenta cantar 'Cumpleaños feliz'."
+  },
+  {
+    "id": 80,
+    "type": "reto",
+    "text": "Envía un mensaje a tu último contacto diciendo: 'El experimento fue un éxito... por ahora'."
   }
 ]

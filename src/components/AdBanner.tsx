@@ -1,12 +1,13 @@
 import { Platform, View } from "react-native";
 import {
+  MobileAds,
   BannerAd,
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AD_IDS } from "../services/ads";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Sentry from "@sentry/react-native";
 
 const AdBanner = () => {
@@ -31,6 +32,14 @@ const AdBanner = () => {
     Sentry.captureException(err);
     setError(true);
   };
+
+  useEffect(() => {
+    MobileAds().initialize();
+
+    console.log(
+      "📢 Si este dispositivo no está registrado como test, el SDK imprimirá el ID en la consola/logcat cuando cargue el primer anuncio."
+    );
+  }, []);
 
   if (error && !adUnitId) return null;
   return (
