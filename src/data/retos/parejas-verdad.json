@@ -223,5 +223,55 @@
     "id": 70,
     "type": "verdad",
     "text": "Si nuestra relación fuera un libro, ¿qué capítulo estamos viviendo ahora y cómo terminaría la historia?"
+  },
+  {
+    "id": 71,
+    "type": "verdad",
+    "text": "¿Cuál es tu recuerdo favorito de nosotros dos?"
+  },
+  {
+    "id": 72,
+    "type": "verdad",
+    "text": "¿Qué es lo que más te atrae físicamente de mí?"
+  },
+  {
+    "id": 73,
+    "type": "verdad",
+    "text": "¿Hay algo de mí que cambiarías si pudieras?"
+  },
+  {
+    "id": 74,
+    "type": "verdad",
+    "text": "¿Cuál fue el momento en que supiste que me amabas?"
+  },
+  {
+    "id": 75,
+    "type": "verdad",
+    "text": "¿Qué es lo más sexy que he hecho sin darme cuenta?"
+  },
+  {
+    "id": 76,
+    "type": "verdad",
+    "text": "¿Cuál es tu mayor inseguridad en nuestra relación?"
+  },
+  {
+    "id": 77,
+    "type": "verdad",
+    "text": "¿Qué es lo que más te gusta cuando hacemos el amor?"
+  },
+  {
+    "id": 78,
+    "type": "verdad",
+    "text": "¿Cuál es tu lugar favorito para besarme?"
+  },
+  {
+    "id": 79,
+    "type": "verdad",
+    "text": "¿Qué me dirías si supieras que mañana no nos volvemos a ver?"
+  },
+  {
+    "id": 80,
+    "type": "verdad",
+    "text": "¿Cuál es tu sueño más grande para nuestro futuro juntos?"
   }
 ]

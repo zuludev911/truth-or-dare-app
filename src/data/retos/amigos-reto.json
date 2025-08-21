@@ -223,5 +223,55 @@
     "id": 80,
     "type": "reto",
     "text": "Envía un mensaje a tu último contacto diciendo: 'El experimento fue un éxito... por ahora'."
+  },
+  {
+    "id": 81,
+    "type": "reto",
+    "text": "Actúa como si fueras un/a vendedor/a de aspiradoras tratando de vender un calcetín sucio al grupo."
+  },
+  {
+    "id": 82,
+    "type": "reto",
+    "text": "Usa lo que tengas a mano como escudo, defiende al grupo de una invasión imaginaria de cucarachas gigantes por 30 segundos."
+  },
+  {
+    "id": 83,
+    "type": "reto",
+    "text": "Llama a una pizzería y pregunta si tienen pizza de piña con chocolate (mantén la conversación seria por al menos 1 minuto)."
+  },
+  {
+    "id": 84,
+    "type": "reto",
+    "text": "Camina como si fueras un pingüino elegante yendo a una cena de gala."
+  },
+  {
+    "id": 85,
+    "type": "reto",
+    "text": "Inventa una canción de rap sobre por qué odias lavar los platos y preséntala con actitud de estrella."
+  },
+  {
+    "id": 86,
+    "type": "reto",
+    "text": "Simula un micrófono con cualquier objeto, haz una entrevista a un objeto de la habitación como si fuera una celebridad."
+  },
+  {
+    "id": 87,
+    "type": "reto",
+    "text": "Camina hacia atrás por toda la habitación mientras narras una historia de terror sobre calcetines perdidos."
+  },
+  {
+    "id": 88,
+    "type": "reto",
+    "text": "Publica una foto tuya con filtros ridículos y el texto: 'Nuevo look, ¿les gusta?' (déjala por 5 minutos)."
+  },
+  {
+    "id": 89,
+    "type": "reto",
+    "text": "Actúa como un/a adivino/a prediciendo el futuro amoroso de cada persona del grupo."
+  },
+  {
+    "id": 90,
+    "type": "reto",
+    "text": "Envía un audio a un contacto aleatorio cantando 'Las Mañanitas' como si fuera su cumpleaños (aunque no lo sea)."
   }
 ]

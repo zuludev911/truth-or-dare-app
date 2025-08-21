@@ -123,5 +123,55 @@
     "id": 25,
     "type": "verdad",
     "text": "¿Te consideras una amiga toxica?"
+  },
+  {
+    "id": 26,
+    "type": "verdad",
+    "text": "¿Cuál es la cosa más patética que has hecho por un chico que te gustaba?"
+  },
+  {
+    "id": 27,
+    "type": "verdad",
+    "text": "¿Qué amiga del grupo sería la peor para elegir como dama de honor y por qué?"
+  },
+  {
+    "id": 28,
+    "type": "verdad",
+    "text": "¿Cuál es tu mayor inseguridad física que nunca le dirías a nadie?"
+  },
+  {
+    "id": 29,
+    "type": "verdad",
+    "text": "¿Qué cosa de tu personalidad cambiarías para conseguir pareja?"
+  },
+  {
+    "id": 30,
+    "type": "verdad",
+    "text": "¿Cuál es el peor regalo que te ha dado un ex y fingiste que te gustó?"
+  },
+  {
+    "id": 31,
+    "type": "verdad",
+    "text": "¿Qué amiga del grupo tiene el peor gusto para los hombres y por qué?"
+  },
+  {
+    "id": 32,
+    "type": "verdad",
+    "text": "¿Cuál es la mentira más grande que has dicho sobre tu número de parejas sexuales?"
+  },
+  {
+    "id": 33,
+    "type": "verdad",
+    "text": "¿Qué producto de belleza compras en secreto que te da vergüenza admitir?"
+  },
+  {
+    "id": 34,
+    "type": "verdad",
+    "text": "¿Cuál es tu mayor drama familiar que nunca le has contado a tus amigas?"
+  },
+  {
+    "id": 35,
+    "type": "verdad",
+    "text": "¿Qué cosa ridícula has hecho para vengarte de una ex amiga o ex pareja?"
   }
 ]
