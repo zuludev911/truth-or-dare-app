@@ -223,5 +223,55 @@
     "id": 70,
     "type": "verdad",
     "text": "Si tuvieras que explicar tu peor corte de cabello con un título de película, ¿cuál sería?"
+  },
+  {
+    "id": 71,
+    "type": "verdad",
+    "text": "¿Cuál es la cosa más extraña que has hecho cuando estabas solo en casa?"
+  },
+  {
+    "id": 72,
+    "type": "verdad",
+    "text": "¿Qué comida te da asco pero finges que te gusta para no ser descortés?"
+  },
+  {
+    "id": 73,
+    "type": "verdad",
+    "text": "¿Cuál es tu mayor secreto que solo tú sabes?"
+  },
+  {
+    "id": 74,
+    "type": "verdad",
+    "text": "¿Qué celebridad famosa crees que serías si fueras del sexo opuesto?"
+  },
+  {
+    "id": 75,
+    "type": "verdad",
+    "text": "¿Cuál es la mentira más grande que le has dicho a tus padres?"
+  },
+  {
+    "id": 76,
+    "type": "verdad",
+    "text": "¿Qué es lo más vergonzoso que tienes en tu historial de búsqueda?"
+  },
+  {
+    "id": 77,
+    "type": "verdad",
+    "text": "¿Cuál es tu mayor arrepentimiento de los últimos cinco años?"
+  },
+  {
+    "id": 78,
+    "type": "verdad",
+    "text": "¿Qué habilidad inútil tienes que nadie más sabe?"
+  },
+  {
+    "id": 79,
+    "type": "verdad",
+    "text": "¿Cuál es la cosa más inmadura que aún haces a tu edad?"
+  },
+  {
+    "id": 80,
+    "type": "verdad",
+    "text": "¿Qué pensamiento random tienes que te da vergüenza admitir?"
   }
 ]

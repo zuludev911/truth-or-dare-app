@@ -13,6 +13,7 @@ import { RootStackParamList } from "../navigation/Navigation";
 import AdBanner from "../components/AdBanner";
 import { COLORS, CATEGORIES } from "../constants";
 import backgroundEmpty from "../assets/background-empty.webp";
+import NewCategoryBadge from "../components/NewCategoryBadge";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Categories">;
 
@@ -38,14 +39,6 @@ export default function CategoryScreen({ navigation }: Props) {
               entering={entering}
               key={item.id}
             >
-              {item.id === "chicas" && (
-                <Animated.View
-                  style={styles.newCategoryContainer}
-                  entering={FadeIn.delay(500).duration(500)}
-                >
-                  <Text style={styles.newCategoryText}>Nueva</Text>
-                </Animated.View>
-              )}
               <Image source={item.icon} style={styles.icon} />
             </AnimatedTouchableOpacity>
           );

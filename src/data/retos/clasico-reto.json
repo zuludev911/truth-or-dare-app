@@ -223,5 +223,45 @@
     "id": 80,
     "type": "reto",
     "text": "Envía un audio a un contacto aleatorio diciendo: 'El experimento salió mal... repito, SALIÓ MAL'."
+  },
+  {
+    "id": 81,
+    "type": "reto",
+    "text": "Haz 20 saltos de tijera mientras cantas el himno nacional."
+  },
+  {
+    "id": 83,
+    "type": "reto",
+    "text": "Equilibra tres objetos diferentes en tu cabeza mientras caminas por la habitación."
+  },
+  {
+    "id": 84,
+    "type": "reto",
+    "text": "Imita a tres animales diferentes y que el grupo adivine cuáles son."
+  },
+  {
+    "id": 85,
+    "type": "reto",
+    "text": "Con los ojos cerrados, dibuja la cara de alguien del grupo y que adivinen de quién es."
+  },
+  {
+    "id": 86,
+    "type": "reto",
+    "text": "Haz una torre con 10 objetos diferentes y mantenla en pie por 20 segundos."
+  },
+  {
+    "id": 88,
+    "type": "reto",
+    "text": "Inventa una historia de 1 minuto usando solo palabras que empiecen con la letra 'P'."
+  },
+  {
+    "id": 89,
+    "type": "reto",
+    "text": "Con las manos atadas atrás, intenta pelar una fruta con la boca."
+  },
+  {
+    "id": 90,
+    "type": "reto",
+    "text": "Haz una competencia de miradas con alguien del grupo por 2 minutos sin reír."
   }
 ]

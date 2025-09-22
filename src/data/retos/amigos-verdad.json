@@ -223,5 +223,55 @@
     "id": 70,
     "type": "verdad",
     "text": "¿Qué cosa 'normal' hace el grupo que los haría parecer psicópatas si los vieran hacerlo en público?"
+  },
+  {
+    "id": 71,
+    "type": "verdad",
+    "text": "¿Qué miembro del grupo sería el peor en un apocalipsis zombie y por qué sería el primero en morir?"
+  },
+  {
+    "id": 72,
+    "type": "verdad",
+    "text": "¿Cuál es la cosa más ridícula por la que has llorado y nadie del grupo lo sabe?"
+  },
+  {
+    "id": 73,
+    "type": "verdad",
+    "text": "Si tuvieras que elegir alguien del grupo para que fuera tu cita en una boda familiar, ¿quién causaría menos escándalo?"
+  },
+  {
+    "id": 74,
+    "type": "verdad",
+    "text": "¿Qué pensamiento random tienes sobre cada persona del grupo que nunca has dicho en voz alta?"
+  },
+  {
+    "id": 75,
+    "type": "verdad",
+    "text": "¿Qué canción secreta tienes que te da vergüenza admitir que te gusta?"
+  },
+  {
+    "id": 76,
+    "type": "verdad",
+    "text": "¿Qué miembro del grupo sería el peor para cuidar una planta y cómo la mataría?"
+  },
+  {
+    "id": 77,
+    "type": "verdad",
+    "text": "¿Cuál es la mentira más estúpida que has dicho para impresionar a alguien?"
+  },
+  {
+    "id": 78,
+    "type": "verdad",
+    "text": "Si el grupo fuera un equipo de superhéroes, ¿cuál sería tu poder inútil y el de cada uno?"
+  },
+  {
+    "id": 79,
+    "type": "verdad",
+    "text": "¿Qué cosa vergonzosa has googled pensando que nadie se enteraría?"
+  },
+  {
+    "id": 80,
+    "type": "verdad",
+    "text": "¿Qué amigo del grupo sería el peor para elegir como padrino/madrina de boda y por qué arruinaría el evento?"
   }
 ]
