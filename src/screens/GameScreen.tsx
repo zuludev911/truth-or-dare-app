@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import {
   View,
   Text,
@@ -28,21 +28,27 @@ import closeIcon from "../assets/close-icon.webp";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Game">;
 
-const adUnitId = __DEV__
-  ? TestIds.INTERSTITIAL
-  : Platform.select({
-      android: AD_IDS.ANDROID_INTERSTITIAL,
-      ios: AD_IDS.IOS_INTERSTITIAL,
-    });
-
-const interstitial = InterstitialAd.createForAdRequest(adUnitId);
-
 const AnimatedTouchableOpacity =
   Animated.createAnimatedComponent(TouchableOpacity);
 
 export default function GameScreen({ route, navigation }: Props) {
   const { category } = route.params;
-  console.warn("adUnitId", !!adUnitId);
+  const adUnitId = useMemo(
+    () =>
+      __DEV__
+        ? TestIds.INTERSTITIAL
+        : Platform.select({
+            android: AD_IDS.ANDROID_INTERSTITIAL,
+            ios: AD_IDS.IOS_INTERSTITIAL,
+          }),
+    []
+  );
+
+  const interstitial = useMemo(
+    () => InterstitialAd.createForAdRequest(adUnitId),
+    [adUnitId]
+  );
+
   const [retoActual, setRetoActual] = useState<Reto>();
   const [retosVistos, setRetosVistos] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -97,9 +103,11 @@ export default function GameScreen({ route, navigation }: Props) {
   const handleNext = (type: "verdad" | "reto") => async () => {
     setIsFlipped(true);
     const newCount = retosVistos + 1;
+    console.log("newCount:", newCount);
     setRetosVistos(newCount);
-    console.log("isAdLoaded:", isAdLoaded);
-    console.log("interstitial.loaded:", interstitial?.loaded);
+    // console.log("retosVistos:", retosVistos);
+    // console.log("isAdLoaded:", isAdLoaded);
+    // console.log("interstitial.loaded:", interstitial?.loaded);
     if (newCount % 20 === 0 && isAdLoaded && adUnitId) {
       if (interstitial?.loaded) {
         console.warn("Mostrando interstitial");
@@ -122,12 +130,15 @@ export default function GameScreen({ route, navigation }: Props) {
         text: "No hay más retos.",
       }
     );
-    setTimeout(() => {
-      setIsFlipped(false);
-    }, 700);
+    console.log("retosVistos:", retosVistos);
+    setTimeout(
+      () => {
+        setIsFlipped(false);
+      },
+      retosVistos === 0 ? 0 : 600
+    );
   };
 
-  const goBack = () => navigation.goBack();
   const isTruth = retoActual?.type === "verdad";
 
   const categoryImage = useMemo(
@@ -143,7 +154,11 @@ export default function GameScreen({ route, navigation }: Props) {
 
   return (
     <ImageBackground source={backgroundGame} style={styles.container}>
-      <TouchableOpacity onPress={goBack} hitSlop={8} style={styles.buttonExit}>
+      <TouchableOpacity
+        onPress={navigation.goBack}
+        hitSlop={8}
+        style={styles.buttonExit}
+      >
         <Image
           source={closeIcon}
           style={styles.closeIcon}
@@ -154,8 +169,8 @@ export default function GameScreen({ route, navigation }: Props) {
       {isFlipped || !retoActual ? (
         <AnimatedTouchableOpacity
           style={styles.card}
-          entering={FlipInEasyY.duration(600)}
-          exiting={FlipOutEasyY.duration(600)}
+          entering={FlipInEasyY.duration(retosVistos === 0 ? 0 : 600)}
+          exiting={FlipOutEasyY.duration(retosVistos === 0 ? 0 : 600)}
           onPress={handleNext(questionType[selectedQuestionTypeIndex])}
         >
           <Image

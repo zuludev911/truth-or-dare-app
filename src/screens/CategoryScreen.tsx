@@ -1,48 +1,33 @@
 import React, { useCallback } from "react";
-import {
-  StyleSheet,
-  TouchableOpacity,
-  ImageBackground,
-  Image,
-  Text,
-} from "react-native";
-import Animated, { FadeIn, FadeInLeft } from "react-native-reanimated";
+import { StyleSheet, ImageBackground } from "react-native";
+import Animated from "react-native-reanimated";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../navigation/Navigation";
 import AdBanner from "../components/AdBanner";
 import { COLORS, CATEGORIES } from "../constants";
 import backgroundEmpty from "../assets/background-empty.webp";
-import NewCategoryBadge from "../components/NewCategoryBadge";
+import CategoryButton from "../components/CategoryButton";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Categories">;
 
-const AnimatedTouchableOpacity =
-  Animated.createAnimatedComponent(TouchableOpacity);
 export default function CategoryScreen({ navigation }: Props) {
   const onPressItem = useCallback(
-    (id: string) => () => {
-      navigation.navigate("Game", { category: id });
-    },
+    (id: string) => navigation.navigate("Game", { category: id }),
     [navigation]
   );
 
   return (
     <Animated.View style={{ flex: 1 }}>
       <ImageBackground source={backgroundEmpty} style={styles.container}>
-        {CATEGORIES.map((item, index) => {
-          const entering = FadeInLeft.delay(index * 200).duration(300);
-          return (
-            <AnimatedTouchableOpacity
-              style={styles.card}
-              onPress={onPressItem(item.id)}
-              entering={entering}
-              key={item.id}
-            >
-              <Image source={item.icon} style={styles.icon} />
-            </AnimatedTouchableOpacity>
-          );
-        })}
+        {CATEGORIES.map((item, index) => (
+          <CategoryButton
+            index={index}
+            item={item}
+            onPressItem={onPressItem}
+            key={item.id}
+          />
+        ))}
         <AdBanner />
       </ImageBackground>
     </Animated.View>
