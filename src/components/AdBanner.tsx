@@ -1,3 +1,4 @@
+import { memo, useEffect, useState } from "react";
 import { Platform, View } from "react-native";
 import {
   MobileAds,
@@ -7,7 +8,6 @@ import {
 } from "react-native-google-mobile-ads";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AD_IDS } from "../services/ads";
-import { useEffect, useState } from "react";
 import * as Sentry from "@sentry/react-native";
 
 const AdBanner = () => {
@@ -55,4 +55,4 @@ const AdBanner = () => {
   );
 };
 
-export default AdBanner;
+export default memo(AdBanner);
