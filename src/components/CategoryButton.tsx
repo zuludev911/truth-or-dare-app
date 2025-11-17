@@ -6,7 +6,6 @@ import { IconLock } from "@tabler/icons-react-native";
 import { Category } from "../types";
 import { COLORS } from "../constants";
 import NewCategoryBadge from "./NewCategoryBadge";
-import closeIcon from "../assets/close-icon.webp";
 
 interface CategoryButtonProps {
   index: number;

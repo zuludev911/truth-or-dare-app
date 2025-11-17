@@ -11,7 +11,6 @@ import { IconPlayerPlayFilled } from "@tabler/icons-react-native";
 
 import { COLORS } from "../constants";
 import extremo from "../assets/extremo.webp";
-import closeIcon from "../assets/close-icon.webp";
 import {
   RewardedAd,
   RewardedAdEventType,
@@ -21,13 +20,14 @@ import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../navigation/Navigation";
 import { saveUnlockTime } from "../utils";
 import CloseButton from "./CloseButton";
+import { AD_IDS } from "../services/ads";
 
 interface Props {
   isModalVisible: boolean;
   setIsModalVisible: (isVisible: boolean) => void;
 }
 
-const adUnitId = __DEV__ ? TestIds.REWARDED : TestIds.REWARDED;
+const adUnitId = __DEV__ ? TestIds.REWARDED : AD_IDS.REWARD_ID;
 const rewarded = RewardedAd.createForAdRequest(adUnitId);
 
 function ShowVideoModal({ isModalVisible, setIsModalVisible }: Props) {
@@ -70,9 +70,6 @@ function ShowVideoModal({ isModalVisible, setIsModalVisible }: Props) {
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
           <CloseButton onPress={onPressClose} style={styles.closeIcon} />
-          {/* <TouchableOpacity onPress={onPressClose}>
-            <Image source={closeIcon} style={styles.closeIcon} />
-          </TouchableOpacity> */}
           <Image source={extremo} style={styles.modalImage} />
           <Text style={styles.modalText}>
             Esta categoría es para adultos y contiene contenido sensible. Para

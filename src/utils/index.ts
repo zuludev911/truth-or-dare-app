@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const UNLOCK_KEY = "lastUnlockTime";
-const UNLOCK_TIME = 1;
+const UNLOCK_TIME = 2;
 
 /**
  * Save current date/time in the local storage.
