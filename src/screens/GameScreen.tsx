@@ -123,7 +123,7 @@ export default function GameScreen({ route, navigation }: Props) {
         interstitial.load();
       }
     }
-
+    console.log("category", category);
     setRetoActual(
       getRandomReto(category, type) || {
         type: "reto",
