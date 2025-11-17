@@ -79,6 +79,7 @@ export default {
       admobIosInterstitialId: isDev
         ? "ca-app-pub-3940256099942544/4411468940"
         : process.env.ADMOB_IOS_INTERSTITIAL_ID,
+      admobRewardId: process.env.ADMOB_REWARD_ID,
     },
   },
   jsEngine: "hermes",

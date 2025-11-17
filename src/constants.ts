@@ -3,6 +3,7 @@ import picante from "./assets/picante.webp";
 import parejas from "./assets/parejas.webp";
 import amigos from "./assets/amigos.webp";
 import chicas from "./assets/chicas.webp";
+import extremo from "./assets/extremo.webp";
 
 export const CATEGORIES = [
   { id: "clasico", name: "Clásico", icon: clasico },
@@ -10,6 +11,7 @@ export const CATEGORIES = [
   { id: "parejas", name: "Parejas", icon: parejas },
   { id: "amigos", name: "Amigos", icon: amigos },
   { id: "chicas", name: "Chicas", icon: chicas },
+  { id: "extremo", name: "Extremo", icon: extremo },
 ];
 
 export const COLORS = {
