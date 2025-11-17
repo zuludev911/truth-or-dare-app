@@ -20,6 +20,7 @@ import {
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../navigation/Navigation";
 import { saveUnlockTime } from "../utils";
+import CloseButton from "./CloseButton";
 
 interface Props {
   isModalVisible: boolean;
@@ -68,9 +69,10 @@ function ShowVideoModal({ isModalVisible, setIsModalVisible }: Props) {
     <Modal visible={isModalVisible} transparent={true} animationType="fade">
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
-          <TouchableOpacity onPress={onPressClose}>
+          <CloseButton onPress={onPressClose} style={styles.closeIcon} />
+          {/* <TouchableOpacity onPress={onPressClose}>
             <Image source={closeIcon} style={styles.closeIcon} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <Image source={extremo} style={styles.modalImage} />
           <Text style={styles.modalText}>
             Esta categoría es para adultos y contiene contenido sensible. Para

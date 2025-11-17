@@ -15,7 +15,7 @@ import {
   TestIds,
 } from "react-native-google-mobile-ads";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import { IconBeerFilled } from "@tabler/icons-react-native";
 
 import { RootStackParamList } from "../navigation/Navigation";
 import { Reto } from "../types";
@@ -24,7 +24,7 @@ import { AD_IDS } from "../services/ads";
 import { CATEGORIES, COLORS } from "../constants";
 import AdBanner from "../components/AdBanner";
 import backgroundGame from "../assets/background-game.webp";
-import closeIcon from "../assets/close-icon.webp";
+import CloseButton from "../components/CloseButton";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Game">;
 
@@ -154,7 +154,8 @@ export default function GameScreen({ route, navigation }: Props) {
 
   return (
     <ImageBackground source={backgroundGame} style={styles.container}>
-      <TouchableOpacity
+      <CloseButton onPress={navigation.goBack} style={styles.buttonExit} />
+      {/* <TouchableOpacity
         onPress={navigation.goBack}
         hitSlop={8}
         style={styles.buttonExit}
@@ -164,7 +165,7 @@ export default function GameScreen({ route, navigation }: Props) {
           style={styles.closeIcon}
           resizeMode="contain"
         />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <Image source={categoryImage} style={styles.categoryImage} />
       {isFlipped || !retoActual ? (
         <AnimatedTouchableOpacity
@@ -202,7 +203,7 @@ export default function GameScreen({ route, navigation }: Props) {
               </Text>
               <View style={styles.iconContainer}>
                 {Array.from({ length: shotsCount }).map((_, index) => (
-                  <FontAwesome5 key={index} name="glass-whiskey" size={24} />
+                  <IconBeerFilled key={index} size={24} />
                 ))}
               </View>
             </View>
