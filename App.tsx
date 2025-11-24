@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Navigation from "./src/navigation/Navigation";
 import { LogBox } from "react-native";
 import { AppState } from "react-native";
+import Toast from "react-native-toast-message";
 import * as Sentry from "@sentry/react-native";
 import { SENTRY_DSN } from "./src/services/sentry";
 
@@ -38,6 +39,7 @@ export default Sentry.wrap(function App() {
     <NavigationContainer>
       <Navigation />
       <StatusBar style="auto" />
+      <Toast />
     </NavigationContainer>
   );
 });
