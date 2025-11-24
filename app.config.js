@@ -61,13 +61,6 @@ export default {
             "Usamos datos para personalizar anuncios.",
         },
       ],
-      [
-        "sentry/react-native/expo",
-        {
-          organization: "zulu.dev",
-          project: "verdad o reto",
-        },
-      ],
     ],
     extra: {
       sentryDsn: process.env.DSN_SENTRY,

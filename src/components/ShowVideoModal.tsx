@@ -1,4 +1,3 @@
-import { useCallback, useEffect, useState } from "react";
 import {
   Image,
   Modal,
@@ -7,63 +6,46 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import Toast from "react-native-toast-message";
+import { RewardedAd } from "react-native-google-mobile-ads";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { IconPlayerPlayFilled } from "@tabler/icons-react-native";
 
 import { COLORS } from "../constants";
 import extremo from "../assets/extremo.webp";
-import {
-  RewardedAd,
-  RewardedAdEventType,
-  TestIds,
-} from "react-native-google-mobile-ads";
-import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../navigation/Navigation";
-import { saveUnlockTime } from "../utils";
 import CloseButton from "./CloseButton";
-import { AD_IDS } from "../services/ads";
 
 interface Props {
   isModalVisible: boolean;
   setIsModalVisible: (isVisible: boolean) => void;
+  loaded: boolean;
+  rewarded: RewardedAd;
 }
 
-const adUnitId = __DEV__ ? TestIds.REWARDED : AD_IDS.REWARD_ID;
-const rewarded = RewardedAd.createForAdRequest(adUnitId);
-
-function ShowVideoModal({ isModalVisible, setIsModalVisible }: Props) {
-  const [loaded, setLoaded] = useState(false);
+function ShowVideoModal({
+  isModalVisible,
+  setIsModalVisible,
+  loaded,
+  rewarded,
+}: Props) {
+  console.log("loaded", loaded);
   const navigation =
     useNavigation<NavigationProp<RootStackParamList, "Categories">>();
   const onPressClose = () => setIsModalVisible(false);
 
-  const onPressAccept = useCallback(() => {
+  const onPressAccept = () => {
     setIsModalVisible(false);
-    rewarded.show();
-  }, []);
-
-  useEffect(() => {
-    const unsubscribeLoaded = rewarded.addAdEventListener(
-      RewardedAdEventType.LOADED,
-      () => setLoaded(true)
-    );
-    const unsubscribeEarned = rewarded.addAdEventListener(
-      RewardedAdEventType.EARNED_REWARD,
-      (reward) => {
-        console.log("User earned reward of ", reward);
-        reward && navigation.navigate("Game", { category: "extremo" });
-        saveUnlockTime();
-      }
-    );
-
-    // Start loading the rewarded ad straight away
-    rewarded.load();
-
-    // Unsubscribe from events on unmount
-    return () => {
-      unsubscribeLoaded();
-      unsubscribeEarned();
-    };
-  }, []);
+    if (loaded) {
+      rewarded.show();
+    } else {
+      Toast.show({
+        type: "info",
+        text1: "No se cargaron anuncios, intenta mas tarde",
+      });
+      rewarded.load();
+    }
+  };
 
   return (
     <Modal visible={isModalVisible} transparent={true} animationType="fade">
@@ -76,11 +58,7 @@ function ShowVideoModal({ isModalVisible, setIsModalVisible }: Props) {
             acceder a esta categoría debes ver un video de publicidad el cual te
             dará acceso por 2 horas.
           </Text>
-          <TouchableOpacity
-            style={styles.modalButton}
-            onPress={onPressAccept}
-            disabled={!loaded}
-          >
+          <TouchableOpacity style={styles.modalButton} onPress={onPressAccept}>
             <Text style={styles.modalButtonText}>Ver video</Text>
             <IconPlayerPlayFilled color={COLORS.WHITE} />
           </TouchableOpacity>
