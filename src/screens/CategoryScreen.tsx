@@ -16,6 +16,7 @@ import CategoryButton from "../components/CategoryButton";
 import ShowVideoModal from "../components/ShowVideoModal";
 import { isUnlocked, saveUnlockTime } from "../utils";
 import { AD_IDS } from "../services/ads";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Categories">;
 
@@ -75,23 +76,33 @@ export default function CategoryScreen({ navigation }: Props) {
     };
   }, []);
 
+  const { bottom, top } = useSafeAreaInsets();
+
   return (
-    <ImageBackground source={backgroundEmpty} style={styles.container}>
-      <ScrollView style={styles.content}>
-        {CATEGORIES.map((item, index) => {
-          const isExtreme = item.id === "extremo";
-          return (
-            <CategoryButton
-              key={item.id}
-              index={index}
-              item={item}
-              onPressItem={isExtreme ? onPressExtremo : onPressItem}
-              isNew={isExtreme}
-              isLocked={isExtreme && !isCategoryUnlocked}
-            />
-          );
-        })}
-      </ScrollView>
+    <>
+      <ImageBackground
+        source={backgroundEmpty}
+        style={[
+          styles.container,
+          { paddingBottom: bottom + 50, paddingTop: top },
+        ]}
+      >
+        <ScrollView scrollEnabled style={styles.content}>
+          {CATEGORIES.map((item, index) => {
+            const isExtreme = item.id === "extremo";
+            return (
+              <CategoryButton
+                key={item.id}
+                index={index}
+                item={item}
+                onPressItem={isExtreme ? onPressExtremo : onPressItem}
+                isNew={item.id === "navidad"}
+                isLocked={isExtreme && !isCategoryUnlocked}
+              />
+            );
+          })}
+        </ScrollView>
+      </ImageBackground>
       <AdBanner />
       {!isCategoryUnlocked && (
         <ShowVideoModal
@@ -101,7 +112,7 @@ export default function CategoryScreen({ navigation }: Props) {
           rewarded={rewarded}
         />
       )}
-    </ImageBackground>
+    </>
   );
 }
 
@@ -111,9 +122,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.PRIMARY,
   },
   content: {
-    flex: 1,
     paddingHorizontal: 30,
-    paddingBottom: 20,
-    paddingTop: 50,
   },
 });

@@ -36,8 +36,8 @@ function CategoryButton({
       onPress={onPress}
       entering={entering}
     >
-      {isNew && <NewCategoryBadge />}
       <Image source={item.icon} style={styles.icon} />
+      {isNew && <NewCategoryBadge />}
       {isLocked && (
         <IconLock color={COLORS.WHITE} size={28} style={styles.lockedIcon} />
       )}
