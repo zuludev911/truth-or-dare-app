@@ -6,7 +6,7 @@ export default {
   expo: {
     name: "Verdad o Reto",
     slug: "truth-or-dare-app",
-    version: "1.0.3",
+    version: "1.0.7",
     description: "Juego de Verdad o Reto para fiestas, parejas y amigos.",
     keywords: [
       "verdad o reto",
@@ -34,7 +34,7 @@ export default {
     },
     android: {
       applicationLabel: "Verdad o Reto 🔥",
-      versionCode: 14,
+      versionCode: 19,
       adaptiveIcon: {
         foregroundImage: "./assets/icon.png",
         backgroundColor: "#ffffff",
@@ -79,6 +79,7 @@ export default {
       admobIosInterstitialId: isDev
         ? "ca-app-pub-3940256099942544/4411468940"
         : process.env.ADMOB_IOS_INTERSTITIAL_ID,
+      admobRewardId: process.env.ADMOB_REWARD_ID,
     },
   },
   jsEngine: "hermes",

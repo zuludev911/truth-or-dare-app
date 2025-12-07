@@ -7,4 +7,5 @@ export const AD_IDS = {
   IOS_BANNER: extra?.admobIosBannerId || "",
   ANDROID_INTERSTITIAL: extra?.admobAndroidInterstitialId || "",
   IOS_INTERSTITIAL: extra?.admobIosInterstitialId || "",
+  REWARD_ID: extra?.admobRewardId || "",
 };
