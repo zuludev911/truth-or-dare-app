@@ -1,152 +1,202 @@
 [
   {
     "id": 1,
-    "type": "reto",
     "text": "Imita a un reno tirando del trineo de Santa por 30 segundos"
   },
   {
     "id": 2,
-    "type": "reto",
     "text": "Canta un villancico como si fueras un elfo con la voz muy aguda"
   },
   {
     "id": 3,
-    "type": "reto",
     "text": "Abre un regalo imaginario y actúa como si fuera lo que más querías en el mundo"
   },
   {
     "id": 4,
-    "type": "reto",
     "text": "Construye un árbol de Navidad humano con 3 personas del grupo"
   },
   {
     "id": 5,
-    "type": "reto",
     "text": "Haz una interpretación dramática de un copo de nieve cayendo"
   },
   {
     "id": 6,
-    "type": "reto",
     "text": "Con los ojos vendados, adivina qué objeto navideño te están mostrando (tienes 3 intentos)"
   },
   {
     "id": 7,
-    "type": "reto",
     "text": "Baila como si estuvieras en una fiesta navideña muy aburrida"
   },
   {
     "id": 8,
-    "type": "reto",
     "text": "Imita a un muérdago hablando y dando consejos de amistad"
   },
   {
     "id": 9,
-    "type": "reto",
     "text": "Con una galleta en la frente, intenta que caiga en tu boca moviendo solo la cara"
   },
   {
     "id": 10,
-    "type": "reto",
     "text": "Actúa como Santa Claus repartiendo regalos a animales del bosque"
   },
   {
     "id": 11,
-    "type": "reto",
     "text": "Inventa un villancico sobre alguien del grupo en 30 segundos"
   },
   {
     "id": 12,
-    "type": "reto",
     "text": "Con una bufanda, demuestra cómo te abrigarías para un día en el Polo Norte"
   },
   {
     "id": 13,
-    "type": "reto",
     "text": "Haz de Grinch robando la Navidad pero de forma torpe y divertida"
   },
   {
     "id": 14,
-    "type": "reto",
     "text": "Con tres objetos cercanos, crea un 'adorno navideño improvisado'"
   },
   {
     "id": 15,
-    "type": "reto",
     "text": "Cuenta un chiste malo de Navidad sin reírte tú mismo"
   },
   {
     "id": 16,
-    "type": "reto",
     "text": "Con una manta como capa, actúa como un superhéroe que salva la Navidad de los villancicos desafinados"
   },
   {
     "id": 17,
-    "type": "reto",
     "text": "Imita cómo se derrite un muñeco de nieve bajo el sol usando movimientos exagerados"
   },
   {
     "id": 18,
-    "type": "reto",
     "text": "Con un vaso de agua en la cabeza, camina como un elfo llevando regalos delicados"
   },
   {
     "id": 19,
-    "type": "reto",
     "text": "Canta 'Jingle Bells' reemplazando todas las palabras por 'la'"
   },
   {
     "id": 20,
-    "type": "reto",
     "text": "Actúa como un árbol de Navidad siendo decorado por alguien muy torpe"
   },
   {
     "id": 21,
-    "type": "reto",
     "text": "Con una cuchara en la boca, explica cómo preparar ponche navideño"
   },
   {
     "id": 22,
-    "type": "reto",
     "text": "Haz una coreografía de 20 segundos con los 8 renos de Santa (tú solo representándolos a todos)"
   },
   {
     "id": 23,
-    "type": "reto",
     "text": "Con los ojos cerrados, dibuja una estrella para el árbol en un papel y que el grupo adivine qué es"
   },
   {
     "id": 24,
-    "type": "reto",
     "text": "Imita a un duende navideño que se quedó sin juguetes para hacer"
   },
   {
     "id": 25,
-    "type": "reto",
     "text": "Con una servilleta en cada mano, intenta envolver un objeto pequeño como regalo"
   },
   {
     "id": 26,
-    "type": "reto",
     "text": "Actúa como un pavo que se escapó antes de llegar a la cena navideña"
   },
   {
     "id": 27,
-    "type": "reto",
     "text": "Crea un baile que represente cómo se siente comer demasiado en Navidad"
   },
   {
     "id": 28,
-    "type": "reto",
     "text": "Con una bufanda como lazo, envuélvete como un regalo y pídele a alguien que te 'abra'"
   },
   {
     "id": 29,
-    "type": "reto",
     "text": "Imita a un calcetín navideño esperando ser llenado de regalos"
   },
   {
     "id": 30,
-    "type": "reto",
     "text": "Con tres personas, formen un trineo humano y 'deslízense' por la habitación"
+  },
+  {
+    "id": 31,
+    "text": "Con un rollo de papel higiénico, crea una 'guirnalda navideña' y decora a alguien del grupo"
+  },
+  {
+    "id": 32,
+    "text": "Imita a un ángel del árbol de Navidad tratando de mantener el equilibrio en la punta"
+  },
+  {
+    "id": 33,
+    "text": "Con una cuchara entre los dientes, intenta comer una galleta imaginaria de un plato"
+  },
+  {
+    "id": 34,
+    "text": "Haz como si fueras un bastón de caramelo atrapado en una fábrica de dulces"
+  },
+  {
+    "id": 35,
+    "text": "Con los ojos vendados, intenta poner la 'cola al burro' navideño en un dibujo imaginario"
+  },
+  {
+    "id": 36,
+    "text": "Actúa como un juguete roto que Santa está intentando arreglar en su taller"
+  },
+  {
+    "id": 37,
+    "text": "Con un calcetín en cada mano, intenta construir un 'muñeco de nieve' con cojines"
+  },
+  {
+    "id": 38,
+    "text": "Imita a un copo de nieve que no quiere caer al suelo y lucha contra el viento"
+  },
+  {
+    "id": 39,
+    "text": "Con una escoba, haz de 'trineo mágico' y da un paseo imaginario por el cielo navideño"
+  },
+  {
+    "id": 40,
+    "text": "Inventa un anuncio publicitario para 'carbón dulce' (el regalo para los niños traviesos)"
+  },
+  {
+    "id": 41,
+    "text": "Con una mano en la cabeza y otra en la cintura, gira como un trompo decorativo del árbol"
+  },
+  {
+    "id": 42,
+    "text": "Actúa como un regalo que fue envuelto por alguien con muy mala coordinación"
+  },
+  {
+    "id": 43,
+    "text": "Con una galleta salada en la nariz, camina en línea recta sin que se caiga"
+  },
+  {
+    "id": 44,
+    "text": "Imita a un pingüino del Polo Norte intentando bailar un villancico"
+  },
+  {
+    "id": 45,
+    "text": "Con tres objetos, crea un 'pesebre viviente' moderno y explícalo al grupo"
+  },
+  {
+    "id": 46,
+    "text": "Haz como si fueras una lucecita navideña que se funde y vuelve a prender repetidamente"
+  },
+  {
+    "id": 47,
+    "text": "Con una pelota pequeña, haz malabares como si fueran bolas de nieve mágicas"
+  },
+  {
+    "id": 48,
+    "text": "Actúa como un chocolate caliente que se derrama accidentalmente sobre un suéter nuevo"
+  },
+  {
+    "id": 49,
+    "text": "Con una silla, simula que eres Santa Claus atascado en una chimenea estrecha"
+  },
+  {
+    "id": 50,
+    "text": "Imita a un espumillón que se enreda en todo lo que encuentra a su paso"
   }
 ]

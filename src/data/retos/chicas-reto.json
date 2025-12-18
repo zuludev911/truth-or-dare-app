@@ -1,152 +1,242 @@
 [
   {
     "id": 1,
-    "type": "reto",
     "text": "Haz un tutorial exagerado de 'Cómo caminar en tacones borracha'"
   },
   {
     "id": 2,
-    "type": "reto",
     "text": "Dibuja tu versión de un hombre ideal... usando solo tu mano no dominante"
   },
   {
     "id": 3,
-    "type": "reto",
-    "text": "Convierte una escena de telenovela en un discurso feminista (improvisa 30 segundos)"
-  },
-  {
-    "id": 4,
-    "type": "reto",
     "text": "Demuestra cómo te quitas el brasier sin sacarte la blusa (con explicación dramática)"
   },
   {
-    "id": 5,
-    "type": "reto",
-    "text": "Usando solo emojis, describe tu peor cita (las demás deben adivinar)"
-  },
-  {
-    "id": 6,
-    "type": "reto",
+    "id": 4,
     "text": "Haz un striptease... pero quitándote capas de ropa de abrigo exageradas"
   },
   {
-    "id": 7,
-    "type": "reto",
+    "id": 5,
     "text": "Inventa un eslogan para un producto femenino inventado (ej: 'pañuelos para lágrimas de ex')"
   },
   {
-    "id": 8,
-    "type": "reto",
+    "id": 6,
     "text": "Actúa cómo sería tu versión de 'chica mala' en una película de high school"
   },
   {
-    "id": 9,
-    "type": "reto",
+    "id": 7,
     "text": "Con una copa de vino en la cabeza, camina como modelo en una pasarela imaginaria"
   },
   {
-    "id": 10,
-    "type": "reto",
+    "id": 8,
     "text": "Graba un audio imitando a una influencer de belleza dando el peor consejo posible"
   },
   {
-    "id": 11,
-    "type": "reto",
+    "id": 9,
     "text": "Diseña un tatuaje temporal en otra con lápiz labial que represente su personalidad"
   },
   {
-    "id": 12,
-    "type": "reto",
-    "text": "Demuestra cómo es tu 'cara de orgasmo falso' más convincente"
-  },
-  {
-    "id": 13,
-    "type": "reto",
-    "text": "Canta una canción de amor... reemplazando todas las palabras por 'pizza'"
-  },
-  {
-    "id": 14,
-    "type": "reto",
+    "id": 10,
     "text": "Con los ojos vendados, identifica cosméticos solo por el olor (tienes 3 intentos)"
   },
   {
-    "id": 15,
-    "type": "reto",
+    "id": 11,
     "text": "Haz una sesión de fotos 'para Instagram' con los objetos más absurdos de la habitación"
   },
   {
-    "id": 16,
-    "type": "reto",
-    "text": "Improvisa un discurso de aceptación de premio por 'Peor decisión amorosa del año'"
-  },
-  {
-    "id": 17,
-    "type": "reto",
+    "id": 12,
     "text": "Con una toalla como vestido, recrea una escena dramática de telenovela"
   },
   {
-    "id": 18,
-    "type": "reto",
-    "text": "Escribe un mensaje de break-up en una servilleta para tu ex imaginario"
-  },
-  {
-    "id": 19,
-    "type": "reto",
-    "text": "Haz un horóscopo inventado para el amor esta semana (¡sé lo más dramática posible!)"
-  },
-  {
-    "id": 20,
-    "type": "reto",
-    "text": "Crea un baile tonto que represente cómo lidias con los mensajes de un ex"
-  },
-  {
-    "id": 21,
-    "type": "reto",
+    "id": 13,
     "text": "Haz un tutorial de 'Cómo fingir que entiendes de vinos' con una botella de agua"
   },
   {
-    "id": 22,
-    "type": "reto",
+    "id": 14,
     "text": "Con papel higiénico, diseña el vestido de novia más extravagante para otra del grupo"
   },
   {
-    "id": 23,
-    "type": "reto",
+    "id": 15,
     "text": "Actúa de forma exagerada, exigiendo hablar con el gerente... pero por algo completamente absurdo"
   },
   {
-    "id": 24,
-    "type": "reto",
-    "text": "Graba un TikTok explicando por qué los hombres no entienden las indirectas (sin mostrar tu cara)"
-  },
-  {
-    "id": 25,
-    "type": "reto",
+    "id": 16,
     "text": "Con los ojos cerrados, dibuja a una chica del grupo"
   },
   {
-    "id": 26,
-    "type": "reto",
+    "id": 17,
     "text": "Finge ser una psíquica y haz una predicción del amor de otra chica del grupo"
   },
   {
-    "id": 27,
-    "type": "reto",
+    "id": 18,
     "text": "Haz una demostración de 'Cómo caminar sexy'"
   },
   {
-    "id": 28,
-    "type": "reto",
+    "id": 19,
     "text": "Tomate una selfie con tu peor perfil"
   },
   {
+    "id": 20,
+    "text": "Actúa como si fueras una influencer de fitness promoviendo ejercicios para el desamor"
+  },
+  {
+    "id": 21,
+    "text": "Haz un tutorial de maquillaje usando solo crayones o lápices de colores"
+  },
+  {
+    "id": 22,
+    "text": "Crea un 'look de fiesta' con lo que tengas a mano y modela por la habitación"
+  },
+  {
+    "id": 23,
+    "text": "Inventa un baile de TikTok que represente 'amigas antes que amores'"
+  },
+  {
+    "id": 24,
+    "text": "Con los ojos vendados, identifica productos de belleza por su textura"
+  },
+  {
+    "id": 25,
+    "text": "Haz un anuncio publicitario para 'pijamas anti-hombres'"
+  },
+  {
+    "id": 26,
+    "text": "Crea una coreografía con 3 movimientos que representen la amistad femenina"
+  },
+  {
+    "id": 27,
+    "text": "Con una sábana, diseña un 'vestido de alfombra roja' y desfila"
+  },
+  {
+    "id": 28,
+    "text": "Imita a una celebridad femenina haciendo su rutina de skincare más exagerada"
+  },
+  {
     "id": 29,
-    "type": "reto",
-    "text": "Inventa y canta una canción de despecho"
+    "text": "Haz un podcast en vivo sobre 'los peores consejos que nos dio nuestra mamá sobre hombres'"
   },
   {
     "id": 30,
-    "type": "reto",
-    "text": "Actúa como si fueras una influencer de fitness promoviendo ejercicios para el desamor"
+    "text": "Con papel aluminio, crea joyería de 'emergencia para una cita'"
+  },
+  {
+    "id": 31,
+    "text": "Actúa como una chef de pastelería presentando el 'postre que cura corazones rotos'"
+  },
+  {
+    "id": 32,
+    "text": "Inventa un lenguaje de señas secreto para comunicarte con tus amigas en fiestas aburridas"
+  },
+  {
+    "id": 33,
+    "text": "Con una bufanda, haz un tutorial de 'nudos para diferentes estados de ánimo'"
+  },
+  {
+    "id": 34,
+    "text": "Crea una rutina de ejercicios ridícula para 'fortalecer el ego después de un ghosteo'"
+  },
+  {
+    "id": 35,
+    "text": "Haz un comercial para 'gafas que ven red flags'"
+  },
+  {
+    "id": 36,
+    "text": "Con los ojos cerrados, aplica lápiz labial a otra chica del grupo"
+  },
+  {
+    "id": 37,
+    "text": "Inventa un himno feminista usando la melodía de una canción infantil"
+  },
+  {
+    "id": 38,
+    "text": "Haz un desfile de modas con ropa puesta al revés"
+  },
+  {
+    "id": 39,
+    "text": "Con tres objetos, crea un 'kit de supervivencia para citas desastrosas'"
+  },
+  {
+    "id": 40,
+    "text": "Actúa como una terapeuta dando consejos para 'superar el miedo a soltería'"
+  },
+  {
+    "id": 41,
+    "text": "Haz un tutorial de autodefensa contra comentarios machistas en reuniones familiares"
+  },
+  {
+    "id": 42,
+    "text": "Crea un baile que represente 'cuando tu amiga te dice que su ex la volvió a llamar'"
+  },
+  {
+    "id": 43,
+    "text": "Con servilletas, diseña sombreros para cada chica según su personalidad"
+  },
+  {
+    "id": 44,
+    "text": "Inventa una rutina de yoga para 'desintoxicarse de malas vibras amorosas'"
+  },
+  {
+    "id": 45,
+    "text": "Haz un anuncio de radio para 'curso intensivo de cómo dejar de stalkear a tu ex'"
+  },
+  {
+    "id": 46,
+    "text": "Con una toalla, demuestra 'poses de selfie para esconder que lloraste'"
+  },
+  {
+    "id": 47,
+    "text": "Crea una coreografía para la canción que pondrías en un girls' night"
+  },
+  {
+    "id": 48,
+    "text": "Haz un tutorial de 'cómo caminar con seguridad aunque tengas los tacones rotos'"
+  },
+  {
+    "id": 49,
+    "text": "Inventa un lenguaje de emojis secreto para describir tipos de hombres"
+  },
+  {
+    "id": 50,
+    "text": "Con una manta, crea un 'refugio anti-parejas empalagosas en redes sociales'"
+  },
+  {
+    "id": 51,
+    "text": "Actúa como una influencer enseñando 'cómo tomar fotos que hagan creer que tienes vida emocionante'"
+  },
+  {
+    "id": 52,
+    "text": "Haz un comercial para 'crema anti-arrugas de preocuparse por hombres que no valen la pena'"
+  },
+  {
+    "id": 53,
+    "text": "Con los ojos vendados, haz un peinado a otra chica"
+  },
+  {
+    "id": 54,
+    "text": "Inventa una rutina de skincare para 'piel afectada por lágrimas de desamor'"
+  },
+  {
+    "id": 55,
+    "text": "Crea un baile que represente 'cuando tu amiga necesita que la rescates de una cita mala'"
+  },
+  {
+    "id": 56,
+    "text": "Haz un tutorial de 'cómo sonreír en fotos familiares cuando te preguntan por tu soltería'"
+  },
+  {
+    "id": 57,
+    "text": "Con periódico, diseña un 'traje de poder para entrevistas de trabajo'"
+  },
+  {
+    "id": 58,
+    "text": "Inventa un himno para 'noches de chicas sin hablar de hombres'"
+  },
+  {
+    "id": 59,
+    "text": "Haz un comercial para 'alarma que suena cuando un hombre dice \"no eres como las otras chicas\"'"
+  },
+  {
+    "id": 60,
+    "text": "Con objetos de la mesa, crea un 'altar a la amistad femenina' y haz una ceremonia"
   }
 ]

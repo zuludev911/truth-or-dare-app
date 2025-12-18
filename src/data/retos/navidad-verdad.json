@@ -1,152 +1,202 @@
 [
   {
     "id": 1,
-    "type": "verdad",
     "text": "¿Cuál es el peor regalo que has recibido en Navidad y fingiste que te encantaba?"
   },
   {
     "id": 2,
-    "type": "verdad",
     "text": "¿Qué tradición navideña de tu familia es la más rara o divertida?"
   },
   {
     "id": 3,
-    "type": "verdad",
     "text": "¿Alguna vez has reenviado un regalo que no te gustó? ¿A quién se lo diste?"
   },
   {
     "id": 4,
-    "type": "verdad",
     "text": "¿Qué comida navideña detestas pero comes por educación?"
   },
   {
     "id": 5,
-    "type": "verdad",
     "text": "¿Cuál ha sido tu mayor desastre cocinando para Navidad?"
   },
   {
     "id": 6,
-    "type": "verdad",
     "text": "¿Qué villancico cantas en la ducha aunque no sepas toda la letra?"
   },
   {
     "id": 7,
-    "type": "verdad",
     "text": "¿Alguna vez te has dormido en medio de la cena navideña familiar?"
   },
   {
     "id": 8,
-    "type": "verdad",
     "text": "¿Qué pariente tiene la risa más contagiosa en las fiestas?"
   },
   {
     "id": 9,
-    "type": "verdad",
     "text": "¿Cuál es tu película navideña favorita que ves todos los años?"
   },
   {
     "id": 10,
-    "type": "verdad",
     "text": "¿Has llegado a comer tanto en Navidad que tuviste que desabrocharte el pantalón?"
   },
   {
     "id": 11,
-    "type": "verdad",
     "text": "¿Qué mentira inocente le dijiste a un niño sobre Santa Claus o los Reyes Magos?"
   },
   {
     "id": 12,
-    "type": "verdad",
     "text": "¿Cuál ha sido el mejor regalo que has hecho y por qué fue especial?"
   },
   {
     "id": 13,
-    "type": "verdad",
     "text": "¿Alguna vez has quemado el pavo o algún plato importante de la cena?"
   },
   {
     "id": 14,
-    "type": "verdad",
     "text": "¿Qué adorno navideño se rompe cada año en tu casa sin falta?"
   },
   {
     "id": 15,
-    "type": "verdad",
     "text": "¿Cuál es tu recuerdo navideño más gracioso de la infancia?"
   },
   {
     "id": 16,
-    "type": "verdad",
     "text": "¿Alguna vez has comido galletas de Santa que dejaron los niños y luego culpaste a un ratón?"
   },
   {
     "id": 17,
-    "type": "verdad",
     "text": "¿Qué pariente siempre llega tarde a la cena navideña y tiene la excusa más creativa?"
   },
   {
     "id": 18,
-    "type": "verdad",
     "text": "¿Cuál es el adorno navideño más feo que tienes que poner por compromiso familiar?"
   },
   {
     "id": 19,
-    "type": "verdad",
     "text": "¿Has fingido estar enfermo para evitar una reunión navideña? ¿Qué excusa usaste?"
   },
   {
     "id": 20,
-    "type": "verdad",
     "text": "¿Qué canción navideña tarareas sin darte cuenta hasta que alguien te lo hace notar?"
   },
   {
     "id": 21,
-    "type": "verdad",
     "text": "¿Alguna vez te has equivocado de regalo y se lo diste a la persona incorrecta?"
   },
   {
     "id": 22,
-    "type": "verdad",
     "text": "¿Qué miembro de la familia hace el brindis más largo y aburrido cada año?"
   },
   {
     "id": 23,
-    "type": "verdad",
     "text": "¿Has reutilizado papel de regalo de un regalo que recibiste? ¿Te descubrieron?"
   },
   {
     "id": 24,
-    "type": "verdad",
     "text": "¿Cuál es la peor foto navideña familiar que te han obligado a tomar?"
   },
   {
     "id": 25,
-    "type": "verdad",
     "text": "¿Qué platillo navideño siempre sobra en tu casa y terminas comiendo por días?"
   },
   {
     "id": 26,
-    "type": "verdad",
     "text": "¿Alguna vez has roto un adorno valioso y lo escondiste como si nada hubiera pasado?"
   },
   {
     "id": 27,
-    "type": "verdad",
     "text": "¿Qué pariente insiste en abrazar a todo el mundo aunque claramente no quieren?"
   },
   {
     "id": 28,
-    "type": "verdad",
     "text": "¿Has recibido el mismo regalo dos años seguidos? ¿Qué hiciste con el segundo?"
   },
   {
     "id": 29,
-    "type": "verdad",
     "text": "¿Cuál es la historia más repetida en tus reuniones familiares que todos se saben de memoria?"
   },
   {
     "id": 30,
-    "type": "verdad",
     "text": "¿Qué tradición navideña te gustaría eliminar para siempre y por qué?"
+  },
+  {
+    "id": 31,
+    "text": "¿Qué pariente siempre pone demasiada pimienta/picante en la comida navideña y nadie se atreve a decirle?"
+  },
+  {
+    "id": 32,
+    "text": "¿Alguna vez has rellenado el pavo o algún plato y te has dado cuenta que olvidaste un ingrediente importante?"
+  },
+  {
+    "id": 33,
+    "text": "¿Qué canción navideña odias tanto que cambias de estación de radio cuando la ponen?"
+  },
+  {
+    "id": 34,
+    "text": "¿Has comprado un regalo de último minuto en una gasolinera o tienda 24 horas? ¿Qué era?"
+  },
+  {
+    "id": 35,
+    "text": "¿Qué miembro de la familia siempre olvida traer algo a la cena y todos lo esperan?"
+  },
+  {
+    "id": 36,
+    "text": "¿Alguna vez has hecho trampa en un juego de mesa familiar navideño? ¿Cómo?"
+  },
+  {
+    "id": 37,
+    "text": "¿Qué niño de la familia es el más travieso abriendo regalos antes de tiempo?"
+  },
+  {
+    "id": 38,
+    "text": "¿Has tenido que compartir cama o sofá con algún pariente durante las fiestas? ¿Con quién fue más incómodo?"
+  },
+  {
+    "id": 39,
+    "text": "¿Qué tradición navideña empezaste tú que ahora todos esperan cada año?"
+  },
+  {
+    "id": 40,
+    "text": "¿Alguna vez has puesto el árbol de Navidad tan tarde que casi coincide con Año Nuevo?"
+  },
+  {
+    "id": 41,
+    "text": "¿Qué pariente siempre cuenta el mismo chiste malo en cada reunión navideña?"
+  },
+  {
+    "id": 42,
+    "text": "¿Has encontrado un regalo escondido antes de Navidad y fingiste sorprenderte al abrirlo?"
+  },
+  {
+    "id": 43,
+    "text": "¿Qué familiar es el rey/la reina de los regalos prácticos pero aburridos (como calcetines o toallas)?"
+  },
+  {
+    "id": 44,
+    "text": "¿Alguna vez has tenido una discusión familiar por algo trivial como quién pone el adorno en la punta del árbol?"
+  },
+  {
+    "id": 45,
+    "text": "¿Qué pariente se queda dormido primero en el sofá después de la cena navideña?"
+  },
+  {
+    "id": 46,
+    "text": "¿Has tenido que 'rescatar' a un familiar de una conversación aburrida con otro pariente? ¿Cómo lo hiciste?"
+  },
+  {
+    "id": 47,
+    "text": "¿Qué decoración navideña vecinal es tan exagerada que se convierte en chiste familiar cada año?"
+  },
+  {
+    "id": 48,
+    "text": "¿Alguna vez has recibido un regalo tan grande que no sabías dónde ponerlo en tu casa?"
+  },
+  {
+    "id": 49,
+    "text": "¿Qué familiar siempre se ofrece a lavar los platos pero termina rompiendo algo?"
+  },
+  {
+    "id": 50,
+    "text": "¿Cuál es la historia más embarazosa de tu infancia que tu familia revive en cada Navidad?"
   }
 ]

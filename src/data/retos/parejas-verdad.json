@@ -1,277 +1,222 @@
 [
   {
     "id": 1,
-    "type": "verdad",
     "text": "¿Qué fue lo primero que pensaste cuando me viste?"
   },
   {
-    "id": 3,
-    "type": "verdad",
+    "id": 2,
     "text": "¿Qué es lo que más te molesta de mí?"
   },
   {
-    "id": 5,
-    "type": "verdad",
+    "id": 3,
     "text": "¿Alguna vez has fantaseado con alguien más estando conmigo?"
   },
   {
-    "id": 7,
-    "type": "verdad",
+    "id": 4,
     "text": "¿Qué es lo más loco que has hecho por amor?"
   },
   {
-    "id": 9,
-    "type": "verdad",
+    "id": 5,
     "text": "¿Cuál ha sido nuestro peor momento juntos?"
   },
   {
-    "id": 11,
-    "type": "verdad",
+    "id": 6,
     "text": "¿Qué cambiarías de nuestra relación?"
   },
   {
-    "id": 13,
-    "type": "verdad",
+    "id": 7,
     "text": "¿Qué es lo más raro que te gusta de mí?"
   },
   {
-    "id": 15,
-    "type": "verdad",
+    "id": 8,
     "text": "¿Alguna vez has revisado mi celular a escondidas?"
   },
   {
-    "id": 17,
-    "type": "verdad",
+    "id": 9,
     "text": "¿Qué no sabes de mí pero te gustaría descubrir?"
   },
   {
-    "id": 19,
-    "type": "verdad",
+    "id": 10,
     "text": "¿Qué mentira me has dicho?"
   },
   {
-    "id": 21,
-    "type": "verdad",
+    "id": 11,
     "text": "¿Qué momento juntos te hizo sentir más orgullos@ de nuestra relación?"
   },
   {
-    "id": 22,
-    "type": "verdad",
+    "id": 12,
     "text": "Si tuvieras que describir nuestra relación con una película, ¿cuál sería y por qué?"
   },
   {
-    "id": 23,
-    "type": "verdad",
+    "id": 13,
     "text": "¿Qué hábito mío te encanta pero nunca me has dicho?"
   },
   {
-    "id": 24,
-    "type": "verdad",
+    "id": 14,
     "text": "¿Qué canción asocias conmigo y por qué?"
   },
   {
-    "id": 25,
-    "type": "verdad",
+    "id": 15,
     "text": "Si pudieras planear nuestra cita ideal, ¿qué incluiría (detalles específicos)?"
   },
   {
-    "id": 31,
-    "type": "verdad",
+    "id": 16,
     "text": "¿Qué detalle pequeño mío te parece inexplicablemente sexy?"
   },
   {
-    "id": 32,
-    "type": "verdad",
+    "id": 17,
     "text": "Si nuestra relación tuviera un soundtrack, ¿qué 3 canciones no podrían faltar y por qué?"
   },
   {
-    "id": 33,
-    "type": "verdad",
+    "id": 18,
     "text": "¿Qué tradición curiosa te gustaría que empezáramos juntos?"
   },
   {
-    "id": 34,
-    "type": "verdad",
+    "id": 19,
     "text": "¿Qué película o serie nos describe mejor como pareja?"
   },
   {
-    "id": 35,
-    "type": "verdad",
+    "id": 20,
     "text": "¿Qué outfit mío te vuelve loc@ y por qué?"
   },
   {
-    "id": 36,
-    "type": "verdad",
+    "id": 21,
     "text": "Si pudieras teleportarnos a cualquier lugar ahora mismo, ¿dónde iríamos y qué haríamos?"
   },
   {
-    "id": 37,
-    "type": "verdad",
+    "id": 22,
     "text": "¿Qué frase o gesto mío te derrite incluso cuando estás enojad@?"
   },
   {
-    "id": 38,
-    "type": "verdad",
+    "id": 23,
     "text": "¿Qué sueño o fantasía nuestra (no sexual) te gustaría cumplir este año?"
   },
   {
-    "id": 39,
-    "type": "verdad",
+    "id": 24,
     "text": "¿Qué app o red social mía revisarías si tuvieras acceso libre (y por qué)?"
   },
   {
-    "id": 40,
-    "type": "verdad",
+    "id": 25,
     "text": "Si mañana despertáramos intercambiando cuerpos, ¿qué sería lo primero que harías con el mío?"
   },
   {
-    "id": 51,
-    "type": "verdad",
+    "id": 26,
     "text": "¿Qué parte de mi personalidad te sorprendió gratamente cuando empezamos a salir?"
   },
   {
-    "id": 52,
-    "type": "verdad",
+    "id": 27,
     "text": "Si nuestra relación fuera un meme, ¿cuál sería y por qué?"
   },
   {
-    "id": 53,
-    "type": "verdad",
+    "id": 28,
     "text": "¿Qué mentira piadosa me sigues diciendo para no herir mis sentimientos?"
   },
   {
-    "id": 54,
-    "type": "verdad",
+    "id": 29,
     "text": "¿Qué cosa hago cuando creo que no estás mirando que te parece adorable?"
   },
   {
-    "id": 55,
-    "type": "verdad",
+    "id": 30,
     "text": "Si tuvieras que describir nuestro primer beso con un título de película, ¿cuál sería?"
   },
   {
-    "id": 56,
-    "type": "verdad",
+    "id": 31,
     "text": "¿Qué hábito mío has adoptado sin darte cuenta?"
   },
   {
-    "id": 57,
-    "type": "verdad",
+    "id": 32,
     "text": "¿Qué apodo me pondrías si tuvieras que usarlo frente a mis amigos?"
   },
   {
-    "id": 58,
-    "type": "verdad",
+    "id": 33,
     "text": "¿Qué momento nuestro te gustaría revivir en cámara lenta?"
   },
   {
-    "id": 59,
-    "type": "verdad",
+    "id": 34,
     "text": "¿Qué canción de amor odias pero finges que te gusta porque a mí me encanta?"
   },
   {
-    "id": 60,
-    "type": "verdad",
+    "id": 35,
     "text": "Si solo pudiéramos tener una foto juntos para el resto de nuestra vida, ¿cuál sería y por qué?"
   },
   {
-    "id": 61,
-    "type": "verdad",
+    "id": 36,
     "text": "¿Qué momento cotidiano juntos (como lavar platos o hacer mercado) te parece inexplicablemente romántico?"
   },
   {
-    "id": 62,
-    "type": "verdad",
+    "id": 37,
     "text": "Si nuestra relación tuviera un aroma, ¿qué olor sería y por qué?"
   },
   {
-    "id": 63,
-    "type": "verdad",
+    "id": 38,
     "text": "¿Qué cosa que hago sin pensar te hace sentir más amado/a?"
   },
   {
-    "id": 64,
-    "type": "verdad",
+    "id": 39,
     "text": "¿Qué error mío has aprendido a amar porque es parte de quién soy?"
   },
   {
-    "id": 65,
-    "type": "verdad",
+    "id": 40,
     "text": "Si tuvieras que describir nuestro amor con un sabor de helado, ¿cuál sería y por qué?"
   },
   {
-    "id": 66,
-    "type": "verdad",
+    "id": 41,
     "text": "¿Qué rasgo de personalidad mío te resultó chocante al principio pero ahora aprecias?"
   },
   {
-    "id": 67,
-    "type": "verdad",
+    "id": 42,
     "text": "¿Qué promesa de pareja hemos roto que en realidad nos benefició?"
   },
   {
-    "id": 68,
-    "type": "verdad",
+    "id": 43,
     "text": "Si pudiéramos intercambiar un talento o habilidad, ¿qué te gustaría que yo aprendiera de ti?"
   },
   {
-    "id": 69,
-    "type": "verdad",
+    "id": 44,
     "text": "¿Qué tradición familiar mía te gustaría incorporar a nuestra relación?"
   },
   {
-    "id": 70,
-    "type": "verdad",
+    "id": 45,
     "text": "Si nuestra relación fuera un libro, ¿qué capítulo estamos viviendo ahora y cómo terminaría la historia?"
   },
   {
-    "id": 71,
-    "type": "verdad",
+    "id": 46,
     "text": "¿Cuál es tu recuerdo favorito de nosotros dos?"
   },
   {
-    "id": 72,
-    "type": "verdad",
+    "id": 47,
     "text": "¿Qué es lo que más te atrae físicamente de mí?"
   },
   {
-    "id": 73,
-    "type": "verdad",
+    "id": 48,
     "text": "¿Hay algo de mí que cambiarías si pudieras?"
   },
   {
-    "id": 74,
-    "type": "verdad",
+    "id": 49,
     "text": "¿Cuál fue el momento en que supiste que me amabas?"
   },
   {
-    "id": 75,
-    "type": "verdad",
+    "id": 50,
     "text": "¿Qué es lo más sexy que he hecho sin darme cuenta?"
   },
   {
-    "id": 76,
-    "type": "verdad",
+    "id": 51,
     "text": "¿Cuál es tu mayor inseguridad en nuestra relación?"
   },
   {
-    "id": 77,
-    "type": "verdad",
+    "id": 52,
     "text": "¿Qué es lo que más te gusta cuando hacemos el amor?"
   },
   {
-    "id": 78,
-    "type": "verdad",
+    "id": 53,
     "text": "¿Cuál es tu lugar favorito para besarme?"
   },
   {
-    "id": 79,
-    "type": "verdad",
+    "id": 54,
     "text": "¿Qué me dirías si supieras que mañana no nos volvemos a ver?"
   },
   {
-    "id": 80,
-    "type": "verdad",
+    "id": 55,
     "text": "¿Cuál es tu sueño más grande para nuestro futuro juntos?"
   }
 ]
