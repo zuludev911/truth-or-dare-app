@@ -1,277 +1,242 @@
 [
   {
     "id": 1,
-    "type": "verdad",
     "text": "¿Cuál es el peor hábito que tienes y tus amigos odian?"
   },
   {
-    "id": 3,
-    "type": "verdad",
+    "id": 2,
     "text": "¿Alguna vez has contado un secreto que te confiaron?"
   },
   {
-    "id": 5,
-    "type": "verdad",
+    "id": 3,
     "text": "¿Qué es lo más vergonzoso que has hecho por quedar bien con alguien?"
   },
   {
-    "id": 7,
-    "type": "verdad",
+    "id": 4,
     "text": "¿Quién del grupo te cae peor y por qué?"
   },
   {
-    "id": 9,
-    "type": "verdad",
+    "id": 5,
     "text": "¿Qué mentira le has dicho a tus amigos y nunca se enteraron?"
   },
   {
-    "id": 11,
-    "type": "verdad",
-    "text": "¿Qué es lo más raro que has buscado en Internet?"
-  },
-  {
-    "id": 13,
-    "type": "verdad",
+    "id": 6,
     "text": "¿Alguna vez te han gustado dos amigos del mismo grupo?"
   },
   {
-    "id": 15,
-    "type": "verdad",
-    "text": "¿Qué es lo más tóxico que has hecho en una relación?"
-  },
-  {
-    "id": 17,
-    "type": "verdad",
+    "id": 7,
     "text": "¿Qué cosa de ti crees que tus amigos critican a tus espaldas?"
   },
   {
-    "id": 19,
-    "type": "verdad",
-    "text": "¿Qué persona famosa te gustaría que fuera tu pareja?"
-  },
-  {
-    "id": 21,
-    "type": "verdad",
+    "id": 8,
     "text": "¿Cuál es el mayor elogio que has recibido y nunca olvidaste?"
   },
   {
-    "id": 22,
-    "type": "verdad",
+    "id": 9,
     "text": "Si tuvieras que elegir a un amigo para sobrevivir en una isla desierta, ¿a quién escogerías y por qué?"
   },
   {
-    "id": 23,
-    "type": "verdad",
+    "id": 10,
     "text": "¿Alguna vez has fingido estar enfermo para evitar un plan con amigos?"
   },
   {
-    "id": 24,
-    "type": "verdad",
-    "text": "¿Qué app usas en secreto y no quieres que tus amigos sepan?"
-  },
-  {
-    "id": 25,
-    "type": "verdad",
-    "text": "Si pudieras borrar un recuerdo de tu mente, ¿cuál sería y por qué?"
-  },
-  {
-    "id": 31,
-    "type": "verdad",
+    "id": 11,
     "text": "¿Qué cosa 'inocente' has hecho que podría malinterpretarse como algo turbio?"
   },
   {
-    "id": 32,
-    "type": "verdad",
+    "id": 12,
     "text": "Si tuvieras que vender a un amigo del grupo, ¿a quién subastarías y qué dirías para promocionarlo?"
   },
   {
-    "id": 33,
-    "type": "verdad",
+    "id": 13,
     "text": "¿Cuál es el rumor más absurdo que has escuchado sobre ti mismo?"
   },
   {
-    "id": 34,
-    "type": "verdad",
+    "id": 14,
     "text": "¿Qué cosa ridícula has hecho solo por seguir una tendencia en redes?"
   },
   {
-    "id": 35,
-    "type": "verdad",
+    "id": 15,
     "text": "Si el grupo fuera una familia de mafiosos, ¿qué rol tendría cada uno (y por qué serías tú el/la traidor/a)?"
   },
   {
-    "id": 41,
-    "type": "verdad",
+    "id": 16,
     "text": "¿Qué miembro del grupo sería el peor compañero de cuarto y por qué?"
   },
   {
-    "id": 42,
-    "type": "verdad",
+    "id": 17,
     "text": "Si el grupo formara una banda, ¿qué instrumento tocaría cada uno y qué nombre tendrían?"
   },
   {
-    "id": 43,
-    "type": "verdad",
+    "id": 18,
     "text": "¿Qué meme o chiste interno del grupo nunca debería morir?"
   },
   {
-    "id": 44,
-    "type": "verdad",
+    "id": 19,
     "text": "¿Qué apodo vergonzoso te pusieron de niño que nadie aquí conoce?"
   },
   {
-    "id": 45,
-    "type": "verdad",
+    "id": 20,
     "text": "Si pudieras eliminar una palabra del vocabulario de un amigo del grupo, ¿cuál sería y por qué?"
   },
   {
-    "id": 51,
-    "type": "verdad",
-    "text": "¿Qué miembro del grupo sería el mejor actor porno y por qué? (basado en personalidad, no en apariencia)"
-  },
-  {
-    "id": 52,
-    "type": "verdad",
+    "id": 21,
     "text": "Si tuvieras que elegir un amigo para aparecer en un reality show de vergüenzas, ¿a quién escogerías y por qué?"
   },
   {
-    "id": 53,
-    "type": "verdad",
+    "id": 22,
     "text": "¿Cuál es la mentira más elaborada que le has hecho creer a tus amigos?"
   },
   {
-    "id": 54,
-    "type": "verdad",
+    "id": 23,
     "text": "¿Qué cosa 'normal' haces cuando estás solo que nunca admitirías en público?"
   },
   {
-    "id": 55,
-    "type": "verdad",
+    "id": 24,
     "text": "Si el grupo tuviera que recrear una escena de Titanic, ¿quién sería Jack y quién Rose (y por qué morirían de forma ridícula)?"
   },
   {
-    "id": 56,
-    "type": "verdad",
-    "text": "¿Qué canción infantil te pone de mal humor inexplicablemente?"
-  },
-  {
-    "id": 57,
-    "type": "verdad",
+    "id": 25,
     "text": "¿Qué miembro del grupo sería el peor presidente del mundo y qué ley absurda implementaría?"
   },
   {
-    "id": 58,
-    "type": "verdad",
+    "id": 26,
     "text": "¿Qué hábito de tus amigos te provoca ganas de gritar pero nunca lo has dicho?"
   },
   {
-    "id": 59,
-    "type": "verdad",
+    "id": 27,
     "text": "Si tus amigos fueran tus hijos, ¿qué rasgo tuyo heredarían que los arruinaría?"
   },
   {
-    "id": 60,
-    "type": "verdad",
+    "id": 28,
     "text": "¿Qué cosa totalmente inútil guardas 'por si acaso' que revelaría lo desastre que eres?"
   },
   {
-    "id": 61,
-    "type": "verdad",
+    "id": 29,
     "text": "¿Qué miembro del grupo sería el peor consejero sentimental y por qué?"
   },
   {
-    "id": 62,
-    "type": "verdad",
+    "id": 30,
     "text": "Si tuvieras que intercambiar cuerpos con un amigo por una semana, ¿a quién elegirías y qué harías?"
   },
   {
-    "id": 63,
-    "type": "verdad",
+    "id": 31,
     "text": "¿Qué conversación grupal te hizo pensar: 'Nunca debí haber abierto la boca'?"
   },
   {
-    "id": 64,
-    "type": "verdad",
+    "id": 32,
     "text": "¿Qué foto comprometedora tienes de algún amigo que nunca has compartido?"
   },
   {
-    "id": 65,
-    "type": "verdad",
+    "id": 33,
     "text": "Si el grupo fuera arrestado, ¿cuál sería el motivo más probable para tu detención?"
   },
   {
-    "id": 66,
-    "type": "verdad",
+    "id": 34,
     "text": "¿Qué mentira has mantenido por años que todos creen pero nadie ha verificado?"
   },
   {
-    "id": 67,
-    "type": "verdad",
+    "id": 35,
     "text": "¿Qué miembro del grupo sería el más molesto si fueran roommates y por qué?"
   },
   {
-    "id": 68,
-    "type": "verdad",
+    "id": 36,
     "text": "¿Qué excusa ridícula has usado para cancelar planes que todos sabían era falsa?"
   },
   {
-    "id": 69,
-    "type": "verdad",
+    "id": 37,
     "text": "Si pudieras eliminar un recuerdo vergonzoso de la mente de todos los presentes, ¿cuál sería?"
   },
   {
-    "id": 70,
-    "type": "verdad",
+    "id": 38,
     "text": "¿Qué cosa 'normal' hace el grupo que los haría parecer psicópatas si los vieran hacerlo en público?"
   },
   {
-    "id": 71,
-    "type": "verdad",
+    "id": 39,
     "text": "¿Qué miembro del grupo sería el peor en un apocalipsis zombie y por qué sería el primero en morir?"
   },
   {
-    "id": 72,
-    "type": "verdad",
-    "text": "¿Cuál es la cosa más ridícula por la que has llorado y nadie del grupo lo sabe?"
-  },
-  {
-    "id": 73,
-    "type": "verdad",
+    "id": 40,
     "text": "Si tuvieras que elegir alguien del grupo para que fuera tu cita en una boda familiar, ¿quién causaría menos escándalo?"
   },
   {
-    "id": 74,
-    "type": "verdad",
+    "id": 41,
     "text": "¿Qué pensamiento random tienes sobre cada persona del grupo que nunca has dicho en voz alta?"
   },
   {
-    "id": 75,
-    "type": "verdad",
-    "text": "¿Qué canción secreta tienes que te da vergüenza admitir que te gusta?"
-  },
-  {
-    "id": 76,
-    "type": "verdad",
+    "id": 42,
     "text": "¿Qué miembro del grupo sería el peor para cuidar una planta y cómo la mataría?"
   },
   {
-    "id": 77,
-    "type": "verdad",
+    "id": 43,
     "text": "¿Cuál es la mentira más estúpida que has dicho para impresionar a alguien?"
   },
   {
-    "id": 78,
-    "type": "verdad",
+    "id": 44,
     "text": "Si el grupo fuera un equipo de superhéroes, ¿cuál sería tu poder inútil y el de cada uno?"
   },
   {
-    "id": 79,
-    "type": "verdad",
-    "text": "¿Qué cosa vergonzosa has googled pensando que nadie se enteraría?"
+    "id": 45,
+    "text": "¿Qué amigo del grupo sería el peor para elegir como padrino/madrina de boda y por qué arruinaría el evento?"
   },
   {
-    "id": 80,
-    "type": "verdad",
-    "text": "¿Qué amigo del grupo sería el peor para elegir como padrino/madrina de boda y por qué arruinaría el evento?"
+    "id": 46,
+    "text": "¿Qué talento inútil tienes que solo sacas en fiestas para impresionar a gente que no conoces?"
+  },
+  {
+    "id": 47,
+    "text": "Si cada miembro del grupo fuera un tipo de desastre natural, ¿cuál sería cada uno (y tú qué catástrofe causarías)?"
+  },
+  {
+    "id": 48,
+    "text": "¿Qué conversación grupal fue tan divertida que te dolió la panza de reír y nunca olvidarás?"
+  },
+  {
+    "id": 49,
+    "text": "¿Qué crees que dirían tus amigos si tuvieran que describirte usando solo 3 emojis?"
+  },
+  {
+    "id": 50,
+    "text": "Si tuvieras que hacer un reality show sobre este grupo, ¿qué drama inventarías para aumentar el rating?"
+  },
+  {
+    "id": 51,
+    "text": "¿Qué cosa 'normal' del grupo extrañarías más si mañana se mudaran todos a diferentes países?"
+  },
+  {
+    "id": 52,
+    "text": "¿Qué apodo merece cada persona del grupo basado en su peor hábito (y cuál sería el tuyo)?"
+  },
+  {
+    "id": 53,
+    "text": "Si pudieras robar una sola cualidad de cada amigo aquí presente, ¿qué tomarías de quién?"
+  },
+  {
+    "id": 54,
+    "text": "¿Qué foto o video del grupo es tan vergonzoso que si se hiciera viral arruinaría la vida de alguien?"
+  },
+  {
+    "id": 55,
+    "text": "Si tuvieras que sobrevivir una semana con solo 3 personas del grupo, ¿a quiénes elegirías y por qué dejarías fuera a los demás?"
+  },
+  {
+    "id": 56,
+    "text": "¿Qué cosa que haces en secreto crees que haría que tus amigos te miraran diferente si lo supieran?"
+  },
+  {
+    "id": 57,
+    "text": "Si cada persona del grupo fuera un sabor de helado, ¿cuál sería cada uno y por qué tú serías el más extraño?"
+  },
+  {
+    "id": 58,
+    "text": "¿Qué situación incómoda has presenciado entre dos amigos que nunca comentaste con nadie?"
+  },
+  {
+    "id": 59,
+    "text": "Si pudieras cambiar un rasgo de personalidad de cada amigo, ¿qué modificarías y por qué?"
+  },
+  {
+    "id": 60,
+    "text": "¿Qué anécdota del grupo siempre exageras cuando la cuentas a otras personas y en qué la embelleces?"
   }
 ]

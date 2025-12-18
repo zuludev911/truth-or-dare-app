@@ -1,177 +1,242 @@
 [
   {
     "id": 1,
-    "type": "verdad",
     "text": "¿Cuál es el peor consejo que te dio una amiga?"
   },
   {
     "id": 2,
-    "type": "verdad",
     "text": "¿Qué outfit tuyo causó más miradas de otras mujeres (de admiración o envidia)?"
   },
   {
     "id": 3,
-    "type": "verdad",
-    "text": "¿Alguna vez has fingido un orgasmo con alguien?"
-  },
-  {
-    "id": 4,
-    "type": "verdad",
     "text": "¿Qué cosa 'inocente' has hecho que otras podrían considerar una jugada calculada?"
   },
   {
-    "id": 5,
-    "type": "verdad",
+    "id": 4,
     "text": "¿Cuál es el cumplido más raro que te han dicho?"
   },
   {
-    "id": 6,
-    "type": "verdad",
+    "id": 5,
     "text": "Si tuvieras que vender a tu mejor amiga en una cita, ¿qué destacarías de ella?"
   },
   {
-    "id": 7,
-    "type": "verdad",
+    "id": 6,
     "text": "¿Qué hábito masculino detestas pero finges tolerar?"
   },
   {
-    "id": 8,
-    "type": "verdad",
+    "id": 7,
     "text": "¿Cuál ha sido tu mayor desastre en una cita?"
   },
   {
-    "id": 9,
-    "type": "verdad",
-    "text": "¿Qué mentira le has dicho a tu ginecólogo/a por vergüenza?"
-  },
-  {
-    "id": 10,
-    "type": "verdad",
+    "id": 8,
     "text": "Si tu vida amorosa fuera un meme, ¿cuál sería?"
   },
   {
-    "id": 11,
-    "type": "verdad",
+    "id": 9,
     "text": "¿Qué cosa romántica te emociona mas?"
   },
   {
-    "id": 12,
-    "type": "verdad",
+    "id": 10,
     "text": "¿Cuál es el peor pecado de belleza que has cometido por pereza?"
   },
   {
-    "id": 13,
-    "type": "verdad",
+    "id": 11,
     "text": "¿Qué app de citas has usado en secreto y nunca lo admitirías en público?"
   },
   {
-    "id": 14,
-    "type": "verdad",
+    "id": 12,
     "text": "¿Qué canción pop vergonzosa te gusta para sentirte poderosa?"
   },
   {
-    "id": 15,
-    "type": "verdad",
-    "text": "Si fueras una diosa del amor, ¿cuál sería tu castigo divino para los hombres tontos?"
-  },
-  {
-    "id": 16,
-    "type": "verdad",
-    "text": "¿Qué consejo sexual le darías a tu yo de 18 años?"
-  },
-  {
-    "id": 17,
-    "type": "verdad",
+    "id": 13,
     "text": "¿Cuál es tu mayor talento femenino que nadie aprecia?"
   },
   {
-    "id": 18,
-    "type": "verdad",
+    "id": 14,
     "text": "¿Qué mentira has dicho sobre tu periodo para salir de una situación?"
   },
   {
-    "id": 19,
-    "type": "verdad",
+    "id": 15,
     "text": "¿Qué cosa 'de chicas' odias pero participas para no ser la rara del grupo?"
   },
   {
-    "id": 20,
-    "type": "verdad",
+    "id": 16,
     "text": "¿Cual seria el plan perfecto de chicas?"
   },
   {
-    "id": 21,
-    "type": "verdad",
+    "id": 17,
     "text": "¿A que lugar del mundo te gustaría viajar con tus amigas?"
   },
   {
-    "id": 22,
-    "type": "verdad",
-    "text": "¿Cual es tu tamaño ideal?"
-  },
-  {
-    "id": 23,
-    "type": "verdad",
-    "text": "¿Has tenido alguna experiencia lésbica? Si es así, ¿cual fue?"
-  },
-  {
-    "id": 24,
-    "type": "verdad",
+    "id": 18,
     "text": "¿Cual es la excusa mas ridícula que has usado para salir de una cita?"
   },
   {
-    "id": 25,
-    "type": "verdad",
-    "text": "¿Te consideras una amiga toxica?"
-  },
-  {
-    "id": 26,
-    "type": "verdad",
+    "id": 19,
     "text": "¿Cuál es la cosa más patética que has hecho por un chico que te gustaba?"
   },
   {
-    "id": 27,
-    "type": "verdad",
+    "id": 20,
     "text": "¿Qué amiga del grupo sería la peor para elegir como dama de honor y por qué?"
   },
   {
-    "id": 28,
-    "type": "verdad",
-    "text": "¿Cuál es tu mayor inseguridad física que nunca le dirías a nadie?"
-  },
-  {
-    "id": 29,
-    "type": "verdad",
-    "text": "¿Qué cosa de tu personalidad cambiarías para conseguir pareja?"
-  },
-  {
-    "id": 30,
-    "type": "verdad",
+    "id": 21,
     "text": "¿Cuál es el peor regalo que te ha dado un ex y fingiste que te gustó?"
   },
   {
-    "id": 31,
-    "type": "verdad",
+    "id": 22,
     "text": "¿Qué amiga del grupo tiene el peor gusto para los hombres y por qué?"
   },
   {
-    "id": 32,
-    "type": "verdad",
+    "id": 23,
     "text": "¿Cuál es la mentira más grande que has dicho sobre tu número de parejas sexuales?"
   },
   {
-    "id": 33,
-    "type": "verdad",
+    "id": 24,
     "text": "¿Qué producto de belleza compras en secreto que te da vergüenza admitir?"
   },
   {
-    "id": 34,
-    "type": "verdad",
+    "id": 25,
     "text": "¿Cuál es tu mayor drama familiar que nunca le has contado a tus amigas?"
   },
   {
+    "id": 26,
+    "text": "¿Qué talento oculto tienes que solo muestras cuando estás con tus amigas más cercanas?"
+  },
+  {
+    "id": 27,
+    "text": "Si tuvieras que describir a cada amiga aquí con un tipo de café, ¿cuál sería cada una?"
+  },
+  {
+    "id": 28,
+    "text": "¿Cuál es la película o serie que ves cuando necesitas un 'día de chicas' contigo misma?"
+  },
+  {
+    "id": 29,
+    "text": "¿Qué ritual de belleza extraño o poco convencional haces que funcionaría para todas?"
+  },
+  {
+    "id": 30,
+    "text": "Si fueran un grupo de superhéroes, ¿cuál sería el superpoder de cada una y qué nombre tendrían?"
+  },
+  {
+    "id": 31,
+    "text": "¿Qué canción femenina empoderadora te hace sentir invencible cuando la escuchas?"
+  },
+  {
+    "id": 32,
+    "text": "¿Cuál es el mejor consejo que una amiga te ha dado que cambió tu perspectiva?"
+  },
+  {
+    "id": 33,
+    "text": "¿Qué tradición de 'chicas' han creado juntas que deberían convertir en libro?"
+  },
+  {
+    "id": 34,
+    "text": "Si tuvieran que abrir un negocio juntas, ¿qué sería y por qué tendría éxito?"
+  },
+  {
     "id": 35,
-    "type": "verdad",
-    "text": "¿Qué cosa ridícula has hecho para vengarte de una ex amiga o ex pareja?"
+    "text": "¿Qué outfit te hace sentir más poderosa y por qué?"
+  },
+  {
+    "id": 36,
+    "text": "¿Cuál es la cosa más divertida que han hecho juntas que nunca contarían en una entrevista de trabajo?"
+  },
+  {
+    "id": 37,
+    "text": "Si cada una fuera un tipo de vino, ¿cuál sería cada una y por qué?"
+  },
+  {
+    "id": 38,
+    "text": "¿Qué habilidad de otra chica del grupo te gustaría tener y por qué?"
+  },
+  {
+    "id": 39,
+    "text": "¿Cuál es la historia más vergonzosa de tu adolescencia que ahora puedes reírte con tus amigas?"
+  },
+  {
+    "id": 40,
+    "text": "¿Qué cosa 'de chicas' te daba vergüenza antes pero ahora celebras?"
+  },
+  {
+    "id": 41,
+    "text": "Si tuvieran que hacer un viaje de chicas, ¿a dónde irían y qué harían el primer día?"
+  },
+  {
+    "id": 42,
+    "text": "¿Cuál es el cumplido más bonito que te ha dado otra mujer?"
+  },
+  {
+    "id": 43,
+    "text": "¿Qué serie o película de amigas se parece más a su grupo y por qué?"
+  },
+  {
+    "id": 44,
+    "text": "¿Qué lección importante aprendiste de una amiga que tu familia nunca te enseñó?"
+  },
+  {
+    "id": 45,
+    "text": "¿Cuál es su canción grupal no oficial y qué memoria especial tienen con ella?"
+  },
+  {
+    "id": 46,
+    "text": "Si tuvieran que escribir un libro sobre su amistad, ¿qué título tendría y de qué trataría?"
+  },
+  {
+    "id": 47,
+    "text": "¿Qué cosa ridícula han hecho juntas cuando estaban aburridas?"
+  },
+  {
+    "id": 48,
+    "text": "¿Cuál es la mejor cualidad de cada amiga aquí presente que admiras secretamente?"
+  },
+  {
+    "id": 49,
+    "text": "¿Qué tradición familiar femenina te encanta y quieres pasar a otras generaciones?"
+  },
+  {
+    "id": 50,
+    "text": "¿Cuál es la comida o bebida que siempre piden cuando están teniendo una noche de chicas?"
+  },
+  {
+    "id": 51,
+    "text": "¿Qué memes o videos internos del grupo todavía los hacen reír cada vez que los ven?"
+  },
+  {
+    "id": 52,
+    "text": "Si pudieras planear el día perfecto con tus amigas sin límite de presupuesto, ¿qué incluiría?"
+  },
+  {
+    "id": 53,
+    "text": "¿Qué momento juntas los hizo sentir más unidas como grupo de amigas?"
+  },
+  {
+    "id": 54,
+    "text": "¿Cuál es el peor error de moda o belleza que cometiste y tus amigas te salvaron de él?"
+  },
+  {
+    "id": 55,
+    "text": "Si cada una fuera un tipo de flor, ¿cuál sería cada una y por qué?"
+  },
+  {
+    "id": 56,
+    "text": "¿Qué película romántica o de comedia siempre ven juntas y conocen todos los diálogos?"
+  },
+  {
+    "id": 57,
+    "text": "¿Cuál es la cosa más dulce que una amiga ha hecho por ti sin que se lo pidieras?"
+  },
+  {
+    "id": 58,
+    "text": "Si fueran un grupo musical, ¿qué instrumento tocaría cada una y qué género harían?"
+  },
+  {
+    "id": 59,
+    "text": "¿Qué momento incómodo compartieron que ahora es una anécdota graciosa?"
+  },
+  {
+    "id": 60,
+    "text": "¿Cuál es la frase o dicho que siempre repiten cuando están juntas?"
   }
 ]

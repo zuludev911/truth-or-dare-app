@@ -1,267 +1,242 @@
 [
   {
-    "id": 2,
-    "type": "reto",
+    "id": 1,
     "text": "Bebe un vaso de agua sin usar las manos."
   },
   {
-    "id": 4,
-    "type": "reto",
+    "id": 2,
     "text": "Camina como modelo por la habitación."
   },
   {
-    "id": 6,
-    "type": "reto",
+    "id": 3,
     "text": "Haz 10 flexiones seguidas."
   },
   {
-    "id": 8,
-    "type": "reto",
+    "id": 4,
     "text": "Dibuja algo con los ojos cerrados y que el grupo adivine."
   },
   {
-    "id": 10,
-    "type": "reto",
+    "id": 5,
     "text": "Imita a un famoso hasta que alguien adivine."
   },
   {
-    "id": 12,
-    "type": "reto",
+    "id": 6,
     "text": "Come algo sin usar las manos."
   },
   {
-    "id": 14,
-    "type": "reto",
+    "id": 7,
     "text": "Habla con acento extranjero por 3 turnos."
   },
   {
-    "id": 16,
-    "type": "reto",
+    "id": 8,
     "text": "Haz un baile ridículo por 20 segundos."
   },
   {
-    "id": 18,
-    "type": "reto",
+    "id": 9,
     "text": "Dile a alguien por mensaje: 'Sé tu secreto'."
   },
   {
-    "id": 20,
-    "type": "reto",
-    "text": "Ponte hielo en la espalda por 10 segundos."
-  },
-  {
-    "id": 26,
-    "type": "reto",
+    "id": 10,
     "text": "Equilibra una cuchara en tu nariz durante 15 segundos."
   },
   {
-    "id": 27,
-    "type": "reto",
+    "id": 11,
     "text": "Escribe una palabra en el aire con el codo (¡el grupo debe adivinar qué escribiste!)."
   },
   {
-    "id": 28,
-    "type": "reto",
-    "text": "Sostén un cubo de hielo en tu mano hasta que se derrita por completo."
-  },
-  {
-    "id": 29,
-    "type": "reto",
+    "id": 12,
     "text": "Canta el abecedario en reversa lo más rápido que puedas."
   },
   {
-    "id": 30,
-    "type": "reto",
+    "id": 13,
     "text": "Deja que alguien del grupo te haga un peinado extravagante y exhibelo por 5 minutos."
   },
   {
-    "id": 36,
-    "type": "reto",
-    "text": "Intenta lamer tu codo (no importa si no puedes, ¡pero haz el intento dramático!)."
-  },
-  {
-    "id": 37,
-    "type": "reto",
+    "id": 14,
     "text": "Con una cuchara en la boca, di 'Cuchara de palo' 5 veces rápido."
   },
   {
-    "id": 38,
-    "type": "reto",
+    "id": 15,
     "text": "Usa calcetines en las manos y intenta abrir una botella o paquete de galletas."
   },
   {
-    "id": 39,
-    "type": "reto",
+    "id": 16,
     "text": "Con los ojos cerrados, adivina qué objeto del grupo te están poniendo en las manos (tienes 3 intentos)."
   },
   {
-    "id": 40,
-    "type": "reto",
+    "id": 17,
     "text": "Inventa un eslogan publicitario ridículo para el último miembro del grupo que habló."
   },
   {
-    "id": 46,
-    "type": "reto",
+    "id": 18,
     "text": "Con una moneda en la frente, intenta que caiga dentro de un vaso sin usar las manos."
   },
   {
-    "id": 47,
-    "type": "reto",
+    "id": 19,
     "text": "Con una mano en la cabeza y otra en el estómago, frota círculos en ambas mientras cantas 'Cumpleaños feliz'."
   },
   {
-    "id": 48,
-    "type": "reto",
+    "id": 20,
     "text": "Con una cuchara sostenida con los dientes, intenta recoger un objeto pequeño (ej: un garbanzo)."
   },
   {
-    "id": 49,
-    "type": "reto",
+    "id": 21,
     "text": "Con los ojos vendados, identifica a un miembro del grupo solo tocando su cabello (tienes 2 intentos)."
   },
   {
-    "id": 50,
-    "type": "reto",
+    "id": 22,
     "text": "Inventa un lenguaje alienígena y explica cómo pedirías pizza en él (el grupo debe adivinar)."
   },
   {
-    "id": 61,
-    "type": "reto",
+    "id": 23,
     "text": "Con una galleta en la frente, intenta que caiga en tu boca solo moviendo las cejas."
   },
   {
-    "id": 62,
-    "type": "reto",
+    "id": 24,
     "text": "Usa una escoba como guitarra y canta el coro de una canción inventada sobre 'la pésima suerte'."
   },
   {
-    "id": 63,
-    "type": "reto",
+    "id": 25,
     "text": "Con los ojos cerrados, dibuja un perro en una hoja mientras el grupo te da instrucciones absurdas."
   },
   {
-    "id": 64,
-    "type": "reto",
-    "text": "Intenta comer una cucharada de mantequilla de maní (o helado) sin usar las manos ni lengua."
-  },
-  {
-    "id": 65,
-    "type": "reto",
+    "id": 26,
     "text": "Con un calcetín en cada mano, intenta desdoblar un pañuelo facial."
   },
   {
-    "id": 66,
-    "type": "reto",
+    "id": 27,
     "text": "Actúa como si fueras un/a presentador/a de televentas vendiendo el objeto más aburrido de la habitación."
   },
   {
-    "id": 67,
-    "type": "reto",
-    "text": "Con una cuchara entre los dientes, intenta silbar 'Feliz cumpleaños'."
-  },
-  {
-    "id": 68,
-    "type": "reto",
+    "id": 28,
     "text": "Haz una 'escultura' con 3 objetos cercanos que represente tu personalidad y explícala."
   },
   {
-    "id": 69,
-    "type": "reto",
-    "text": "Con una mano en la cabeza y otra en el pie, salta en un pie mientras recitas el abecedario al revés."
-  },
-  {
-    "id": 70,
-    "type": "reto",
+    "id": 29,
     "text": "Envía un mensaje de voz a un contacto aleatorio diciendo: 'Confirmado: el dragón llegó al castillo'."
   },
   {
-    "id": 71,
-    "type": "reto",
+    "id": 30,
     "text": "Con una cuchara en cada mano, intenta aplaudir sin soltarlas (¡el sonido más ridículo gana!)."
   },
   {
-    "id": 72,
-    "type": "reto",
+    "id": 31,
     "text": "Imita a un animal mientras comes un snack sin reírte (el grupo adivina qué animal eres)."
   },
   {
-    "id": 73,
-    "type": "reto",
+    "id": 32,
     "text": "Con los ojos vendados, identifica 3 objetos comunes solo por el olfato (¡nada de zapatos sucios!)."
   },
   {
-    "id": 74,
-    "type": "reto",
+    "id": 33,
     "text": "Inventa un baile inspirado en un electrodoméstico (ej: la licuadora) y enséñaselo al grupo."
   },
   {
-    "id": 75,
-    "type": "reto",
+    "id": 34,
     "text": "Con un libro en la cabeza, camina en línea recta mientras recitas un trabalenguas."
   },
   {
-    "id": 76,
-    "type": "reto",
+    "id": 35,
     "text": "Usa una fruta como micrófono y canta una canción de amor... como si fueras un gallo."
   },
   {
-    "id": 77,
-    "type": "reto",
-    "text": "Con las manos dentro de camisetas (como muñones), intenta abrir una botella de agua."
-  },
-  {
-    "id": 78,
-    "type": "reto",
+    "id": 36,
     "text": "Escribe tu nombre en el suelo con el pie dominante, mientras mantienes equilibrio en un pie."
   },
   {
-    "id": 79,
-    "type": "reto",
-    "text": "Con una cinta adhesiva en la boca (sin sellarla), cuenta un chiste y que el grupo adivine."
-  },
-  {
-    "id": 80,
-    "type": "reto",
+    "id": 37,
     "text": "Envía un audio a un contacto aleatorio diciendo: 'El experimento salió mal... repito, SALIÓ MAL'."
   },
   {
-    "id": 81,
-    "type": "reto",
-    "text": "Haz 20 saltos de tijera mientras cantas el himno nacional."
-  },
-  {
-    "id": 83,
-    "type": "reto",
+    "id": 38,
     "text": "Equilibra tres objetos diferentes en tu cabeza mientras caminas por la habitación."
   },
   {
-    "id": 84,
-    "type": "reto",
+    "id": 39,
     "text": "Imita a tres animales diferentes y que el grupo adivine cuáles son."
   },
   {
-    "id": 85,
-    "type": "reto",
+    "id": 40,
     "text": "Con los ojos cerrados, dibuja la cara de alguien del grupo y que adivinen de quién es."
   },
   {
-    "id": 86,
-    "type": "reto",
+    "id": 41,
     "text": "Haz una torre con 10 objetos diferentes y mantenla en pie por 20 segundos."
   },
   {
-    "id": 88,
-    "type": "reto",
+    "id": 42,
     "text": "Inventa una historia de 1 minuto usando solo palabras que empiecen con la letra 'P'."
   },
   {
-    "id": 89,
-    "type": "reto",
-    "text": "Con las manos atadas atrás, intenta pelar una fruta con la boca."
+    "id": 43,
+    "text": "Haz una competencia de miradas con alguien del grupo por 2 minutos sin reír."
   },
   {
-    "id": 90,
-    "type": "reto",
-    "text": "Haz una competencia de miradas con alguien del grupo por 2 minutos sin reír."
+    "id": 44,
+    "text": "Con una cuchara en la nariz, intenta comer un snack de un plato"
+  },
+  {
+    "id": 45,
+    "text": "Haz un baile que imite a un robot con fallas técnicas"
+  },
+  {
+    "id": 46,
+    "text": "Con los ojos vendados, arma un rompecabezas de 4 piezas (que el grupo prepare)"
+  },
+  {
+    "id": 47,
+    "text": "Imita a un mime atrapado en una caja invisible por 30 segundos"
+  },
+  {
+    "id": 48,
+    "text": "Con una servilleta en cada pie, intenta escribir tu inicial en el suelo"
+  },
+  {
+    "id": 49,
+    "text": "Haz como si fueras un conductor de autobús anunciando paradas absurdas"
+  },
+  {
+    "id": 50,
+    "text": "Con una galleta salada en cada rodilla, camina sin que se caigan"
+  },
+  {
+    "id": 51,
+    "text": "Inventa un deporte nuevo usando solo un cojín y una botella vacía"
+  },
+  {
+    "id": 52,
+    "text": "Con los ojos cerrados, identifica a 3 personas del grupo solo por su voz"
+  },
+  {
+    "id": 53,
+    "text": "Haz un comercial de televisión para un producto que no existe"
+  },
+  {
+    "id": 54,
+    "text": "Con una pelota pequeña, haz malabares por 15 segundos (¡puedes usar cualquier parte del cuerpo!)"
+  },
+  {
+    "id": 55,
+    "text": "Imita a un personaje de dibujos animados hablando sobre el clima"
+  },
+  {
+    "id": 56,
+    "text": "Con un rollo de papel, crea un sombrero extravagante y preséntalo como diseñador/a"
+  },
+  {
+    "id": 57,
+    "text": "Haz una rutina de ejercicios imaginarios para 'fortalecer el sentido del humor'"
+  },
+  {
+    "id": 58,
+    "text": "Con una cuchara y un tenedor como baquetas, toca una batería imaginaria"
+  },
+  {
+    "id": 59,
+    "text": "Imita a un turista perdido pidiendo direcciones en un idioma inventado"
+  },
+  {
+    "id": 60,
+    "text": "Con tres vasos de agua, crea una 'melodía' tocándolos con diferentes objetos"
   }
 ]

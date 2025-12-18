@@ -1,277 +1,222 @@
 [
   {
-    "id": 2,
-    "type": "reto",
+    "id": 1,
     "text": "Quítate una prenda de ropa sin usar las manos."
   },
   {
-    "id": 4,
-    "type": "reto",
+    "id": 2,
     "text": "Baila sensual frente al grupo por 30 segundos."
   },
   {
-    "id": 6,
-    "type": "reto",
+    "id": 3,
     "text": "Dale un mordisco suave en el cuello a alguien del grupo."
   },
   {
-    "id": 8,
-    "type": "reto",
+    "id": 4,
     "text": "Susurra algo provocativo al oído de la persona a tu derecha."
   },
   {
-    "id": 10,
-    "type": "reto",
+    "id": 5,
     "text": "Deja que alguien te haga un chupetón en el brazo."
   },
   {
-    "id": 12,
-    "type": "reto",
+    "id": 6,
     "text": "Muerde sensualemente un alimento frente al grupo."
   },
   {
-    "id": 14,
-    "type": "reto",
+    "id": 7,
     "text": "Haz una mirada seductora a alguien del grupo."
   },
   {
-    "id": 16,
-    "type": "reto",
+    "id": 8,
     "text": "Acaricia el brazo de alguien del grupo lentamente."
   },
   {
-    "id": 18,
-    "type": "reto",
+    "id": 9,
     "text": "Di un piropo picante sin reírte."
   },
   {
-    "id": 20,
-    "type": "reto",
+    "id": 10,
     "text": "Pon hielo en tu boca y bésale el cuello a alguien."
   },
   {
-    "id": 26,
-    "type": "reto",
+    "id": 11,
     "text": "Coloca un cubo de hielo en la boca y recorre el brazo de alguien con tus labios sin usar las manos."
   },
   {
-    "id": 27,
-    "type": "reto",
+    "id": 12,
     "text": "Simula un orgasmo exagerado (sonidos incluidos) durante 10 segundos."
   },
   {
-    "id": 28,
-    "type": "reto",
+    "id": 13,
     "text": "Elige a alguien del grupo: deberás decirle al oído qué parte de su cuerpo te parece más atractiva y por qué."
   },
   {
-    "id": 29,
-    "type": "reto",
+    "id": 14,
     "text": "Con los ojos vendados, toca el cuello de una persona e intenta adivinar quién es solo por su piel."
   },
   {
-    "id": 30,
-    "type": "reto",
+    "id": 15,
     "text": "Juega a ser un/a stripper por 20 segundos (usa una chaqueta o bufanda como 'prop')."
   },
   {
-    "id": 41,
-    "type": "reto",
+    "id": 16,
     "text": "Con los ojos vendados, identifica a una persona del grupo solo tocando sus labios con un dedo."
   },
   {
-    "id": 42,
-    "type": "reto",
+    "id": 17,
     "text": "Susurra al oído de alguien una fantasía que tengas sobre esa persona (puede ser inventada)."
   },
   {
-    "id": 43,
-    "type": "reto",
+    "id": 18,
     "text": "Con una cereza en la boca (sin manos), pásasela a alguien del grupo."
   },
   {
-    "id": 44,
-    "type": "reto",
+    "id": 19,
     "text": "Escribe con miel o chocolate en el brazo de alguien una palabra provocativa y lámbela para 'borrarla'."
   },
   {
-    "id": 45,
-    "type": "reto",
+    "id": 20,
     "text": "Acaricia con una pluma o cepillo la parte más sensible del cuello de alguien (sin hablar)."
   },
   {
-    "id": 46,
-    "type": "reto",
+    "id": 21,
     "text": "Interpreta a un/a profesor/a de 'clases de seducción' dando un consejo absurdamente exagerado."
   },
   {
-    "id": 47,
-    "type": "reto",
+    "id": 22,
     "text": "Con una toalla alrededor de tu cintura, haz un striptease lento hasta quedarte con una capa de ropa normal."
   },
   {
-    "id": 48,
-    "type": "reto",
+    "id": 23,
     "text": "Dile a alguien del grupo qué olor crees que tendría su perfume ideal (ej: 'olor a playa al atardecer')."
   },
   {
-    "id": 49,
-    "type": "reto",
+    "id": 24,
     "text": "Mira fijamente a alguien mientras te pasas lentamente un cubo de hielo por los labios (10 segundos)."
   },
   {
-    "id": 50,
-    "type": "reto",
+    "id": 25,
     "text": "Elige a dos personas del grupo: una será tus 'manos' y la otra tu 'voz'. Juntos deben seducir a una tercera persona."
   },
   {
-    "id": 61,
-    "type": "reto",
+    "id": 26,
     "text": "Con una fruta entre los labios (ej: fresa), ofrécela a alguien del grupo sin usar las manos."
   },
   {
-    "id": 62,
-    "type": "reto",
+    "id": 27,
     "text": "Susurra al oído de alguien una fantasía que involucre su profesión (ej: 'si fueras mi profesor/a...')."
   },
   {
-    "id": 63,
-    "type": "reto",
+    "id": 28,
     "text": "Con los ojos vendados, identifica a una persona del grupo solo oliendo su cuello."
   },
   {
-    "id": 64,
-    "type": "reto",
+    "id": 29,
     "text": "Usando solo miradas y gestos, convence a alguien del grupo de que eres irresistible (30 segundos)."
   },
   {
-    "id": 65,
-    "type": "reto",
+    "id": 30,
     "text": "Con una pluma, dibuja un símbolo erótico en la mano de alguien mientras le susurras su significado."
   },
   {
-    "id": 66,
-    "type": "reto",
+    "id": 31,
     "text": "Interpreta a un/a masajista turco/a dando instrucciones 'sensuales' con acento exagerado."
   },
   {
-    "id": 67,
-    "type": "reto",
+    "id": 32,
     "text": "Con un cubo de hielo, recorre el contorno de los labios de alguien sin tocarlos directamente."
   },
   {
-    "id": 68,
-    "type": "reto",
+    "id": 33,
     "text": "Describe el cuerpo de alguien del grupo como si fuera una obra de arte renacentista (¡sé creativ@!)."
   },
   {
-    "id": 69,
-    "type": "reto",
+    "id": 34,
     "text": "Con una bufanda, realiza un striptease lento quitándotela en 3 movimientos exagerados."
   },
   {
-    "id": 70,
-    "type": "reto",
+    "id": 35,
     "text": "Elige a dos personas: una será tus 'ojos' (te guiará con palabras) y la otra tu 'víctima'. Deberás seducirla sin ver."
   },
   {
-    "id": 71,
-    "type": "reto",
+    "id": 36,
     "text": "Con una cereza en tu boca, ofrece el tallo a alguien para que lo jale con sus dientes (sin usar manos)"
   },
   {
-    "id": 72,
-    "type": "reto",
+    "id": 37,
     "text": "Susurra al oído de alguien qué parte de su ropa resalta mejor sus atributos (debes ser específico/a)"
   },
   {
-    "id": 73,
-    "type": "reto",
+    "id": 38,
     "text": "Con los ojos vendados, identifica a una persona solo por el tacto de sus muñecas (tienes 2 intentos)"
   },
   {
-    "id": 74,
-    "type": "reto",
+    "id": 39,
     "text": "Usando una cucharita, alimenta a alguien mientras describes el 'sabor' en voz sensual de sommelier"
   },
   {
-    "id": 75,
-    "type": "reto",
+    "id": 40,
     "text": "Con un lápiz labial, dibuja un camino de besos desde el cuello hasta la mano de alguien"
   },
   {
-    "id": 76,
-    "type": "reto",
+    "id": 41,
     "text": "Interpreta a un/a director/a de cine explicando cómo filmarías una escena de amor con alguien del grupo"
   },
   {
-    "id": 77,
-    "type": "reto",
+    "id": 42,
     "text": "Con una pluma, escribe un mensaje secreto en la espalda de alguien que otro debe descifrar al tacto"
   },
   {
-    "id": 78,
-    "type": "reto",
+    "id": 43,
     "text": "Con una toalla enrollada como cinturón, demuestra cómo quitarías imaginariamente una prenda con los dientes"
   },
   {
-    "id": 79,
-    "type": "reto",
+    "id": 44,
     "text": "Describe la personalidad de alguien usando solo comparaciones con postres sensuales (ej: 'eres como un...')"
   },
   {
-    "id": 80,
-    "type": "reto",
+    "id": 45,
     "text": "Con dos voluntarios: uno será tus ojos vendados y el otro tus manos - juntos deben seducir a una tercera persona"
   },
   {
-    "id": 81,
-    "type": "reto",
+    "id": 46,
     "text": "Haz un baile sensual usando solo movimientos de cadera por 20 segundos"
   },
   {
-    "id": 82,
-    "type": "reto",
+    "id": 47,
     "text": "Susurra al oído de alguien tu mayor fantasía sexual con esa persona"
   },
   {
-    "id": 83,
-    "type": "reto",
+    "id": 48,
     "text": "Dale un masaje sensual en los hombros a alguien del grupo por 1 minuto"
   },
   {
-    "id": 84,
-    "type": "reto",
+    "id": 49,
     "text": "Con los ojos cerrados, identifica a alguien del grupo solo por el tacto"
   },
   {
-    "id": 85,
-    "type": "reto",
+    "id": 50,
     "text": "Describe detalladamente cómo seducirías a alguien del grupo"
   },
   {
-    "id": 86,
-    "type": "reto",
+    "id": 51,
     "text": "Haz gemidos sensuales mientras comes algo dulce"
   },
   {
-    "id": 87,
-    "type": "reto",
+    "id": 52,
     "text": "Dale un beso apasionado en el cuello a alguien del grupo"
   },
   {
-    "id": 88,
-    "type": "reto",
+    "id": 53,
     "text": "Quítate lentamente una prenda de ropa mientras mantienes contacto visual con alguien"
   },
   {
-    "id": 89,
-    "type": "reto",
+    "id": 54,
     "text": "Acaricia sensualmente el brazo de alguien mientras le susurras cumplidos"
   },
   {
-    "id": 90,
-    "type": "reto",
+    "id": 55,
     "text": "Haz una demostración de cómo besas usando tu mano"
   }
 ]
