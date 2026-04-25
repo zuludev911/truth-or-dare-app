@@ -4,8 +4,10 @@ import parejas from "./assets/parejas.webp";
 import amigos from "./assets/amigos.webp";
 import chicas from "./assets/chicas.webp";
 import extremo from "./assets/extremo.webp";
+import valentin from "./assets/valentin.webp";
 
 export const CATEGORIES = [
+  { id: "valentin", name: "San Valentín", icon: valentin },
   { id: "clasico", name: "Clásico", icon: clasico },
   { id: "picante", name: "Picante", icon: picante },
   { id: "extremo", name: "Extremo", icon: extremo },
