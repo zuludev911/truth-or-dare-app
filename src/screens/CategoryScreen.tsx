@@ -45,7 +45,7 @@ export default function CategoryScreen({ navigation }: Props) {
     (id: string) => {
       navigation.navigate("Game", { category: id });
     },
-    [navigation]
+    [navigation],
   );
 
   const onPressExtremo = (id: string) => {
@@ -55,7 +55,7 @@ export default function CategoryScreen({ navigation }: Props) {
   useEffect(() => {
     const unsubscribeLoaded = rewarded.addAdEventListener(
       RewardedAdEventType.LOADED,
-      () => setLoaded(true)
+      () => setLoaded(true),
     );
     const unsubscribeEarned = rewarded.addAdEventListener(
       RewardedAdEventType.EARNED_REWARD,
@@ -63,7 +63,7 @@ export default function CategoryScreen({ navigation }: Props) {
         console.log("User earned reward of ", reward);
         reward && navigation.navigate("Game", { category: "extremo" });
         saveUnlockTime();
-      }
+      },
     );
 
     // Start loading the rewarded ad straight away
@@ -96,7 +96,7 @@ export default function CategoryScreen({ navigation }: Props) {
                 index={index}
                 item={item}
                 onPressItem={isExtreme ? onPressExtremo : onPressItem}
-                isNew={item.id === "navidad"}
+                isNew={item.id === "valentin"}
                 isLocked={isExtreme && !isCategoryUnlocked}
               />
             );
