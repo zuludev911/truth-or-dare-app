@@ -13,8 +13,6 @@ const data: Record<string, Reto[]> = {
   "chicas-reto": require("../data/retos/chicas-reto.json"),
   "extremo-verdad": require("../data/retos/extremo-verdad.json"),
   "extremo-reto": require("../data/retos/extremo-reto.json"),
-  "valentin-verdad": require("../data/retos/valentin-verdad.json"),
-  "valentin-reto": require("../data/retos/valentin-reto.json"),
 };
 
 const usadosPorCategoria: Record<string, Set<number>> = {};

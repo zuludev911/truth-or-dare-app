@@ -12,9 +12,10 @@ import { RootStackParamList } from "../navigation/Navigation";
 import AdBanner from "../components/AdBanner";
 import { COLORS, CATEGORIES } from "../constants";
 import backgroundEmpty from "../assets/background-empty.webp";
+import chicas from "../assets/chicas.webp";
 import CategoryButton from "../components/CategoryButton";
 import ShowVideoModal from "../components/ShowVideoModal";
-import { isUnlocked, saveUnlockTime } from "../utils";
+import { isUnlocked, saveUnlockTime, isUnlockedChicas, saveUnlockTimeChicas } from "../utils";
 import { AD_IDS } from "../services/ads";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -22,15 +23,22 @@ type Props = NativeStackScreenProps<RootStackParamList, "Categories">;
 
 const adUnitId = __DEV__ ? TestIds.REWARDED : AD_IDS.REWARD_ID;
 const rewarded = RewardedAd.createForAdRequest(adUnitId);
+const rewardedChicas = RewardedAd.createForAdRequest(adUnitId);
 
 export default function CategoryScreen({ navigation }: Props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isCategoryUnlocked, setIsCategoryUnlocked] = useState<boolean>(false);
   const [loaded, setLoaded] = useState(false);
 
+  const [isChicasModalVisible, setIsChicasModalVisible] = useState(false);
+  const [isChicasUnlocked, setIsChicasUnlocked] = useState<boolean>(false);
+  const [loadedChicas, setLoadedChicas] = useState(false);
+
   const load = async () => {
     const unlocked = await isUnlocked();
     setIsCategoryUnlocked(unlocked);
+    const chicasUnlocked = await isUnlockedChicas();
+    setIsChicasUnlocked(chicasUnlocked);
   };
 
   useEffect(() => {
@@ -52,6 +60,10 @@ export default function CategoryScreen({ navigation }: Props) {
     isCategoryUnlocked ? onPressItem(id) : setIsModalVisible(true);
   };
 
+  const onPressChicas = (id: string) => {
+    isChicasUnlocked ? onPressItem(id) : setIsChicasModalVisible(true);
+  };
+
   useEffect(() => {
     const unsubscribeLoaded = rewarded.addAdEventListener(
       RewardedAdEventType.LOADED,
@@ -66,10 +78,29 @@ export default function CategoryScreen({ navigation }: Props) {
       },
     );
 
-    // Start loading the rewarded ad straight away
     rewarded.load();
 
-    // Unsubscribe from events on unmount
+    return () => {
+      unsubscribeLoaded();
+      unsubscribeEarned();
+    };
+  }, []);
+
+  useEffect(() => {
+    const unsubscribeLoaded = rewardedChicas.addAdEventListener(
+      RewardedAdEventType.LOADED,
+      () => setLoadedChicas(true),
+    );
+    const unsubscribeEarned = rewardedChicas.addAdEventListener(
+      RewardedAdEventType.EARNED_REWARD,
+      (reward) => {
+        reward && navigation.navigate("Game", { category: "chicas" });
+        saveUnlockTimeChicas();
+      },
+    );
+
+    rewardedChicas.load();
+
     return () => {
       unsubscribeLoaded();
       unsubscribeEarned();
@@ -90,14 +121,22 @@ export default function CategoryScreen({ navigation }: Props) {
         <ScrollView scrollEnabled style={styles.content}>
           {CATEGORIES.map((item, index) => {
             const isExtreme = item.id === "extremo";
+            const isChicas = item.id === "chicas";
             return (
               <CategoryButton
                 key={item.id}
                 index={index}
                 item={item}
-                onPressItem={isExtreme ? onPressExtremo : onPressItem}
-                isNew={item.id === "valentin"}
-                isLocked={isExtreme && !isCategoryUnlocked}
+                onPressItem={
+                  isExtreme ? onPressExtremo
+                  : isChicas ? onPressChicas
+                  : onPressItem
+                }
+                isNew={false}
+                isLocked={
+                  (isExtreme && !isCategoryUnlocked) ||
+                  (isChicas && !isChicasUnlocked)
+                }
               />
             );
           })}
@@ -110,6 +149,16 @@ export default function CategoryScreen({ navigation }: Props) {
           setIsModalVisible={setIsModalVisible}
           loaded={loaded}
           rewarded={rewarded}
+        />
+      )}
+      {!isChicasUnlocked && (
+        <ShowVideoModal
+          isModalVisible={isChicasModalVisible}
+          setIsModalVisible={setIsChicasModalVisible}
+          loaded={loadedChicas}
+          rewarded={rewardedChicas}
+          image={chicas}
+          description="Esta es la categoría exclusiva para chicas. Para acceder debes ver un video de publicidad, el cual te dará acceso por 2 horas."
         />
       )}
     </>

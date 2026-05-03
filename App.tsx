@@ -6,6 +6,8 @@ import { AppState } from "react-native";
 import Toast from "react-native-toast-message";
 import * as Sentry from "@sentry/react-native";
 import { SENTRY_DSN } from "./src/services/sentry";
+import mobileAds from "react-native-google-mobile-ads";
+import { useEffect, useState } from "react";
 
 Sentry.init({
   dsn: SENTRY_DSN,
@@ -35,9 +37,21 @@ AppState.addEventListener("change", (state) => {
 console.log("App started");
 
 export default Sentry.wrap(function App() {
+  const [adsInitialized, setAdsInitialized] = useState(false);
+
+  useEffect(() => {
+    mobileAds()
+      .initialize()
+      .catch((error) => {
+        console.warn("Google Mobile Ads failed to initialize:", error);
+        Sentry.captureException(error);
+      })
+      .finally(() => setAdsInitialized(true));
+  }, []);
+
   return (
     <NavigationContainer>
-      <Navigation />
+      {adsInitialized && <Navigation />}
       <StatusBar style="auto" />
       <Toast />
     </NavigationContainer>

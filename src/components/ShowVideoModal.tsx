@@ -1,5 +1,6 @@
 import {
   Image,
+  ImageSourcePropType,
   Modal,
   StyleSheet,
   Text,
@@ -8,12 +9,10 @@ import {
 } from "react-native";
 import Toast from "react-native-toast-message";
 import { RewardedAd } from "react-native-google-mobile-ads";
-import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { IconPlayerPlayFilled } from "@tabler/icons-react-native";
 
 import { COLORS } from "../constants";
 import extremo from "../assets/extremo.webp";
-import { RootStackParamList } from "../navigation/Navigation";
 import CloseButton from "./CloseButton";
 
 interface Props {
@@ -21,6 +20,8 @@ interface Props {
   setIsModalVisible: (isVisible: boolean) => void;
   loaded: boolean;
   rewarded: RewardedAd;
+  description?: string;
+  image?: ImageSourcePropType;
 }
 
 function ShowVideoModal({
@@ -28,10 +29,9 @@ function ShowVideoModal({
   setIsModalVisible,
   loaded,
   rewarded,
+  image = extremo,
+  description = "Esta categoría es para adultos y contiene contenido sensible. Para acceder a esta categoría debes ver un video de publicidad el cual te dará acceso por 2 horas.",
 }: Props) {
-  console.log("loaded", loaded);
-  const navigation =
-    useNavigation<NavigationProp<RootStackParamList, "Categories">>();
   const onPressClose = () => setIsModalVisible(false);
 
   const onPressAccept = () => {
@@ -52,12 +52,8 @@ function ShowVideoModal({
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
           <CloseButton onPress={onPressClose} style={styles.closeIcon} />
-          <Image source={extremo} style={styles.modalImage} />
-          <Text style={styles.modalText}>
-            Esta categoría es para adultos y contiene contenido sensible. Para
-            acceder a esta categoría debes ver un video de publicidad el cual te
-            dará acceso por 2 horas.
-          </Text>
+          <Image source={image} style={styles.modalImage} />
+          <Text style={styles.modalText}>{description}</Text>
           <TouchableOpacity style={styles.modalButton} onPress={onPressAccept}>
             <Text style={styles.modalButtonText}>Ver video</Text>
             <IconPlayerPlayFilled color={COLORS.WHITE} />
