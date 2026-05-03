@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const UNLOCK_KEY = "lastUnlockTime";
+const UNLOCK_KEY_CHICAS = "lastUnlockTimeChicas";
 const UNLOCK_TIME = 2;
 
 /**
@@ -38,6 +39,36 @@ export const isUnlocked = async (): Promise<boolean> => {
     return true;
   } catch (error) {
     console.error("Error checking unlock status:", error);
+    return false;
+  }
+};
+
+export const saveUnlockTimeChicas = async () => {
+  try {
+    const now = new Date().toISOString();
+    await AsyncStorage.setItem(UNLOCK_KEY_CHICAS, now);
+  } catch (error) {
+    console.error("Error saving chicas unlock time:", error);
+  }
+};
+
+export const isUnlockedChicas = async (): Promise<boolean> => {
+  try {
+    const storedTime = await AsyncStorage.getItem(UNLOCK_KEY_CHICAS);
+
+    if (!storedTime) return false;
+
+    const savedDate = new Date(storedTime);
+    const now = new Date();
+
+    const diffMs = now.getTime() - savedDate.getTime();
+    const diffHours = diffMs / (1000 * 60 * 60);
+
+    if (diffHours > UNLOCK_TIME) return false;
+
+    return true;
+  } catch (error) {
+    console.error("Error checking chicas unlock status:", error);
     return false;
   }
 };
