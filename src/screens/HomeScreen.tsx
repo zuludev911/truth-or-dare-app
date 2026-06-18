@@ -10,10 +10,10 @@ import { RootStackParamList } from "../navigation/Navigation";
 import { COLORS } from "../constants";
 import background from "../assets/background.webp";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Home">;
+type Props = NativeStackScreenProps<RootStackParamList, "HomeScreen">;
 
 export default function HomeScreen({ navigation }: Props) {
-  const onPressPlay = () => navigation.navigate("Categories");
+  const onPressPlay = () => navigation.navigate("MainTabs");
 
   return (
     <ImageBackground style={styles.container} source={background}>
