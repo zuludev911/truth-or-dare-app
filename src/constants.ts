@@ -16,7 +16,7 @@ export const CATEGORIES = [
 
 export const COLORS = {
   PRIMARY: "#E63140",
-  SECONDARY: "#86B9B4",
+  SECONDARY: "#97d0ca",
   BLACK: "#000000",
   WHITE: "#ffffff",
 };

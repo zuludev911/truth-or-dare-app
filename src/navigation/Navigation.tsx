@@ -1,34 +1,22 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
-import GameScreen from "../screens/GameScreen";
-import CategoryScreen from "../screens/CategoryScreen";
+import BottomTabNavigator from "./BottomTabNavigator";
 
 export type RootStackParamList = {
-  Home: undefined;
-  Game: { category: string };
-  Categories: undefined;
+  HomeScreen: undefined;
+  MainTabs: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function Navigation() {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Game"
-        component={GameScreen}
-        options={{ title: "", headerShown: false }}
-      />
-      <Stack.Screen
-        name="Categories"
-        component={CategoryScreen}
-        options={{ title: "", headerShown: false }}
-      />
+    <Stack.Navigator
+      initialRouteName="HomeScreen"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="MainTabs" component={BottomTabNavigator} />
     </Stack.Navigator>
   );
 }

@@ -8,6 +8,7 @@ import * as Sentry from "@sentry/react-native";
 import { SENTRY_DSN } from "./src/services/sentry";
 import mobileAds from "react-native-google-mobile-ads";
 import { useEffect, useState } from "react";
+import { setAudioModeAsync } from "expo-audio";
 
 Sentry.init({
   dsn: SENTRY_DSN,
@@ -40,6 +41,15 @@ export default Sentry.wrap(function App() {
   const [adsInitialized, setAdsInitialized] = useState(false);
 
   useEffect(() => {
+    setAudioModeAsync({
+      playsInSilentMode: true,
+      interruptionMode: "mixWithOthers",
+      shouldPlayInBackground: false,
+    }).catch((error) => {
+      console.warn("Audio mode failed to configure:", error);
+      Sentry.captureException(error);
+    });
+
     mobileAds()
       .initialize()
       .catch((error) => {

@@ -8,7 +8,7 @@ import {
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useFocusEffect } from "@react-navigation/native";
 
-import { RootStackParamList } from "../navigation/Navigation";
+import { HomeStackParamList } from "../navigation/HomeStackNavigator";
 import AdBanner from "../components/AdBanner";
 import { COLORS, CATEGORIES } from "../constants";
 import backgroundEmpty from "../assets/background-empty.webp";
@@ -19,7 +19,7 @@ import { isUnlocked, saveUnlockTime, isUnlockedChicas, saveUnlockTimeChicas } fr
 import { AD_IDS } from "../services/ads";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Categories">;
+type Props = NativeStackScreenProps<HomeStackParamList, "Categories">;
 
 const adUnitId = __DEV__ ? TestIds.REWARDED : AD_IDS.REWARD_ID;
 const rewarded = RewardedAd.createForAdRequest(adUnitId);

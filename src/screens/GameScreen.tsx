@@ -17,7 +17,7 @@ import {
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { IconBeerFilled } from "@tabler/icons-react-native";
 
-import { RootStackParamList } from "../navigation/Navigation";
+import { HomeStackParamList } from "../navigation/HomeStackNavigator";
 import { Reto } from "../types";
 import { getRandomReto } from "../utils/getRandomReto";
 import { AD_IDS } from "../services/ads";
@@ -26,7 +26,7 @@ import AdBanner from "../components/AdBanner";
 import backgroundGame from "../assets/background-game.webp";
 import CloseButton from "../components/CloseButton";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Game">;
+type Props = NativeStackScreenProps<HomeStackParamList, "Game">;
 
 const AnimatedTouchableOpacity =
   Animated.createAnimatedComponent(TouchableOpacity);
