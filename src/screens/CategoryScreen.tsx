@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { StyleSheet, ImageBackground, ScrollView } from "react-native";
 import {
   RewardedAd,
@@ -34,20 +34,14 @@ export default function CategoryScreen({ navigation }: Props) {
   const [isChicasUnlocked, setIsChicasUnlocked] = useState<boolean>(false);
   const [loadedChicas, setLoadedChicas] = useState(false);
 
-  const load = async () => {
+  const load = useCallback(async () => {
     const unlocked = await isUnlocked();
     setIsCategoryUnlocked(unlocked);
     const chicasUnlocked = await isUnlockedChicas();
     setIsChicasUnlocked(chicasUnlocked);
-  };
-
-  useEffect(() => {
-    load();
   }, []);
 
-  useFocusEffect(() => {
-    load();
-  });
+  useFocusEffect(load);
 
   const onPressItem = useCallback(
     (id: string) => {
@@ -56,13 +50,19 @@ export default function CategoryScreen({ navigation }: Props) {
     [navigation],
   );
 
-  const onPressExtremo = (id: string) => {
-    isCategoryUnlocked ? onPressItem(id) : setIsModalVisible(true);
-  };
+  const onPressExtremo = useCallback(
+    (id: string) => {
+      isCategoryUnlocked ? onPressItem(id) : setIsModalVisible(true);
+    },
+    [isCategoryUnlocked, onPressItem],
+  );
 
-  const onPressChicas = (id: string) => {
-    isChicasUnlocked ? onPressItem(id) : setIsChicasModalVisible(true);
-  };
+  const onPressChicas = useCallback(
+    (id: string) => {
+      isChicasUnlocked ? onPressItem(id) : setIsChicasModalVisible(true);
+    },
+    [isChicasUnlocked, onPressItem],
+  );
 
   useEffect(() => {
     const unsubscribeLoaded = rewarded.addAdEventListener(
