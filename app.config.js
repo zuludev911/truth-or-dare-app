@@ -48,6 +48,13 @@ export default {
     plugins: [
       "expo-updates",
       "expo-audio",
+      [
+        "@sentry/react-native/expo",
+        {
+          organization: process.env.SENTRY_ORG,
+          project: process.env.SENTRY_PROJECT,
+        },
+      ],
       // Configuración de AdMob (como array separado)
       [
         "react-native-google-mobile-ads",

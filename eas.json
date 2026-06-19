@@ -2,19 +2,43 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "DSN_SENTRY": "$DSN_SENTRY",
+        "SENTRY_AUTH_TOKEN": "$SENTRY_AUTH_TOKEN",
+        "SENTRY_ORG": "$SENTRY_ORG",
+        "SENTRY_PROJECT": "$SENTRY_PROJECT"
+      }
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "DSN_SENTRY": "$DSN_SENTRY",
+        "SENTRY_AUTH_TOKEN": "$SENTRY_AUTH_TOKEN",
+        "SENTRY_ORG": "$SENTRY_ORG",
+        "SENTRY_PROJECT": "$SENTRY_PROJECT"
+      }
     },
     "preview2": {
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "DSN_SENTRY": "$DSN_SENTRY",
+        "SENTRY_AUTH_TOKEN": "$SENTRY_AUTH_TOKEN",
+        "SENTRY_ORG": "$SENTRY_ORG",
+        "SENTRY_PROJECT": "$SENTRY_PROJECT"
       }
     },
     "production": {
       "android": {
         "buildType": "app-bundle"
+      },
+      "env": {
+        "DSN_SENTRY": "$DSN_SENTRY",
+        "SENTRY_AUTH_TOKEN": "$SENTRY_AUTH_TOKEN",
+        "SENTRY_ORG": "$SENTRY_ORG",
+        "SENTRY_PROJECT": "$SENTRY_PROJECT"
       }
     }
   },
