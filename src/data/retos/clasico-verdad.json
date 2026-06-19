@@ -1,242 +1,67 @@
 [
-  {
-    "id": 1,
-    "text": "¿Cuál es tu mayor miedo?"
-  },
-  {
-    "id": 2,
-    "text": "¿Qué es lo más extraño que has comido?"
-  },
-  {
-    "id": 3,
-    "text": "¿Alguna vez has llorado por un examen o trabajo?"
-  },
-  {
-    "id": 4,
-    "text": "¿Qué canción te da vergüenza que te guste?"
-  },
-  {
-    "id": 5,
-    "text": "¿Qué cosa infantil aún disfrutas?"
-  },
-  {
-    "id": 6,
-    "text": "¿Qué app usas más y por qué?"
-  },
-  {
-    "id": 7,
-    "text": "¿Qué habilidad te gustaría tener y por qué nunca la aprendiste?"
-  },
-  {
-    "id": 8,
-    "text": "Si solo pudieras comer un alimento por el resto de tu vida, ¿cuál sería?"
-  },
-  {
-    "id": 9,
-    "text": "¿Qué personaje de ficción odias con toda tu alma?"
-  },
-  {
-    "id": 10,
-    "text": "¿Cuál es el peor regalo que has recibido y fingiste que te gustó?"
-  },
-  {
-    "id": 11,
-    "text": "¿Qué cosa 'normal' te parece extrañamente aterradora?"
-  },
-  {
-    "id": 12,
-    "text": "¿Qué cosa común haces de manera completamente incorrecta y nunca te diste cuenta hasta que alguien te lo señaló?"
-  },
-  {
-    "id": 13,
-    "text": "Si fueras un villano, ¿cuál sería tu origen trágico y tu plan malvado?"
-  },
-  {
-    "id": 14,
-    "text": "¿Cuál es la mentira más inútil que has mantenido por años?"
-  },
-  {
-    "id": 15,
-    "text": "¿Qué habilidad inútil dominaste durante la cuarentena?"
-  },
-  {
-    "id": 16,
-    "text": "¿Qué objeto en tu casa parece normal pero tiene una historia ridícula detrás?"
-  },
-  {
-    "id": 17,
-    "text": "¿Qué cosa 'de adulto' te emociona tanto que te sientes ridícul@?"
-  },
-  {
-    "id": 18,
-    "text": "Si tu vida fuera un reality show, ¿cuál sería el título y por qué?"
-  },
-  {
-    "id": 19,
-    "text": "¿Qué regla familiar de tu infancia te parecía normal hasta que creciste?"
-  },
-  {
-    "id": 20,
-    "text": "¿Qué trabajo harías aunque te pagaran el mínimo salario, solo por diversión?"
-  },
-  {
-    "id": 21,
-    "text": "¿Qué película o serie te da vergüenza admitir que nunca has visto?"
-  },
-  {
-    "id": 22,
-    "text": "¿Qué canción infantil te avergüenza conocer completa (letra y movimientos)?"
-  },
-  {
-    "id": 23,
-    "text": "Si tuvieras que vivir en una década pasada, ¿cuál sería y qué extrañarías más del presente?"
-  },
-  {
-    "id": 24,
-    "text": "¿Qué mentira inocente le dijiste a tus padres que aún creen?"
-  },
-  {
-    "id": 25,
-    "text": "¿Qué objeto de tu infancia guardas 'por nostalgia' aunque sea completamente inútil?"
-  },
-  {
-    "id": 26,
-    "text": "Si pudieras borrar un programa de TV o película de la existencia, ¿cuál sería y por qué?"
-  },
-  {
-    "id": 27,
-    "text": "¿Qué habilidad básica de adulto aún no dominas (ej: cambiar llanta, cocinar huevo)?"
-  },
-  {
-    "id": 28,
-    "text": "¿Qué chiste malo siempre te hace reír aunque no debería?"
-  },
-  {
-    "id": 29,
-    "text": "¿Qué moda pasada (ej: pantalones ultra bajos) extrañas secretamente?"
-  },
-  {
-    "id": 30,
-    "text": "¿Qué frase de tu abuela/madre repites sin darte cuenta?"
-  },
-  {
-    "id": 31,
-    "text": "Si tu vida tuviera un narrador como en los documentales, ¿qué diría ahora mismo sobre ti?"
-  },
-  {
-    "id": 32,
-    "text": "¿Qué hábito de tu infancia te daría vergüenza que tus amigos descubrieran que aún conservas?"
-  },
-  {
-    "id": 33,
-    "text": "Si tuvieras que convertirte en un personaje de dibujos animados por una semana, ¿cuál serías y por qué?"
-  },
-  {
-    "id": 34,
-    "text": "¿Qué mentira dijiste de niño que tus padres aún creen y te recuerdan periódicamente?"
-  },
-  {
-    "id": 35,
-    "text": "¿Qué objeto común usaste de manera completamente incorrecta hasta que alguien te corrigió?"
-  },
-  {
-    "id": 36,
-    "text": "Si tu vida tuviera una banda sonora de errores, ¿qué canción sonaría cada vez que metes la pata?"
-  },
-  {
-    "id": 37,
-    "text": "¿Qué superpoder infantil imaginabas tener que ahora te parece completamente ridículo?"
-  },
-  {
-    "id": 38,
-    "text": "¿Qué promesa te hiciste de niño ('nunca haré X cuando sea grande') que terminaste rompiendo espectacularmente?"
-  },
-  {
-    "id": 39,
-    "text": "¿Qué trabajo soñabas tener de pequeño que ahora te parece el peor empleo posible?"
-  },
-  {
-    "id": 40,
-    "text": "¿Qué moda escolar seguiste que hoy hace que quieras borrar esas fotos de la existencia?"
-  },
-  {
-    "id": 41,
-    "text": "Si tuvieras que explicar tu peor corte de cabello con un título de película, ¿cuál sería?"
-  },
-  {
-    "id": 42,
-    "text": "¿Cuál es la cosa más extraña que has hecho cuando estabas solo en casa?"
-  },
-  {
-    "id": 43,
-    "text": "¿Qué comida te da asco pero finges que te gusta para no ser descortés?"
-  },
-  {
-    "id": 44,
-    "text": "¿Qué celebridad famosa crees que serías si fueras del sexo opuesto?"
-  },
-  {
-    "id": 45,
-    "text": "¿Qué habilidad inútil tienes que nadie más sabe?"
-  },
-  {
-    "id": 46,
-    "text": "¿Qué plato sabes cocinar tan mal que ni tú mismo te lo comerías?"
-  },
-  {
-    "id": 47,
-    "text": "Si tuvieras que describir tu personalidad con un tipo de clima, ¿cuál serías y por qué?"
-  },
-  {
-    "id": 48,
-    "text": "¿Qué programa de TV ves en secreto que nadie sospecharía que te gusta?"
-  },
-  {
-    "id": 49,
-    "text": "¿Cuál es la cosa más 'boomer' que haces regularmente?"
-  },
-  {
-    "id": 50,
-    "text": "Si tu mente fuera una casa, ¿qué habitación estaría siempre desordenada?"
-  },
-  {
-    "id": 51,
-    "text": "¿Qué canción conoces completa aunque jurarías que no la has escuchado en años?"
-  },
-  {
-    "id": 52,
-    "text": "¿Qué superstición ridícula sigues aunque sabes que no tiene sentido?"
-  },
-  {
-    "id": 53,
-    "text": "Si fueras un animal doméstico, ¿qué dueño ideal serías y por qué?"
-  },
-  {
-    "id": 54,
-    "text": "¿Qué cosa de la tecnología moderna todavía no entiendes completamente?"
-  },
-  {
-    "id": 55,
-    "text": "¿Cuál es el sonido más irritante para ti y por qué lo detestas tanto?"
-  },
-  {
-    "id": 56,
-    "text": "Si tuvieras que comer solo un color de comida por el resto de tu vida, ¿cuál elegirías?"
-  },
-  {
-    "id": 57,
-    "text": "¿Qué trabajo temporal tuviste que fue tan malo que te prometiste nunca volver?"
-  },
-  {
-    "id": 58,
-    "text": "¿Cuál es la cosa más 'de viejo' que haces antes de las 9 PM?"
-  },
-  {
-    "id": 59,
-    "text": "Si tu vida fuera un videojuego, ¿qué logro sería el más difícil de desbloquear?"
-  },
-  {
-    "id": 60,
-    "text": "¿Qué cosa común te emociona tanto que te sientes un poco ridículo?"
-  }
+  "¿Cuál es tu mayor miedo?",
+  "¿Qué es lo más extraño que has comido?",
+  "¿Alguna vez has llorado por un examen o trabajo?",
+  "¿Qué canción te da vergüenza que te guste?",
+  "¿Qué cosa infantil aún disfrutas?",
+  "¿Qué app usas más y por qué?",
+  "¿Qué habilidad te gustaría tener y por qué nunca la aprendiste?",
+  "Si solo pudieras comer un alimento por el resto de tu vida, ¿cuál sería?",
+  "¿Qué personaje de ficción odias con toda tu alma?",
+  "¿Cuál es el peor regalo que has recibido y fingiste que te gustó?",
+  "¿Qué cosa 'normal' te parece extrañamente aterradora?",
+  "¿Qué cosa común haces de manera completamente incorrecta y nunca te diste cuenta hasta que alguien te lo señaló?",
+  "Si fueras un villano, ¿cuál sería tu origen trágico y tu plan malvado?",
+  "¿Cuál es la mentira más inútil que has mantenido por años?",
+  "¿Qué habilidad inútil dominaste durante la cuarentena?",
+  "¿Qué objeto en tu casa parece normal pero tiene una historia ridícula detrás?",
+  "¿Qué cosa 'de adulto' te emociona tanto que te sientes ridícul@?",
+  "Si tu vida fuera un reality show, ¿cuál sería el título y por qué?",
+  "¿Qué regla familiar de tu infancia te parecía normal hasta que creciste?",
+  "¿Qué trabajo harías aunque te pagaran el mínimo salario, solo por diversión?",
+  "¿Qué película o serie te da vergüenza admitir que nunca has visto?",
+  "¿Qué canción infantil te avergüenza conocer completa (letra y movimientos)?",
+  "Si tuvieras que vivir en una década pasada, ¿cuál sería y qué extrañarías más del presente?",
+  "¿Qué mentira inocente le dijiste a tus padres que aún creen?",
+  "¿Qué objeto de tu infancia guardas 'por nostalgia' aunque sea completamente inútil?",
+  "Si pudieras borrar un programa de TV o película de la existencia, ¿cuál sería y por qué?",
+  "¿Qué habilidad básica de adulto aún no dominas (ej: cambiar llanta, cocinar huevo)?",
+  "¿Qué chiste malo siempre te hace reír aunque no debería?",
+  "¿Qué moda pasada (ej: pantalones ultra bajos) extrañas secretamente?",
+  "¿Qué frase de tu abuela/madre repites sin darte cuenta?",
+  "Si tu vida tuviera un narrador como en los documentales, ¿qué diría ahora mismo sobre ti?",
+  "¿Qué hábito de tu infancia te daría vergüenza que tus amigos descubrieran que aún conservas?",
+  "Si tuvieras que convertirte en un personaje de dibujos animados por una semana, ¿cuál serías y por qué?",
+  "¿Qué mentira dijiste de niño que tus padres aún creen y te recuerdan periódicamente?",
+  "¿Qué objeto común usaste de manera completamente incorrecta hasta que alguien te corrigió?",
+  "Si tu vida tuviera una banda sonora de errores, ¿qué canción sonaría cada vez que metes la pata?",
+  "¿Qué superpoder infantil imaginabas tener que ahora te parece completamente ridículo?",
+  "¿Qué promesa te hiciste de niño ('nunca haré X cuando sea grande') que terminaste rompiendo espectacularmente?",
+  "¿Qué trabajo soñabas tener de pequeño que ahora te parece el peor empleo posible?",
+  "¿Qué moda escolar seguiste que hoy hace que quieras borrar esas fotos de la existencia?",
+  "Si tuvieras que explicar tu peor corte de cabello con un título de película, ¿cuál sería?",
+  "¿Cuál es la cosa más extraña que has hecho cuando estabas solo en casa?",
+  "¿Qué comida te da asco pero finges que te gusta para no ser descortés?",
+  "¿Qué celebridad famosa crees que serías si fueras del sexo opuesto?",
+  "¿Qué habilidad inútil tienes que nadie más sabe?",
+  "¿Qué plato sabes cocinar tan mal que ni tú mismo te lo comerías?",
+  "Si tuvieras que describir tu personalidad con un tipo de clima, ¿cuál serías y por qué?",
+  "¿Qué programa de TV ves en secreto que nadie sospecharía que te gusta?",
+  "¿Cuál es la cosa más 'boomer' que haces regularmente?",
+  "Si tu mente fuera una casa, ¿qué habitación estaría siempre desordenada?",
+  "¿Qué canción conoces completa aunque jurarías que no la has escuchado en años?",
+  "¿Qué superstición ridícula sigues aunque sabes que no tiene sentido?",
+  "Si fueras un animal doméstico, ¿qué dueño ideal serías y por qué?",
+  "¿Qué cosa de la tecnología moderna todavía no entiendes completamente?",
+  "¿Cuál es el sonido más irritante para ti y por qué lo detestas tanto?",
+  "Si tuvieras que comer solo un color de comida por el resto de tu vida, ¿cuál elegirías?",
+  "¿Qué trabajo temporal tuviste que fue tan malo que te prometiste nunca volver?",
+  "¿Cuál es la cosa más 'de viejo' que haces antes de las 9 PM?",
+  "Si tu vida fuera un videojuego, ¿qué logro sería el más difícil de desbloquear?",
+  "¿Qué cosa común te emociona tanto que te sientes un poco ridículo?",
+  "¿Qué libro has fingido haber leído para parecer más culto?",
+  "Si pudieras cenar con cualquier persona de la historia, ¿quién sería y qué le preguntarías primero?",
+  "¿Cuál es la cosa más cara que compraste impulsivamente y de la que más te arrepentiste?",
+  "¿Qué habilidad crees que dominas pero en realidad haces bastante mal?",
+  "Si tuvieras que vivir en otro país por un año sin poder elegir, ¿cuál sería el peor que te podría tocar y por qué?"
 ]

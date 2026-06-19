@@ -1,211 +1,62 @@
 [
-  {
-    "id": 1,
-    "text": "Haz un tutorial exagerado de 'Cómo caminar con dignidad después de una noche larga'."
-  },
-  {
-    "id": 2,
-    "text": "Dibuja tu versión del crush ideal usando solo tu mano no dominante."
-  },
-  {
-    "id": 3,
-    "text": "Explica con dramatismo extremo cómo sobrevivirías a un cierre de brasier roto (sin demostrarlo)."
-  },
-  {
-    "id": 4,
-    "text": "Haz una parodia de desfile quitándote capas imaginarias de ropa como si fuera alta costura."
-  },
-  {
-    "id": 5,
-    "text": "Inventa un eslogan para un producto femenino inventado (ej: 'pañuelos para lágrimas de ex')."
-  },
-  {
-    "id": 6,
-    "text": "Actúa cómo sería tu versión de la 'chica villana' en una película escolar."
-  },
-  {
-    "id": 7,
-    "text": "Con un objeto en la cabeza, camina como modelo en una pasarela imaginaria."
-  },
-  {
-    "id": 8,
-    "text": "Graba un audio imitando a una influencer dando el peor consejo posible."
-  },
-  {
-    "id": 9,
-    "text": "Diseña un tatuaje simbólico (falso) con lápiz labial que represente a otra del grupo."
-  },
-  {
-    "id": 10,
-    "text": "Con los ojos cerrados, identifica cosméticos solo por el olor."
-  },
-
-  {
-    "id": 11,
-    "text": "Haz una sesión de fotos 'para Instagram' con los objetos más absurdos de la habitación."
-  },
-  {
-    "id": 12,
-    "text": "Con una toalla como vestido, recrea una escena dramática de telenovela."
-  },
-  {
-    "id": 13,
-    "text": "Haz un tutorial de 'Cómo fingir que sabes de vinos' usando agua."
-  },
-  {
-    "id": 14,
-    "text": "Diseña un vestido de novia extravagante usando solo papel higiénico."
-  },
-  {
-    "id": 15,
-    "text": "Exige hablar con el gerente… por algo completamente absurdo."
-  },
-  { "id": 16, "text": "Con los ojos cerrados, dibuja a una chica del grupo." },
-  {
-    "id": 17,
-    "text": "Finge ser una psíquica y predice el futuro amoroso de otra amiga."
-  },
-  {
-    "id": 18,
-    "text": "Demuestra cómo caminarías con seguridad absoluta aunque estés muy nerviosa."
-  },
-  { "id": 19, "text": "Tómate una selfie con tu peor ángulo a propósito." },
-  {
-    "id": 20,
-    "text": "Actúa como influencer fitness promoviendo ejercicios para superar una ruptura."
-  },
-
-  {
-    "id": 21,
-    "text": "Imita a cada chica del grupo en 5 segundos — ellas deben adivinar a quién estás imitando."
-  },
-  {
-    "id": 22,
-    "text": "Crea un look de fiesta con lo que tengas a mano y desfilalo."
-  },
-  {
-    "id": 23,
-    "text": "Inventa un baile de TikTok que represente 'amigas antes que todo'."
-  },
-  {
-    "id": 24,
-    "text": "Escribe un mensaje de voz de 15 segundos al primer contacto hombre de tu WhatsApp diciendo que lo extrañas, sin explicación."
-  },
-  { "id": 25, "text": "Haz tu mejor drama de telenovela: llora y confiesa algo completamente inventado durante 30 segundos sin reírte." },
-  {
-    "id": 26,
-    "text": "Crea una coreografía de 3 movimientos que represente la amistad femenina."
-  },
-  {
-    "id": 27,
-    "text": "Con una sábana, diseña un vestido de alfombra roja y desfila."
-  },
-  {
-    "id": 28,
-    "text": "Imita a una celebridad haciendo su rutina exagerada de autocuidado."
-  },
-  {
-    "id": 29,
-    "text": "Haz un mini podcast sobre los peores consejos amorosos que existen."
-  },
-  { "id": 30, "text": "Confiesa en voz alta tu crush más vergonzoso del colegio o universidad. Con nombre y todo." },
-
-  {
-    "id": 31,
-    "text": "Actúa como chef presentando el 'postre que cura corazones rotos'."
-  },
-  {
-    "id": 32,
-    "text": "Inventa un lenguaje secreto para comunicarte con amigas en fiestas aburridas."
-  },
-  {
-    "id": 33,
-    "text": "Deja que el grupo elija tu foto de perfil de WhatsApp y la cambies en ese momento durante 10 minutos."
-  },
-  {
-    "id": 34,
-    "text": "Crea una rutina ridícula para recuperar el ego después de un ghosteo."
-  },
-  { "id": 35, "text": "Haz un comercial para 'gafas que detectan red flags'." },
-  {
-    "id": 36,
-    "text": "Peina a otra chica con los ojos cerrados (sin usar calor)."
-  },
-  {
-    "id": 37,
-    "text": "Inventa un himno de amigas usando una melodía infantil."
-  },
-  { "id": 38, "text": "Haz un desfile de modas con ropa puesta al revés." },
-  { "id": 39, "text": "Crea un kit de supervivencia para citas desastrosas." },
-  {
-    "id": 40,
-    "text": "Actúa como terapeuta dando consejos absurdamente honestos."
-  },
-
-  {
-    "id": 41,
-    "text": "Haz un tutorial de cómo responder con clase a comentarios incómodos."
-  },
-  {
-    "id": 42,
-    "text": "Crea un baile que represente cuando tu amiga menciona a su ex otra vez."
-  },
-  {
-    "id": 43,
-    "text": "Baila 30 segundos sin música mientras el grupo inventa el nombre ridículo del baile que estás haciendo."
-  },
-  {
-    "id": 44,
-    "text": "Di un piropo exagerado y teatral a cada chica del grupo, una por una, sin repetir ninguno."
-  },
-  {
-    "id": 45,
-    "text": "Haz un anuncio de radio para dejar de stalkear en redes."
-  },
-  {
-    "id": 46,
-    "text": "Demuestra poses de selfie para fingir que todo está bien."
-  },
-  {
-    "id": 47,
-    "text": "Crea una coreografía para una noche de chicas perfecta."
-  },
-  {
-    "id": 48,
-    "text": "Haz un tutorial de cómo caminar segura aunque algo salga mal."
-  },
-  {
-    "id": 49,
-    "text": "Actúa sin palabras cómo recibirías la peor noticia de tu vida y luego la mejor — el grupo adivina qué fue cada una."
-  },
-  { "id": 50, "text": "Convence al grupo en 60 segundos de que eres la mejor candidata para un reality de chicas. Improvisa el discurso." },
-
-  {
-    "id": 51,
-    "text": "Actúa como influencer enseñando cómo parecer ocupada y exitosa."
-  },
-  {
-    "id": 52,
-    "text": "Haz un comercial para una crema anti-estrés emocional."
-  },
-  {
-    "id": 53,
-    "text": "Haz un peinado creativo a otra chica con los ojos cerrados."
-  },
-  { "id": 54, "text": "Mantén la cara completamente seria durante 60 segundos mientras el grupo hace todo lo posible por hacerte reír." },
-  {
-    "id": 55,
-    "text": "Crea un baile para rescatar a una amiga de una cita aburrida."
-  },
-  {
-    "id": 56,
-    "text": "Haz un tutorial para sonreír cuando hacen preguntas incómodas."
-  },
-  { "id": 57, "text": "Diseña un traje de poder con periódico." },
-  { "id": 58, "text": "Inventa un himno para noches de chicas sin drama." },
-  { "id": 59, "text": "Haz un comercial para una alarma anti-frases tóxicas." },
-  {
-    "id": 60,
-    "text": "Crea un altar simbólico a la amistad y haz una mini ceremonia."
-  }
+  "Haz un tutorial exagerado de 'Cómo caminar con dignidad después de una noche larga'.",
+  "Dibuja tu versión del crush ideal usando solo tu mano no dominante.",
+  "Explica con dramatismo extremo cómo sobrevivirías a un cierre de brasier roto (sin demostrarlo).",
+  "Haz una parodia de desfile quitándote capas imaginarias de ropa como si fuera alta costura.",
+  "Inventa un eslogan para un producto femenino inventado (ej: 'pañuelos para lágrimas de ex').",
+  "Actúa cómo sería tu versión de la 'chica villana' en una película escolar.",
+  "Con un objeto en la cabeza, camina como modelo en una pasarela imaginaria.",
+  "Graba un audio imitando a una influencer dando el peor consejo posible.",
+  "Diseña un tatuaje simbólico (falso) con lápiz labial que represente a otra del grupo.",
+  "Con los ojos cerrados, identifica cosméticos solo por el olor.",
+  "Haz una sesión de fotos 'para Instagram' con los objetos más absurdos de la habitación.",
+  "Con una toalla como vestido, recrea una escena dramática de telenovela.",
+  "Haz un tutorial de 'Cómo fingir que sabes de vinos' usando agua.",
+  "Diseña un vestido de novia extravagante usando solo papel higiénico.",
+  "Exige hablar con el gerente… por algo completamente absurdo.",
+  "Con los ojos cerrados, dibuja a una chica del grupo.",
+  "Finge ser una psíquica y predice el futuro amoroso de otra amiga.",
+  "Demuestra cómo caminarías con seguridad absoluta aunque estés muy nerviosa.",
+  "Tómate una selfie con tu peor ángulo a propósito.",
+  "Actúa como influencer fitness promoviendo ejercicios para superar una ruptura.",
+  "Imita a cada chica del grupo en 5 segundos — ellas deben adivinar a quién estás imitando.",
+  "Crea un look de fiesta con lo que tengas a mano y desfilalo.",
+  "Inventa un baile de TikTok que represente 'amigas antes que todo'.",
+  "Escribe un mensaje de voz de 15 segundos al primer contacto hombre de tu WhatsApp diciendo que lo extrañas, sin explicación.",
+  "Haz tu mejor drama de telenovela: llora y confiesa algo completamente inventado durante 30 segundos sin reírte.",
+  "Crea una coreografía de 3 movimientos que represente la amistad femenina.",
+  "Con una sábana, diseña un vestido de alfombra roja y desfila.",
+  "Imita a una celebridad haciendo su rutina exagerada de autocuidado.",
+  "Haz un mini podcast sobre los peores consejos amorosos que existen.",
+  "Confiesa en voz alta tu crush más vergonzoso del colegio o universidad. Con nombre y todo.",
+  "Actúa como chef presentando el 'postre que cura corazones rotos'.",
+  "Inventa un lenguaje secreto para comunicarte con amigas en fiestas aburridas.",
+  "Deja que el grupo elija tu foto de perfil de WhatsApp y la cambies en ese momento durante 10 minutos.",
+  "Crea una rutina ridícula para recuperar el ego después de un ghosteo.",
+  "Haz un comercial para 'gafas que detectan red flags'.",
+  "Peina a otra chica con los ojos cerrados (sin usar calor).",
+  "Inventa un himno de amigas usando una melodía infantil.",
+  "Haz un desfile de modas con ropa puesta al revés.",
+  "Crea un kit de supervivencia para citas desastrosas.",
+  "Actúa como terapeuta dando consejos absurdamente honestos.",
+  "Haz un tutorial de cómo responder con clase a comentarios incómodos.",
+  "Crea un baile que represente cuando tu amiga menciona a su ex otra vez.",
+  "Baila 30 segundos sin música mientras el grupo inventa el nombre ridículo del baile que estás haciendo.",
+  "Di un piropo exagerado y teatral a cada chica del grupo, una por una, sin repetir ninguno.",
+  "Haz un anuncio de radio para dejar de stalkear en redes.",
+  "Demuestra poses de selfie para fingir que todo está bien.",
+  "Crea una coreografía para una noche de chicas perfecta.",
+  "Haz un tutorial de cómo caminar segura aunque algo salga mal.",
+  "Actúa sin palabras cómo recibirías la peor noticia de tu vida y luego la mejor — el grupo adivina qué fue cada una.",
+  "Convence al grupo en 60 segundos de que eres la mejor candidata para un reality de chicas. Improvisa el discurso.",
+  "Actúa como influencer enseñando cómo parecer ocupada y exitosa.",
+  "Haz un comercial para una crema anti-estrés emocional.",
+  "Haz un peinado creativo a otra chica con los ojos cerrados.",
+  "Mantén la cara completamente seria durante 60 segundos mientras el grupo hace todo lo posible por hacerte reír.",
+  "Crea un baile para rescatar a una amiga de una cita aburrida.",
+  "Haz un tutorial para sonreír cuando hacen preguntas incómodas.",
+  "Diseña un traje de poder con periódico.",
+  "Inventa un himno para noches de chicas sin drama.",
+  "Haz un comercial para una alarma anti-frases tóxicas.",
+  "Crea un altar simbólico a la amistad y haz una mini ceremonia."
 ]

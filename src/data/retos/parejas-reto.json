@@ -1,218 +1,56 @@
 [
-  {
-    "id": 1,
-    "text": "Dale un beso en la mano a tu pareja como un caballero/dama."
-  },
-  {
-    "id": 2,
-    "text": "Susúrrame algo al oído que me haga sonreír."
-  },
-  {
-    "id": 3,
-    "text": "Haz un masaje de 1 minuto en los hombros de tu pareja."
-  },
-  {
-    "id": 4,
-    "text": "Imita mi forma de caminar."
-  },
-  {
-    "id": 5,
-    "text": "Dime un piropo cursi sin reírte."
-  },
-  {
-    "id": 6,
-    "text": "Dame un abrazo por 10 segundos sin soltarme."
-  },
-  {
-    "id": 7,
-    "text": "Dibuja un retrato rápido de tu pareja."
-  },
-  {
-    "id": 8,
-    "text": "Baila con tu pareja como si fuera tu primera cita."
-  },
-  {
-    "id": 9,
-    "text": "Dime tres cosas que te gusten de mí (sin repetir)."
-  },
-  {
-    "id": 10,
-    "text": "Dale un beso a tu pareja en la parte de su cuerpo que más te guste."
-  },
-  {
-    "id": 11,
-    "text": "Escribe un mensaje de amor en la espalda de tu pareja con tu dedo y que adivine qué dice."
-  },
-  {
-    "id": 12,
-    "text": "Haz un role-play: actúa cómo sería nuestra primera pelea si nos hubiéramos conocido en el siglo XIX."
-  },
-  {
-    "id": 13,
-    "text": "Dí algo que siempre hayas querido decirme... pero usando solo emojis (el otro debe adivinar)."
-  },
-  {
-    "id": 14,
-    "text": "Tómate una foto juntos haciendo muecas exageradas y guárdala como fondo de pantalla por un día."
-  },
-  {
-    "id": 15,
-    "text": "Inventa un apodo ridículo para tu pareja y úsalo sin reírte durante los próximos 5 minutos."
-  },
-  {
-    "id": 16,
-    "text": "Con los ojos vendados, reconoce a tu pareja solo oliendo su perfume o loción."
-  },
-  {
-    "id": 17,
-    "text": "Escribe un poema de 4 líneas sobre tu pareja usando solo palabras que empiecen con la primera letra de su nombre."
-  },
-  {
-    "id": 18,
-    "text": "Haz un striptease lento... pero quitándote capas de ropa exageradas (bufanda, chaqueta, etc.)."
-  },
-  {
-    "id": 19,
-    "text": "Con un hielo en la boca, dibuja un corazón en el cuello de tu pareja."
-  },
-  {
-    "id": 20,
-    "text": "Graba un video de 10 segundos imitando nuestro primer beso (puede ser exagerado)."
-  },
-  {
-    "id": 21,
-    "text": "Dale a tu pareja un 'masaje' solo con codos y nariz (sin usar manos)."
-  },
-  {
-    "id": 22,
-    "text": "Susurra una fantasía romántica (no sexual) que tengas para nuestra relación."
-  },
-  {
-    "id": 23,
-    "text": "Construye una 'escultura' con 3 objetos cercanos que represente nuestra relación."
-  },
-  {
-    "id": 24,
-    "text": "Dale un pico por cada año de relación que tengan."
-  },
-  {
-    "id": 25,
-    "text": "Mírame a los ojos sin hablar ni reírte durante 30 segundos (el que rompa el contacto pierde)."
-  },
-  {
-    "id": 26,
-    "text": "Con los ojos cerrados, alimenta a tu pareja con algo dulce y que adivine qué es (tienes 3 intentos)."
-  },
-  {
-    "id": 27,
-    "text": "Crea una 'cápsula del tiempo' con 3 objetos cercanos que representen nuestra relación y entiérrala simbólicamente."
-  },
-  {
-    "id": 28,
-    "text": "Con una hoja en la boca, declara tu amor como si fueras un personaje de telenovela (¡sin reírte!)."
-  },
-  {
-    "id": 29,
-    "text": "Dibuja con lápiz labial un mensaje secreto en el espejo para que tu pareja lo encuentre mañana."
-  },
-  {
-    "id": 30,
-    "text": "Haz un 'tráiler cinematográfico' narrando nuestra relación en 30 segundos (usa objetos como micrófono)."
-  },
-  {
-    "id": 31,
-    "text": "Con las manos atadas a la espalda, intenta desabrochar un botón de la camisa de tu pareja (¡solo con los dientes!)."
-  },
-  {
-    "id": 32,
-    "text": "Inventa un baile tonto que represente 'nuestro tema' y enséñaselo a tu pareja."
-  },
-  {
-    "id": 33,
-    "text": "Con una venda en los ojos, reconoce a tu pareja solo tocando sus manos (tienes 2 intentos)."
-  },
-  {
-    "id": 34,
-    "text": "Escribe con chocolate en su espalda lo que más te gusta de vuestra relación y luego... ¡límpialo con un beso!"
-  },
-  {
-    "id": 35,
-    "text": "Graba un mensaje de voz imitando a un anuncio de radio sobre 'el producto perfecto' (¡tu pareja!)."
-  },
-  {
-    "id": 36,
-    "text": "Con una uva en la boca (sin manos), pásasela a tu pareja en un 'beso estilo Hollywood'"
-  },
-  {
-    "id": 37,
-    "text": "Crea una canción tonta de 30 segundos sobre vuestra relación usando solo sonidos de animales"
-  },
-  {
-    "id": 38,
-    "text": "Con los ojos vendados, reconoce a tu pareja solo por su forma de besarte en la mano"
-  },
-  {
-    "id": 39,
-    "text": "Escribe un mensaje de amor en el brazo de tu pareja con protector solar y espera a que se broncee"
-  },
-  {
-    "id": 40,
-    "text": "Hagan un 'retrato hablado' alternando quien dibuja cada rasgo facial sin comunicarse"
-  },
-  {
-    "id": 41,
-    "text": "Con una cuchara en la boca, intenten alimentarse mutuamente sin derramar nada"
-  },
-  {
-    "id": 42,
-    "text": "Recreen su primera foto juntos con la expresión facial más exagerada posible"
-  },
-  {
-    "id": 43,
-    "text": "Inventen un apretón de manos secreto que represente su relación"
-  },
-  {
-    "id": 44,
-    "text": "Con las manos atadas con una corbata/cinturón, intenten envolver un regalo juntos"
-  },
-  {
-    "id": 45,
-    "text": "Graba un video de 15 segundos imitando el estilo de baile favorito de tu pareja"
-  },
-  {
-    "id": 46,
-    "text": "Dale a tu pareja un beso en el lugar más inesperado de su cuerpo"
-  },
-  {
-    "id": 47,
-    "text": "Susurra al oído de tu pareja lo que más te gusta hacer con ella"
-  },
-  {
-    "id": 48,
-    "text": "Haz un masaje sensual en los pies de tu pareja por 2 minutos"
-  },
-  {
-    "id": 49,
-    "text": "Dale de comer a tu pareja con los ojos vendados"
-  },
-  {
-    "id": 50,
-    "text": "Dile a tu pareja tres cosas que nunca le has dicho antes"
-  },
-  {
-    "id": 51,
-    "text": "Bailen una canción lenta abrazados sin separarse"
-  },
-  {
-    "id": 52,
-    "text": "Escribe con tu dedo una palabra de amor en la espalda de tu pareja"
-  },
-  {
-    "id": 53,
-    "text": "Dale un beso que dure exactamente 10 segundos"
-  },
-  {
-    "id": 54,
-    "text": "Cuéntale a tu pareja tu fantasía romántica más dulce"
-  }
+  "Dale un beso en la mano a tu pareja como un caballero/dama.",
+  "Susúrrame algo al oído que me haga sonreír.",
+  "Haz un masaje de 1 minuto en los hombros de tu pareja.",
+  "Imita mi forma de caminar.",
+  "Dime un piropo cursi sin reírte.",
+  "Dame un abrazo por 10 segundos sin soltarme.",
+  "Dibuja un retrato rápido de tu pareja.",
+  "Baila con tu pareja como si fuera tu primera cita.",
+  "Dime tres cosas que te gusten de mí (sin repetir).",
+  "Dale un beso a tu pareja en la parte de su cuerpo que más te guste.",
+  "Escribe un mensaje de amor en la espalda de tu pareja con tu dedo y que adivine qué dice.",
+  "Haz un role-play: actúa cómo sería nuestra primera pelea si nos hubiéramos conocido en el siglo XIX.",
+  "Dí algo que siempre hayas querido decirme... pero usando solo emojis (el otro debe adivinar).",
+  "Tómate una foto juntos haciendo muecas exageradas y guárdala como fondo de pantalla por un día.",
+  "Inventa un apodo ridículo para tu pareja y úsalo sin reírte durante los próximos 5 minutos.",
+  "Con los ojos vendados, reconoce a tu pareja solo oliendo su perfume o loción.",
+  "Escribe un poema de 4 líneas sobre tu pareja usando solo palabras que empiecen con la primera letra de su nombre.",
+  "Haz un striptease lento... pero quitándote capas de ropa exageradas (bufanda, chaqueta, etc.).",
+  "Con un hielo en la boca, dibuja un corazón en el cuello de tu pareja.",
+  "Graba un video de 10 segundos imitando nuestro primer beso (puede ser exagerado).",
+  "Dale a tu pareja un 'masaje' solo con codos y nariz (sin usar manos).",
+  "Susurra una fantasía romántica (no sexual) que tengas para nuestra relación.",
+  "Construye una 'escultura' con 3 objetos cercanos que represente nuestra relación.",
+  "Dale un pico por cada año de relación que tengan.",
+  "Mírame a los ojos sin hablar ni reírte durante 30 segundos (el que rompa el contacto pierde).",
+  "Con los ojos cerrados, alimenta a tu pareja con algo dulce y que adivine qué es (tienes 3 intentos).",
+  "Crea una 'cápsula del tiempo' con 3 objetos cercanos que representen nuestra relación y entiérrala simbólicamente.",
+  "Con una hoja en la boca, declara tu amor como si fueras un personaje de telenovela (¡sin reírte!).",
+  "Dibuja con lápiz labial un mensaje secreto en el espejo para que tu pareja lo encuentre mañana.",
+  "Haz un 'tráiler cinematográfico' narrando nuestra relación en 30 segundos (usa objetos como micrófono).",
+  "Con las manos atadas a la espalda, intenta desabrochar un botón de la camisa de tu pareja (¡solo con los dientes!).",
+  "Inventa un baile tonto que represente 'nuestro tema' y enséñaselo a tu pareja.",
+  "Con una venda en los ojos, reconoce a tu pareja solo tocando sus manos (tienes 2 intentos).",
+  "Escribe con chocolate en su espalda lo que más te gusta de vuestra relación y luego... ¡límpialo con un beso!",
+  "Graba un mensaje de voz imitando a un anuncio de radio sobre 'el producto perfecto' (¡tu pareja!).",
+  "Con una uva en la boca (sin manos), pásasela a tu pareja en un 'beso estilo Hollywood'",
+  "Crea una canción tonta de 30 segundos sobre vuestra relación usando solo sonidos de animales",
+  "Con los ojos vendados, reconoce a tu pareja solo por su forma de besarte en la mano",
+  "Escribe un mensaje de amor en el brazo de tu pareja con protector solar y espera a que se broncee",
+  "Hagan un 'retrato hablado' alternando quien dibuja cada rasgo facial sin comunicarse",
+  "Con una cuchara en la boca, intenten alimentarse mutuamente sin derramar nada",
+  "Recreen su primera foto juntos con la expresión facial más exagerada posible",
+  "Inventen un apretón de manos secreto que represente su relación",
+  "Con las manos atadas con una corbata/cinturón, intenten envolver un regalo juntos",
+  "Graba un video de 15 segundos imitando el estilo de baile favorito de tu pareja",
+  "Dale a tu pareja un beso en el lugar más inesperado de su cuerpo",
+  "Susurra al oído de tu pareja lo que más te gusta hacer con ella",
+  "Haz un masaje sensual en los pies de tu pareja por 2 minutos",
+  "Dale de comer a tu pareja con los ojos vendados",
+  "Dile a tu pareja tres cosas que nunca le has dicho antes",
+  "Bailen una canción lenta abrazados sin separarse",
+  "Escribe con tu dedo una palabra de amor en la espalda de tu pareja",
+  "Dale un beso que dure exactamente 10 segundos",
+  "Cuéntale a tu pareja tu fantasía romántica más dulce"
 ]

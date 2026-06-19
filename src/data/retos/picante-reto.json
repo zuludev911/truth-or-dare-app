@@ -1,222 +1,57 @@
 [
-  {
-    "id": 1,
-    "text": "Quítate una prenda de ropa sin usar las manos."
-  },
-  {
-    "id": 2,
-    "text": "Baila sensual frente al grupo por 30 segundos."
-  },
-  {
-    "id": 3,
-    "text": "Dale un mordisco suave en el cuello a alguien del grupo."
-  },
-  {
-    "id": 4,
-    "text": "Susurra algo provocativo al oído de la persona a tu derecha."
-  },
-  {
-    "id": 5,
-    "text": "Deja que alguien te haga un chupetón en el brazo."
-  },
-  {
-    "id": 6,
-    "text": "Muerde sensualemente un alimento frente al grupo."
-  },
-  {
-    "id": 7,
-    "text": "Haz una mirada seductora a alguien del grupo."
-  },
-  {
-    "id": 8,
-    "text": "Acaricia el brazo de alguien del grupo lentamente."
-  },
-  {
-    "id": 9,
-    "text": "Di un piropo picante sin reírte."
-  },
-  {
-    "id": 10,
-    "text": "Pon hielo en tu boca y bésale el cuello a alguien."
-  },
-  {
-    "id": 11,
-    "text": "Coloca un cubo de hielo en la boca y recorre el brazo de alguien con tus labios sin usar las manos."
-  },
-  {
-    "id": 12,
-    "text": "Simula un orgasmo exagerado (sonidos incluidos) durante 10 segundos."
-  },
-  {
-    "id": 13,
-    "text": "Elige a alguien del grupo: deberás decirle al oído qué parte de su cuerpo te parece más atractiva y por qué."
-  },
-  {
-    "id": 14,
-    "text": "Con los ojos vendados, toca el cuello de una persona e intenta adivinar quién es solo por su piel."
-  },
-  {
-    "id": 15,
-    "text": "Juega a ser un/a stripper por 20 segundos (usa una chaqueta o bufanda como 'prop')."
-  },
-  {
-    "id": 16,
-    "text": "Con los ojos vendados, identifica a una persona del grupo solo tocando sus labios con un dedo."
-  },
-  {
-    "id": 17,
-    "text": "Susurra al oído de alguien una fantasía que tengas sobre esa persona (puede ser inventada)."
-  },
-  {
-    "id": 18,
-    "text": "Con una cereza en la boca (sin manos), pásasela a alguien del grupo."
-  },
-  {
-    "id": 19,
-    "text": "Escribe con miel o chocolate en el brazo de alguien una palabra provocativa y lámbela para 'borrarla'."
-  },
-  {
-    "id": 20,
-    "text": "Acaricia con una pluma o cepillo la parte más sensible del cuello de alguien (sin hablar)."
-  },
-  {
-    "id": 21,
-    "text": "Interpreta a un/a profesor/a de 'clases de seducción' dando un consejo absurdamente exagerado."
-  },
-  {
-    "id": 22,
-    "text": "Con una toalla alrededor de tu cintura, haz un striptease lento hasta quedarte con una capa de ropa normal."
-  },
-  {
-    "id": 23,
-    "text": "Dile a alguien del grupo qué olor crees que tendría su perfume ideal (ej: 'olor a playa al atardecer')."
-  },
-  {
-    "id": 24,
-    "text": "Mira fijamente a alguien mientras te pasas lentamente un cubo de hielo por los labios (10 segundos)."
-  },
-  {
-    "id": 25,
-    "text": "Elige a dos personas del grupo: una será tus 'manos' y la otra tu 'voz'. Juntos deben seducir a una tercera persona."
-  },
-  {
-    "id": 26,
-    "text": "Con una fruta entre los labios (ej: fresa), ofrécela a alguien del grupo sin usar las manos."
-  },
-  {
-    "id": 27,
-    "text": "Susurra al oído de alguien una fantasía que involucre su profesión (ej: 'si fueras mi profesor/a...')."
-  },
-  {
-    "id": 28,
-    "text": "Con los ojos vendados, identifica a una persona del grupo solo oliendo su cuello."
-  },
-  {
-    "id": 29,
-    "text": "Usando solo miradas y gestos, convence a alguien del grupo de que eres irresistible (30 segundos)."
-  },
-  {
-    "id": 30,
-    "text": "Con una pluma, dibuja un símbolo erótico en la mano de alguien mientras le susurras su significado."
-  },
-  {
-    "id": 31,
-    "text": "Interpreta a un/a masajista turco/a dando instrucciones 'sensuales' con acento exagerado."
-  },
-  {
-    "id": 32,
-    "text": "Con un cubo de hielo, recorre el contorno de los labios de alguien sin tocarlos directamente."
-  },
-  {
-    "id": 33,
-    "text": "Describe el cuerpo de alguien del grupo como si fuera una obra de arte renacentista (¡sé creativ@!)."
-  },
-  {
-    "id": 34,
-    "text": "Con una bufanda, realiza un striptease lento quitándotela en 3 movimientos exagerados."
-  },
-  {
-    "id": 35,
-    "text": "Elige a dos personas: una será tus 'ojos' (te guiará con palabras) y la otra tu 'víctima'. Deberás seducirla sin ver."
-  },
-  {
-    "id": 36,
-    "text": "Con una cereza en tu boca, ofrece el tallo a alguien para que lo jale con sus dientes (sin usar manos)"
-  },
-  {
-    "id": 37,
-    "text": "Susurra al oído de alguien qué parte de su ropa resalta mejor sus atributos (debes ser específico/a)"
-  },
-  {
-    "id": 38,
-    "text": "Con los ojos vendados, identifica a una persona solo por el tacto de sus muñecas (tienes 2 intentos)"
-  },
-  {
-    "id": 39,
-    "text": "Usando una cucharita, alimenta a alguien mientras describes el 'sabor' en voz sensual de sommelier"
-  },
-  {
-    "id": 40,
-    "text": "Con un lápiz labial, dibuja un camino de besos desde el cuello hasta la mano de alguien"
-  },
-  {
-    "id": 41,
-    "text": "Interpreta a un/a director/a de cine explicando cómo filmarías una escena de amor con alguien del grupo"
-  },
-  {
-    "id": 42,
-    "text": "Con una pluma, escribe un mensaje secreto en la espalda de alguien que otro debe descifrar al tacto"
-  },
-  {
-    "id": 43,
-    "text": "Con una toalla enrollada como cinturón, demuestra cómo quitarías imaginariamente una prenda con los dientes"
-  },
-  {
-    "id": 44,
-    "text": "Describe la personalidad de alguien usando solo comparaciones con postres sensuales (ej: 'eres como un...')"
-  },
-  {
-    "id": 45,
-    "text": "Con dos voluntarios: uno será tus ojos vendados y el otro tus manos - juntos deben seducir a una tercera persona"
-  },
-  {
-    "id": 46,
-    "text": "Haz un baile sensual usando solo movimientos de cadera por 20 segundos"
-  },
-  {
-    "id": 47,
-    "text": "Susurra al oído de alguien tu mayor fantasía sexual con esa persona"
-  },
-  {
-    "id": 48,
-    "text": "Dale un masaje sensual en los hombros a alguien del grupo por 1 minuto"
-  },
-  {
-    "id": 49,
-    "text": "Con los ojos cerrados, identifica a alguien del grupo solo por el tacto"
-  },
-  {
-    "id": 50,
-    "text": "Describe detalladamente cómo seducirías a alguien del grupo"
-  },
-  {
-    "id": 51,
-    "text": "Haz gemidos sensuales mientras comes algo dulce"
-  },
-  {
-    "id": 52,
-    "text": "Dale un beso apasionado en el cuello a alguien del grupo"
-  },
-  {
-    "id": 53,
-    "text": "Quítate lentamente una prenda de ropa mientras mantienes contacto visual con alguien"
-  },
-  {
-    "id": 54,
-    "text": "Acaricia sensualmente el brazo de alguien mientras le susurras cumplidos"
-  },
-  {
-    "id": 55,
-    "text": "Haz una demostración de cómo besas usando tu mano"
-  }
+  "Quítate una prenda de ropa sin usar las manos.",
+  "Baila sensual frente al grupo por 30 segundos.",
+  "Dale un mordisco suave en el cuello a alguien del grupo.",
+  "Susurra algo provocativo al oído de la persona a tu derecha.",
+  "Deja que alguien te haga un chupetón en el brazo.",
+  "Muerde sensualemente un alimento frente al grupo.",
+  "Haz una mirada seductora a alguien del grupo.",
+  "Acaricia el brazo de alguien del grupo lentamente.",
+  "Di un piropo picante sin reírte.",
+  "Pon hielo en tu boca y bésale el cuello a alguien.",
+  "Coloca un cubo de hielo en la boca y recorre el brazo de alguien con tus labios sin usar las manos.",
+  "Simula un orgasmo exagerado (sonidos incluidos) durante 10 segundos.",
+  "Elige a alguien del grupo: deberás decirle al oído qué parte de su cuerpo te parece más atractiva y por qué.",
+  "Con los ojos vendados, toca el cuello de una persona e intenta adivinar quién es solo por su piel.",
+  "Juega a ser un/a stripper por 20 segundos (usa una chaqueta o bufanda como 'prop').",
+  "Con los ojos vendados, identifica a una persona del grupo solo tocando sus labios con un dedo.",
+  "Susurra al oído de alguien una fantasía que tengas sobre esa persona (puede ser inventada).",
+  "Con una cereza en la boca (sin manos), pásasela a alguien del grupo.",
+  "Escribe con miel o chocolate en el brazo de alguien una palabra provocativa y lámbela para 'borrarla'.",
+  "Acaricia con una pluma o cepillo la parte más sensible del cuello de alguien (sin hablar).",
+  "Interpreta a un/a profesor/a de 'clases de seducción' dando un consejo absurdamente exagerado.",
+  "Con una toalla alrededor de tu cintura, haz un striptease lento hasta quedarte con una capa de ropa normal.",
+  "Dile a alguien del grupo qué olor crees que tendría su perfume ideal (ej: 'olor a playa al atardecer').",
+  "Mira fijamente a alguien mientras te pasas lentamente un cubo de hielo por los labios (10 segundos).",
+  "Elige a dos personas del grupo: una será tus 'manos' y la otra tu 'voz'. Juntos deben seducir a una tercera persona.",
+  "Con una fruta entre los labios (ej: fresa), ofrécela a alguien del grupo sin usar las manos.",
+  "Susurra al oído de alguien una fantasía que involucre su profesión (ej: 'si fueras mi profesor/a...').",
+  "Con los ojos vendados, identifica a una persona del grupo solo oliendo su cuello.",
+  "Usando solo miradas y gestos, convence a alguien del grupo de que eres irresistible (30 segundos).",
+  "Con una pluma, dibuja un símbolo erótico en la mano de alguien mientras le susurras su significado.",
+  "Interpreta a un/a masajista turco/a dando instrucciones 'sensuales' con acento exagerado.",
+  "Con un cubo de hielo, recorre el contorno de los labios de alguien sin tocarlos directamente.",
+  "Describe el cuerpo de alguien del grupo como si fuera una obra de arte renacentista (¡sé creativ@!).",
+  "Con una bufanda, realiza un striptease lento quitándotela en 3 movimientos exagerados.",
+  "Elige a dos personas: una será tus 'ojos' (te guiará con palabras) y la otra tu 'víctima'. Deberás seducirla sin ver.",
+  "Con una cereza en tu boca, ofrece el tallo a alguien para que lo jale con sus dientes (sin usar manos)",
+  "Susurra al oído de alguien qué parte de su ropa resalta mejor sus atributos (debes ser específico/a)",
+  "Con los ojos vendados, identifica a una persona solo por el tacto de sus muñecas (tienes 2 intentos)",
+  "Usando una cucharita, alimenta a alguien mientras describes el 'sabor' en voz sensual de sommelier",
+  "Con un lápiz labial, dibuja un camino de besos desde el cuello hasta la mano de alguien",
+  "Interpreta a un/a director/a de cine explicando cómo filmarías una escena de amor con alguien del grupo",
+  "Con una pluma, escribe un mensaje secreto en la espalda de alguien que otro debe descifrar al tacto",
+  "Con una toalla enrollada como cinturón, demuestra cómo quitarías imaginariamente una prenda con los dientes",
+  "Describe la personalidad de alguien usando solo comparaciones con postres sensuales (ej: 'eres como un...')",
+  "Con dos voluntarios: uno será tus ojos vendados y el otro tus manos - juntos deben seducir a una tercera persona",
+  "Haz un baile sensual usando solo movimientos de cadera por 20 segundos",
+  "Susurra al oído de alguien tu mayor fantasía sexual con esa persona",
+  "Dale un masaje sensual en los hombros a alguien del grupo por 1 minuto",
+  "Con los ojos cerrados, identifica a alguien del grupo solo por el tacto",
+  "Describe detalladamente cómo seducirías a alguien del grupo",
+  "Haz gemidos sensuales mientras comes algo dulce",
+  "Dale un beso apasionado en el cuello a alguien del grupo",
+  "Quítate lentamente una prenda de ropa mientras mantienes contacto visual con alguien",
+  "Acaricia sensualmente el brazo de alguien mientras le susurras cumplidos",
+  "Haz una demostración de cómo besas usando tu mano"
 ]

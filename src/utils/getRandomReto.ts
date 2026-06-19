@@ -1,6 +1,6 @@
 import { Reto } from "../types";
 
-const data: Record<string, Reto[]> = {
+const data: Record<string, string[]> = {
   "clasico-verdad": require("../data/retos/clasico-verdad.json"),
   "clasico-reto": require("../data/retos/clasico-reto.json"),
   "picante-verdad": require("../data/retos/picante-verdad.json"),
@@ -37,5 +37,5 @@ export function getRandomReto(
   usados.add(index);
   usadosPorCategoria[`${categoria}-${type}`] = usados;
 
-  return { ...retos[index], type };
+  return { text: retos[index], type };
 }
