@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   View,
   StyleSheet,
   Text,
   TouchableOpacity,
   ImageBackground,
+  Platform,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -14,10 +15,16 @@ import Animated, {
   withTiming,
   Easing,
 } from "react-native-reanimated";
+import {
+  AdEventType,
+  InterstitialAd,
+  TestIds,
+} from "react-native-google-mobile-ads";
 import { useAudioPlayer } from "expo-audio";
 import Svg, { Path, Defs, LinearGradient, Stop } from "react-native-svg";
 import { ToolsStackParamList } from "../navigation/ToolsStackNavigator";
 import { COLORS } from "../constants";
+import { AD_IDS } from "../services/ads";
 import CloseButton from "../components/CloseButton";
 import AdBanner from "../components/AdBanner";
 import backgroundEmpty from "../assets/background-empty.webp";
@@ -27,9 +34,54 @@ type Props = NativeStackScreenProps<ToolsStackParamList, "Bottle">;
 const SPIN_DURATION = 3500;
 const BOTTLE_WIDTH = 80;
 const BOTTLE_HEIGHT = 200;
+const AD_EVERY_N_SPINS = 20;
 
 export default function BottleScreen({ navigation }: Props) {
   const [isSpinning, setIsSpinning] = useState(false);
+  const [isAdLoaded, setIsAdLoaded] = useState(false);
+  const spinCountRef = useRef(0);
+
+  const adUnitId = useMemo(
+    () =>
+      __DEV__
+        ? TestIds.INTERSTITIAL
+        : Platform.select({
+            android: AD_IDS.ANDROID_INTERSTITIAL,
+            ios: AD_IDS.IOS_INTERSTITIAL,
+          }),
+    []
+  );
+
+  const interstitial = useMemo(
+    () => InterstitialAd.createForAdRequest(adUnitId),
+    [adUnitId]
+  );
+
+  useEffect(() => {
+    const loadAd = () => interstitial.load();
+    const unsubLoaded = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => setIsAdLoaded(true)
+    );
+    const unsubClosed = interstitial.addAdEventListener(
+      AdEventType.CLOSED,
+      () => {
+        setIsAdLoaded(false);
+        loadAd();
+      }
+    );
+    const unsubError = interstitial.addAdEventListener(
+      AdEventType.ERROR,
+      () => setIsAdLoaded(false)
+    );
+    loadAd();
+    return () => {
+      unsubLoaded();
+      unsubClosed();
+      unsubError();
+    };
+  }, [interstitial]);
+
   const bottlePlayer = useAudioPlayer(
     require("../assets/sounds/bottle-spin.wav"),
     {
@@ -55,6 +107,13 @@ export default function BottleScreen({ navigation }: Props) {
     if (isSpinning) return;
 
     setIsSpinning(true);
+    spinCountRef.current += 1;
+    if (spinCountRef.current >= AD_EVERY_N_SPINS && isAdLoaded) {
+      spinCountRef.current = 0;
+      try {
+        interstitial.show();
+      } catch {}
+    }
 
     bottlePlayer
       .seekTo(0)
