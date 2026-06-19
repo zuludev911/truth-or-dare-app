@@ -1,15 +1,22 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import {
   View,
   StyleSheet,
   Text,
   TouchableOpacity,
   ImageBackground,
+  Platform,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import {
+  AdEventType,
+  InterstitialAd,
+  TestIds,
+} from "react-native-google-mobile-ads";
 import { ToolsStackParamList } from "../navigation/ToolsStackNavigator";
 import { COLORS } from "../constants";
+import { AD_IDS } from "../services/ads";
 import Die from "../components/Die";
 import DiceCountSelector from "../components/DiceCountSelector";
 import CloseButton from "../components/CloseButton";
@@ -19,22 +26,73 @@ import backgroundEmpty from "../assets/background-empty.webp";
 type Props = NativeStackScreenProps<ToolsStackParamList, "Dice">;
 
 const DICE_SIZE = 110;
+const AD_EVERY_N_ROLLS = 20;
 
 export default function DiceScreen({ navigation }: Props) {
   const [diceCount, setDiceCount] = useState(2);
   const [diceValues, setDiceValues] = useState<number[]>([1, 1]);
   const [isRolling, setIsRolling] = useState(false);
+  const [isAdLoaded, setIsAdLoaded] = useState(false);
+  const rollCountRef = React.useRef(0);
+
+  const adUnitId = useMemo(
+    () =>
+      __DEV__
+        ? TestIds.INTERSTITIAL
+        : Platform.select({
+            android: AD_IDS.ANDROID_INTERSTITIAL,
+            ios: AD_IDS.IOS_INTERSTITIAL,
+          }),
+    []
+  );
+
+  const interstitial = useMemo(
+    () => InterstitialAd.createForAdRequest(adUnitId),
+    [adUnitId]
+  );
+
+  useEffect(() => {
+    const loadAd = () => interstitial.load();
+    const unsubLoaded = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => setIsAdLoaded(true)
+    );
+    const unsubClosed = interstitial.addAdEventListener(
+      AdEventType.CLOSED,
+      () => {
+        setIsAdLoaded(false);
+        loadAd();
+      }
+    );
+    const unsubError = interstitial.addAdEventListener(
+      AdEventType.ERROR,
+      () => setIsAdLoaded(false)
+    );
+    loadAd();
+    return () => {
+      unsubLoaded();
+      unsubClosed();
+      unsubError();
+    };
+  }, [interstitial]);
 
   const generateRandomValue = () => Math.floor(Math.random() * 6) + 1;
 
   const handleRoll = useCallback(() => {
     if (isRolling) return;
     setIsRolling(true);
+    rollCountRef.current += 1;
+    if (rollCountRef.current >= AD_EVERY_N_ROLLS && isAdLoaded) {
+      rollCountRef.current = 0;
+      try {
+        interstitial.show();
+      } catch {}
+    }
     const newValues = Array.from({ length: diceCount }, () =>
       generateRandomValue()
     );
     setDiceValues(newValues);
-  }, [diceCount, isRolling]);
+  }, [diceCount, isRolling, isAdLoaded, interstitial]);
 
   const rolledCountRef = React.useRef(0);
 
