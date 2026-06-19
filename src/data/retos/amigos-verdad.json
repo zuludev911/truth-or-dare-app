@@ -1,184 +1,67 @@
 [
-  {
-    "id": 1,
-    "text": "¿Qué hábito tuyo sabes que desespera al grupo aunque nadie lo diga?"
-  },
-  { "id": 2, "text": "¿Alguna vez revelaste un secreto sin darte cuenta?" },
-  {
-    "id": 3,
-    "text": "¿Qué cosa hiciste solo para encajar y hoy te da vergüenza?"
-  },
-  {
-    "id": 4,
-    "text": "¿Con quién del grupo chocarías más si vivieran juntos y por qué?"
-  },
-  {
-    "id": 5,
-    "text": "¿Qué mentira pequeña le has dicho al grupo que todos creen?"
-  },
-  {
-    "id": 6,
-    "text": "¿Alguna vez te gustaron dos personas al mismo tiempo del mismo círculo?"
-  },
-  { "id": 7, "text": "¿Qué crees que el grupo critica de ti cuando no estás?" },
-  { "id": 8, "text": "¿Qué elogio te marcó más de alguien que está aquí?" },
-  {
-    "id": 9,
-    "text": "Si solo pudieras llevar a un amigo a una isla desierta, ¿a quién eliges y por qué?"
-  },
-  {
-    "id": 10,
-    "text": "¿Qué excusa falsa usaste para cancelar un plan grupal?"
-  },
-
-  {
-    "id": 11,
-    "text": "¿Qué situación inocente podría verse muy rara fuera de contexto?"
-  },
-  {
-    "id": 12,
-    "text": "Si tuvieras que vender a un amigo como producto, ¿a quién y con qué slogan?"
-  },
-  {
-    "id": 13,
-    "text": "¿Cuál es el rumor más ridículo que escuchaste sobre ti?"
-  },
-  { "id": 14, "text": "¿Qué moda seguiste y hoy no entiendes por qué?" },
-  {
-    "id": 15,
-    "text": "Si el grupo fuera una mafia, ¿qué rol tendrías tú realmente?"
-  },
-  { "id": 16, "text": "¿Quién sería el peor roommate del grupo y por qué?" },
-  { "id": 17, "text": "Si fueran una banda, ¿qué rol tendría cada uno?" },
-  { "id": 18, "text": "¿Qué chiste interno del grupo jamás debería morir?" },
-  { "id": 19, "text": "¿Qué apodo vergonzoso de tu infancia nunca cuentas?" },
-  {
-    "id": 20,
-    "text": "¿Qué palabra o frase de un amigo eliminarías para siempre?"
-  },
-
-  {
-    "id": 21,
-    "text": "¿A quién mandarías a un reality show solo para ver el caos?"
-  },
-  { "id": 22, "text": "¿Qué mentira complicada has sostenido más tiempo?" },
-  {
-    "id": 23,
-    "text": "¿Qué haces cuando estás solo que jamás admitirías frente a extraños?"
-  },
-  {
-    "id": 24,
-    "text": "Si el grupo recreara una película famosa, ¿quién arruinaría la escena?"
-  },
-  {
-    "id": 25,
-    "text": "¿Quién sería el peor líder del mundo y qué ley absurda crearía?"
-  },
-  {
-    "id": 26,
-    "text": "¿Qué hábito de un amigo te cuesta tolerar pero nunca dices?"
-  },
-  {
-    "id": 27,
-    "text": "¿Qué defecto tuyo heredaría el grupo si fueran tus hijos?"
-  },
-  { "id": 28, "text": "¿Qué objeto inútil guardas 'por si acaso'?" },
-  {
-    "id": 29,
-    "text": "¿Quién da los peores consejos sentimentales del grupo?"
-  },
-  {
-    "id": 30,
-    "text": "Si intercambiaras cuerpo con alguien del grupo, ¿con quién y por qué?"
-  },
-
-  {
-    "id": 31,
-    "text": "¿Qué comentario tuyo en un chat grupal te arrepentiste de enviar?"
-  },
-  {
-    "id": 32,
-    "text": "¿Qué foto o video del grupo nunca debería salir a la luz?"
-  },
-  {
-    "id": 33,
-    "text": "Si el grupo fuera arrestado, ¿por qué crees que sería?"
-  },
-  { "id": 34, "text": "¿Qué mentira todos creen sobre ti y nunca corregiste?" },
-  {
-    "id": 35,
-    "text": "¿Quién sería más difícil de convivir en un viaje largo?"
-  },
-  {
-    "id": 36,
-    "text": "¿Cuál fue la excusa más mala que usaste para zafar de un plan?"
-  },
-  {
-    "id": 37,
-    "text": "¿Qué momento vergonzoso borrarías de la memoria del grupo?"
-  },
-  {
-    "id": 38,
-    "text": "¿Qué costumbre del grupo sería rarísima vista desde afuera?"
-  },
-  {
-    "id": 39,
-    "text": "¿Quién sería el primero en fallar en un apocalipsis zombie?"
-  },
-  {
-    "id": 40,
-    "text": "¿A quién llevarías como cita a un evento familiar sin miedo al escándalo?"
-  },
-
-  {
-    "id": 41,
-    "text": "¿Qué pensamiento random tienes sobre cada persona aquí?"
-  },
-  { "id": 42, "text": "¿Quién sería incapaz de cuidar incluso una planta?" },
-  {
-    "id": 43,
-    "text": "¿Qué mentira tonta dijiste para impresionar a alguien?"
-  },
-  {
-    "id": 44,
-    "text": "Si fueran superhéroes, ¿qué poder inútil tendría cada uno?"
-  },
-  { "id": 45, "text": "¿Quién arruinaría una boda sin querer?" },
-  { "id": 46, "text": "¿Qué talento inútil solo sacas en fiestas?" },
-  { "id": 47, "text": "Si fueran desastres naturales, ¿qué sería cada uno?" },
-  { "id": 48, "text": "¿Qué momento grupal te hizo reír hasta doler?" },
-  { "id": 49, "text": "¿Con qué 3 emojis crees que el grupo te describiría?" },
-  {
-    "id": 50,
-    "text": "Si este grupo fuera un reality, ¿cuál sería el drama principal?"
-  },
-
-  { "id": 51, "text": "¿Qué detalle cotidiano del grupo extrañarías más?" },
-  {
-    "id": 52,
-    "text": "¿Qué apodo le pondrías a cada uno según su peor hábito?"
-  },
-  { "id": 53, "text": "¿Qué cualidad robarías de cada amigo?" },
-  {
-    "id": 54,
-    "text": "¿Qué recuerdo del grupo sería peligroso si se hiciera viral?"
-  },
-  {
-    "id": 55,
-    "text": "¿Con quiénes sobrevivirías mejor una semana y por qué?"
-  },
-  { "id": 56, "text": "¿Qué secreto tuyo cambiaría la forma en que te ven?" },
-  { "id": 57, "text": "Si fueran sabores de helado, ¿cuál sería cada uno?" },
-  {
-    "id": 58,
-    "text": "¿Qué situación incómoda presenciaste y fingiste no ver?"
-  },
-  {
-    "id": 59,
-    "text": "¿Qué rasgo de personalidad cambiarías de alguien del grupo?"
-  },
-  {
-    "id": 60,
-    "text": "¿Qué historia del grupo siempre exageras cuando la cuentas?"
-  }
+  "¿Qué hábito tuyo sabes que desespera al grupo aunque nadie lo diga?",
+  "¿Alguna vez revelaste un secreto sin darte cuenta?",
+  "¿Qué cosa hiciste solo para encajar y hoy te da vergüenza?",
+  "¿Con quién del grupo chocarías más si vivieran juntos y por qué?",
+  "¿Qué mentira pequeña le has dicho al grupo que todos creen?",
+  "¿Alguna vez te gustaron dos personas al mismo tiempo del mismo círculo?",
+  "¿Qué crees que el grupo critica de ti cuando no estás?",
+  "¿Qué elogio te marcó más de alguien que está aquí?",
+  "Si solo pudieras llevar a un amigo a una isla desierta, ¿a quién eliges y por qué?",
+  "¿Qué excusa falsa usaste para cancelar un plan grupal?",
+  "¿Qué situación inocente podría verse muy rara fuera de contexto?",
+  "Si tuvieras que vender a un amigo como producto, ¿a quién y con qué slogan?",
+  "¿Cuál es el rumor más ridículo que escuchaste sobre ti?",
+  "¿Qué moda seguiste y hoy no entiendes por qué?",
+  "Si el grupo fuera una mafia, ¿qué rol tendrías tú realmente?",
+  "¿Quién sería el peor roommate del grupo y por qué?",
+  "Si fueran una banda, ¿qué rol tendría cada uno?",
+  "¿Qué chiste interno del grupo jamás debería morir?",
+  "¿Qué apodo vergonzoso de tu infancia nunca cuentas?",
+  "¿Qué palabra o frase de un amigo eliminarías para siempre?",
+  "¿A quién mandarías a un reality show solo para ver el caos?",
+  "¿Qué mentira complicada has sostenido más tiempo?",
+  "¿Qué haces cuando estás solo que jamás admitirías frente a extraños?",
+  "Si el grupo recreara una película famosa, ¿quién arruinaría la escena?",
+  "¿Quién sería el peor líder del mundo y qué ley absurda crearía?",
+  "¿Qué hábito de un amigo te cuesta tolerar pero nunca dices?",
+  "¿Qué defecto tuyo heredaría el grupo si fueran tus hijos?",
+  "¿Qué objeto inútil guardas 'por si acaso'?",
+  "¿Quién da los peores consejos sentimentales del grupo?",
+  "Si intercambiaras cuerpo con alguien del grupo, ¿con quién y por qué?",
+  "¿Qué comentario tuyo en un chat grupal te arrepentiste de enviar?",
+  "¿Qué foto o video del grupo nunca debería salir a la luz?",
+  "Si el grupo fuera arrestado, ¿por qué crees que sería?",
+  "¿Qué mentira todos creen sobre ti y nunca corregiste?",
+  "¿Quién sería más difícil de convivir en un viaje largo?",
+  "¿Cuál fue la excusa más mala que usaste para zafar de un plan?",
+  "¿Qué momento vergonzoso borrarías de la memoria del grupo?",
+  "¿Qué costumbre del grupo sería rarísima vista desde afuera?",
+  "¿Quién sería el primero en fallar en un apocalipsis zombie?",
+  "¿A quién llevarías como cita a un evento familiar sin miedo al escándalo?",
+  "¿Qué pensamiento random tienes sobre cada persona aquí?",
+  "¿Quién sería incapaz de cuidar incluso una planta?",
+  "¿Qué mentira tonta dijiste para impresionar a alguien?",
+  "Si fueran superhéroes, ¿qué poder inútil tendría cada uno?",
+  "¿Quién arruinaría una boda sin querer?",
+  "¿Qué talento inútil solo sacas en fiestas?",
+  "Si fueran desastres naturales, ¿qué sería cada uno?",
+  "¿Qué momento grupal te hizo reír hasta doler?",
+  "¿Con qué 3 emojis crees que el grupo te describiría?",
+  "Si este grupo fuera un reality, ¿cuál sería el drama principal?",
+  "¿Qué detalle cotidiano del grupo extrañarías más?",
+  "¿Qué apodo le pondrías a cada uno según su peor hábito?",
+  "¿Qué cualidad robarías de cada amigo?",
+  "¿Qué recuerdo del grupo sería peligroso si se hiciera viral?",
+  "¿Con quiénes sobrevivirías mejor una semana y por qué?",
+  "¿Qué secreto tuyo cambiaría la forma en que te ven?",
+  "Si fueran sabores de helado, ¿cuál sería cada uno?",
+  "¿Qué situación incómoda presenciaste y fingiste no ver?",
+  "¿Qué rasgo de personalidad cambiarías de alguien del grupo?",
+  "¿Qué historia del grupo siempre exageras cuando la cuentas?",
+  "¿A quién del grupo le costaría más sobrevivir sin internet por una semana entera?",
+  "¿Cuál es la cosa más ridícula que hiciste para impresionar a alguien del grupo cuando recién los conociste?",
+  "¿Qué consejo que te dio alguien del grupo seguiste y resultó ser el peor de tu vida?",
+  "¿Cuál es el tema que nunca falla para que el grupo tenga una discusión interminable?",
+  "¿Qué cosa de alguien del grupo nunca te ha gustado pero jamás le has dicho directamente?"
 ]

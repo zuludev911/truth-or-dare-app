@@ -1,7 +1,6 @@
 import { ImageSourcePropType } from "react-native";
 
 export interface Reto {
-  id: number;
   type: "verdad" | "reto";
   text: string;
 }

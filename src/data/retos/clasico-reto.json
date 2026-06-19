@@ -1,242 +1,62 @@
 [
-  {
-    "id": 1,
-    "text": "Bebe un vaso de agua sin usar las manos."
-  },
-  {
-    "id": 2,
-    "text": "Camina como modelo por la habitación."
-  },
-  {
-    "id": 3,
-    "text": "Haz 10 flexiones seguidas."
-  },
-  {
-    "id": 4,
-    "text": "Dibuja algo con los ojos cerrados y que el grupo adivine."
-  },
-  {
-    "id": 5,
-    "text": "Imita a un famoso hasta que alguien adivine."
-  },
-  {
-    "id": 6,
-    "text": "Come algo sin usar las manos."
-  },
-  {
-    "id": 7,
-    "text": "Habla con acento extranjero por 3 turnos."
-  },
-  {
-    "id": 8,
-    "text": "Haz un baile ridículo por 20 segundos."
-  },
-  {
-    "id": 9,
-    "text": "Dile a alguien por mensaje: 'Sé tu secreto'."
-  },
-  {
-    "id": 10,
-    "text": "Equilibra una cuchara en tu nariz durante 15 segundos."
-  },
-  {
-    "id": 11,
-    "text": "Escribe una palabra en el aire con el codo (¡el grupo debe adivinar qué escribiste!)."
-  },
-  {
-    "id": 12,
-    "text": "Canta el abecedario en reversa lo más rápido que puedas."
-  },
-  {
-    "id": 13,
-    "text": "Deja que alguien del grupo te haga un peinado extravagante y exhibelo por 5 minutos."
-  },
-  {
-    "id": 14,
-    "text": "Con una cuchara en la boca, di 'Cuchara de palo' 5 veces rápido."
-  },
-  {
-    "id": 15,
-    "text": "Usa calcetines en las manos y intenta abrir una botella o paquete de galletas."
-  },
-  {
-    "id": 16,
-    "text": "Con los ojos cerrados, adivina qué objeto del grupo te están poniendo en las manos (tienes 3 intentos)."
-  },
-  {
-    "id": 17,
-    "text": "Inventa un eslogan publicitario ridículo para el último miembro del grupo que habló."
-  },
-  {
-    "id": 18,
-    "text": "Con una moneda en la frente, intenta que caiga dentro de un vaso sin usar las manos."
-  },
-  {
-    "id": 19,
-    "text": "Con una mano en la cabeza y otra en el estómago, frota círculos en ambas mientras cantas 'Cumpleaños feliz'."
-  },
-  {
-    "id": 20,
-    "text": "Con una cuchara sostenida con los dientes, intenta recoger un objeto pequeño (ej: un garbanzo)."
-  },
-  {
-    "id": 21,
-    "text": "Con los ojos vendados, identifica a un miembro del grupo solo tocando su cabello (tienes 2 intentos)."
-  },
-  {
-    "id": 22,
-    "text": "Inventa un lenguaje alienígena y explica cómo pedirías pizza en él (el grupo debe adivinar)."
-  },
-  {
-    "id": 23,
-    "text": "Con una galleta en la frente, intenta que caiga en tu boca solo moviendo las cejas."
-  },
-  {
-    "id": 24,
-    "text": "Usa una escoba como guitarra y canta el coro de una canción inventada sobre 'la pésima suerte'."
-  },
-  {
-    "id": 25,
-    "text": "Con los ojos cerrados, dibuja un perro en una hoja mientras el grupo te da instrucciones absurdas."
-  },
-  {
-    "id": 26,
-    "text": "Con un calcetín en cada mano, intenta desdoblar un pañuelo facial."
-  },
-  {
-    "id": 27,
-    "text": "Actúa como si fueras un/a presentador/a de televentas vendiendo el objeto más aburrido de la habitación."
-  },
-  {
-    "id": 28,
-    "text": "Haz una 'escultura' con 3 objetos cercanos que represente tu personalidad y explícala."
-  },
-  {
-    "id": 29,
-    "text": "Envía un mensaje de voz a un contacto aleatorio diciendo: 'Confirmado: el dragón llegó al castillo'."
-  },
-  {
-    "id": 30,
-    "text": "Con una cuchara en cada mano, intenta aplaudir sin soltarlas (¡el sonido más ridículo gana!)."
-  },
-  {
-    "id": 31,
-    "text": "Imita a un animal mientras comes un snack sin reírte (el grupo adivina qué animal eres)."
-  },
-  {
-    "id": 32,
-    "text": "Con los ojos vendados, identifica 3 objetos comunes solo por el olfato (¡nada de zapatos sucios!)."
-  },
-  {
-    "id": 33,
-    "text": "Inventa un baile inspirado en un electrodoméstico (ej: la licuadora) y enséñaselo al grupo."
-  },
-  {
-    "id": 34,
-    "text": "Con un libro en la cabeza, camina en línea recta mientras recitas un trabalenguas."
-  },
-  {
-    "id": 35,
-    "text": "Usa una fruta como micrófono y canta una canción de amor... como si fueras un gallo."
-  },
-  {
-    "id": 36,
-    "text": "Escribe tu nombre en el suelo con el pie dominante, mientras mantienes equilibrio en un pie."
-  },
-  {
-    "id": 37,
-    "text": "Envía un audio a un contacto aleatorio diciendo: 'El experimento salió mal... repito, SALIÓ MAL'."
-  },
-  {
-    "id": 38,
-    "text": "Equilibra tres objetos diferentes en tu cabeza mientras caminas por la habitación."
-  },
-  {
-    "id": 39,
-    "text": "Imita a tres animales diferentes y que el grupo adivine cuáles son."
-  },
-  {
-    "id": 40,
-    "text": "Con los ojos cerrados, dibuja la cara de alguien del grupo y que adivinen de quién es."
-  },
-  {
-    "id": 41,
-    "text": "Haz una torre con 10 objetos diferentes y mantenla en pie por 20 segundos."
-  },
-  {
-    "id": 42,
-    "text": "Inventa una historia de 1 minuto usando solo palabras que empiecen con la letra 'P'."
-  },
-  {
-    "id": 43,
-    "text": "Haz una competencia de miradas con alguien del grupo por 2 minutos sin reír."
-  },
-  {
-    "id": 44,
-    "text": "Con una cuchara en la nariz, intenta comer un snack de un plato"
-  },
-  {
-    "id": 45,
-    "text": "Haz un baile que imite a un robot con fallas técnicas"
-  },
-  {
-    "id": 46,
-    "text": "Con los ojos vendados, arma un rompecabezas de 4 piezas (que el grupo prepare)"
-  },
-  {
-    "id": 47,
-    "text": "Imita a un mime atrapado en una caja invisible por 30 segundos"
-  },
-  {
-    "id": 48,
-    "text": "Con una servilleta en cada pie, intenta escribir tu inicial en el suelo"
-  },
-  {
-    "id": 49,
-    "text": "Haz como si fueras un conductor de autobús anunciando paradas absurdas"
-  },
-  {
-    "id": 50,
-    "text": "Con una galleta salada en cada rodilla, camina sin que se caigan"
-  },
-  {
-    "id": 51,
-    "text": "Inventa un deporte nuevo usando solo un cojín y una botella vacía"
-  },
-  {
-    "id": 52,
-    "text": "Con los ojos cerrados, identifica a 3 personas del grupo solo por su voz"
-  },
-  {
-    "id": 53,
-    "text": "Haz un comercial de televisión para un producto que no existe"
-  },
-  {
-    "id": 54,
-    "text": "Con una pelota pequeña, haz malabares por 15 segundos (¡puedes usar cualquier parte del cuerpo!)"
-  },
-  {
-    "id": 55,
-    "text": "Imita a un personaje de dibujos animados hablando sobre el clima"
-  },
-  {
-    "id": 56,
-    "text": "Con un rollo de papel, crea un sombrero extravagante y preséntalo como diseñador/a"
-  },
-  {
-    "id": 57,
-    "text": "Haz una rutina de ejercicios imaginarios para 'fortalecer el sentido del humor'"
-  },
-  {
-    "id": 58,
-    "text": "Con una cuchara y un tenedor como baquetas, toca una batería imaginaria"
-  },
-  {
-    "id": 59,
-    "text": "Imita a un turista perdido pidiendo direcciones en un idioma inventado"
-  },
-  {
-    "id": 60,
-    "text": "Con tres vasos de agua, crea una 'melodía' tocándolos con diferentes objetos"
-  }
+  "Bebe un vaso de agua sin usar las manos.",
+  "Camina como modelo por la habitación.",
+  "Haz 10 flexiones seguidas.",
+  "Dibuja algo con los ojos cerrados y que el grupo adivine.",
+  "Imita a un famoso hasta que alguien adivine.",
+  "Come algo sin usar las manos.",
+  "Habla con acento extranjero por 3 turnos.",
+  "Haz un baile ridículo por 20 segundos.",
+  "Dile a alguien por mensaje: 'Sé tu secreto'.",
+  "Equilibra una cuchara en tu nariz durante 15 segundos.",
+  "Escribe una palabra en el aire con el codo (¡el grupo debe adivinar qué escribiste!).",
+  "Canta el abecedario en reversa lo más rápido que puedas.",
+  "Deja que alguien del grupo te haga un peinado extravagante y exhibelo por 5 minutos.",
+  "Con una cuchara en la boca, di 'Cuchara de palo' 5 veces rápido.",
+  "Usa calcetines en las manos y intenta abrir una botella o paquete de galletas.",
+  "Con los ojos cerrados, adivina qué objeto del grupo te están poniendo en las manos (tienes 3 intentos).",
+  "Inventa un eslogan publicitario ridículo para el último miembro del grupo que habló.",
+  "Con una moneda en la frente, intenta que caiga dentro de un vaso sin usar las manos.",
+  "Con una mano en la cabeza y otra en el estómago, frota círculos en ambas mientras cantas 'Cumpleaños feliz'.",
+  "Con una cuchara sostenida con los dientes, intenta recoger un objeto pequeño (ej: un garbanzo).",
+  "Con los ojos vendados, identifica a un miembro del grupo solo tocando su cabello (tienes 2 intentos).",
+  "Inventa un lenguaje alienígena y explica cómo pedirías pizza en él (el grupo debe adivinar).",
+  "Con una galleta en la frente, intenta que caiga en tu boca solo moviendo las cejas.",
+  "Usa una escoba como guitarra y canta el coro de una canción inventada sobre 'la pésima suerte'.",
+  "Con los ojos cerrados, dibuja un perro en una hoja mientras el grupo te da instrucciones absurdas.",
+  "Con un calcetín en cada mano, intenta desdoblar un pañuelo facial.",
+  "Actúa como si fueras un/a presentador/a de televentas vendiendo el objeto más aburrido de la habitación.",
+  "Haz una 'escultura' con 3 objetos cercanos que represente tu personalidad y explícala.",
+  "Envía un mensaje de voz a un contacto aleatorio diciendo: 'Confirmado: el dragón llegó al castillo'.",
+  "Con una cuchara en cada mano, intenta aplaudir sin soltarlas (¡el sonido más ridículo gana!).",
+  "Imita a un animal mientras comes un snack sin reírte (el grupo adivina qué animal eres).",
+  "Con los ojos vendados, identifica 3 objetos comunes solo por el olfato (¡nada de zapatos sucios!).",
+  "Inventa un baile inspirado en un electrodoméstico (ej: la licuadora) y enséñaselo al grupo.",
+  "Con un libro en la cabeza, camina en línea recta mientras recitas un trabalenguas.",
+  "Usa una fruta como micrófono y canta una canción de amor... como si fueras un gallo.",
+  "Escribe tu nombre en el suelo con el pie dominante, mientras mantienes equilibrio en un pie.",
+  "Envía un audio a un contacto aleatorio diciendo: 'El experimento salió mal... repito, SALIÓ MAL'.",
+  "Equilibra tres objetos diferentes en tu cabeza mientras caminas por la habitación.",
+  "Imita a tres animales diferentes y que el grupo adivine cuáles son.",
+  "Con los ojos cerrados, dibuja la cara de alguien del grupo y que adivinen de quién es.",
+  "Haz una torre con 10 objetos diferentes y mantenla en pie por 20 segundos.",
+  "Inventa una historia de 1 minuto usando solo palabras que empiecen con la letra 'P'.",
+  "Haz una competencia de miradas con alguien del grupo por 2 minutos sin reír.",
+  "Con una cuchara en la nariz, intenta comer un snack de un plato",
+  "Haz un baile que imite a un robot con fallas técnicas",
+  "Con los ojos vendados, arma un rompecabezas de 4 piezas (que el grupo prepare)",
+  "Imita a un mime atrapado en una caja invisible por 30 segundos",
+  "Con una servilleta en cada pie, intenta escribir tu inicial en el suelo",
+  "Haz como si fueras un conductor de autobús anunciando paradas absurdas",
+  "Con una galleta salada en cada rodilla, camina sin que se caigan",
+  "Inventa un deporte nuevo usando solo un cojín y una botella vacía",
+  "Con los ojos cerrados, identifica a 3 personas del grupo solo por su voz",
+  "Haz un comercial de televisión para un producto que no existe",
+  "Con una pelota pequeña, haz malabares por 15 segundos (¡puedes usar cualquier parte del cuerpo!)",
+  "Imita a un personaje de dibujos animados hablando sobre el clima",
+  "Con un rollo de papel, crea un sombrero extravagante y preséntalo como diseñador/a",
+  "Haz una rutina de ejercicios imaginarios para 'fortalecer el sentido del humor'",
+  "Con una cuchara y un tenedor como baquetas, toca una batería imaginaria",
+  "Imita a un turista perdido pidiendo direcciones en un idioma inventado",
+  "Con tres vasos de agua, crea una 'melodía' tocándolos con diferentes objetos"
 ]

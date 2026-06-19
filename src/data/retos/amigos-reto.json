@@ -1,178 +1,62 @@
 [
-  {
-    "id": 1,
-    "text": "Imita al amigo del grupo que más exagera al contar historias."
-  },
-  {
-    "id": 2,
-    "text": "Deja que el grupo elija una foto de tu galería para verla durante 8 segundos."
-  },
-  {
-    "id": 3,
-    "text": "Envía un audio cantando como ópera a un contacto aleatorio."
-  },
-  {
-    "id": 4,
-    "text": "Haz 15 sentadillas narrando lo que haces como si fuera un documental épico."
-  },
-  {
-    "id": 5,
-    "text": "Publica en tu estado: 'Acepto teorías conspirativas, inbox abierto'."
-  },
-  {
-    "id": 6,
-    "text": "Baila 30 segundos como si la música fuera increíble… aunque no haya música."
-  },
-  { "id": 7, "text": "Habla 1 minuto sin usar las palabras: yo, sí, no." },
-  {
-    "id": 8,
-    "text": "Canta el coro de una canción famosa usando solo tarareos dramáticos."
-  },
-  {
-    "id": 9,
-    "text": "Graba un TikTok actuando como si fueras famoso y nadie te reconociera."
-  },
-  {
-    "id": 10,
-    "text": "Desfila como modelo, pero cada 5 segundos cambia de emoción exageradamente."
-  },
-
-  {
-    "id": 11,
-    "text": "Envía un mensaje: 'Tenemos que hablar… luego te explico' y no respondas por 10 minutos."
-  },
-  {
-    "id": 12,
-    "text": "Vende un objeto común como si costara millones (el grupo decide si lo compra)."
-  },
-  {
-    "id": 13,
-    "text": "Cuenta una historia real… pero agrega 2 mentiras ridículas."
-  },
-  {
-    "id": 14,
-    "text": "Baila como si el piso estuviera hirviendo durante 20 segundos."
-  },
-  {
-    "id": 15,
-    "text": "Envía un audio diciendo: 'No debimos tocar eso…' sin contexto."
-  },
-  {
-    "id": 16,
-    "text": "Convéncenos de que serías líder perfecto en un apocalipsis zombie."
-  },
-  { "id": 17, "text": "Actúa como superhéroe cuyo poder sea tu peor defecto." },
-  {
-    "id": 18,
-    "text": "Inventa un gadget con 3 objetos cercanos y ponle nombre absurdo."
-  },
-  {
-    "id": 19,
-    "text": "Dos personas controlan tu voz y tus movimientos por 30 segundos."
-  },
-  {
-    "id": 20,
-    "text": "Envía el mensaje: 'El plan B está en marcha 🦆' a un contacto aleatorio."
-  },
-
-  {
-    "id": 21,
-    "text": "Explica una teoría loca con una cuchara en la boca (máx. 20 segundos)."
-  },
-  {
-    "id": 22,
-    "text": "Inventa un baile inspirado en un animal elegido por el grupo."
-  },
-  {
-    "id": 23,
-    "text": "Con los ojos cerrados, prueba algo y adivina qué es (2 intentos)."
-  },
-  { "id": 24, "text": "Declara tu amor eterno a un objeto de la habitación." },
-  {
-    "id": 25,
-    "text": "Narra un videojuego imaginario como streamer exagerado."
-  },
-  {
-    "id": 26,
-    "text": "Imita a un político anunciando algo completamente absurdo."
-  },
-  {
-    "id": 27,
-    "text": "Construye algo inútil pero explícalo como si fuera revolucionario."
-  },
-  {
-    "id": 28,
-    "text": "Envía: '¿Seguimos con lo que prometimos?' y no expliques nada."
-  },
-  {
-    "id": 29,
-    "text": "Imita a un famoso mientras comes una galleta sin reírte."
-  },
-  { "id": 30, "text": "Dibuja a alguien del grupo con los ojos cerrados." },
-
-  { "id": 31, "text": "Inventa un idioma y pide comida rápida en él." },
-  {
-    "id": 32,
-    "text": "Gira 5 veces y camina en línea recta con total seguridad falsa."
-  },
-  { "id": 33, "text": "Resuelve un crimen imaginario ultra ridículo." },
-  {
-    "id": 34,
-    "text": "Deslízate por el piso como si fuera una pista de hielo."
-  },
-  { "id": 35, "text": "Escribe tu nombre en el aire usando solo el codo." },
-  {
-    "id": 36,
-    "text": "Envía: 'Funcionó mejor de lo esperado…' a tu último chat."
-  },
-  { "id": 37, "text": "Vende algo inútil como si fuera una necesidad básica." },
-  {
-    "id": 38,
-    "text": "Defiende al grupo de una invasión imaginaria durante 30 segundos."
-  },
-  {
-    "id": 39,
-    "text": "Camina como pingüino elegante rumbo a una alfombra roja."
-  },
-  { "id": 40, "text": "Rap improvisado sobre una tarea que odias hacer." },
-
-  { "id": 41, "text": "Entrevista a un objeto como si fuera famoso." },
-  { "id": 42, "text": "Cuenta una historia de terror… caminando hacia atrás." },
-  {
-    "id": 43,
-    "text": "Sube una foto con filtro exagerado y déjala 5 minutos."
-  },
-  { "id": 44, "text": "Predice el futuro absurdo del grupo como adivino." },
-  { "id": 45, "text": "Envía un audio cantando cumpleaños sin razón." },
-  {
-    "id": 46,
-    "text": "Salva al grupo de un ataque imaginario con una toalla-capa."
-  },
-  { "id": 47, "text": "Reacciona a ganar la lotería usando solo sonidos." },
-  { "id": 48, "text": "Reconoce manos del grupo con los ojos cerrados." },
-  { "id": 49, "text": "Crea un comercial exprés con objetos de la mesa." },
-  { "id": 50, "text": "Podcast improvisado sobre un tema absurdo del grupo." },
-
-  { "id": 51, "text": "Aplaude con objetos frágiles sin romperlos." },
-  { "id": 52, "text": "Inventa un saludo secreto grupal." },
-  { "id": 53, "text": "Presenta una receta terrible como chef famoso." },
-  { "id": 54, "text": "Crea un invento para un problema ridículo del grupo." },
-  {
-    "id": 55,
-    "text": "Graba un 'life hack' completamente inútil con mucha seguridad."
-  },
-  { "id": 56, "text": "Desfila con un objeto en la cabeza sin que caiga." },
-  { "id": 57, "text": "Canción improvisada usando solo una letra." },
-  {
-    "id": 58,
-    "text": "Da una clase exprés sobre cómo sobrevivir al aburrimiento."
-  },
-  {
-    "id": 59,
-    "text": "Despídete dramáticamente como si te fueras del planeta."
-  },
-  {
-    "id": 60,
-    "text": "Inventa un baile que represente esperar el baño en una fiesta."
-  }
+  "Imita al amigo del grupo que más exagera al contar historias.",
+  "Deja que el grupo elija una foto de tu galería para verla durante 8 segundos.",
+  "Envía un audio cantando como ópera a un contacto aleatorio.",
+  "Haz 15 sentadillas narrando lo que haces como si fuera un documental épico.",
+  "Publica en tu estado: 'Acepto teorías conspirativas, inbox abierto'.",
+  "Baila 30 segundos como si la música fuera increíble… aunque no haya música.",
+  "Habla 1 minuto sin usar las palabras: yo, sí, no.",
+  "Canta el coro de una canción famosa usando solo tarareos dramáticos.",
+  "Graba un TikTok actuando como si fueras famoso y nadie te reconociera.",
+  "Desfila como modelo, pero cada 5 segundos cambia de emoción exageradamente.",
+  "Envía un mensaje: 'Tenemos que hablar… luego te explico' y no respondas por 10 minutos.",
+  "Vende un objeto común como si costara millones (el grupo decide si lo compra).",
+  "Cuenta una historia real… pero agrega 2 mentiras ridículas.",
+  "Baila como si el piso estuviera hirviendo durante 20 segundos.",
+  "Envía un audio diciendo: 'No debimos tocar eso…' sin contexto.",
+  "Convéncenos de que serías líder perfecto en un apocalipsis zombie.",
+  "Actúa como superhéroe cuyo poder sea tu peor defecto.",
+  "Inventa un gadget con 3 objetos cercanos y ponle nombre absurdo.",
+  "Dos personas controlan tu voz y tus movimientos por 30 segundos.",
+  "Envía el mensaje: 'El plan B está en marcha 🦆' a un contacto aleatorio.",
+  "Explica una teoría loca con una cuchara en la boca (máx. 20 segundos).",
+  "Inventa un baile inspirado en un animal elegido por el grupo.",
+  "Con los ojos cerrados, prueba algo y adivina qué es (2 intentos).",
+  "Declara tu amor eterno a un objeto de la habitación.",
+  "Narra un videojuego imaginario como streamer exagerado.",
+  "Imita a un político anunciando algo completamente absurdo.",
+  "Construye algo inútil pero explícalo como si fuera revolucionario.",
+  "Envía: '¿Seguimos con lo que prometimos?' y no expliques nada.",
+  "Imita a un famoso mientras comes una galleta sin reírte.",
+  "Dibuja a alguien del grupo con los ojos cerrados.",
+  "Inventa un idioma y pide comida rápida en él.",
+  "Gira 5 veces y camina en línea recta con total seguridad falsa.",
+  "Resuelve un crimen imaginario ultra ridículo.",
+  "Deslízate por el piso como si fuera una pista de hielo.",
+  "Escribe tu nombre en el aire usando solo el codo.",
+  "Envía: 'Funcionó mejor de lo esperado…' a tu último chat.",
+  "Vende algo inútil como si fuera una necesidad básica.",
+  "Defiende al grupo de una invasión imaginaria durante 30 segundos.",
+  "Camina como pingüino elegante rumbo a una alfombra roja.",
+  "Rap improvisado sobre una tarea que odias hacer.",
+  "Entrevista a un objeto como si fuera famoso.",
+  "Cuenta una historia de terror… caminando hacia atrás.",
+  "Sube una foto con filtro exagerado y déjala 5 minutos.",
+  "Predice el futuro absurdo del grupo como adivino.",
+  "Envía un audio cantando cumpleaños sin razón.",
+  "Salva al grupo de un ataque imaginario con una toalla-capa.",
+  "Reacciona a ganar la lotería usando solo sonidos.",
+  "Reconoce manos del grupo con los ojos cerrados.",
+  "Crea un comercial exprés con objetos de la mesa.",
+  "Podcast improvisado sobre un tema absurdo del grupo.",
+  "Aplaude con objetos frágiles sin romperlos.",
+  "Inventa un saludo secreto grupal.",
+  "Presenta una receta terrible como chef famoso.",
+  "Crea un invento para un problema ridículo del grupo.",
+  "Graba un 'life hack' completamente inútil con mucha seguridad.",
+  "Desfila con un objeto en la cabeza sin que caiga.",
+  "Canción improvisada usando solo una letra.",
+  "Da una clase exprés sobre cómo sobrevivir al aburrimiento.",
+  "Despídete dramáticamente como si te fueras del planeta.",
+  "Inventa un baile que represente esperar el baño en una fiesta."
 ]
