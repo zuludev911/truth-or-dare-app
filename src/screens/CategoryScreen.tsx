@@ -41,7 +41,11 @@ export default function CategoryScreen({ navigation }: Props) {
     setIsChicasUnlocked(chicasUnlocked);
   }, []);
 
-  useFocusEffect(load);
+  useFocusEffect(
+    useCallback(() => {
+      load();
+    }, [load]),
+  );
 
   const onPressItem = useCallback(
     (id: string) => {
