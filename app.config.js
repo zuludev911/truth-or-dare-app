@@ -6,7 +6,7 @@ export default {
   expo: {
     name: "Verdad o Reto",
     slug: "truth-or-dare-app",
-    version: "1.1.0",
+    version: "1.2.0",
     description: "Juego de Verdad o Reto para fiestas, parejas y amigos.",
     keywords: [
       "verdad o reto",
@@ -34,7 +34,7 @@ export default {
     },
     android: {
       applicationLabel: "Verdad o Reto 🔥",
-      versionCode: 29,
+      versionCode: 30,
       adaptiveIcon: {
         foregroundImage: "./assets/icon.png",
         backgroundColor: "#ffffff",
