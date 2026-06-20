@@ -34,18 +34,12 @@ export default function CategoryScreen({ navigation }: Props) {
   const [isChicasUnlocked, setIsChicasUnlocked] = useState<boolean>(false);
   const [loadedChicas, setLoadedChicas] = useState(false);
 
-  const load = useCallback(async () => {
-    const unlocked = await isUnlocked();
-    setIsCategoryUnlocked(unlocked);
-    const chicasUnlocked = await isUnlockedChicas();
-    setIsChicasUnlocked(chicasUnlocked);
+  const load = useCallback(() => {
+    isUnlocked().then(setIsCategoryUnlocked);
+    isUnlockedChicas().then(setIsChicasUnlocked);
   }, []);
 
-  useFocusEffect(
-    useCallback(() => {
-      load();
-    }, [load]),
-  );
+  useFocusEffect(load);
 
   const onPressItem = useCallback(
     (id: string) => {
