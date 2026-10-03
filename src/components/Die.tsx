@@ -7,6 +7,7 @@ import Animated, {
   withTiming,
   Easing,
 } from "react-native-reanimated";
+import { LinearGradient } from "expo-linear-gradient";
 import { useAudioPlayer } from "expo-audio";
 import { COLORS } from "../constants";
 
@@ -38,7 +39,10 @@ export default function Die({
   const rotateY = useSharedValue(0);
   const rotateZ = useSharedValue(0);
   const scale = useSharedValue(1);
+  const translateX = useSharedValue(0);
+  const translateY = useSharedValue(0);
   const shadowOffsetY = useSharedValue(6);
+  const shadowScale = useSharedValue(1);
   const [displayValue, setDisplayValue] = React.useState(value);
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -98,34 +102,67 @@ export default function Die({
       }, COMPLETE_AT)
     );
 
+    // Deriva horizontal y salto vertical aleatorios para que cada dado "vuele" distinto
+    const driftX = (Math.random() - 0.5) * 70;
+    const jumpHeight = 55 + Math.random() * 25;
+    const spinDir = Math.random() > 0.5 ? 1 : -1;
+
     // Animaciones Reanimated (solo visuales, ya no controlan el timing del valor)
     rotateX.value = withSequence(
-      withTiming(720, { duration: ANIMATION_DURATION, easing: Easing.out(Easing.cubic) }),
+      withTiming(spinDir * (630 + Math.random() * 180), {
+        duration: ANIMATION_DURATION,
+        easing: Easing.out(Easing.cubic),
+      }),
       withTiming(0, { duration: 0 })
     );
 
     rotateY.value = withSequence(
-      withTiming(540, { duration: ANIMATION_DURATION, easing: Easing.out(Easing.cubic) }),
+      withTiming(-spinDir * (450 + Math.random() * 180), {
+        duration: ANIMATION_DURATION,
+        easing: Easing.out(Easing.cubic),
+      }),
       withTiming(0, { duration: 0 })
     );
 
     rotateZ.value = withSequence(
-      withTiming(360, { duration: ANIMATION_DURATION, easing: Easing.out(Easing.cubic) }),
+      withTiming(spinDir * (270 + Math.random() * 180), {
+        duration: ANIMATION_DURATION,
+        easing: Easing.out(Easing.cubic),
+      }),
       withTiming(0, { duration: 0 })
     );
 
-    scale.value = withSequence(
-      withTiming(1.1, { duration: 100, easing: Easing.inOut(Easing.ease) }),
-      withTiming(0.95, { duration: 300, easing: Easing.out(Easing.cubic) }),
-      withTiming(1.05, { duration: 150, easing: Easing.inOut(Easing.ease) }),
-      withTiming(1, { duration: 150, easing: Easing.out(Easing.ease) })
+    // Trayectoria de "vuelo": sube, cae, rebota levemente y se asienta
+    translateY.value = withSequence(
+      withTiming(-jumpHeight, { duration: 250, easing: Easing.out(Easing.quad) }),
+      withTiming(8, { duration: 300, easing: Easing.in(Easing.quad) }),
+      withTiming(-6, { duration: 150, easing: Easing.out(Easing.quad) }),
+      withTiming(0, { duration: 100, easing: Easing.out(Easing.quad) })
     );
 
+    translateX.value = withSequence(
+      withTiming(driftX, { duration: 400, easing: Easing.out(Easing.quad) }),
+      withTiming(driftX * 0.3, { duration: 250, easing: Easing.inOut(Easing.quad) }),
+      withTiming(0, { duration: 150, easing: Easing.out(Easing.quad) })
+    );
+
+    scale.value = withSequence(
+      withTiming(1.12, { duration: 250, easing: Easing.out(Easing.quad) }),
+      withTiming(0.92, { duration: 300, easing: Easing.out(Easing.cubic) }),
+      withTiming(1.05, { duration: 150, easing: Easing.inOut(Easing.ease) }),
+      withTiming(1, { duration: 100, easing: Easing.out(Easing.ease) })
+    );
+
+    // La sombra se achica/aleja mientras el dado "vuela" y vuelve al aterrizar
     shadowOffsetY.value = withSequence(
       withTiming(2, { duration: 200 }),
       withTiming(6, { duration: 600, easing: Easing.out(Easing.cubic) })
     );
-
+    shadowScale.value = withSequence(
+      withTiming(0.7, { duration: 250, easing: Easing.out(Easing.quad) }),
+      withTiming(1.1, { duration: 300, easing: Easing.in(Easing.quad) }),
+      withTiming(1, { duration: 250, easing: Easing.out(Easing.quad) })
+    );
   }, [
     isRolling,
     clearAll,
@@ -135,7 +172,10 @@ export default function Die({
     rotateY,
     rotateZ,
     scale,
+    translateX,
+    translateY,
     shadowOffsetY,
+    shadowScale,
   ]);
 
   // Cleanup al desmontar
@@ -144,6 +184,8 @@ export default function Die({
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [
       { perspective: 800 },
+      { translateX: translateX.value },
+      { translateY: translateY.value },
       { rotateX: `${rotateX.value}deg` },
       { rotateY: `${rotateY.value}deg` },
       { rotateZ: `${rotateZ.value}deg` },
@@ -152,7 +194,10 @@ export default function Die({
   }));
 
   const shadowStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: shadowOffsetY.value }],
+    transform: [
+      { translateY: shadowOffsetY.value },
+      { scaleX: shadowScale.value },
+    ],
   }));
 
   const getDotPositions = () => {
@@ -167,8 +212,9 @@ export default function Die({
     return patterns[displayValue] || [];
   };
 
-  const dotSize = size * 0.15;
+  const dotSize = size * 0.14;
   const dotPositions = getDotPositions();
+  const borderRadius = size * 0.22;
 
   return (
     <View style={{ alignItems: "center" }}>
@@ -178,22 +224,47 @@ export default function Die({
           animatedStyle,
         ]}
       >
-        <View style={[styles.die, { width: size, height: size, overflow: "hidden" }]}>
-          {dotPositions.map((pos, idx) => (
+        <View style={[styles.dieShadowWrap, { width: size, height: size, borderRadius }]}>
+          <View style={[styles.dieClip, { width: size, height: size, borderRadius }]}>
+            <LinearGradient
+              colors={["#FFFFFF", "#F1EEF4", "#DAD5E0"]}
+              start={{ x: 0.15, y: 0.05 }}
+              end={{ x: 0.9, y: 1 }}
+              style={StyleSheet.absoluteFillObject}
+            />
+            {/* Brillo superior para dar sensación de superficie pulida */}
+            <LinearGradient
+              colors={["rgba(255,255,255,0.85)", "rgba(255,255,255,0)"]}
+              start={{ x: 0.1, y: 0 }}
+              end={{ x: 0.6, y: 0.7 }}
+              style={StyleSheet.absoluteFillObject}
+            />
+            {/* Bisel inferior/derecho oscuro para simular canto del cubo */}
             <View
-              key={idx}
               style={[
-                styles.dot,
+                styles.bevel,
                 {
-                  width: dotSize,
-                  height: dotSize,
-                  borderRadius: dotSize / 2,
-                  left: (size * pos[0]) / 100 - dotSize / 2,
-                  top: (size * pos[1]) / 100 - dotSize / 2,
+                  borderRightWidth: size * 0.02,
+                  borderBottomWidth: size * 0.02,
                 },
               ]}
             />
-          ))}
+            {dotPositions.map((pos, idx) => (
+              <View
+                key={idx}
+                style={[
+                  styles.dot,
+                  {
+                    width: dotSize,
+                    height: dotSize,
+                    borderRadius: dotSize / 2,
+                    left: (size * pos[0]) / 100 - dotSize / 2,
+                    top: (size * pos[1]) / 100 - dotSize / 2,
+                  },
+                ]}
+              />
+            ))}
+          </View>
         </View>
       </Animated.View>
 
@@ -205,19 +276,32 @@ export default function Die({
 }
 
 const styles = StyleSheet.create({
-  die: {
-    backgroundColor: COLORS.WHITE,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: COLORS.PRIMARY,
+  dieShadowWrap: {
+    shadowColor: COLORS.BLACK,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+  dieClip: {
     position: "relative",
+    overflow: "hidden",
+  },
+  bevel: {
+    ...StyleSheet.absoluteFillObject,
+    borderRightColor: "rgba(0,0,0,0.12)",
+    borderBottomColor: "rgba(0,0,0,0.16)",
   },
   dot: {
     backgroundColor: COLORS.PRIMARY,
     position: "absolute",
+    shadowColor: COLORS.BLACK,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.3,
+    shadowRadius: 1,
   },
   shadow: {
-    backgroundColor: "rgba(0, 0, 0, 0.15)",
+    backgroundColor: "rgba(0, 0, 0, 0.2)",
     borderRadius: 50,
     marginTop: -8,
   },

@@ -13,7 +13,8 @@ import Animated, {
 } from "react-native-reanimated";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { IconHome, IconTool } from "@tabler/icons-react-native";
+import IconHome from "@tabler/icons-react-native/IconHome";
+import IconTool from "@tabler/icons-react-native/IconTool";
 import { COLORS } from "../constants";
 
 const TAB_COUNT = 2;

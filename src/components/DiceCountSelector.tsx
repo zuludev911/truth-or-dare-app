@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, TouchableOpacity, StyleSheet, Modal } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { IconAdjustments } from "@tabler/icons-react-native";
+import IconAdjustments from "@tabler/icons-react-native/IconAdjustments";
 import { COLORS } from "../constants";
 
 interface DiceCountSelectorProps {

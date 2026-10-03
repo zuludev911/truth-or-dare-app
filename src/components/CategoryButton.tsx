@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import Animated, { FadeInLeft } from "react-native-reanimated";
-import { IconLock } from "@tabler/icons-react-native";
+import IconLock from "@tabler/icons-react-native/IconLock";
 
 import { Category } from "../types";
 import { COLORS } from "../constants";

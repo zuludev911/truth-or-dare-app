@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import Toast from "react-native-toast-message";
 import { RewardedAd } from "react-native-google-mobile-ads";
-import { IconPlayerPlayFilled } from "@tabler/icons-react-native";
+import IconPlayerPlayFilled from "@tabler/icons-react-native/IconPlayerPlayFilled";
 
 import { COLORS } from "../constants";
 import extremo from "../assets/extremo.webp";

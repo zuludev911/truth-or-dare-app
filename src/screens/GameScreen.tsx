@@ -15,7 +15,7 @@ import {
   TestIds,
 } from "react-native-google-mobile-ads";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { IconBeerFilled } from "@tabler/icons-react-native";
+import IconBeerFilled from "@tabler/icons-react-native/IconBeerFilled";
 
 import { HomeStackParamList } from "../navigation/HomeStackNavigator";
 import { Reto } from "../types";

@@ -46,7 +46,6 @@ export default {
       favicon: "./assets/favicon.png",
     },
     plugins: [
-      "expo-updates",
       "expo-audio",
       [
         "@sentry/react-native/expo",

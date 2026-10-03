@@ -1,5 +1,6 @@
 import { TouchableOpacity } from "react-native";
-import { IconProps, IconX } from "@tabler/icons-react-native";
+import type { IconProps } from "@tabler/icons-react-native";
+import IconX from "@tabler/icons-react-native/IconX";
 
 import { COLORS } from "../constants";
 

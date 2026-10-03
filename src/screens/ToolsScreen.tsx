@@ -9,7 +9,9 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { IconDice, IconRotate2, IconClock } from "@tabler/icons-react-native";
+import IconDice from "@tabler/icons-react-native/IconDice";
+import IconRotate2 from "@tabler/icons-react-native/IconRotate2";
+import IconClock from "@tabler/icons-react-native/IconClock";
 import { ToolsStackParamList } from "../navigation/ToolsStackNavigator";
 import { COLORS } from "../constants";
 import AdBanner from "../components/AdBanner";
