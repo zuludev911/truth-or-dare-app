@@ -21,9 +21,10 @@ export default {
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
     newArchEnabled: true,
-    // El runtime liga cada update OTA con el binario compatible: si cambias código
-    // nativo, sube la versión (y EXPO_RUNTIME_VERSION en android/ e ios/).
-    runtimeVersion: { policy: "appVersion" },
+    // Proyecto bare (android/ e ios/ versionados): EAS no admite políticas de runtime,
+    // así que va fijo. Si cambias código nativo, súbelo aquí y en
+    // android/.../strings.xml (expo_runtime_version) e ios/.../Expo.plist.
+    runtimeVersion: "1.2.1",
     updates: {
       url: `https://u.expo.dev/${process.env.EAS_PROJECT_ID}`,
       checkAutomatically: "ON_LOAD",
