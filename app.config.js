@@ -6,7 +6,7 @@ export default {
   expo: {
     name: "Verdad o Reto",
     slug: "truth-or-dare-app",
-    version: "1.2.0",
+    version: "1.2.1",
     description: "Juego de Verdad o Reto para fiestas, parejas y amigos.",
     keywords: [
       "verdad o reto",
@@ -21,6 +21,14 @@ export default {
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
     newArchEnabled: true,
+    // El runtime liga cada update OTA con el binario compatible: si cambias código
+    // nativo, sube la versión (y EXPO_RUNTIME_VERSION en android/ e ios/).
+    runtimeVersion: { policy: "appVersion" },
+    updates: {
+      url: `https://u.expo.dev/${process.env.EAS_PROJECT_ID}`,
+      checkAutomatically: "ON_LOAD",
+      fallbackToCacheTimeout: 0,
+    },
     splash: {
       image: "./assets/splash-icon.png",
       resizeMode: "cover",
@@ -34,7 +42,7 @@ export default {
     },
     android: {
       applicationLabel: "Verdad o Reto 🔥",
-      versionCode: 31,
+      versionCode: 32,
       adaptiveIcon: {
         foregroundImage: "./assets/icon.png",
         backgroundColor: "#ffffff",
@@ -46,6 +54,7 @@ export default {
       favicon: "./assets/favicon.png",
     },
     plugins: [
+      "expo-updates",
       "expo-audio",
       [
         "@sentry/react-native/expo",
