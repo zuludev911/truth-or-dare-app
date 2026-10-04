@@ -2,6 +2,9 @@ import "dotenv/config";
 
 const isDev = process.env.NODE_ENV === "development";
 
+// Va fijo porque .env no se sube a EAS; no es un secreto (está en la URL de updates).
+const EAS_PROJECT_ID = "c527b4ab-0a68-40f0-8c0a-12b494893257";
+
 export default {
   expo: {
     name: "Verdad o Reto",
@@ -26,7 +29,7 @@ export default {
     // android/.../strings.xml (expo_runtime_version) e ios/.../Expo.plist.
     runtimeVersion: "1.2.1",
     updates: {
-      url: `https://u.expo.dev/${process.env.EAS_PROJECT_ID}`,
+      url: `https://u.expo.dev/${EAS_PROJECT_ID}`,
       checkAutomatically: "ON_LOAD",
       fallbackToCacheTimeout: 0,
     },
@@ -131,7 +134,7 @@ export default {
     extra: {
       sentryDsn: process.env.DSN_SENTRY,
       eas: {
-        projectId: process.env.EAS_PROJECT_ID,
+        projectId: EAS_PROJECT_ID,
       },
       admobAndroidBannerId: isDev
         ? "ca-app-pub-3940256099942544/6300978111" // ID de prueba para banner
