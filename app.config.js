@@ -9,7 +9,7 @@ export default {
   expo: {
     name: "Verdad o Reto",
     slug: "truth-or-dare-app",
-    version: "1.2.1",
+    version: "1.2.2",
     description: "Juego de Verdad o Reto para fiestas, parejas y amigos.",
     keywords: [
       "verdad o reto",
@@ -27,7 +27,7 @@ export default {
     // Proyecto bare (android/ e ios/ versionados): EAS no admite políticas de runtime,
     // así que va fijo. Si cambias código nativo, súbelo aquí y en
     // android/.../strings.xml (expo_runtime_version) e ios/.../Expo.plist.
-    runtimeVersion: "1.2.1",
+    runtimeVersion: "1.2.2",
     updates: {
       url: `https://u.expo.dev/${EAS_PROJECT_ID}`,
       checkAutomatically: "ON_LOAD",
