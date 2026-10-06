@@ -1,6 +1,10 @@
 import "dotenv/config";
 
-const isDev = process.env.NODE_ENV === "development";
+// Ojo: no decidir IDs de prueba con NODE_ENV; Expo CLI lo pone en "development" al leer
+// la config y los builds de producción quedaban con anuncios de prueba. En desarrollo
+// el código JS ya usa TestIds cuando __DEV__ es true.
+const ADMOB_TEST_ANDROID_APP_ID = "ca-app-pub-3940256099942544~3347511713";
+const ADMOB_TEST_IOS_APP_ID = "ca-app-pub-3940256099942544~1458002511";
 
 // Va fijo porque .env no se sube a EAS; no es un secreto (está en la URL de updates).
 const EAS_PROJECT_ID = "c527b4ab-0a68-40f0-8c0a-12b494893257";
@@ -46,7 +50,7 @@ export default {
     },
     android: {
       applicationLabel: "Verdad o Reto 🔥",
-      versionCode: 33,
+      versionCode: 34,
       adaptiveIcon: {
         foregroundImage: "./assets/icon.png",
         backgroundColor: "#ffffff",
@@ -71,12 +75,9 @@ export default {
       [
         "react-native-google-mobile-ads",
         {
-          androidAppId: isDev
-            ? "ca-app-pub-3940256099942544~3347511713"
-            : process.env.ADMOB_ANDROID_APP_ID,
-          iosAppId: isDev
-            ? "ca-app-pub-3940256099942544~1458002511"
-            : process.env.ADMOB_IOS_APP_ID,
+          androidAppId:
+            process.env.ADMOB_ANDROID_APP_ID || ADMOB_TEST_ANDROID_APP_ID,
+          iosAppId: process.env.ADMOB_IOS_APP_ID || ADMOB_TEST_IOS_APP_ID,
           userTrackingUsageDescription:
             "Usamos datos para personalizar anuncios.",
           // SKAdNetwork IDs requeridos por Meta, AppLovin y Unity para atribución en iOS 14+
@@ -136,18 +137,10 @@ export default {
       eas: {
         projectId: EAS_PROJECT_ID,
       },
-      admobAndroidBannerId: isDev
-        ? "ca-app-pub-3940256099942544/6300978111" // ID de prueba para banner
-        : process.env.ADMOB_ANDROID_BANNER_ID,
-      admobIosBannerId: isDev
-        ? "ca-app-pub-3940256099942544/2934735716" // ID de prueba para banner iOS
-        : process.env.ADMOB_IOS_BANNER_ID,
-      admobAndroidInterstitialId: isDev
-        ? "ca-app-pub-3940256099942544/1033173712"
-        : process.env.ADMOB_ANDROID_INTERSTITIAL_ID,
-      admobIosInterstitialId: isDev
-        ? "ca-app-pub-3940256099942544/4411468940"
-        : process.env.ADMOB_IOS_INTERSTITIAL_ID,
+      admobAndroidBannerId: process.env.ADMOB_ANDROID_BANNER_ID,
+      admobIosBannerId: process.env.ADMOB_IOS_BANNER_ID,
+      admobAndroidInterstitialId: process.env.ADMOB_ANDROID_INTERSTITIAL_ID,
+      admobIosInterstitialId: process.env.ADMOB_IOS_INTERSTITIAL_ID,
       admobRewardId: process.env.ADMOB_REWARD_ID,
     },
   },
