@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 import Toast from "react-native-toast-message";
+import NetInfo from "@react-native-community/netinfo";
 import { RewardedAd } from "react-native-google-mobile-ads";
 import IconPlayerPlayFilled from "@tabler/icons-react-native/IconPlayerPlayFilled";
 
@@ -34,17 +35,26 @@ function ShowVideoModal({
 }: Props) {
   const onPressClose = () => setIsModalVisible(false);
 
-  const onPressAccept = () => {
+  const onPressAccept = async () => {
     setIsModalVisible(false);
     if (loaded) {
       rewarded.show();
-    } else {
-      Toast.show({
-        type: "info",
-        text1: "No se cargaron anuncios, intenta mas tarde",
-      });
-      rewarded.load();
+      return;
     }
+    const { isConnected } = await NetInfo.fetch();
+    Toast.show(
+      isConnected === false
+        ? {
+            type: "info",
+            text1: "Sin conexión a internet",
+            text2: "Conéctate para ver el video y desbloquear esta categoría.",
+          }
+        : {
+            type: "info",
+            text1: "No se cargaron anuncios, intenta más tarde",
+          }
+    );
+    rewarded.load();
   };
 
   return (

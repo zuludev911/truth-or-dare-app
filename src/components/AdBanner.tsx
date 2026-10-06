@@ -34,9 +34,13 @@ const AdBanner = ({ placement }: Props) => {
 
   const handleAdFailedToLoad = (err: any) => {
     console.warn("Ad failed to load:", err);
-    // "no-fill" es normal (no había anuncio disponible): solo va a analíticas.
+    // Sin anuncio disponible o sin internet no son fallas de la app: solo van a
+    // analíticas, para no llenar Sentry cuando el teléfono está sin conexión.
     trackAdFailed("banner", placement, err);
-    if (!String(err?.code ?? "").includes("no-fill")) Sentry.captureException(err);
+    const code = String(err?.code ?? "");
+    if (!code.includes("no-fill") && !code.includes("network-error")) {
+      Sentry.captureException(err);
+    }
     setError(true);
   };
 

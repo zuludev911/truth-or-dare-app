@@ -3,7 +3,6 @@ import {
   getNumber,
   getRemoteConfig,
 } from "@react-native-firebase/remote-config";
-import * as Sentry from "@sentry/react-native";
 
 const remoteConfig = getRemoteConfig();
 
@@ -25,11 +24,12 @@ remoteConfig.settings = {
   fetchTimeoutMillis: 10000,
 };
 
+// Si falla (sin internet o límite de peticiones) se siguen usando los últimos
+// valores descargados o los de DEFAULTS; no se reporta a Sentry porque es esperable.
 export const initRemoteConfig = () =>
-  fetchAndActivate(remoteConfig).catch((error) => {
-    console.warn("Remote Config fetch failed:", error);
-    Sentry.captureException(error);
-  });
+  fetchAndActivate(remoteConfig).catch((error) =>
+    console.warn("Remote Config fetch failed:", error)
+  );
 
 export const getConfigNumber = (key: ConfigKey): number => {
   const value = getNumber(remoteConfig, key);

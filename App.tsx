@@ -43,8 +43,12 @@ AppState.addEventListener("change", (state) => {
 
 console.log("App started");
 
+// Tiempo máximo que se espera al consentimiento y a AdMob antes de mostrar la app.
+// Sin internet pueden tardar en fallar; los anuncios se cargan después si responden.
+const ADS_INIT_MAX_WAIT_MS = 3000;
+
 export default Sentry.wrap(function App() {
-  const [adsInitialized, setAdsInitialized] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const navigationRef =
     useNavigationContainerRef<Record<string, object | undefined>>();
   const currentRouteName = useRef<string | undefined>(undefined);
@@ -65,7 +69,7 @@ export default Sentry.wrap(function App() {
 
     // El consentimiento va antes de inicializar AdMob para que la primera
     // petición de anuncios ya lo respete.
-    gatherConsent()
+    const adsReady = gatherConsent()
       .then(async (canRequestAds) => {
         if (!canRequestAds) return;
         await mobileAds().initialize();
@@ -73,8 +77,11 @@ export default Sentry.wrap(function App() {
       .catch((error) => {
         console.warn("Google Mobile Ads failed to initialize:", error);
         Sentry.captureException(error);
-      })
-      .finally(() => setAdsInitialized(true));
+      });
+    const maxWait = new Promise((resolve) =>
+      setTimeout(resolve, ADS_INIT_MAX_WAIT_MS)
+    );
+    Promise.race([adsReady, maxWait]).then(() => setIsReady(true));
   }, []);
 
   return (
@@ -92,7 +99,7 @@ export default Sentry.wrap(function App() {
         currentRouteName.current = routeName;
       }}
     >
-      {adsInitialized && <Navigation />}
+      {isReady && <Navigation />}
       <StatusBar style="auto" />
       <Toast />
     </NavigationContainer>
