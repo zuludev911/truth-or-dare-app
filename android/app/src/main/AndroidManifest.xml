@@ -1,15 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
   <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
   <uses-permission android:name="android.permission.VIBRATE"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
   <!-- expo-audio trae servicios para audio en segundo plano y grabación que la app no usa
        (solo reproduce sonidos cortos en primer plano). Se quitan para no tener que
        declarar servicios en primer plano ni pedir el micrófono en Google Play. -->
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" tools:node="remove"/>
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" tools:node="remove"/>
   <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove"/>
+  <!-- Los agrega expo-file-system; la app solo usa sus carpetas internas, que no requieren permisos. -->
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove"/>
   <queries>
     <intent>
       <action android:name="android.intent.action.VIEW"/>
