@@ -14,7 +14,6 @@ import { useEffect, useRef, useState } from "react";
 import { setAudioModeAsync } from "expo-audio";
 import { gatherConsent } from "./src/services/consent";
 import { initRemoteConfig } from "./src/services/remoteConfig";
-import { setupAppOpenAd } from "./src/services/appOpenAd";
 import { trackScreen } from "./src/services/analytics";
 
 Sentry.init({
@@ -62,7 +61,7 @@ export default Sentry.wrap(function App() {
 
     // Remote Config se baja en paralelo; las pantallas usan valores por defecto
     // mientras tanto.
-    const remoteConfigReady = initRemoteConfig();
+    initRemoteConfig();
 
     // El consentimiento va antes de inicializar AdMob para que la primera
     // petición de anuncios ya lo respete.
@@ -70,8 +69,6 @@ export default Sentry.wrap(function App() {
       .then(async (canRequestAds) => {
         if (!canRequestAds) return;
         await mobileAds().initialize();
-        await remoteConfigReady;
-        setupAppOpenAd();
       })
       .catch((error) => {
         console.warn("Google Mobile Ads failed to initialize:", error);

@@ -1,6 +1,5 @@
 import {
   fetchAndActivate,
-  getBoolean,
   getNumber,
   getRemoteConfig,
 } from "@react-native-firebase/remote-config";
@@ -15,16 +14,9 @@ const DEFAULTS = {
   interstitial_every_n_rolls: 20,
   interstitial_every_n_spins: 20,
   rewarded_unlock_hours: 2,
-  app_open_enabled: true,
-  app_open_min_hours: 4,
 };
 
-type NumberKey = {
-  [K in keyof typeof DEFAULTS]: (typeof DEFAULTS)[K] extends number ? K : never;
-}[keyof typeof DEFAULTS];
-type BooleanKey = {
-  [K in keyof typeof DEFAULTS]: (typeof DEFAULTS)[K] extends boolean ? K : never;
-}[keyof typeof DEFAULTS];
+type ConfigKey = keyof typeof DEFAULTS;
 
 remoteConfig.defaultConfig = DEFAULTS;
 remoteConfig.settings = {
@@ -39,10 +31,7 @@ export const initRemoteConfig = () =>
     Sentry.captureException(error);
   });
 
-export const getConfigNumber = (key: NumberKey): number => {
+export const getConfigNumber = (key: ConfigKey): number => {
   const value = getNumber(remoteConfig, key);
   return Number.isFinite(value) && value > 0 ? value : DEFAULTS[key];
 };
-
-export const getConfigBoolean = (key: BooleanKey): boolean =>
-  getBoolean(remoteConfig, key);

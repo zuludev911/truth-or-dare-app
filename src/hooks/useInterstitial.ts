@@ -9,10 +9,6 @@ import {
 import { AD_IDS } from "../services/ads";
 import { trackAdFailed, trackAdShown, AdPlacement } from "../services/analytics";
 import { getConfigNumber } from "../services/remoteConfig";
-import {
-  markFullscreenAdClosed,
-  markFullscreenAdOpened,
-} from "../services/fullscreenAds";
 
 const FREQUENCY_KEY = {
   game: "interstitial_every_n_cards",
@@ -44,14 +40,12 @@ export function useInterstitial(placement: InterstitialPlacement) {
     if (!interstitial) return;
 
     const unsubscribers = [
-      interstitial.addAdEventListener(AdEventType.OPENED, () => {
-        markFullscreenAdOpened();
-        trackAdShown("interstitial", placement);
-      }),
-      interstitial.addAdEventListener(AdEventType.CLOSED, () => {
-        markFullscreenAdClosed();
-        interstitial.load();
-      }),
+      interstitial.addAdEventListener(AdEventType.OPENED, () =>
+        trackAdShown("interstitial", placement)
+      ),
+      interstitial.addAdEventListener(AdEventType.CLOSED, () =>
+        interstitial.load()
+      ),
       interstitial.addAdEventListener(AdEventType.ERROR, (error) =>
         trackAdFailed("interstitial", placement, error)
       ),

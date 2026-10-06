@@ -8,5 +8,4 @@ export const AD_IDS = {
   ANDROID_INTERSTITIAL: extra?.admobAndroidInterstitialId || "",
   IOS_INTERSTITIAL: extra?.admobIosInterstitialId || "",
   REWARD_ID: extra?.admobRewardId || "",
-  ANDROID_APP_OPEN: extra?.admobAndroidAppOpenId || "",
 };

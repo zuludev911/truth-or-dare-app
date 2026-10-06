@@ -20,14 +20,13 @@ const track = (name: string, params: Params = {}) => {
   );
 };
 
-export type AdFormat = "banner" | "interstitial" | "rewarded" | "app_open";
+export type AdFormat = "banner" | "interstitial" | "rewarded";
 export type AdPlacement =
   | "game"
   | "dice"
   | "bottle"
   | "categories"
-  | "tools"
-  | "app_open";
+  | "tools";
 
 export const trackScreen = (screenName: string) => {
   logScreenView(analytics, {

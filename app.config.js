@@ -142,7 +142,6 @@ export default {
       admobAndroidInterstitialId: process.env.ADMOB_ANDROID_INTERSTITIAL_ID,
       admobIosInterstitialId: process.env.ADMOB_IOS_INTERSTITIAL_ID,
       admobRewardId: process.env.ADMOB_REWARD_ID,
-      admobAndroidAppOpenId: process.env.ADMOB_ANDROID_APP_OPEN_ID,
     },
   },
   jsEngine: "hermes",

@@ -25,10 +25,6 @@ import {
   trackRewardEarned,
 } from "../services/analytics";
 import { getConfigNumber } from "../services/remoteConfig";
-import {
-  markFullscreenAdClosed,
-  markFullscreenAdOpened,
-} from "../services/fullscreenAds";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type Props = NativeStackScreenProps<HomeStackParamList, "Categories">;
@@ -40,12 +36,10 @@ const rewardedChicas = RewardedAd.createForAdRequest(adUnitId);
 /** Eventos comunes de los videos recompensados: analíticas y recarga al cerrar. */
 const listenRewardedLifecycle = (ad: RewardedAd, onLoadedChange: (loaded: boolean) => void) => {
   const unsubscribers = [
-    ad.addAdEventListener(AdEventType.OPENED, () => {
-      markFullscreenAdOpened();
-      trackAdShown("rewarded", "categories");
-    }),
+    ad.addAdEventListener(AdEventType.OPENED, () =>
+      trackAdShown("rewarded", "categories"),
+    ),
     ad.addAdEventListener(AdEventType.CLOSED, () => {
-      markFullscreenAdClosed();
       onLoadedChange(false);
       ad.load();
     }),
