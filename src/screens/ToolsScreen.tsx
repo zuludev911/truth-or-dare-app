@@ -83,7 +83,7 @@ export default function ToolsScreen({ navigation }: Props) {
             );
           }}
         />
-        <AdBanner />
+        <AdBanner placement="tools" />
       </SafeAreaView>
     </ImageBackground>
   );

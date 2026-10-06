@@ -9,8 +9,13 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as Sentry from "@sentry/react-native";
 
 import { AD_IDS } from "../services/ads";
+import { AdPlacement, trackAdFailed } from "../services/analytics";
 
-const AdBanner = () => {
+interface Props {
+  placement: AdPlacement;
+}
+
+const AdBanner = ({ placement }: Props) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
 
@@ -29,7 +34,9 @@ const AdBanner = () => {
 
   const handleAdFailedToLoad = (err: any) => {
     console.warn("Ad failed to load:", err);
-    Sentry.captureException(err);
+    // "no-fill" es normal (no había anuncio disponible): solo va a analíticas.
+    trackAdFailed("banner", placement, err);
+    if (!String(err?.code ?? "").includes("no-fill")) Sentry.captureException(err);
     setError(true);
   };
 
@@ -39,7 +46,6 @@ const AdBanner = () => {
       <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-        requestOptions={{ requestNonPersonalizedAdsOnly: true }}
         onAdLoaded={handleAdLoaded}
         onAdFailedToLoad={handleAdFailedToLoad}
       />

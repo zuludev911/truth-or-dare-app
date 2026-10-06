@@ -1,26 +1,21 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
-  Platform,
   Image,
   ImageBackground,
 } from "react-native";
 import Animated, { FlipInEasyY, FlipOutEasyY } from "react-native-reanimated";
-import {
-  AdEventType,
-  InterstitialAd,
-  TestIds,
-} from "react-native-google-mobile-ads";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import IconBeerFilled from "@tabler/icons-react-native/IconBeerFilled";
 
 import { HomeStackParamList } from "../navigation/HomeStackNavigator";
 import { Reto } from "../types";
 import { getRandomReto } from "../utils/getRandomReto";
-import { AD_IDS } from "../services/ads";
+import { useInterstitial } from "../hooks/useInterstitial";
+import { trackCardShown, trackGameEnded } from "../services/analytics";
 import { CATEGORIES, COLORS } from "../constants";
 import AdBanner from "../components/AdBanner";
 import backgroundGame from "../assets/background-game.webp";
@@ -33,104 +28,34 @@ const AnimatedTouchableOpacity =
 
 export default function GameScreen({ route, navigation }: Props) {
   const { category } = route.params;
-  const adUnitId = useMemo(
-    () =>
-      __DEV__
-        ? TestIds.INTERSTITIAL
-        : Platform.select({
-            android: AD_IDS.ANDROID_INTERSTITIAL,
-            ios: AD_IDS.IOS_INTERSTITIAL,
-          }),
-    []
-  );
-
-  const interstitial = useMemo(
-    () => InterstitialAd.createForAdRequest(adUnitId),
-    [adUnitId]
-  );
+  const registerInterstitialAction = useInterstitial("game");
 
   const [retoActual, setRetoActual] = useState<Reto>();
   const [retosVistos, setRetosVistos] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const [isAdLoaded, setIsAdLoaded] = useState(false);
+  // Al salir de la partida se registra cuántas cartas se jugaron.
+  const retosVistosRef = useRef(0);
+  retosVistosRef.current = retosVistos;
+  useEffect(
+    () => () => trackGameEnded(category, retosVistosRef.current),
+    [category]
+  );
 
-  useEffect(() => {
-    const loadAd = () => {
-      console.warn("Cargando interstitial");
-      interstitial.load();
-    };
-
-    const onAdLoaded = () => {
-      console.warn("Interstitial cargado");
-      setIsAdLoaded(true);
-    };
-
-    const onAdClosed = () => {
-      console.warn("Interstitial cerrado");
-      setIsAdLoaded(false);
-      interstitial.load();
-    };
-
-    const onAdError = (err: any) => {
-      console.warn("Interstitial error:", err);
-      setIsAdLoaded(false);
-    };
-
-    const unsubscribeLoaded = interstitial.addAdEventListener(
-      AdEventType.LOADED,
-      onAdLoaded
-    );
-    const unsubscribeClosed = interstitial.addAdEventListener(
-      AdEventType.CLOSED,
-      onAdClosed
-    );
-    const unsubscribeError = interstitial.addAdEventListener(
-      AdEventType.ERROR,
-      onAdError
-    );
-
-    loadAd();
-
-    return () => {
-      unsubscribeLoaded();
-      unsubscribeClosed();
-      unsubscribeError();
-    };
-  }, []);
   const shotsCount = Math.floor(Math.random() * 3) + 1;
 
-  const handleNext = (type: "verdad" | "reto") => async () => {
+  const handleNext = (type: "verdad" | "reto") => () => {
     setIsFlipped(true);
     const newCount = retosVistos + 1;
-    console.log("newCount:", newCount);
     setRetosVistos(newCount);
-    // console.log("retosVistos:", retosVistos);
-    // console.log("isAdLoaded:", isAdLoaded);
-    // console.log("interstitial.loaded:", interstitial?.loaded);
-    if (newCount % 20 === 0 && isAdLoaded && adUnitId) {
-      if (interstitial?.loaded) {
-        console.warn("Mostrando interstitial");
-        try {
-          await interstitial.show();
-          console.warn("Interstitial mostrado");
-        } catch (err) {
-          console.warn("Error al mostrar interstitial:", err);
-        }
-        setIsAdLoaded(false);
-      } else {
-        console.warn("Interstitial aún no está listo, se omite");
-        interstitial.load();
-      }
-    }
-    console.log("category", category);
+    trackCardShown(category, type, newCount);
+    registerInterstitialAction();
     setRetoActual(
       getRandomReto(category, type) || {
         type: "reto",
         text: "No hay más retos.",
       }
     );
-    console.log("retosVistos:", retosVistos);
     setTimeout(
       () => {
         setIsFlipped(false);
@@ -224,7 +149,7 @@ export default function GameScreen({ route, navigation }: Props) {
           <Text style={styles.buttonText}>Reto</Text>
         </TouchableOpacity>
       </View>
-      <AdBanner />
+      <AdBanner placement="game" />
     </ImageBackground>
   );
 }
