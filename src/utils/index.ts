@@ -1,8 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getConfigNumber } from "../services/remoteConfig";
 
 const UNLOCK_KEY = "lastUnlockTime";
 const UNLOCK_KEY_CHICAS = "lastUnlockTimeChicas";
-const UNLOCK_TIME = 2;
 
 /**
  * Save current date/time in the local storage.
@@ -19,8 +19,8 @@ export const saveUnlockTime = async () => {
 /**
  * Check data to validate time.
  * - Empty data → false
- * - More that 2 hours → false
- * - Less that 2 hours → true
+ * - More than rewarded_unlock_hours (Remote Config) → false
+ * - Less than rewarded_unlock_hours → true
  */
 export const isUnlocked = async (): Promise<boolean> => {
   try {
@@ -34,7 +34,7 @@ export const isUnlocked = async (): Promise<boolean> => {
     const diffMs = now.getTime() - savedDate.getTime();
     const diffHours = diffMs / (1000 * 60 * 60);
 
-    if (diffHours > UNLOCK_TIME) return false;
+    if (diffHours > getConfigNumber("rewarded_unlock_hours")) return false;
 
     return true;
   } catch (error) {
@@ -64,7 +64,7 @@ export const isUnlockedChicas = async (): Promise<boolean> => {
     const diffMs = now.getTime() - savedDate.getTime();
     const diffHours = diffMs / (1000 * 60 * 60);
 
-    if (diffHours > UNLOCK_TIME) return false;
+    if (diffHours > getConfigNumber("rewarded_unlock_hours")) return false;
 
     return true;
   } catch (error) {

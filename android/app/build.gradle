@@ -1,6 +1,8 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+// Firebase (Analytics y Remote Config): lee android/app/google-services.json
+apply plugin: "com.google.gms.google-services"
 
 def projectRoot = rootDir.getAbsoluteFile().getParentFile().getAbsolutePath()
 
@@ -112,8 +114,8 @@ android {
         applicationId 'com.anfezuar.truthordareapp'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 34
-        versionName "1.2.2"
+        versionCode 35
+        versionName "1.3.0"
         multiDexEnabled true
     }
     signingConfigs {

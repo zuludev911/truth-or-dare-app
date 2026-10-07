@@ -9,8 +9,13 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as Sentry from "@sentry/react-native";
 
 import { AD_IDS } from "../services/ads";
+import { AdPlacement, trackAdFailed } from "../services/analytics";
 
-const AdBanner = () => {
+interface Props {
+  placement: AdPlacement;
+}
+
+const AdBanner = ({ placement }: Props) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
 
@@ -29,7 +34,13 @@ const AdBanner = () => {
 
   const handleAdFailedToLoad = (err: any) => {
     console.warn("Ad failed to load:", err);
-    Sentry.captureException(err);
+    // Sin anuncio disponible o sin internet no son fallas de la app: solo van a
+    // analíticas, para no llenar Sentry cuando el teléfono está sin conexión.
+    trackAdFailed("banner", placement, err);
+    const code = String(err?.code ?? "");
+    if (!code.includes("no-fill") && !code.includes("network-error")) {
+      Sentry.captureException(err);
+    }
     setError(true);
   };
 
@@ -39,7 +50,6 @@ const AdBanner = () => {
       <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-        requestOptions={{ requestNonPersonalizedAdsOnly: true }}
         onAdLoaded={handleAdLoaded}
         onAdFailedToLoad={handleAdFailedToLoad}
       />

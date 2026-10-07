@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "291302706768",
+    "project_id": "verdad-o-reto-f4230",
+    "storage_bucket": "verdad-o-reto-f4230.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291302706768:android:eeef24b0ab7bc515928b55",
+        "android_client_info": {
+          "package_name": "com.anfezuar.truthordareapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmr1kwY41497BuAxFi9_o7Iw1NxjgDM3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,8 @@
 import { StatusBar } from "expo-status-bar";
-import { NavigationContainer } from "@react-navigation/native";
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from "@react-navigation/native";
 import Navigation from "./src/navigation/Navigation";
 import { LogBox } from "react-native";
 import { AppState } from "react-native";
@@ -7,8 +10,11 @@ import Toast from "react-native-toast-message";
 import * as Sentry from "@sentry/react-native";
 import { SENTRY_DSN } from "./src/services/sentry";
 import mobileAds from "react-native-google-mobile-ads";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { setAudioModeAsync } from "expo-audio";
+import { gatherConsent } from "./src/services/consent";
+import { initRemoteConfig } from "./src/services/remoteConfig";
+import { trackScreen } from "./src/services/analytics";
 
 Sentry.init({
   dsn: SENTRY_DSN,
@@ -37,8 +43,15 @@ AppState.addEventListener("change", (state) => {
 
 console.log("App started");
 
+// Tiempo máximo que se espera al consentimiento y a AdMob antes de mostrar la app.
+// Sin internet pueden tardar en fallar; los anuncios se cargan después si responden.
+const ADS_INIT_MAX_WAIT_MS = 3000;
+
 export default Sentry.wrap(function App() {
-  const [adsInitialized, setAdsInitialized] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+  const navigationRef =
+    useNavigationContainerRef<Record<string, object | undefined>>();
+  const currentRouteName = useRef<string | undefined>(undefined);
 
   useEffect(() => {
     setAudioModeAsync({
@@ -50,18 +63,43 @@ export default Sentry.wrap(function App() {
       Sentry.captureException(error);
     });
 
-    mobileAds()
-      .initialize()
+    // Remote Config se baja en paralelo; las pantallas usan valores por defecto
+    // mientras tanto.
+    initRemoteConfig();
+
+    // El consentimiento va antes de inicializar AdMob para que la primera
+    // petición de anuncios ya lo respete.
+    const adsReady = gatherConsent()
+      .then(async (canRequestAds) => {
+        if (!canRequestAds) return;
+        await mobileAds().initialize();
+      })
       .catch((error) => {
         console.warn("Google Mobile Ads failed to initialize:", error);
         Sentry.captureException(error);
-      })
-      .finally(() => setAdsInitialized(true));
+      });
+    const maxWait = new Promise((resolve) =>
+      setTimeout(resolve, ADS_INIT_MAX_WAIT_MS)
+    );
+    Promise.race([adsReady, maxWait]).then(() => setIsReady(true));
   }, []);
 
   return (
-    <NavigationContainer>
-      {adsInitialized && <Navigation />}
+    <NavigationContainer
+      ref={navigationRef}
+      onReady={() => {
+        currentRouteName.current = navigationRef.getCurrentRoute()?.name;
+        if (currentRouteName.current) trackScreen(currentRouteName.current);
+      }}
+      onStateChange={() => {
+        const routeName = navigationRef.getCurrentRoute()?.name;
+        if (routeName && routeName !== currentRouteName.current) {
+          trackScreen(routeName);
+        }
+        currentRouteName.current = routeName;
+      }}
+    >
+      {isReady && <Navigation />}
       <StatusBar style="auto" />
       <Toast />
     </NavigationContainer>

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { StyleSheet, ImageBackground, ScrollView } from "react-native";
 import {
+  AdEventType,
   RewardedAd,
   RewardedAdEventType,
   TestIds,
@@ -17,6 +18,13 @@ import CategoryButton from "../components/CategoryButton";
 import ShowVideoModal from "../components/ShowVideoModal";
 import { isUnlocked, saveUnlockTime, isUnlockedChicas, saveUnlockTimeChicas } from "../utils";
 import { AD_IDS } from "../services/ads";
+import {
+  trackAdFailed,
+  trackAdShown,
+  trackCategorySelected,
+  trackRewardEarned,
+} from "../services/analytics";
+import { getConfigNumber } from "../services/remoteConfig";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type Props = NativeStackScreenProps<HomeStackParamList, "Categories">;
@@ -24,6 +32,24 @@ type Props = NativeStackScreenProps<HomeStackParamList, "Categories">;
 const adUnitId = __DEV__ ? TestIds.REWARDED : AD_IDS.REWARD_ID;
 const rewarded = RewardedAd.createForAdRequest(adUnitId);
 const rewardedChicas = RewardedAd.createForAdRequest(adUnitId);
+
+/** Eventos comunes de los videos recompensados: analíticas y recarga al cerrar. */
+const listenRewardedLifecycle = (ad: RewardedAd, onLoadedChange: (loaded: boolean) => void) => {
+  const unsubscribers = [
+    ad.addAdEventListener(AdEventType.OPENED, () =>
+      trackAdShown("rewarded", "categories"),
+    ),
+    ad.addAdEventListener(AdEventType.CLOSED, () => {
+      onLoadedChange(false);
+      ad.load();
+    }),
+    ad.addAdEventListener(AdEventType.ERROR, (error) => {
+      onLoadedChange(false);
+      trackAdFailed("rewarded", "categories", error);
+    }),
+  ];
+  return () => unsubscribers.forEach((unsubscribe) => unsubscribe());
+};
 
 export default function CategoryScreen({ navigation }: Props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -43,6 +69,7 @@ export default function CategoryScreen({ navigation }: Props) {
 
   const onPressItem = useCallback(
     (id: string) => {
+      trackCategorySelected(id, false);
       navigation.navigate("Game", { category: id });
     },
     [navigation],
@@ -50,17 +77,24 @@ export default function CategoryScreen({ navigation }: Props) {
 
   const onPressExtremo = useCallback(
     (id: string) => {
-      isCategoryUnlocked ? onPressItem(id) : setIsModalVisible(true);
+      if (isCategoryUnlocked) return onPressItem(id);
+      trackCategorySelected(id, true);
+      setIsModalVisible(true);
     },
     [isCategoryUnlocked, onPressItem],
   );
 
   const onPressChicas = useCallback(
     (id: string) => {
-      isChicasUnlocked ? onPressItem(id) : setIsChicasModalVisible(true);
+      if (isChicasUnlocked) return onPressItem(id);
+      trackCategorySelected(id, true);
+      setIsChicasModalVisible(true);
     },
     [isChicasUnlocked, onPressItem],
   );
+
+  const unlockHours = getConfigNumber("rewarded_unlock_hours");
+  const unlockLabel = unlockHours === 1 ? "1 hora" : `${unlockHours} horas`;
 
   useEffect(() => {
     const unsubscribeLoaded = rewarded.addAdEventListener(
@@ -70,17 +104,19 @@ export default function CategoryScreen({ navigation }: Props) {
     const unsubscribeEarned = rewarded.addAdEventListener(
       RewardedAdEventType.EARNED_REWARD,
       (reward) => {
-        console.log("User earned reward of ", reward);
+        trackRewardEarned("extremo");
         reward && navigation.navigate("Game", { category: "extremo" });
         saveUnlockTime();
       },
     );
+    const unsubscribeLifecycle = listenRewardedLifecycle(rewarded, setLoaded);
 
     rewarded.load();
 
     return () => {
       unsubscribeLoaded();
       unsubscribeEarned();
+      unsubscribeLifecycle();
     };
   }, []);
 
@@ -92,9 +128,14 @@ export default function CategoryScreen({ navigation }: Props) {
     const unsubscribeEarned = rewardedChicas.addAdEventListener(
       RewardedAdEventType.EARNED_REWARD,
       (reward) => {
+        trackRewardEarned("chicas");
         reward && navigation.navigate("Game", { category: "chicas" });
         saveUnlockTimeChicas();
       },
+    );
+    const unsubscribeLifecycle = listenRewardedLifecycle(
+      rewardedChicas,
+      setLoadedChicas,
     );
 
     rewardedChicas.load();
@@ -102,6 +143,7 @@ export default function CategoryScreen({ navigation }: Props) {
     return () => {
       unsubscribeLoaded();
       unsubscribeEarned();
+      unsubscribeLifecycle();
     };
   }, []);
 
@@ -140,13 +182,14 @@ export default function CategoryScreen({ navigation }: Props) {
           })}
         </ScrollView>
       </ImageBackground>
-      <AdBanner />
+      <AdBanner placement="categories" />
       {!isCategoryUnlocked && (
         <ShowVideoModal
           isModalVisible={isModalVisible}
           setIsModalVisible={setIsModalVisible}
           loaded={loaded}
           rewarded={rewarded}
+          description={`Esta categoría es para adultos y contiene contenido sensible. Para acceder a esta categoría debes ver un video de publicidad el cual te dará acceso por ${unlockLabel}.`}
         />
       )}
       {!isChicasUnlocked && (
@@ -156,7 +199,7 @@ export default function CategoryScreen({ navigation }: Props) {
           loaded={loadedChicas}
           rewarded={rewardedChicas}
           image={chicas}
-          description="Esta es la categoría exclusiva para chicas. Para acceder debes ver un video de publicidad, el cual te dará acceso por 2 horas."
+          description={`Esta es la categoría exclusiva para chicas. Para acceder debes ver un video de publicidad, el cual te dará acceso por ${unlockLabel}.`}
         />
       )}
     </>
