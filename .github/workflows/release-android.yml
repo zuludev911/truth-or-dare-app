@@ -1,0 +1,108 @@
+name: Release Android
+
+# Compila en EAS el código de main, lo envía a Google Play y avisa por correo.
+on:
+  workflow_dispatch:
+    inputs:
+      track:
+        description: "Pista de Google Play"
+        type: choice
+        options:
+          - internal
+          - production
+        default: internal
+      submit:
+        description: "Enviar a Google Play al terminar el build"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-android
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 20
+          cache: yarn
+
+      - uses: expo/expo-github-action@v9
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Leer versión
+        id: app
+        run: |
+          echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+          echo "version_code=$(grep -oP 'versionCode\s+\K\d+' android/app/build.gradle)" >> "$GITHUB_OUTPUT"
+
+      - name: Build en EAS
+        id: build
+        run: |
+          eas build --platform android --profile production --non-interactive --wait --json \
+            --message "Release v${{ steps.app.outputs.version }} (${{ github.sha }})" > build.json
+          build_id=$(node -p "require('./build.json')[0].id")
+          echo "id=$build_id" >> "$GITHUB_OUTPUT"
+          echo "url=https://expo.dev/accounts/anfezuar/projects/truth-or-dare-app/builds/$build_id" >> "$GITHUB_OUTPUT"
+          status=$(node -p "require('./build.json')[0].status")
+          echo "Build $build_id: $status"
+          test "$status" = "FINISHED"
+
+      - name: Clave de la cuenta de servicio de Google Play
+        if: inputs.submit
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$GOOGLE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::Falta el secret GOOGLE_SERVICE_ACCOUNT_JSON"; exit 1
+          fi
+          printf '%s' "$GOOGLE_SERVICE_ACCOUNT_JSON" > verdad-o-reto-495115-08b23e9f7800.json
+
+      - name: Enviar a Google Play (${{ inputs.track }})
+        if: inputs.submit
+        run: |
+          eas submit --platform android --profile "${{ inputs.track }}" \
+            --id "${{ steps.build.outputs.id }}" --non-interactive --wait
+
+      - name: Crear tag
+        if: inputs.submit
+        run: |
+          tag="android-v${{ steps.app.outputs.version }}-${{ steps.app.outputs.version_code }}"
+          git tag -a "$tag" -m "Android v${{ steps.app.outputs.version }} (${{ steps.app.outputs.version_code }}) → ${{ inputs.track }}
+          Build: ${{ steps.build.outputs.url }}"
+          git push origin "$tag"
+
+      - name: Avisar por correo
+        if: always() && env.MAIL_USERNAME != ''
+        uses: dawidd6/action-send-mail@v22
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: Verdad o Reto CI <${{ secrets.MAIL_USERNAME }}>
+          to: ${{ secrets.MAIL_TO || secrets.MAIL_USERNAME }}
+          subject: "${{ job.status == 'success' && '✅' || '❌' }} Release Android v${{ steps.app.outputs.version }} (${{ steps.app.outputs.version_code }}): ${{ job.status }}"
+          convert_markdown: true
+          body: |
+            **Resultado:** ${{ job.status }}
+            **Versión:** ${{ steps.app.outputs.version }} (versionCode ${{ steps.app.outputs.version_code }})
+            **Pista:** ${{ inputs.submit && inputs.track || 'sin envío a Google Play' }}
+            **Build en EAS:** ${{ steps.build.outputs.url || 'no se generó' }}
+            **Ejecución:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
