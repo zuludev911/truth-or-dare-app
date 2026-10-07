@@ -81,6 +81,23 @@ def enableProguardInReleaseBuilds = (findProperty('android.enableProguardInRelea
  */
 def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
 
+def admobAndroidAppId() {
+    def value = System.getenv("ADMOB_ANDROID_APP_ID")
+    if (!value) {
+        def envFile = new File(rootDir, "../.env")
+        if (envFile.exists()) {
+            def props = new Properties()
+            envFile.withInputStream { props.load(it) }
+            value = props.getProperty("ADMOB_ANDROID_APP_ID")?.trim()?.replaceAll(/^["']|["']$/, "")
+        }
+    }
+    if (!value) {
+        logger.warn("ADMOB_ANDROID_APP_ID no está definido: se usará el App ID de prueba de AdMob")
+        value = "ca-app-pub-3940256099942544~3347511713"
+    }
+    return value
+}
+
 android {
     ndkVersion rootProject.ext.ndkVersion
 
@@ -89,11 +106,14 @@ android {
 
     namespace 'com.anfezuar.truthordareapp'
     defaultConfig {
+        // App ID de AdMob: en EAS viene de la variable de entorno, en local de ../.env.
+        // Si falta, se usa el ID de prueba de Google (solo sirve para desarrollo).
+        manifestPlaceholders = [admobAppId: admobAndroidAppId()]
         applicationId 'com.anfezuar.truthordareapp'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 32
-        versionName "1.2.1"
+        versionCode 34
+        versionName "1.2.2"
         multiDexEnabled true
     }
     signingConfigs {

@@ -1,0 +1,60 @@
+# EAS usa este archivo en lugar de .gitignore al subir el proyecto.
+# Mantener en sync con .gitignore, android/.gitignore e ios/.gitignore.
+
+# dependencies
+node_modules/
+package-lock.json
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native (claves locales)
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.pem
+
+# Artefactos de build locales: android/build guarda el caché de autolinking
+# con rutas de Windows y rompe el build de Gradle en EAS.
+android/build/
+android/app/build/
+android/.gradle/
+android/.cxx/
+android/app/.cxx/
+android/local.properties
+android/.idea/
+*.iml
+*.hprof
+ios/build/
+ios/Pods/
+ios/**/xcuserdata/
+*.jsbundle
+
+# Metro / debug / macOS
+.metro-health-check*
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.DS_Store
+
+# local env files
+.env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# Build
+*.apk
+*.aab
+verdad-o-reto-495115-08b23e9f7800.json
+
+# Claude Code
+.claude/
