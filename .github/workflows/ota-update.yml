@@ -75,6 +75,8 @@ jobs:
 
       - name: Crear tag
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           tag="ota-${{ inputs.channel }}-v${RUNTIME}-$(date -u +%Y%m%d-%H%M)"
           git tag -a "$tag" -m "OTA ${{ inputs.channel }} · runtime ${RUNTIME}
           ${{ inputs.message }}
