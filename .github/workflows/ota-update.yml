@@ -1,0 +1,85 @@
+name: Update OTA
+
+# Publica un update OTA (solo JS y assets) con EAS Update y crea un tag que lo
+# identifica. Llega a los builds instalados con el mismo runtime.
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Canal de EAS Update"
+        type: choice
+        options: [production, preview]
+        default: production
+      message:
+        description: "Descripción del update (se ve en EAS y en el tag)"
+        type: string
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ota-${{ inputs.channel }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      # Las variables "Secret" de EAS no se pueden leer al publicar un update.
+      # Si los IDs de AdMob están así en EAS, se toman de estos secrets de GitHub.
+      ADMOB_ANDROID_APP_ID: ${{ secrets.ADMOB_ANDROID_APP_ID }}
+      ADMOB_ANDROID_BANNER_ID: ${{ secrets.ADMOB_ANDROID_BANNER_ID }}
+      ADMOB_ANDROID_INTERSTITIAL_ID: ${{ secrets.ADMOB_ANDROID_INTERSTITIAL_ID }}
+      ADMOB_REWARD_ID: ${{ secrets.ADMOB_REWARD_ID }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 20
+          cache: yarn
+
+      - uses: expo/expo-github-action@v9
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - run: yarn install --frozen-lockfile
+
+      # Sin esto, un update podría salir sin IDs de anuncios o sin Sentry y
+      # reemplazar la versión buena en todos los teléfonos.
+      - name: Revisar configuración
+        run: |
+          eas env:exec production "npx expo config --type public --json" --non-interactive \
+            | sed -n '/^{/,$p' > config.json
+          node scripts/check-release-config.js < config.json
+          echo "RUNTIME=$(node -p "require('./config.json').runtimeVersion")" >> "$GITHUB_ENV"
+
+      - name: Publicar update
+        id: update
+        run: |
+          eas update --channel "${{ inputs.channel }}" --environment production \
+            --platform android --message "${{ inputs.message }}" --non-interactive --json > update.json
+          group=$(node -p "require('./update.json')[0].group")
+          echo "group=$group" >> "$GITHUB_OUTPUT"
+          echo "Update group: $group"
+
+      - name: Subir sourcemaps a Sentry
+        if: env.SENTRY_AUTH_TOKEN != ''
+        run: |
+          eas env:exec production "npx sentry-expo-upload-sourcemaps dist" --non-interactive
+
+      - name: Crear tag
+        run: |
+          tag="ota-${{ inputs.channel }}-v${RUNTIME}-$(date -u +%Y%m%d-%H%M)"
+          git tag -a "$tag" -m "OTA ${{ inputs.channel }} · runtime ${RUNTIME}
+          ${{ inputs.message }}
+          Update group: ${{ steps.update.outputs.group }}
+          https://expo.dev/accounts/anfezuar/projects/truth-or-dare-app/updates/${{ steps.update.outputs.group }}"
+          git push origin "$tag"
+          echo "### Update publicado: \`$tag\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "https://expo.dev/accounts/anfezuar/projects/truth-or-dare-app/updates/${{ steps.update.outputs.group }}" >> "$GITHUB_STEP_SUMMARY"

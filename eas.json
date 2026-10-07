@@ -26,6 +26,22 @@
       }
     }
   },
+  "submit": {
+    "internal": {
+      "android": {
+        "serviceAccountKeyPath": "./verdad-o-reto-495115-08b23e9f7800.json",
+        "track": "internal",
+        "releaseStatus": "completed"
+      }
+    },
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./verdad-o-reto-495115-08b23e9f7800.json",
+        "track": "production",
+        "releaseStatus": "draft"
+      }
+    }
+  },
   "cli": {
     "version": ">= 3.0.0"
   }

@@ -1,0 +1,61 @@
+name: Subir versión
+
+# Sube la versión en package.json, app.config.js, build.gradle, strings.xml,
+# Info.plist y Expo.plist, y abre un PR con el cambio.
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Qué parte de la versión subir (x.y.z)"
+        type: choice
+        options: [patch, minor, major]
+        default: patch
+      runtime:
+        description: "¿El build nuevo cambia código nativo? (librerías nativas, permisos, manifest)"
+        type: choice
+        options:
+          - "sí: nuevo runtime"
+          - "no: mantener runtime (los OTA llegan también a la versión anterior)"
+        default: "sí: nuevo runtime"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 20
+
+      - name: Subir versión
+        id: bump
+        run: |
+          flags=""
+          if [[ "${{ inputs.runtime }}" == no:* ]]; then flags="--keep-runtime"; fi
+          node scripts/bump-version.js "${{ inputs.bump }}" $flags
+
+      - name: Crear PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.bump.outputs.version }}
+          VERSION_CODE: ${{ steps.bump.outputs.version_code }}
+          RUNTIME: ${{ steps.bump.outputs.runtime }}
+        run: |
+          branch="chore/release-v${VERSION}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git commit -am "chore: bump version to ${VERSION} (versionCode ${VERSION_CODE}, runtime ${RUNTIME})"
+          git push -u origin "$branch"
+          gh pr create --base main --head "$branch" \
+            --title "chore: release v${VERSION}" \
+            --body "Versión **${VERSION}** · versionCode **${VERSION_CODE}** · runtime **${RUNTIME}**
+
+          Generado por el workflow *Subir versión*. Después de fusionarlo, ejecuta *Release Android*."
