@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   View,
   StyleSheet,
@@ -11,7 +11,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ToolsStackParamList } from "../navigation/ToolsStackNavigator";
 import { COLORS } from "../constants";
 import { useInterstitial } from "../hooks/useInterstitial";
-import { trackToolUsed } from "../services/analytics";
+import { trackToolOpened, trackToolUsed } from "../services/analytics";
 import Die from "../components/Die";
 import DiceCountSelector from "../components/DiceCountSelector";
 import CloseButton from "../components/CloseButton";
@@ -27,6 +27,8 @@ export default function DiceScreen({ navigation }: Props) {
   const [diceValues, setDiceValues] = useState<number[]>([1, 1]);
   const [isRolling, setIsRolling] = useState(false);
   const registerInterstitialAction = useInterstitial("dice");
+
+  useEffect(() => trackToolOpened("dice"), []);
 
 
   const generateRandomValue = () => Math.floor(Math.random() * 6) + 1;

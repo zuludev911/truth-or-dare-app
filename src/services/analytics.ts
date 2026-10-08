@@ -44,10 +44,20 @@ export const trackCardShown = (
   cardNumber: number
 ) => track("card_shown", { category, type, card_number: cardNumber });
 
+/** Entrada al juego de una categoría (también después de desbloquearla con un video). */
+export const trackGameStarted = (category: string) =>
+  track("game_started", { category });
+
 export const trackGameEnded = (category: string, cardsShown: number) =>
   track("game_ended", { category, cards_shown: cardsShown });
 
-export const trackToolUsed = (tool: "dice" | "bottle", params: Params = {}) =>
+export type Tool = "dice" | "bottle";
+
+/** Entrada a una herramienta (una vez por visita). */
+export const trackToolOpened = (tool: Tool) => track("tool_opened", { tool });
+
+/** Cada tirada del dado o giro de la botella. */
+export const trackToolUsed = (tool: Tool, params: Params = {}) =>
   track("tool_used", { tool, ...params });
 
 export const trackAdShown = (format: AdFormat, placement: AdPlacement) =>
