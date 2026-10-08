@@ -19,7 +19,7 @@ import Svg, { Path, Defs, LinearGradient, Stop } from "react-native-svg";
 import { ToolsStackParamList } from "../navigation/ToolsStackNavigator";
 import { COLORS } from "../constants";
 import { useInterstitial } from "../hooks/useInterstitial";
-import { trackToolUsed } from "../services/analytics";
+import { trackToolOpened, trackToolUsed } from "../services/analytics";
 import CloseButton from "../components/CloseButton";
 import AdBanner from "../components/AdBanner";
 import backgroundEmpty from "../assets/background-empty.webp";
@@ -33,6 +33,8 @@ const BOTTLE_HEIGHT = 200;
 export default function BottleScreen({ navigation }: Props) {
   const [isSpinning, setIsSpinning] = useState(false);
   const registerInterstitialAction = useInterstitial("bottle");
+
+  useEffect(() => trackToolOpened("bottle"), []);
 
 
   const bottlePlayer = useAudioPlayer(

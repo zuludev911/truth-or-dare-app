@@ -15,7 +15,11 @@ import { HomeStackParamList } from "../navigation/HomeStackNavigator";
 import { Reto } from "../types";
 import { getRandomReto } from "../utils/getRandomReto";
 import { useInterstitial } from "../hooks/useInterstitial";
-import { trackCardShown, trackGameEnded } from "../services/analytics";
+import {
+  trackCardShown,
+  trackGameEnded,
+  trackGameStarted,
+} from "../services/analytics";
 import { CATEGORIES, COLORS } from "../constants";
 import AdBanner from "../components/AdBanner";
 import backgroundGame from "../assets/background-game.webp";
@@ -37,10 +41,10 @@ export default function GameScreen({ route, navigation }: Props) {
   // Al salir de la partida se registra cuántas cartas se jugaron.
   const retosVistosRef = useRef(0);
   retosVistosRef.current = retosVistos;
-  useEffect(
-    () => () => trackGameEnded(category, retosVistosRef.current),
-    [category]
-  );
+  useEffect(() => {
+    trackGameStarted(category);
+    return () => trackGameEnded(category, retosVistosRef.current);
+  }, [category]);
 
   const shotsCount = Math.floor(Math.random() * 3) + 1;
 
