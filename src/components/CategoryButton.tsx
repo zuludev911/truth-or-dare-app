@@ -12,6 +12,7 @@ interface CategoryButtonProps {
   item: Category;
   onPressItem: (id: string) => void;
   isNew?: boolean;
+  newLabel?: string;
   isLocked?: boolean;
 }
 
@@ -23,6 +24,7 @@ function CategoryButton({
   item,
   onPressItem,
   isNew,
+  newLabel,
   isLocked,
 }: CategoryButtonProps) {
   const entering = FadeInLeft.delay(index * 200).duration(300);
@@ -39,7 +41,7 @@ function CategoryButton({
       <View style={styles.iconContainer}>
         <Image source={item.icon} style={styles.icon} />
       </View>
-      {isNew && <NewCategoryBadge />}
+      {isNew && <NewCategoryBadge label={newLabel} />}
       {isLocked && (
         <IconLock color={COLORS.WHITE} size={28} style={styles.lockedIcon} />
       )}

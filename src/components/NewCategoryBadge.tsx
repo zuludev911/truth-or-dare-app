@@ -2,13 +2,13 @@ import { StyleSheet, Text } from "react-native";
 import Animated, { FadeIn } from "react-native-reanimated";
 import { COLORS } from "../constants";
 
-export default function NewCategoryBadge() {
+export default function NewCategoryBadge({ label = "Nueva" }: { label?: string }) {
   return (
     <Animated.View
       style={styles.newCategoryContainer}
       entering={FadeIn.delay(500).duration(500)}
     >
-      <Text style={styles.newCategoryText}>Nueva</Text>
+      <Text style={styles.newCategoryText}>{label}</Text>
     </Animated.View>
   );
 }

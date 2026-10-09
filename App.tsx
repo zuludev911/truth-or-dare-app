@@ -15,6 +15,7 @@ import { setAudioModeAsync } from "expo-audio";
 import { gatherConsent } from "./src/services/consent";
 import { initRemoteConfig } from "./src/services/remoteConfig";
 import { trackScreen } from "./src/services/analytics";
+import { loadUsedCards } from "./src/utils/getRandomReto";
 
 Sentry.init({
   dsn: SENTRY_DSN,
@@ -66,6 +67,7 @@ export default Sentry.wrap(function App() {
     // Remote Config se baja en paralelo; las pantallas usan valores por defecto
     // mientras tanto.
     initRemoteConfig();
+    loadUsedCards();
 
     // El consentimiento va antes de inicializar AdMob para que la primera
     // petición de anuncios ya lo respete.

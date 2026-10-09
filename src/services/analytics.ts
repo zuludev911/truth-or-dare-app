@@ -51,6 +51,12 @@ export const trackGameStarted = (category: string) =>
 export const trackGameEnded = (category: string, cardsShown: number) =>
   track("game_ended", { category, cards_shown: cardsShown });
 
+export const trackPlayersUpdated = (count: number) =>
+  track("players_updated", { count });
+
+export const trackCardShared = (category: string, type: "verdad" | "reto") =>
+  track("card_shared", { category, type });
+
 export type Tool = "dice" | "bottle";
 
 /** Entrada a una herramienta (una vez por visita). */
