@@ -11,7 +11,7 @@ import { useFocusEffect } from "@react-navigation/native";
 
 import { HomeStackParamList } from "../navigation/HomeStackNavigator";
 import AdBanner from "../components/AdBanner";
-import { COLORS, CATEGORIES } from "../constants";
+import { COLORS, CATEGORIES, NEW_CONTENT_UNTIL } from "../constants";
 import backgroundEmpty from "../assets/background-empty.webp";
 import chicas from "../assets/chicas.webp";
 import CategoryButton from "../components/CategoryButton";
@@ -172,7 +172,11 @@ export default function CategoryScreen({ navigation }: Props) {
                   : isChicas ? onPressChicas
                   : onPressItem
                 }
-                isNew={false}
+                isNew={
+                  !!NEW_CONTENT_UNTIL[item.id] &&
+                  new Date() < new Date(NEW_CONTENT_UNTIL[item.id])
+                }
+                newLabel="¡Nuevas!"
                 isLocked={
                   (isExtreme && !isCategoryUnlocked) ||
                   (isChicas && !isChicasUnlocked)

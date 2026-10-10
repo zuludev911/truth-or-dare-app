@@ -14,6 +14,12 @@ export const CATEGORIES = [
   { id: "chicas", name: "Chicas", icon: chicas },
 ];
 
+// Categorías con cartas nuevas: muestran la etiqueta "¡Nuevas!" hasta esa fecha.
+export const NEW_CONTENT_UNTIL: Record<string, string> = {
+  picante: "2026-11-09",
+  extremo: "2026-11-09",
+};
+
 export const COLORS = {
   PRIMARY: "#E63140",
   SECONDARY: "#97d0ca",

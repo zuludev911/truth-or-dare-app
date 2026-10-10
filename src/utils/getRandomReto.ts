@@ -1,3 +1,5 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import { Reto } from "../types";
 
 const data: Record<string, string[]> = {
@@ -15,27 +17,54 @@ const data: Record<string, string[]> = {
   "extremo-reto": require("../data/retos/extremo-reto.json"),
 };
 
-const usadosPorCategoria: Record<string, Set<number>> = {};
+const STORAGE_KEY = "usedCards";
 
+// Cartas que ya salieron por "categoria-tipo". Se guardan por texto (no por
+// índice) para que agregar o quitar cartas por OTA no mezcle el historial.
+let usados: Record<string, string[]> = {};
+let saveTimeout: ReturnType<typeof setTimeout> | undefined;
+
+/** Carga el historial guardado; se llama una vez al abrir la app. */
+export async function loadUsedCards() {
+  try {
+    const stored = await AsyncStorage.getItem(STORAGE_KEY);
+    if (stored) usados = JSON.parse(stored);
+  } catch (error) {
+    console.warn("Error loading used cards:", error);
+  }
+}
+
+function saveUsedCards() {
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(() => {
+    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(usados)).catch((error) =>
+      console.warn("Error saving used cards:", error)
+    );
+  }, 500);
+}
+
+/**
+ * Devuelve una carta que no haya salido antes, también entre sesiones. Cuando
+ * se acaban las de esa categoría y tipo, el historial vuelve a empezar.
+ */
 export function getRandomReto(
   categoria: string,
   type: "verdad" | "reto",
 ): Reto {
-  const retos = data[`${categoria}-${type}`] || data["clasico-verdad"];
-  const usados =
-    usadosPorCategoria[`${categoria}-${type}`] ?? new Set<number>();
+  const key = `${categoria}-${type}`;
+  const retos = data[key] || data["clasico-verdad"];
+  const vistos = new Set((usados[key] ?? []).filter((text) => retos.includes(text)));
 
-  if (usados.size >= retos.length) {
-    usados.clear();
+  let disponibles = retos.filter((text) => !vistos.has(text));
+  if (disponibles.length === 0) {
+    vistos.clear();
+    disponibles = retos;
   }
 
-  let index;
-  do {
-    index = Math.floor(Math.random() * retos.length);
-  } while (usados.has(index));
+  const text = disponibles[Math.floor(Math.random() * disponibles.length)];
+  vistos.add(text);
+  usados[key] = [...vistos];
+  saveUsedCards();
 
-  usados.add(index);
-  usadosPorCategoria[`${categoria}-${type}`] = usados;
-
-  return { text: retos[index], type };
+  return { text, type };
 }
