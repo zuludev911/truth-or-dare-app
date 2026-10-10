@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { Reto } from "../types";
+import { extremoReto, extremoVerdad } from "../data/extremo";
 
 const data: Record<string, string[]> = {
   "clasico-verdad": require("../data/retos/clasico-verdad.json"),
@@ -13,8 +14,9 @@ const data: Record<string, string[]> = {
   "amigos-reto": require("../data/retos/amigos-reto.json"),
   "chicas-verdad": require("../data/retos/chicas-verdad.json"),
   "chicas-reto": require("../data/retos/chicas-reto.json"),
-  "extremo-verdad": require("../data/retos/extremo-verdad.json"),
-  "extremo-reto": require("../data/retos/extremo-reto.json"),
+  // Extremo tiene un mazo distinto en iOS (ver src/data/extremo.ios.ts).
+  "extremo-verdad": extremoVerdad,
+  "extremo-reto": extremoReto,
 };
 
 const STORAGE_KEY = "usedCards";
