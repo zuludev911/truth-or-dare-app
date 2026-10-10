@@ -26,6 +26,14 @@ export default function HomeScreen({ navigation }: Props) {
 
   return (
     <ImageBackground style={styles.container} source={background}>
+      {__DEV__ && (
+        <TouchableOpacity
+          style={styles.devButton}
+          onPress={() => navigation.navigate("DesignSystem")}
+        >
+          <Text style={styles.devText}>DS</Text>
+        </TouchableOpacity>
+      )}
       <TouchableOpacity style={styles.button} onPress={onPressPlay}>
         <Text style={styles.buttonText}>JUGAR</Text>
       </TouchableOpacity>
@@ -64,6 +72,16 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonText: { color: COLORS.BLACK, fontSize: 20, fontWeight: "bold" },
+  devButton: {
+    position: "absolute",
+    top: 60,
+    right: 20,
+    backgroundColor: COLORS.BLACK,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+  },
+  devText: { color: COLORS.WHITE, fontWeight: "bold" },
   privacyLink: { position: "absolute", bottom: 50, alignSelf: "center" },
   privacyText: {
     color: COLORS.WHITE,

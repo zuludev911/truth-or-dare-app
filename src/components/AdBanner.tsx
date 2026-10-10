@@ -13,9 +13,14 @@ import { AdPlacement, trackAdFailed } from "../services/analytics";
 
 interface Props {
   placement: AdPlacement;
+  /**
+   * Dentro del flujo de la pantalla (rediseño, ver ui/BannerSlot). Sin esta
+   * opción el banner queda fijo abajo, sobre el contenido, como en el diseño anterior.
+   */
+  inline?: boolean;
 }
 
-const AdBanner = ({ placement }: Props) => {
+const AdBanner = ({ placement, inline }: Props) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
 
@@ -46,7 +51,13 @@ const AdBanner = ({ placement }: Props) => {
 
   if (error && !adUnitId) return null;
   return (
-    <View style={{ position: "absolute", bottom, left: 0, right: 0 }}>
+    <View
+      style={
+        inline
+          ? { alignItems: "center" }
+          : { position: "absolute", bottom, left: 0, right: 0 }
+      }
+    >
       <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
