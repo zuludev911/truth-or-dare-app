@@ -38,10 +38,14 @@ function ShowVideoModal({
   const onPressAccept = async () => {
     setIsModalVisible(false);
     if (loaded) {
-      rewarded.show();
+      rewarded.show().catch(() => {});
       return;
     }
-    const { isConnected } = await NetInfo.fetch();
+    // Si el módulo nativo de NetInfo no existe en esta versión instalada, se
+    // asume que hay conexión en vez de lanzar un error.
+    const { isConnected } = await NetInfo.fetch().catch(() => ({
+      isConnected: null,
+    }));
     Toast.show(
       isConnected === false
         ? {

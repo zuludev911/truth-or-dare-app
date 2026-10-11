@@ -24,12 +24,27 @@ Sentry.init({
   // For more information, visit: https://docs.sentry.io/platforms/react-native/data-management/data-collected/
   sendDefaultPii: true,
 
-  // Configure Session Replay
-  replaysSessionSampleRate: 0.1,
-  replaysOnErrorSampleRate: 1,
+  // El plan gratuito incluye solo 50 replays al mes: no se graban sesiones
+  // normales y solo una parte de las sesiones con error.
+  replaysSessionSampleRate: 0,
+  replaysOnErrorSampleRate: 0.2,
   integrations: [
     Sentry.mobileReplayIntegration(),
     Sentry.feedbackIntegration(),
+  ],
+
+  // Ruido de librerías nativas y de red que no podemos corregir desde la app.
+  ignoreErrors: [
+    /^Abort$/,
+    "Activity is destroyed",
+    "Activity was null",
+    "Error making request",
+    "RNCNetInfo is null",
+    "[remoteConfig/failure]",
+    "error-code-internal-error",
+    "error-code-invalid-request",
+    "error-code-no-fill",
+    "error-code-network-error",
   ],
 
   // uncomment the line below to enable Spotlight (https://spotlightjs.com)
