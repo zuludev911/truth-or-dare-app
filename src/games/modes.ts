@@ -73,7 +73,14 @@ export const MODES: Record<GameMode, ModeConfig> = {
     backHint: "Toca para sacar una pregunta",
     levels: [
       { id: "clasico", name: "Clásico", description: "Señala al culpable", illustration: "clasico" },
-      { id: "picante", name: "Picante", description: "Con un poco de picante", illustration: "vor" },
+      {
+        id: "picante",
+        name: "Picante",
+        description: "Con un poco de picante",
+        illustration: "vor",
+        locked: true,
+        lockedText: "Este nivel tiene preguntas para adultos. Para jugarlo debes ver un video de publicidad, el cual te dará acceso por",
+      },
       { id: "amigos", name: "Amigos", description: "Para el grupo de siempre", illustration: "amigos" },
     ],
   },

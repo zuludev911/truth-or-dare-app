@@ -6,6 +6,7 @@ const UNLOCK_KEYS: Record<string, string> = {
   extremo: "lastUnlockTime",
   chicas: "lastUnlockTimeChicas",
   "yn-picante": "lastUnlockTimeYnPicante",
+  "qmp-picante": "lastUnlockTimeQmpPicante",
 };
 
 /** Guarda la hora en que se desbloqueó la categoría con un video. */
