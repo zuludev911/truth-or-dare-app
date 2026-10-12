@@ -96,7 +96,7 @@ export default function GameScreen({ route, navigation }: Props) {
     <Screen glows={[glowColor, "yn"]} padBottom={false}>
       <Header
         leading="close"
-        onLeadingPress={() => navigation.popToTop()}
+        onLeadingPress={navigation.goBack}
         trailing={
           <View style={styles.pills}>
             <Pill
