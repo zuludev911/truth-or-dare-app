@@ -14,7 +14,7 @@ import IconBeerFilled from "@tabler/icons-react-native/IconBeerFilled";
 import IconShare from "@tabler/icons-react-native/IconShare";
 import IconUsers from "@tabler/icons-react-native/IconUsers";
 
-import { HomeStackParamList } from "../navigation/HomeStackNavigator";
+import { RootStackParamList } from "../navigation/Navigation";
 import { Reto } from "../types";
 import { getRandomReto } from "../utils/getRandomReto";
 import { useInterstitial } from "../hooks/useInterstitial";
@@ -35,7 +35,7 @@ import PlayersModal from "../components/PlayersModal";
 const STORE_URL =
   "https://play.google.com/store/apps/details?id=com.anfezuar.truthordareapp";
 
-type Props = NativeStackScreenProps<HomeStackParamList, "Game">;
+type Props = NativeStackScreenProps<RootStackParamList, "Game">;
 
 const AnimatedTouchableOpacity =
   Animated.createAnimatedComponent(TouchableOpacity);

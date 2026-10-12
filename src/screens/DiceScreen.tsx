@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { ToolsStackParamList } from "../navigation/ToolsStackNavigator";
+import { RootStackParamList } from "../navigation/Navigation";
 import { COLORS } from "../constants";
 import { useInterstitial } from "../hooks/useInterstitial";
 import { trackToolOpened, trackToolUsed } from "../services/analytics";
@@ -18,7 +18,7 @@ import CloseButton from "../components/CloseButton";
 import AdBanner from "../components/AdBanner";
 import backgroundEmpty from "../assets/background-empty.webp";
 
-type Props = NativeStackScreenProps<ToolsStackParamList, "Dice">;
+type Props = NativeStackScreenProps<RootStackParamList, "Dice">;
 
 const DICE_SIZE = 110;
 
