@@ -94,7 +94,7 @@ export default function CategoryScreen({ navigation }: Props) {
         if (pendingCategory.current && loadTimeout.current) {
           clearTimeout(loadTimeout.current);
           loadTimeout.current = undefined;
-          rewarded.show();
+          rewarded.show().catch(() => {});
         }
       }),
       rewarded.addAdEventListener(RewardedAdEventType.EARNED_REWARD, () => {
@@ -150,9 +150,11 @@ export default function CategoryScreen({ navigation }: Props) {
 
   const onWatch = async () => {
     pendingCategory.current = modalCategory;
-    if (isLoaded.current) return rewarded.show();
+    if (isLoaded.current) return rewarded.show().catch(() => {});
 
-    const { isConnected } = await NetInfo.fetch();
+    // Si el módulo nativo de NetInfo no existe en la versión instalada, se
+    // asume que hay conexión en vez de lanzar un error (ver PR #27).
+    const { isConnected } = await NetInfo.fetch().catch(() => ({ isConnected: null }));
     if (isConnected === false) return setUnlockState("offline");
 
     setUnlockState("loading");
