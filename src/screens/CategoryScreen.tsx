@@ -29,6 +29,8 @@ import {
 } from "../utils";
 import { space } from "../theme";
 import { BannerSlot, CategoryCard, Header, Screen, UnlockModal, UnlockState } from "../ui";
+import PlayersSheet from "../components/PlayersSheet";
+import { usePlayers } from "../hooks/usePlayers";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Categories">;
 
@@ -50,6 +52,9 @@ export default function CategoryScreen({ navigation }: Props) {
   const [remaining, setRemaining] = useState<Record<string, number>>({});
   const [modalCategory, setModalCategory] = useState<CategoryConfig | null>(null);
   const [unlockState, setUnlockState] = useState<UnlockState>("ready");
+  const [players, setPlayers] = usePlayers();
+  // Categoría elegida: antes de jugar se muestra la hoja de jugadores.
+  const [startingCategory, setStartingCategory] = useState<CategoryConfig | null>(null);
 
   const rewarded = useMemo(() => RewardedAd.createForAdRequest(AD_UNIT_ID), []);
   const isLoaded = useRef(false);
@@ -73,10 +78,13 @@ export default function CategoryScreen({ navigation }: Props) {
     }, [refreshUnlocks])
   );
 
-  const openGame = useCallback(
-    (category: CategoryConfig) => navigation.navigate("Game", { category: category.id }),
-    [navigation]
-  );
+  const openGame = useCallback((category: CategoryConfig) => setStartingCategory(category), []);
+
+  const startGame = () => {
+    if (!startingCategory) return;
+    setStartingCategory(null);
+    navigation.navigate("Game", { mode: "vor", level: startingCategory.id });
+  };
 
   useEffect(() => {
     const unsubscribers = [
@@ -201,6 +209,13 @@ export default function CategoryScreen({ navigation }: Props) {
         state={unlockState}
         onWatch={onWatch}
         onClose={closeModal}
+      />
+      <PlayersSheet
+        visible={!!startingCategory}
+        players={players}
+        onChange={setPlayers}
+        onConfirm={startGame}
+        onClose={() => setStartingCategory(null)}
       />
     </Screen>
   );

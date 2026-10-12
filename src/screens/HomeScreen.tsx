@@ -57,7 +57,6 @@ export default function HomeScreen({ navigation }: Props) {
             navigation.navigate("Categories");
           }}
         />
-        {/* Yo nunca y ¿Quién…? se conectan a su juego en B3 del rediseño. */}
         <GameCard
           title="Yo nunca"
           subtitle="Confiesa lo que sí has hecho"
@@ -65,7 +64,10 @@ export default function HomeScreen({ navigation }: Props) {
           illustration="yn"
           illustrationRotate={8}
           badge="Nuevo"
-          onPress={comingSoon("Yo nunca", "Muy pronto en la app")}
+          onPress={() => {
+            trackHomeGameSelected("yn");
+            navigation.navigate("Levels", { mode: "yn" });
+          }}
         />
         <GameCard
           title="¿Quién es más probable que…?"
@@ -74,7 +76,10 @@ export default function HomeScreen({ navigation }: Props) {
           illustration="qmp"
           illustrationRotate={-6}
           badge="Nuevo"
-          onPress={comingSoon("¿Quién es más probable que…?", "Muy pronto en la app")}
+          onPress={() => {
+            trackHomeGameSelected("qmp");
+            navigation.navigate("Levels", { mode: "qmp" });
+          }}
         />
         <GameCard
           title="Herramientas"

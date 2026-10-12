@@ -1,367 +1,187 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  ImageBackground,
-  Share,
-} from "react-native";
-import Animated, { FlipInEasyY, FlipOutEasyY } from "react-native-reanimated";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import IconBeerFilled from "@tabler/icons-react-native/IconBeerFilled";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Platform, Share, StyleSheet, View } from "react-native";
 import IconShare from "@tabler/icons-react-native/IconShare";
-import IconUsers from "@tabler/icons-react-native/IconUsers";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../navigation/Navigation";
-import { Reto } from "../types";
-import { getRandomReto } from "../utils/getRandomReto";
+import { CATEGORIES } from "../constants";
+import { Card, CARD_STYLES, CardType, MODES } from "../games/modes";
+import { drawCard } from "../utils/getRandomReto";
 import { useInterstitial } from "../hooks/useInterstitial";
+import { usePlayers } from "../hooks/usePlayers";
 import {
   trackCardShared,
   trackCardShown,
   trackGameEnded,
   trackGameStarted,
-  trackPlayersUpdated,
 } from "../services/analytics";
-import { loadPlayers, savePlayers } from "../services/players";
-import { CATEGORIES, COLORS } from "../constants";
-import AdBanner from "../components/AdBanner";
-import backgroundGame from "../assets/background-game.webp";
-import CloseButton from "../components/CloseButton";
-import PlayersModal from "../components/PlayersModal";
-
-const STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.anfezuar.truthordareapp";
+import PlayingCard, { PlayingCardHandle } from "../components/PlayingCard";
+import PlayersSheet from "../components/PlayersSheet";
+import Countdown from "../components/Countdown";
+import { colors, space } from "../theme";
+import { BannerSlot, Button, Header, Illustration, Pill, Screen, Text } from "../ui";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Game">;
 
-const AnimatedTouchableOpacity =
-  Animated.createAnimatedComponent(TouchableOpacity);
+const STORE_URL = Platform.select({
+  android: "https://play.google.com/store/apps/details?id=com.anfezuar.truthordareapp",
+  // Pendiente: enlace de la App Store cuando la app esté publicada en iOS.
+  ios: undefined,
+});
 
+/** Juego de cartas para los 3 modos: Verdad o Reto, Yo nunca y ¿Quién es más probable que…? */
 export default function GameScreen({ route, navigation }: Props) {
-  const { category } = route.params;
+  const { mode, level } = route.params;
+  const config = MODES[mode];
+  const levelName =
+    mode === "vor"
+      ? CATEGORIES.find((c) => c.id === level)?.name ?? level
+      : config.levels.find((l) => l.id === level)?.name ?? level;
+  const levelIllustration = CATEGORIES.find((c) => c.id === level)?.illustration;
+
   const registerInterstitialAction = useInterstitial("game");
+  const [players, setPlayers] = usePlayers();
+  const [playersVisible, setPlayersVisible] = useState(false);
+  const [card, setCard] = useState<Card | null>(null);
+  const [turn, setTurn] = useState(0);
+  const [countdownVisible, setCountdownVisible] = useState(false);
+  const [counted, setCounted] = useState(false);
+  const cardRef = useRef<PlayingCardHandle>(null);
 
-  const [retoActual, setRetoActual] = useState<Reto>();
-  const [retosVistos, setRetosVistos] = useState(0);
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [players, setPlayers] = useState<string[]>([]);
-  const [isPlayersModalVisible, setIsPlayersModalVisible] = useState(false);
-
+  // Al salir de la partida se registra cuántas cartas se jugaron.
+  const cardsShown = useRef(0);
   useEffect(() => {
-    loadPlayers().then(setPlayers);
-  }, []);
+    trackGameStarted(mode, level);
+    return () => trackGameEnded(mode, level, cardsShown.current);
+  }, [mode, level]);
 
-  const updatePlayers = (newPlayers: string[]) => {
-    setPlayers(newPlayers);
-    savePlayers(newPlayers);
+  const draw = (requested?: "verdad" | "reto") => {
+    const type: CardType =
+      mode === "vor" ? requested ?? (Math.random() < 0.5 ? "verdad" : "reto") : mode;
+    const next = drawCard(mode, level, type);
+    const started = cardRef.current?.flipTo(next, () => {
+      setCard(next);
+      setCounted(false);
+    });
+    if (!started) return;
+    if (card) setTurn((t) => t + 1);
+    cardsShown.current += 1;
+    trackCardShown(mode, level, type, cardsShown.current);
+    registerInterstitialAction();
   };
 
-  const closePlayersModal = () => {
-    setIsPlayersModalVisible(false);
-    trackPlayersUpdated(players.length);
-  };
-
-  // Los turnos rotan en orden con cada carta.
-  const currentPlayer =
-    players.length > 0 && retosVistos > 0
-      ? players[(retosVistos - 1) % players.length]
-      : undefined;
-
-  const shareCard = async () => {
-    if (!retoActual) return;
-    const label = retoActual.type === "verdad" ? "Verdad" : "Reto";
+  const share = async () => {
+    if (!card) return;
+    const label = CARD_STYLES[card.type].shareLabel;
+    const text = label ? `${label}: ${card.text}` : card.text;
     try {
       const result = await Share.share({
-        message: `${label}: ${retoActual.text}\n\n¿Te atreves? Juega Verdad o Reto 🔥\n${STORE_URL}`,
+        message: `${text}\n\n¿Te atreves? Juega Verdad o Reto 🔥${STORE_URL ? `\n${STORE_URL}` : ""}`,
       });
-      if (result.action === Share.sharedAction) {
-        trackCardShared(category, retoActual.type);
-      }
+      if (result.action === Share.sharedAction) trackCardShared(mode, level, card.type);
     } catch (error) {
       console.warn("Share failed:", error);
     }
   };
 
-  // Al salir de la partida se registra cuántas cartas se jugaron.
-  const retosVistosRef = useRef(0);
-  retosVistosRef.current = retosVistos;
-  useEffect(() => {
-    trackGameStarted(category);
-    return () => trackGameEnded(category, retosVistosRef.current);
-  }, [category]);
+  const onCountdownFinish = useCallback(() => {
+    setCountdownVisible(false);
+    setCounted(true);
+  }, []);
 
-  const shotsCount = Math.floor(Math.random() * 3) + 1;
-
-  const handleNext = (type: "verdad" | "reto") => () => {
-    setIsFlipped(true);
-    const newCount = retosVistos + 1;
-    setRetosVistos(newCount);
-    trackCardShown(category, type, newCount);
-    registerInterstitialAction();
-    setRetoActual(
-      getRandomReto(category, type) || {
-        type: "reto",
-        text: "No hay más retos.",
-      }
-    );
-    setTimeout(
-      () => {
-        setIsFlipped(false);
-      },
-      retosVistos === 0 ? 0 : 600
-    );
-  };
-
-  const isTruth = retoActual?.type === "verdad";
-
-  const categoryImage = useMemo(
-    () => CATEGORIES.find((c) => c.id === category)?.icon,
-    [category]
-  );
-
-  const questionType: ("verdad" | "reto")[] = ["verdad", "reto"];
-
-  const selectedQuestionTypeIndex = Math.floor(
-    Math.random() * questionType.length
-  );
+  const currentPlayer = players.length > 0 ? players[turn % players.length] : undefined;
+  const glowColor = mode === "vor" ? "reto" : config.accent;
 
   return (
-    <ImageBackground source={backgroundGame} style={styles.container}>
-      <CloseButton onPress={navigation.goBack} style={styles.buttonExit} />
-      <TouchableOpacity
-        style={styles.buttonPlayers}
-        onPress={() => setIsPlayersModalVisible(true)}
-        hitSlop={8}
-      >
-        <IconUsers color={COLORS.WHITE} size={30} />
-        {players.length > 0 && (
-          <Text style={styles.playersCount}>{players.length}</Text>
-        )}
-      </TouchableOpacity>
-      {/* <TouchableOpacity
-        onPress={navigation.goBack}
-        hitSlop={8}
-        style={styles.buttonExit}
-      >
-        <Image
-          source={closeIcon}
-          style={styles.closeIcon}
-          resizeMode="contain"
-        />
-      </TouchableOpacity> */}
-      <Image source={categoryImage} style={styles.categoryImage} />
-      <Text style={styles.currentPlayer}>
-        {currentPlayer ? `Le toca a ${currentPlayer}` : " "}
-      </Text>
-      {isFlipped || !retoActual ? (
-        <AnimatedTouchableOpacity
-          style={styles.card}
-          entering={FlipInEasyY.duration(retosVistos === 0 ? 0 : 600)}
-          exiting={FlipOutEasyY.duration(retosVistos === 0 ? 0 : 600)}
-          onPress={handleNext(questionType[selectedQuestionTypeIndex])}
-        >
-          <Image
-            source={require("../assets/card-back.webp")}
-            style={styles.cardImage}
-          />
-        </AnimatedTouchableOpacity>
-      ) : (
-        <AnimatedTouchableOpacity
-          entering={FlipInEasyY.duration(600)}
-          exiting={FlipOutEasyY.duration(600)}
-          key={retoActual.text}
-          style={styles.card}
-          onPress={handleNext(questionType[selectedQuestionTypeIndex])}
-        >
-          <View
-            style={[
-              styles.cardHeader,
-              { backgroundColor: isTruth ? COLORS.PRIMARY : COLORS.SECONDARY },
-            ]}
-          >
-            <Text style={styles.tipo}>{retoActual.type.toUpperCase()}</Text>
+    <Screen glows={[glowColor, "yn"]} padBottom={false}>
+      <Header
+        leading="close"
+        onLeadingPress={() => navigation.popToTop()}
+        trailing={
+          <View style={styles.pills}>
+            <Pill
+              label={levelName}
+              accent={config.accent}
+              icon={mode === "vor" && levelIllustration ? <Illustration name={levelIllustration} size={22} /> : undefined}
+            />
+            <Pill
+              label={`${players.length} ${players.length === 1 ? "jugador" : "jugadores"}`}
+              onPress={() => setPlayersVisible(true)}
+            />
           </View>
-          <Text style={styles.texto}>{retoActual.text}</Text>
-          {shotsCount > 0 && (
-            <View style={styles.footer}>
-              <Text>
-                {isTruth ? "Si no respondes toma" : "Si no lo haces toma"}
-              </Text>
-              <View style={styles.iconContainer}>
-                {Array.from({ length: shotsCount }).map((_, index) => (
-                  <IconBeerFilled key={index} size={24} />
-                ))}
-              </View>
-            </View>
-          )}
-        </AnimatedTouchableOpacity>
-      )}
-      <View style={styles.buttonsContainer}>
-        <TouchableOpacity
-          style={[styles.button, { backgroundColor: COLORS.PRIMARY }]}
-          onPress={handleNext("verdad")}
-        >
-          <Text style={styles.buttonText}>Verdad</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, { backgroundColor: COLORS.SECONDARY }]}
-          onPress={handleNext("reto")}
-        >
-          <Text style={styles.buttonText}>Reto</Text>
-        </TouchableOpacity>
-      </View>
-      <TouchableOpacity
-        style={[styles.shareButton, !retoActual && styles.hidden]}
-        onPress={shareCard}
-        disabled={!retoActual}
-        hitSlop={8}
-      >
-        <IconShare color={COLORS.WHITE} size={20} />
-        <Text style={styles.shareText}>Compartir carta</Text>
-      </TouchableOpacity>
-      <AdBanner placement="game" />
-      <PlayersModal
-        isVisible={isPlayersModalVisible}
-        players={players}
-        onChange={updatePlayers}
-        onClose={closePlayersModal}
+        }
       />
-    </ImageBackground>
+
+      <View style={styles.turn}>
+        {currentPlayer && (
+          <>
+            <Text variant="body" color={colors.muted} style={styles.turnLabel}>
+              {config.turnLabel}
+            </Text>
+            <Text variant="hero" color={colors[config.accent]} style={styles.turnName} numberOfLines={1}>
+              {currentPlayer}
+            </Text>
+          </>
+        )}
+      </View>
+
+      <PlayingCard ref={cardRef} mode={mode} onPress={() => draw()} />
+
+      <View style={styles.actions}>
+        <Button
+          label="Compartir carta"
+          variant="ghost"
+          size="small"
+          icon={<IconShare color={colors.text} size={18} />}
+          onPress={share}
+          style={!card && styles.hidden}
+          disabled={!card}
+        />
+        {mode === "vor" && (
+          <View style={styles.row}>
+            <Button label="Verdad" accent="verdad" size="tall" style={styles.flex} onPress={() => draw("verdad")} />
+            <Button label="Reto" accent="reto" size="tall" style={styles.flex} onPress={() => draw("reto")} />
+          </View>
+        )}
+        {mode === "yn" && (
+          <Button label={card ? "Siguiente" : "Sacar carta"} accent="yn" size="tall" onPress={() => draw()} />
+        )}
+        {mode === "qmp" &&
+          (card && !counted ? (
+            <Button label="¡Listos!" accent="qmp" size="tall" onPress={() => setCountdownVisible(true)} />
+          ) : (
+            <Button label={card ? "Siguiente pregunta" : "Sacar pregunta"} accent="qmp" size="tall" onPress={() => draw()} />
+          ))}
+      </View>
+      <BannerSlot placement="game" />
+
+      <PlayersSheet
+        visible={playersVisible}
+        players={players}
+        onChange={setPlayers}
+        confirmLabel="Listo"
+        onConfirm={() => setPlayersVisible(false)}
+        onClose={() => setPlayersVisible(false)}
+      />
+      <Countdown visible={countdownVisible} onFinish={onCountdownFinish} />
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.PRIMARY,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 18,
-  },
-  tipo: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
-  },
-  texto: { fontSize: 24, textAlign: "center" },
-  button: {
-    minWidth: 120,
-    backgroundColor: COLORS.WHITE,
-    paddingHorizontal: 30,
-    paddingVertical: 14,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: COLORS.WHITE,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
-    elevation: 5,
-  },
-  buttonText: {
-    textAlign: "center",
-    color: COLORS.WHITE,
-    fontWeight: "bold",
-    fontSize: 18,
-  },
-  card: {
-    borderWidth: 2,
-    borderColor: COLORS.WHITE,
-    backgroundColor: "white",
-    padding: 20,
-    borderRadius: 10,
-    marginBottom: 20,
-    height: "50%",
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
-    elevation: 5,
-  },
-  cardHeader: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: COLORS.PRIMARY,
-    padding: 20,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    borderBottomLeftRadius: "50%",
-    borderBottomRightRadius: "50%",
-  },
-  cardImage: {
-    maxWidth: 300,
-    maxHeight: 300,
-  },
-  iconContainer: {
+  pills: { flexDirection: "row", gap: space.s2, flexShrink: 1 },
+  turn: {
     flexDirection: "row",
+    alignItems: "baseline",
     justifyContent: "center",
-    gap: 6,
+    gap: space.s2,
+    minHeight: 46,
+    paddingTop: space.s2,
   },
-  footer: {
-    position: "absolute",
-    bottom: 40,
-    gap: 6,
-  },
-  categoryImage: {
-    width: 210,
-    height: 90,
-  },
-  closeIcon: {
-    width: 30,
-    height: 30,
-  },
-  buttonExit: {
-    position: "absolute",
-    top: 50,
-    right: 20,
-  },
-  buttonPlayers: {
-    position: "absolute",
-    top: 50,
-    left: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 4,
-  },
-  playersCount: {
-    color: COLORS.WHITE,
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  currentPlayer: {
-    color: COLORS.WHITE,
-    fontSize: 22,
-    fontWeight: "bold",
-    marginBottom: 10,
-    textShadowColor: "rgba(0, 0, 0, 0.4)",
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 3,
-  },
-  shareButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
-    marginTop: 16,
-  },
-  shareText: {
-    color: COLORS.WHITE,
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  hidden: {
-    opacity: 0,
-  },
-  buttonsContainer: {
-    flexDirection: "row",
-    gap: 10,
-  },
+  turnLabel: { fontSize: 20, lineHeight: 26 },
+  turnName: { fontSize: 30, lineHeight: 38, flexShrink: 1 },
+  actions: { gap: space.s3, marginTop: space.s1 },
+  row: { flexDirection: "row", gap: space.s3 },
+  flex: { flex: 1 },
+  hidden: { opacity: 0 },
 });
