@@ -5,6 +5,7 @@ import { getConfigNumber } from "../services/remoteConfig";
 const UNLOCK_KEYS: Record<string, string> = {
   extremo: "lastUnlockTime",
   chicas: "lastUnlockTimeChicas",
+  "yn-picante": "lastUnlockTimeYnPicante",
 };
 
 /** Guarda la hora en que se desbloqueó la categoría con un video. */
@@ -37,12 +38,13 @@ export const getUnlockRemainingMs = async (category: string): Promise<number> =>
   }
 };
 
-/** "Quedan 1 h 45 min" / "Quedan 12 min". */
+/** "Quedan 1 h 45 min" / "Quedan 2 h" / "Quedan 12 min". */
 export const formatTimeLeft = (ms: number) => {
   const minutes = Math.ceil(ms / 60000);
   const hours = Math.floor(minutes / 60);
   const rest = minutes % 60;
-  return hours > 0 ? `Quedan ${hours} h ${rest} min` : `Quedan ${rest} min`;
+  if (hours === 0) return `Quedan ${rest} min`;
+  return rest === 0 ? `Quedan ${hours} h` : `Quedan ${hours} h ${rest} min`;
 };
 
 /** "2 horas" / "1 hora", para los textos del modal de desbloqueo. */

@@ -12,6 +12,7 @@ export type UnlockState = "ready" | "loading" | "offline" | "noads";
 
 interface Props {
   visible: boolean;
+  title?: string;
   illustration: IllustrationName;
   description: string;
   state: UnlockState;
@@ -25,7 +26,15 @@ const ERRORS: Partial<Record<UnlockState, string>> = {
 };
 
 /** Modal para desbloquear una categoría para adultos viendo un video. */
-export default function UnlockModal({ visible, illustration, description, state, onWatch, onClose }: Props) {
+export default function UnlockModal({
+  visible,
+  title = "Categoría para adultos",
+  illustration,
+  description,
+  state,
+  onWatch,
+  onClose,
+}: Props) {
   const error = ERRORS[state];
   return (
     <Modal visible={visible} transparent animationType="none" onRequestClose={onClose} statusBarTranslucent navigationBarTranslucent>
@@ -39,7 +48,7 @@ export default function UnlockModal({ visible, illustration, description, state,
           />
           <Illustration name={illustration} size={120} />
           <Text variant="title" style={styles.center}>
-            Categoría para adultos
+            {title}
           </Text>
           <Text variant="body" color={colors.muted} style={[styles.center, styles.description]}>
             {description}

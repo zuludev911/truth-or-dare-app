@@ -19,6 +19,10 @@ export interface Level {
   name: string;
   description: string;
   illustration: IllustrationName;
+  /** Se desbloquea viendo un video; el id de desbloqueo es "modo-nivel". */
+  locked?: boolean;
+  /** Texto del modal de desbloqueo (termina con la duración del acceso). */
+  lockedText?: string;
 }
 
 interface ModeConfig {
@@ -50,7 +54,14 @@ export const MODES: Record<GameMode, ModeConfig> = {
     backHint: "Toca para sacar una carta",
     levels: [
       { id: "clasico", name: "Clásico", description: "Para romper el hielo", illustration: "clasico" },
-      { id: "picante", name: "Picante", description: "Sube la temperatura", illustration: "vor" },
+      {
+        id: "picante",
+        name: "Picante",
+        description: "Sube la temperatura",
+        illustration: "vor",
+        locked: true,
+        lockedText: "Este nivel tiene preguntas para adultos. Para jugarlo debes ver un video de publicidad, el cual te dará acceso por",
+      },
       { id: "parejas", name: "Parejas", description: "Solo para dos… o más", illustration: "parejas" },
     ],
   },
