@@ -28,7 +28,7 @@ const ERRORS: Partial<Record<UnlockState, string>> = {
 export default function UnlockModal({ visible, illustration, description, state, onWatch, onClose }: Props) {
   const error = ERRORS[state];
   return (
-    <Modal visible={visible} transparent animationType="none" onRequestClose={onClose} statusBarTranslucent>
+    <Modal visible={visible} transparent animationType="none" onRequestClose={onClose} statusBarTranslucent navigationBarTranslucent>
       <Animated.View entering={FadeIn.duration(200)} style={styles.scrim}>
         <Animated.View entering={ZoomIn.duration(280).easing(Easing.bezier(0.2, 0.8, 0.2, 1))} style={styles.modal}>
           <IconButton

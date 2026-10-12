@@ -32,7 +32,7 @@ export default function Countdown({ visible, onFinish }: Props) {
   }, [visible, onFinish]);
 
   return (
-    <Modal visible={visible} transparent animationType="fade" statusBarTranslucent>
+    <Modal visible={visible} transparent animationType="fade" statusBarTranslucent navigationBarTranslucent>
       <View style={styles.overlay}>
         {step > 0 ? (
           <>
