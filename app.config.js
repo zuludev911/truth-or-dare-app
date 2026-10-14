@@ -44,9 +44,16 @@ export default {
     },
     ios: {
       buildNumber: "2",
-      supportsTablet: true,
+      // Solo iPhone: en iPad corre en modo compatibilidad y la App Store no pide capturas de iPad.
+      supportsTablet: false,
       displayName: "Verdad o Reto 🔥",
       bundleIdentifier: "com.anfezuar.truthordareapp",
+      // Se descarga de la consola de Firebase (app iOS). No es secreto, igual que google-services.json.
+      googleServicesFile: "./GoogleService-Info.plist",
+      config: {
+        // Solo HTTPS estándar: evita la pregunta de cumplimiento de exportación en cada build.
+        usesNonExemptEncryption: false,
+      },
     },
     android: {
       applicationLabel: "Verdad o Reto 🔥",
@@ -57,6 +64,7 @@ export default {
       },
       edgeToEdgeEnabled: true,
       package: "com.anfezuar.truthordareapp",
+      googleServicesFile: "./android/app/google-services.json",
     },
     web: {
       favicon: "./assets/favicon.png",
@@ -64,6 +72,18 @@ export default {
     plugins: [
       "expo-updates",
       "expo-audio",
+      // Firebase en iOS con CocoaPods y frameworks estáticos. Con Expo SDK 54 cada módulo
+      // nativo de React Native Firebase tiene que ir en forceStaticLinking.
+      ["@react-native-firebase/app", { ios: { disableSPM: true } }],
+      [
+        "expo-build-properties",
+        {
+          ios: {
+            useFrameworks: "static",
+            forceStaticLinking: ["RNFBApp", "RNFBAnalytics", "RNFBRemoteConfig"],
+          },
+        },
+      ],
       [
         "@sentry/react-native/expo",
         {
@@ -78,8 +98,10 @@ export default {
           androidAppId:
             process.env.ADMOB_ANDROID_APP_ID || ADMOB_TEST_ANDROID_APP_ID,
           iosAppId: process.env.ADMOB_IOS_APP_ID || ADMOB_TEST_IOS_APP_ID,
+          // Texto del aviso de rastreo de Apple (ATT). Lo muestra el formulario de consentimiento
+          // de Google si en AdMob está publicado el mensaje explicativo de IDFA.
           userTrackingUsageDescription:
-            "Usamos datos para personalizar anuncios.",
+            "Tu permiso nos ayuda a mostrarte anuncios más relevantes. Gracias a ellos la app es gratis.",
           // SKAdNetwork IDs requeridos por Meta, AppLovin y Unity para atribución en iOS 14+
           skAdNetworkItems: [
             "v9wttpbfk9.skadnetwork",
@@ -142,6 +164,7 @@ export default {
       admobAndroidInterstitialId: process.env.ADMOB_ANDROID_INTERSTITIAL_ID,
       admobIosInterstitialId: process.env.ADMOB_IOS_INTERSTITIAL_ID,
       admobRewardId: process.env.ADMOB_REWARD_ID,
+      admobIosRewardId: process.env.ADMOB_IOS_REWARD_ID,
     },
   },
   jsEngine: "hermes",

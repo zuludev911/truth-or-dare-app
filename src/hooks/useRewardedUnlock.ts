@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Platform } from "react-native";
 import {
   AdEventType,
   RewardedAd,
@@ -15,7 +16,9 @@ import { getConfigNumber } from "../services/remoteConfig";
 import { formatUnlockHours, getUnlockRemainingMs, saveUnlockTime } from "../utils";
 import type { UnlockState } from "../ui";
 
-const AD_UNIT_ID = __DEV__ ? TestIds.REWARDED : AD_IDS.REWARD_ID;
+const AD_UNIT_ID = __DEV__
+  ? TestIds.REWARDED
+  : Platform.select({ ios: AD_IDS.IOS_REWARD, default: AD_IDS.ANDROID_REWARD });
 /** Si el video no carga en este tiempo, se avisa que no hay anuncios. */
 const LOAD_TIMEOUT_MS = 10000;
 
