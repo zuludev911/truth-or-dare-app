@@ -84,6 +84,7 @@ export default {
           },
         },
       ],
+      ["./plugins/withPodsDeploymentTarget", { minimum: "15.1" }],
       [
         "@sentry/react-native/expo",
         {
