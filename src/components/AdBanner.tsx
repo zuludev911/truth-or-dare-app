@@ -6,7 +6,6 @@ import {
   TestIds,
 } from "react-native-google-mobile-ads";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import * as Sentry from "@sentry/react-native";
 
 import { AD_IDS } from "../services/ads";
 import { AdPlacement, trackAdFailed } from "../services/analytics";
@@ -39,13 +38,10 @@ const AdBanner = ({ placement, inline }: Props) => {
 
   const handleAdFailedToLoad = (err: any) => {
     console.warn("Ad failed to load:", err);
-    // Sin anuncio disponible o sin internet no son fallas de la app: solo van a
-    // analíticas, para no llenar Sentry cuando el teléfono está sin conexión.
+    // Los fallos de AdMob (sin anuncio, sin internet, error interno de Google,
+    // petición rechazada) no son fallas de la app y no se pueden corregir desde
+    // aquí: solo van a analíticas (ad_failed), para no llenar la cuota de Sentry.
     trackAdFailed("banner", placement, err);
-    const code = String(err?.code ?? "");
-    if (!code.includes("no-fill") && !code.includes("network-error")) {
-      Sentry.captureException(err);
-    }
     setError(true);
   };
 
