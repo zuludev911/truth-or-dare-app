@@ -25,14 +25,14 @@ interface Props {
 export default function BottomSheet({ visible, onClose, title, subtitle, children }: Props) {
   const { bottom } = useSafeAreaInsets();
   return (
-    <Modal visible={visible} transparent animationType="none" onRequestClose={onClose} statusBarTranslucent>
+    <Modal visible={visible} transparent animationType="none" onRequestClose={onClose} statusBarTranslucent navigationBarTranslucent>
       <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === "ios" ? "padding" : "height"}>
         <Animated.View entering={FadeIn.duration(200)} style={styles.scrim}>
           <Pressable style={styles.flex} onPress={onClose} accessibilityLabel="Cerrar" />
         </Animated.View>
         <Animated.View
           entering={SlideInDown.duration(motion.sheet).easing(Easing.bezier(0.2, 0.8, 0.2, 1))}
-          style={[styles.sheet, { paddingBottom: bottom + space.s6 }]}
+          style={[styles.sheet, { paddingBottom: bottom + space.s6 + OVERHANG }]}
         >
           <View style={styles.handle} />
           <Text variant="title">{title}</Text>
@@ -48,6 +48,10 @@ export default function BottomSheet({ visible, onClose, title, subtitle, childre
   );
 }
 
+// En Android el modal puede medir un poco menos que la pantalla y dejar ver el
+// contenido de abajo; la hoja se extiende más allá del borde para taparlo.
+const OVERHANG = 120;
+
 const styles = StyleSheet.create({
   flex: { flex: 1 },
   scrim: {
@@ -56,6 +60,7 @@ const styles = StyleSheet.create({
   },
   sheet: {
     marginTop: "auto",
+    marginBottom: -OVERHANG,
     maxHeight: "88%",
     backgroundColor: colors.surface,
     borderTopLeftRadius: radius.card,
