@@ -161,3 +161,15 @@ export const Flames = memo(({ level }: { level: number }) => (
     ))}
   </View>
 ));
+
+/** Botella de la herramienta (viewBox 120×300; el ancho es 0,4 del alto). */
+export const BottleIllustration = memo(({ height }: { height: number }) => (
+  <Svg width={(height * 120) / 300} height={height} viewBox="0 0 120 300">
+    <G fill="none" stroke={INK} strokeWidth={4} strokeLinejoin="round">
+      <Path d="M48 8H72V70C72 90 100 100 100 130V272Q100 292 80 292H40Q20 292 20 272V130C20 100 48 90 48 70Z" fill="#3DDC84" />
+      <Path d="M48 8H72V30H48Z" fill="#2DE2C6" />
+      <Rect x={26} y={150} width={68} height={70} fill="#fff" fillOpacity={0.9} stroke="none" />
+      <Path d="M34 120V260" stroke="#fff" strokeOpacity={0.5} strokeWidth={6} strokeLinecap="round" />
+    </G>
+  </Svg>
+));

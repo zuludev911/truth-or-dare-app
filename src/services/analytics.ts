@@ -35,6 +35,11 @@ export const trackScreen = (screenName: string) => {
   }).catch(() => {});
 };
 
+/** Tarjeta tocada en el centro de juegos del inicio. */
+export const trackHomeGameSelected = (
+  game: "vor" | "yn" | "qmp" | "tools" | "christmas"
+) => track("home_game_selected", { game });
+
 export const trackCategorySelected = (category: string, locked: boolean) =>
   track("category_selected", { category, locked });
 

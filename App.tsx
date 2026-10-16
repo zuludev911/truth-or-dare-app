@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import {
+  DarkTheme,
   NavigationContainer,
   useNavigationContainerRef,
 } from "@react-navigation/native";
@@ -18,6 +19,13 @@ import { trackScreen } from "./src/services/analytics";
 import { loadUsedCards } from "./src/utils/getRandomReto";
 import { useAppFonts } from "./src/theme/fonts";
 import { toastConfig } from "./src/ui";
+import { colors } from "./src/theme";
+
+// Fondo oscuro del rediseño también en las transiciones (evita destellos blancos).
+const navigationTheme = {
+  ...DarkTheme,
+  colors: { ...DarkTheme.colors, background: colors.base, card: colors.base },
+};
 
 Sentry.init({
   dsn: SENTRY_DSN,
@@ -106,6 +114,7 @@ export default Sentry.wrap(function App() {
 
   return (
     <NavigationContainer
+      theme={navigationTheme}
       ref={navigationRef}
       onReady={() => {
         currentRouteName.current = navigationRef.getCurrentRoute()?.name;
@@ -120,7 +129,7 @@ export default Sentry.wrap(function App() {
       }}
     >
       {isReady && fontsReady && <Navigation />}
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <Toast config={toastConfig} />
     </NavigationContainer>
   );

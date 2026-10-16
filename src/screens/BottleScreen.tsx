@@ -16,7 +16,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { useAudioPlayer } from "expo-audio";
 import Svg, { Path, Defs, LinearGradient, Stop } from "react-native-svg";
-import { ToolsStackParamList } from "../navigation/ToolsStackNavigator";
+import { RootStackParamList } from "../navigation/Navigation";
 import { COLORS } from "../constants";
 import { useInterstitial } from "../hooks/useInterstitial";
 import { trackToolOpened, trackToolUsed } from "../services/analytics";
@@ -24,7 +24,7 @@ import CloseButton from "../components/CloseButton";
 import AdBanner from "../components/AdBanner";
 import backgroundEmpty from "../assets/background-empty.webp";
 
-type Props = NativeStackScreenProps<ToolsStackParamList, "Bottle">;
+type Props = NativeStackScreenProps<RootStackParamList, "Bottle">;
 
 const SPIN_DURATION = 3500;
 const BOTTLE_WIDTH = 80;
