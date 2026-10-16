@@ -35,27 +35,38 @@ export const trackScreen = (screenName: string) => {
   }).catch(() => {});
 };
 
+/** Tarjeta tocada en el centro de juegos del inicio. */
+export const trackHomeGameSelected = (
+  game: "vor" | "yn" | "qmp" | "tools" | "christmas"
+) => track("home_game_selected", { game });
+
 export const trackCategorySelected = (category: string, locked: boolean) =>
   track("category_selected", { category, locked });
 
+// `mode`: vor (Verdad o Reto), yn (Yo nunca), qmp (¿Quién es más probable que…?).
+// `category` es la categoría de Verdad o Reto o el nivel de los otros juegos.
+type GameMode = "vor" | "yn" | "qmp";
+type CardType = "verdad" | "reto" | "yn" | "qmp";
+
 export const trackCardShown = (
+  mode: GameMode,
   category: string,
-  type: "verdad" | "reto",
+  type: CardType,
   cardNumber: number
-) => track("card_shown", { category, type, card_number: cardNumber });
+) => track("card_shown", { mode, category, type, card_number: cardNumber });
 
-/** Entrada al juego de una categoría (también después de desbloquearla con un video). */
-export const trackGameStarted = (category: string) =>
-  track("game_started", { category });
+/** Entrada a un juego (también después de desbloquear una categoría con un video). */
+export const trackGameStarted = (mode: GameMode, category: string) =>
+  track("game_started", { mode, category });
 
-export const trackGameEnded = (category: string, cardsShown: number) =>
-  track("game_ended", { category, cards_shown: cardsShown });
+export const trackGameEnded = (mode: GameMode, category: string, cardsShown: number) =>
+  track("game_ended", { mode, category, cards_shown: cardsShown });
 
 export const trackPlayersUpdated = (count: number) =>
   track("players_updated", { count });
 
-export const trackCardShared = (category: string, type: "verdad" | "reto") =>
-  track("card_shared", { category, type });
+export const trackCardShared = (mode: GameMode, category: string, type: CardType) =>
+  track("card_shared", { mode, category, type });
 
 export type Tool = "dice" | "bottle";
 

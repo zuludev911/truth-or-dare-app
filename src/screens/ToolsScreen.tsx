@@ -1,141 +1,64 @@
-import React from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-  ImageBackground,
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { ScrollView, StyleSheet, View } from "react-native";
+import Toast from "react-native-toast-message";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import IconDice from "@tabler/icons-react-native/IconDice";
-import IconRotate2 from "@tabler/icons-react-native/IconRotate2";
-import IconClock from "@tabler/icons-react-native/IconClock";
-import { ToolsStackParamList } from "../navigation/ToolsStackNavigator";
-import { COLORS } from "../constants";
-import AdBanner from "../components/AdBanner";
-import backgroundEmpty from "../assets/background-empty.webp";
 
-const TOOLS = [
-  { id: "dados", name: "Dados" },
-  { id: "botella", name: "Botella" },
-  { id: "pronto", name: "Próximamente", disabled: true },
-];
+import { RootStackParamList } from "../navigation/Navigation";
+import { space } from "../theme";
+import {
+  BannerSlot,
+  BottleIllustration,
+  Header,
+  Illustration,
+  ListCard,
+  Screen,
+  Text,
+} from "../ui";
 
-type Props = NativeStackScreenProps<ToolsStackParamList, "Tools">;
+type Props = NativeStackScreenProps<RootStackParamList, "Tools">;
 
+/** Ícono emoji de 72 dp para las herramientas que todavía no existen. */
+const EmojiMedia = ({ emoji }: { emoji: string }) => (
+  <View style={styles.emoji}>
+    <Text style={styles.emojiText}>{emoji}</Text>
+  </View>
+);
+
+/** Lista de herramientas: Dado y Botella, y las que vienen pronto. */
 export default function ToolsScreen({ navigation }: Props) {
-  const handleDicePress = () => navigation.navigate("Dice");
-  const handleBottlePress = () => navigation.navigate("Bottle");
-  return (
-    <ImageBackground source={backgroundEmpty} style={styles.background}>
-      <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>Diversión Extra</Text>
-        <FlatList
-          data={TOOLS}
-          keyExtractor={(item) => item.id}
-          contentContainerStyle={styles.list}
-          renderItem={({ item }) => {
-            const isDisabled = (item as any).disabled;
-            const icon =
-              item.id === "dados" ? (
-                <IconDice
-                  size={24}
-                  color={isDisabled ? "#CCC" : COLORS.PRIMARY}
-                />
-              ) : item.id === "botella" ? (
-                <IconRotate2
-                  size={24}
-                  color={isDisabled ? "#CCC" : COLORS.PRIMARY}
-                />
-              ) : (
-                <IconClock
-                  size={24}
-                  color={isDisabled ? "#CCC" : COLORS.PRIMARY}
-                />
-              );
+  const comingSoon = () =>
+    Toast.show({ type: "info", text1: "Próximamente", text2: "Esta herramienta llegará pronto" });
 
-            return (
-              <TouchableOpacity
-                style={[styles.item, isDisabled && styles.itemDisabled]}
-                onPress={
-                  !isDisabled && (item.id === "dados" || item.id === "botella")
-                    ? item.id === "dados"
-                      ? handleDicePress
-                      : handleBottlePress
-                    : undefined
-                }
-                disabled={isDisabled}
-              >
-                <View style={styles.itemContent}>
-                  {icon}
-                  <Text
-                    style={[
-                      styles.itemText,
-                      isDisabled && styles.itemTextDisabled,
-                    ]}
-                  >
-                    {item.name}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            );
-          }}
+  return (
+    <Screen glows={["her", "yn"]} padBottom={false}>
+      <Header title="Herramientas" onLeadingPress={navigation.goBack} />
+      <ScrollView contentContainerStyle={styles.list} showsVerticalScrollIndicator={false}>
+        <ListCard
+          title="Dado"
+          subtitle="Lanza de 1 a 4 dados"
+          media={<Illustration name="her" size={72} />}
+          onPress={() => navigation.navigate("Dice")}
         />
-        <AdBanner placement="tools" />
-      </SafeAreaView>
-    </ImageBackground>
+        <ListCard
+          title="Botella"
+          subtitle="Gírala y que el azar decida"
+          media={
+            <View style={styles.bottle}>
+              <BottleIllustration height={72} />
+            </View>
+          }
+          onPress={() => navigation.navigate("Bottle")}
+        />
+        <ListCard title="Papa caliente" subtitle="Próximamente" soon media={<EmojiMedia emoji="🔥" />} onPress={comingSoon} />
+        <ListCard title="Charadas" subtitle="Próximamente" soon media={<EmojiMedia emoji="🎭" />} onPress={comingSoon} />
+      </ScrollView>
+      <BannerSlot placement="tools" />
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: "transparent",
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: COLORS.WHITE,
-    paddingHorizontal: 20,
-    paddingTop: 24,
-    paddingBottom: 12,
-  },
-  list: {
-    paddingHorizontal: 20,
-    paddingTop: 8,
-  },
-  item: {
-    backgroundColor: COLORS.SECONDARY,
-    borderRadius: 12,
-    paddingVertical: 18,
-    paddingHorizontal: 20,
-    marginBottom: 12,
-    shadowColor: COLORS.BLACK,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.14,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  itemDisabled: {
-    opacity: 0.9,
-    borderLeftColor: "#CCC",
-  },
-  itemContent: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 12,
-  },
-  itemText: {
-    fontSize: 18,
-    fontWeight: "600",
-    color: COLORS.WHITE,
-  },
-  itemTextDisabled: {
-    color: "#999",
-  },
+  list: { gap: space.s3, paddingTop: space.s3, paddingBottom: space.s4 },
+  bottle: { width: 72, height: 72, alignItems: "center", justifyContent: "center" },
+  emoji: { width: 72, height: 72, alignItems: "center", justifyContent: "center" },
+  emojiText: { fontSize: 48, lineHeight: 60 },
 });
