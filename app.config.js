@@ -13,7 +13,7 @@ export default {
   expo: {
     name: "Verdad o Reto",
     slug: "truth-or-dare-app",
-    version: "1.3.0",
+    version: "1.4.0",
     description: "Juego de Verdad o Reto para fiestas, parejas y amigos.",
     keywords: [
       "verdad o reto",
@@ -31,7 +31,7 @@ export default {
     // Proyecto bare (android/ e ios/ versionados): EAS no admite políticas de runtime,
     // así que va fijo. Si cambias código nativo, súbelo aquí y en
     // android/.../strings.xml (expo_runtime_version) e ios/.../Expo.plist.
-    runtimeVersion: "1.3.0",
+    runtimeVersion: "1.4.0",
     updates: {
       url: `https://u.expo.dev/${EAS_PROJECT_ID}`,
       checkAutomatically: "ON_LOAD",
@@ -43,7 +43,7 @@ export default {
       backgroundColor: "#E63140",
     },
     ios: {
-      buildNumber: "2",
+      buildNumber: "36",
       // Solo iPhone: en iPad corre en modo compatibilidad y la App Store no pide capturas de iPad.
       supportsTablet: false,
       displayName: "Verdad o Reto 🔥",
@@ -57,7 +57,7 @@ export default {
     },
     android: {
       applicationLabel: "Verdad o Reto 🔥",
-      versionCode: 35,
+      versionCode: 36,
       adaptiveIcon: {
         foregroundImage: "./assets/icon.png",
         backgroundColor: "#ffffff",
