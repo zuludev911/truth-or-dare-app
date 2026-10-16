@@ -90,6 +90,7 @@ export default function CategoryScreen({ navigation }: Props) {
         state={unlock.unlockState}
         onWatch={unlock.watch}
         onClose={unlock.closeModal}
+        onDismiss={unlock.onModalDismiss}
       />
       <PlayersSheet
         visible={!!startingCategory}
