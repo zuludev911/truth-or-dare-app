@@ -18,6 +18,8 @@ interface Props {
   state: UnlockState;
   onWatch: () => void;
   onClose: () => void;
+  /** iOS: el modal terminó de cerrarse (ahí se puede abrir el video). */
+  onDismiss?: () => void;
 }
 
 const ERRORS: Partial<Record<UnlockState, string>> = {
@@ -34,10 +36,11 @@ export default function UnlockModal({
   state,
   onWatch,
   onClose,
+  onDismiss,
 }: Props) {
   const error = ERRORS[state];
   return (
-    <Modal visible={visible} transparent animationType="none" onRequestClose={onClose} statusBarTranslucent navigationBarTranslucent>
+    <Modal visible={visible} transparent animationType="none" onRequestClose={onClose} onDismiss={onDismiss} statusBarTranslucent navigationBarTranslucent>
       <Animated.View entering={FadeIn.duration(200)} style={styles.scrim}>
         <Animated.View entering={ZoomIn.duration(280).easing(Easing.bezier(0.2, 0.8, 0.2, 1))} style={styles.modal}>
           <IconButton

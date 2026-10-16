@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Platform } from "react-native";
 import {
   AdEventType,
   RewardedAd,
@@ -15,9 +16,13 @@ import { getConfigNumber } from "../services/remoteConfig";
 import { formatUnlockHours, getUnlockRemainingMs, saveUnlockTime } from "../utils";
 import type { UnlockState } from "../ui";
 
-const AD_UNIT_ID = __DEV__ ? TestIds.REWARDED : AD_IDS.REWARD_ID;
+const AD_UNIT_ID = __DEV__
+  ? TestIds.REWARDED
+  : Platform.select({ ios: AD_IDS.IOS_REWARD, default: AD_IDS.ANDROID_REWARD });
 /** Si el video no carga en este tiempo, se avisa que no hay anuncios. */
 const LOAD_TIMEOUT_MS = 10000;
+/** Respaldo por si el modal no avisa que terminó de cerrarse (onDismiss). */
+const MODAL_DISMISS_FALLBACK_MS = 600;
 
 /**
  * Desbloqueo de contenido con un video recompensado (categorías de Verdad o
@@ -39,6 +44,8 @@ export function useRewardedUnlock(
   const pendingId = useRef<string | null>(null);
   const earned = useRef(false);
   const loadTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const showWhenDismissed = useRef(false);
+  const dismissFallback = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const onUnlockedRef = useRef(onUnlocked);
   onUnlockedRef.current = onUnlocked;
   const idsKey = unlockIds.join(",");
@@ -59,6 +66,25 @@ export function useRewardedUnlock(
     }, [refresh])
   );
 
+  /** Muestra el video si quedó pendiente de que se cerrara el modal. */
+  const showPending = useCallback(() => {
+    clearTimeout(dismissFallback.current);
+    if (!showWhenDismissed.current) return;
+    showWhenDismissed.current = false;
+    rewarded.show().catch(() => {});
+  }, [rewarded]);
+
+  /**
+   * En iOS el video no se puede abrir encima del modal de desbloqueo: al cerrar
+   * el modal, iOS cierra también el video y deja una capa invisible que bloquea
+   * la app. Por eso primero se cierra el modal y el video se abre en su onDismiss.
+   */
+  const present = useCallback(() => {
+    showWhenDismissed.current = true;
+    setModalId(null);
+    dismissFallback.current = setTimeout(showPending, MODAL_DISMISS_FALLBACK_MS);
+  }, [showPending]);
+
   useEffect(() => {
     const clearLoadTimeout = () => {
       clearTimeout(loadTimeout.current);
@@ -70,7 +96,7 @@ export function useRewardedUnlock(
         // Si el usuario ya tocó "Ver video" mientras cargaba, se muestra enseguida.
         if (pendingId.current && loadTimeout.current) {
           clearLoadTimeout();
-          rewarded.show().catch(() => {});
+          present();
         }
       }),
       rewarded.addAdEventListener(RewardedAdEventType.EARNED_REWARD, () => {
@@ -112,8 +138,9 @@ export function useRewardedUnlock(
     return () => {
       unsubscribers.forEach((unsubscribe) => unsubscribe());
       clearLoadTimeout();
+      clearTimeout(dismissFallback.current);
     };
-  }, [rewarded, refresh, placement]);
+  }, [rewarded, refresh, placement, present]);
 
   /** true si el id está bloqueado ahora mismo. */
   const isLocked = (id: string) => unlockIds.includes(id) && !remaining[id];
@@ -126,7 +153,7 @@ export function useRewardedUnlock(
 
   const watch = async () => {
     pendingId.current = modalId;
-    if (isLoaded.current) return rewarded.show().catch(() => {});
+    if (isLoaded.current) return present();
 
     // Si el módulo nativo de NetInfo no existe en la versión instalada, se
     // asume que hay conexión en vez de lanzar un error (ver PR #27).
@@ -142,11 +169,23 @@ export function useRewardedUnlock(
   };
 
   const closeModal = () => {
+    showWhenDismissed.current = false;
+    clearTimeout(dismissFallback.current);
     clearTimeout(loadTimeout.current);
     loadTimeout.current = undefined;
     pendingId.current = null;
     setModalId(null);
   };
 
-  return { remaining, isLocked, modalId, unlockState, requestUnlock, watch, closeModal };
+  return {
+    remaining,
+    isLocked,
+    modalId,
+    unlockState,
+    requestUnlock,
+    watch,
+    closeModal,
+    /** Va en el onDismiss del UnlockModal. */
+    onModalDismiss: showPending,
+  };
 }

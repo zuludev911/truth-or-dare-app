@@ -78,6 +78,7 @@ export default function LevelsScreen({ route, navigation }: Props) {
         state={unlock.unlockState}
         onWatch={unlock.watch}
         onClose={unlock.closeModal}
+        onDismiss={unlock.onModalDismiss}
       />
       <PlayersSheet
         visible={!!selected}

@@ -7,5 +7,7 @@ export const AD_IDS = {
   IOS_BANNER: extra?.admobIosBannerId || "",
   ANDROID_INTERSTITIAL: extra?.admobAndroidInterstitialId || "",
   IOS_INTERSTITIAL: extra?.admobIosInterstitialId || "",
-  REWARD_ID: extra?.admobRewardId || "",
+  // ADMOB_REWARD_ID es el de Android (el nombre viene de antes de iOS).
+  ANDROID_REWARD: extra?.admobRewardId || "",
+  IOS_REWARD: extra?.admobIosRewardId || "",
 };
