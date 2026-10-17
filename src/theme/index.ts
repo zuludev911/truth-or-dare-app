@@ -68,6 +68,9 @@ export const motion = {
 /** Espacio reservado para el banner adaptable (puede medir de 50 a 90 dp). */
 export const BANNER_HEIGHT = 60;
 
+/** Ancho máximo del contenido en tablets y pantallas anchas (se centra). */
+export const CONTENT_MAX_WIDTH = 640;
+
 /** Tamaño mínimo de cualquier zona táctil. */
 export const TOUCH_TARGET = 48;
 

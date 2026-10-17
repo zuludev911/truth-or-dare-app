@@ -10,7 +10,7 @@ import {
 import Animated, { Easing, FadeIn, SlideInDown } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { colors, motion, radius, space } from "../theme";
+import { colors, CONTENT_MAX_WIDTH, motion, radius, space } from "../theme";
 import Text from "./Text";
 
 interface Props {
@@ -59,6 +59,9 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(10,5,28,0.7)",
   },
   sheet: {
+    width: "100%",
+    maxWidth: CONTENT_MAX_WIDTH,
+    alignSelf: "center",
     marginTop: "auto",
     marginBottom: -OVERHANG,
     maxHeight: "88%",

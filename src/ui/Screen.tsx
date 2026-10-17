@@ -3,7 +3,7 @@ import { StyleSheet, View, ViewStyle, StyleProp } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Svg, { Defs, RadialGradient, Stop, Circle } from "react-native-svg";
 
-import { colors, AccentColor, space } from "../theme";
+import { colors, AccentColor, CONTENT_MAX_WIDTH, space } from "../theme";
 
 /**
  * Brillo neón difuso del fondo. En el prototipo es un círculo con blur(90px);
@@ -48,7 +48,8 @@ export default function Screen({ children, glows = ["vor", "yn"], padBottom = tr
     >
       <Glow color={colors[glows[0]]} size={420} opacity={0.45} style={{ left: -170, top: -180 }} />
       <Glow color={colors[glows[1]]} size={440} opacity={0.38} style={{ right: -180, bottom: 20 }} />
-      {children}
+      {/* En tablets el contenido no se estira: ancho máximo y centrado. */}
+      <View style={styles.content}>{children}</View>
     </View>
   );
 }
@@ -61,5 +62,11 @@ const styles = StyleSheet.create({
   },
   glow: {
     position: "absolute",
+  },
+  content: {
+    flex: 1,
+    width: "100%",
+    maxWidth: CONTENT_MAX_WIDTH,
+    alignSelf: "center",
   },
 });

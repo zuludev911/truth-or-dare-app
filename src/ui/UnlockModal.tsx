@@ -82,6 +82,9 @@ const styles = StyleSheet.create({
     padding: space.s5,
   },
   modal: {
+    width: "100%",
+    maxWidth: 480,
+    alignSelf: "center",
     backgroundColor: colors.surface,
     borderRadius: radius.card,
     padding: space.s6,

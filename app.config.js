@@ -39,8 +39,9 @@ export default {
     },
     splash: {
       image: "./assets/splash-icon.png",
-      resizeMode: "cover",
-      backgroundColor: "#E63140",
+      // Logo con bordes difuminados sobre el color del borde del logo.
+      resizeMode: "contain",
+      backgroundColor: "#10052D",
     },
     ios: {
       buildNumber: "36",
@@ -59,8 +60,8 @@ export default {
       applicationLabel: "Verdad o Reto 🔥",
       versionCode: 36,
       adaptiveIcon: {
-        foregroundImage: "./assets/icon.png",
-        backgroundColor: "#ffffff",
+        foregroundImage: "./assets/adaptive-icon.png",
+        backgroundColor: "#10052D",
       },
       edgeToEdgeEnabled: true,
       package: "com.anfezuar.truthordareapp",
