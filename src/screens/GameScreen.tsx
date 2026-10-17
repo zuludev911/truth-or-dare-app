@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Platform, Share, StyleSheet, View } from "react-native";
+import { Share, StyleSheet, View } from "react-native";
 import IconShare from "@tabler/icons-react-native/IconShare";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
@@ -23,11 +23,9 @@ import { BannerSlot, Button, Header, Illustration, Pill, Screen, Text } from "..
 
 type Props = NativeStackScreenProps<RootStackParamList, "Game">;
 
-const STORE_URL = Platform.select({
-  android: "https://play.google.com/store/apps/details?id=com.anfezuar.truthordareapp",
-  // Pendiente: enlace de la App Store cuando la app esté publicada en iOS.
-  ios: undefined,
-});
+// Página de descarga (site/ en GitHub Pages): quien recibe la carta llega a su
+// tienda, sea Android o iPhone. El enlace de la App Store se agrega allá.
+const STORE_URL = "https://zuludev911.github.io/truth-or-dare-app/";
 
 /** Juego de cartas para los 3 modos: Verdad o Reto, Yo nunca y ¿Quién es más probable que…? */
 export default function GameScreen({ route, navigation }: Props) {
@@ -76,7 +74,7 @@ export default function GameScreen({ route, navigation }: Props) {
     const text = label ? `${label}: ${card.text}` : card.text;
     try {
       const result = await Share.share({
-        message: `${text}\n\n¿Te atreves? Juega Verdad o Reto 🔥${STORE_URL ? `\n${STORE_URL}` : ""}`,
+        message: `${text}\n\n¿Te atreves? Juega Verdad o Reto 🔥\n${STORE_URL}`,
       });
       if (result.action === Share.sharedAction) trackCardShared(mode, level, card.type);
     } catch (error) {
