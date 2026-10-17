@@ -123,6 +123,15 @@ p { margin: 0; }
 .qr.empty { background: var(--raised); color: var(--muted); font-size: 14px; padding: 16px; }
 .store-card p { color: var(--muted); font-size: 14px; }
 
+/* Soporte */
+.support { display: grid; justify-items: center; gap: 12px; text-align: center; max-width: 60ch; margin: 0 auto;
+           background: var(--surface); border: 1px solid var(--border); border-radius: 28px; padding: 28px 20px; }
+.support p { color: var(--muted); }
+.support .mail { font-family: var(--display); font-size: clamp(15px, 3.6vw, 20px); overflow-wrap: anywhere; }
+.support .mail a { color: var(--her); text-decoration: none; }
+.support .mail a:hover, .support .mail a:focus-visible { text-decoration: underline; }
+.support .small { font-size: 14px; }
+
 footer { text-align: center; color: var(--muted); font-size: 13px; }
 
 [data-device="mobile"] .only-desktop { display: none; }
@@ -185,6 +194,13 @@ footer { text-align: center; color: var(--muted); font-size: 13px; }
     </div>
   </section>
 
+  <section class="support" id="soporte" aria-labelledby="t-support">
+    <h2 class="section-title" id="t-support">Soporte</h2>
+    <p>¿Encontraste un error, tienes una idea para nuevas cartas o necesitas ayuda con la app? Escríbenos y te respondemos lo antes posible.</p>
+    <p class="mail"><a href="mailto:anfezuar270827@gmail.com?subject=Verdad%20o%20Reto%20-%20Soporte">anfezuar270827@gmail.com</a></p>
+    <p class="small">Cuéntanos qué teléfono usas (iPhone o Android) y la versión de la app que aparece en la tienda.</p>
+  </section>
+
   <footer>
     <p>Verdad o Reto · Para mayores de 18 años · Juega con responsabilidad</p>
   </footer>
@@ -239,7 +255,9 @@ footer { text-align: center; color: var(--muted); font-size: 13px; }
   // En el teléfono se va directo a su tienda (si ya existe el enlace). Con
   // ?web la página se queda, para poder verla desde un teléfono.
   // replace() no deja esta página en el historial: "atrás" no vuelve a redirigir.
-  const stay = new URLSearchParams(location.search).has("web");
+  // Un enlace a una sección (por ejemplo #soporte, la URL de soporte de la App
+  // Store) tampoco redirige: quien lo abre quiere ver esa sección.
+  const stay = new URLSearchParams(location.search).has("web") || location.hash.length > 1;
   if (!stay && device !== "desktop" && STORES[device]) {
     location.replace(STORES[device]);
   }
