@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verdad o Reto 🔥 · Descarga gratis</title>
+<meta name="description" content="Verdad o Reto, Yo nunca y ¿Quién es más probable que…? en una sola app. Gratis, con más de 1.000 cartas, dado y botella.">
+<meta name="theme-color" content="#10052D">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="canonical" href="https://zuludev911.github.io/truth-or-dare-app/">
+<!-- Vista previa al compartir (WhatsApp, Telegram, redes) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Verdad o Reto">
+<meta property="og:title" content="Verdad o Reto 🔥 · El juego para romper el hielo">
+<meta property="og:description" content="Verdad o Reto, Yo nunca y ¿Quién es más probable que…? en una sola app. Gratis, con más de 1.000 cartas, dado y botella.">
+<meta property="og:url" content="https://zuludev911.github.io/truth-or-dare-app/">
+<meta property="og:image" content="https://zuludev911.github.io/truth-or-dare-app/img/og.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta property="og:locale" content="es_LA">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Unbounded:wght@700&display=swap">
+<style>
+/* Layout: una columna centrada; en móvil el botón de la tienda va arriba, en PC se suman capturas y QR.
+   Página de una sola apariencia (oscura, la de la app), a propósito. */
+:root {
+  color-scheme: dark;
+  --base: #10052D;
+  --surface: #1E1245;
+  --raised: #2A1B5E;
+  --border: #3B2A7A;
+  --text: #FFFFFF;
+  --muted: #B9AEE0;
+  --vor: #FF2E88;
+  --yn: #A78BFA;
+  --qmp: #FFC83D;
+  --her: #2DE2C6;
+  --ink: #130A2E;
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--base); }
+body {
+  background:
+    radial-gradient(60% 40% at 50% 0%, rgba(255, 46, 136, .28), transparent 70%),
+    radial-gradient(50% 35% at 0% 60%, rgba(167, 139, 250, .18), transparent 70%),
+    radial-gradient(50% 35% at 100% 100%, rgba(45, 226, 198, .14), transparent 70%),
+    var(--base);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 48px;
+  min-height: 100%;
+}
+main { max-width: 960px; margin: 0 auto; display: grid; gap: 56px; }
+/* Sin esto, la fila de capturas (ancha) estira la columna y la página se desplaza de lado. */
+main > * { min-width: 0; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+p { margin: 0; }
+
+/* Hero */
+.hero { display: grid; justify-items: center; text-align: center; gap: 16px; padding-top: 8px; }
+.logo { width: min(300px, 72vw); aspect-ratio: 1; max-width: 100%; }
+.tagline { font-family: var(--display); font-size: clamp(22px, 5vw, 32px); line-height: 1.2; }
+.tagline span { color: var(--vor); text-shadow: 0 0 24px rgba(255, 46, 136, .55); }
+.sub { color: var(--muted); max-width: 46ch; }
+.facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.fact { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+        border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; }
+
+/* Botones de tienda */
+.cta { display: grid; justify-items: center; gap: 12px; width: 100%; max-width: 420px; }
+.store {
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  padding: 14px 20px; border-radius: 20px; text-decoration: none;
+  font-weight: 700; color: var(--ink); background: var(--her);
+  box-shadow: 0 0 28px rgba(45, 226, 198, .45);
+  transition: transform .15s ease;
+}
+.store:hover { transform: translateY(-2px); }
+.store:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
+.store svg { flex: none; width: 30px; height: 30px; }
+.store small { display: block; font-size: 12px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; opacity: .8; }
+.store b { display: block; font-family: var(--display); font-size: 19px; line-height: 1.2; }
+.store.ios { background: var(--text); box-shadow: 0 0 28px rgba(255, 255, 255, .25); }
+.store.soon { background: var(--raised); color: var(--muted); box-shadow: none; cursor: default; }
+.store.soon:hover { transform: none; }
+.store.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); box-shadow: none; }
+.hint { font-size: 14px; color: var(--muted); text-align: center; }
+.hint button { font: inherit; color: var(--yn); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+
+/* Juegos */
+.section-title { font-size: clamp(20px, 4vw, 26px); text-align: center; }
+.games { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.game { border-radius: 28px; padding: 22px; color: var(--ink); display: grid; gap: 6px; align-content: start; }
+.game h3 { font-size: 19px; line-height: 1.2; }
+.game p { font-size: 15px; }
+.game .levels { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; opacity: .75; margin-top: 6px; }
+.g-vor { background: var(--vor); }
+.g-yn { background: var(--yn); }
+.g-qmp { background: var(--qmp); }
+.g-her { background: var(--her); }
+
+/* Capturas */
+.shots { display: flex; gap: 16px; overflow-x: auto; padding: 8px 4px 16px; scroll-snap-type: x mandatory; }
+.shots img { flex: none; width: 200px; max-width: 60vw; border-radius: 24px; border: 6px solid var(--raised);
+             scroll-snap-align: center; box-shadow: 0 16px 40px rgba(0, 0, 0, .45); }
+@media (min-width: 900px) { .shots { justify-content: center; overflow: visible; } }
+
+/* PC: tiendas con QR */
+.desktop-stores { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.store-card { background: var(--surface); border: 1px solid var(--border); border-radius: 28px; padding: 24px;
+              display: grid; justify-items: center; gap: 16px; text-align: center; }
+.qr { background: #fff; padding: 10px; border-radius: 16px; width: 160px; height: 160px; display: grid; place-items: center; }
+.qr img, .qr canvas { display: block; width: 140px; height: 140px; }
+.qr.empty { background: var(--raised); color: var(--muted); font-size: 14px; padding: 16px; }
+.store-card p { color: var(--muted); font-size: 14px; }
+
+/* Soporte */
+.support { display: grid; justify-items: center; gap: 12px; text-align: center; max-width: 60ch; margin: 0 auto;
+           background: var(--surface); border: 1px solid var(--border); border-radius: 28px; padding: 28px 20px; }
+.support p { color: var(--muted); }
+.support .mail { font-family: var(--display); font-size: clamp(15px, 3.6vw, 20px); overflow-wrap: anywhere; }
+.support .mail a { color: var(--her); text-decoration: none; }
+.support .mail a:hover, .support .mail a:focus-visible { text-decoration: underline; }
+.support .small { font-size: 14px; }
+
+footer { text-align: center; color: var(--muted); font-size: 13px; }
+
+[data-device="mobile"] .only-desktop { display: none; }
+[data-device="desktop"] .only-mobile { display: none; }
+@media (prefers-reduced-motion: reduce) { .store { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <img class="logo" src="img/logo.png" alt="Logo de Verdad o Reto">
+    <h1 class="tagline">El juego para <span>romper el hielo</span></h1>
+    <p class="sub">Verdad o Reto, Yo nunca y ¿Quién es más probable que…? en una sola app, con dado y botella incluidos.</p>
+    <div class="facts" aria-label="Datos de la app">
+      <span class="fact">Gratis</span>
+      <span class="fact">Sin registro</span>
+      <span class="fact">+1.000 cartas</span>
+      <span class="fact">18+</span>
+    </div>
+    <div class="cta only-mobile" id="cta" aria-live="polite"></div>
+  </section>
+
+  <section class="only-desktop" aria-labelledby="t-download">
+    <h2 class="section-title" id="t-download">Escanea y descárgalo en tu teléfono</h2>
+    <div class="desktop-stores" id="desktop-stores" style="margin-top: 24px"></div>
+  </section>
+
+  <section aria-labelledby="t-games">
+    <h2 class="section-title" id="t-games">Tres juegos y dos herramientas</h2>
+    <div class="games" style="margin-top: 24px">
+      <article class="game g-vor">
+        <h3>Verdad o Reto</h3>
+        <p>El clásico, de suave a extremo. Elige verdad o reto y cumple… o toma.</p>
+        <p class="levels">Clásico · Picante · Extremo · Parejas · Amigos · Chicas</p>
+      </article>
+      <article class="game g-yn">
+        <h3>Yo nunca</h3>
+        <p>Confiesa lo que sí has hecho. Quien lo haya hecho, toma.</p>
+        <p class="levels">Clásico · Picante · Parejas</p>
+      </article>
+      <article class="game g-qmp">
+        <h3>¿Quién es más probable que…?</h3>
+        <p>Cuenta 3, 2, 1 y todos señalan al culpable al mismo tiempo.</p>
+        <p class="levels">Clásico · Picante · Amigos</p>
+      </article>
+      <article class="game g-her">
+        <h3>Dado y botella</h3>
+        <p>Lanza de 1 a 4 dados o gira la botella para decidir a quién le toca.</p>
+        <p class="levels">Herramientas</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-label="Capturas de la app">
+    <div class="shots">
+      <img src="img/01-home.jpg" alt="Inicio: elige entre los tres juegos">
+      <img src="img/02-reto.jpg" alt="Carta de reto en Verdad o Reto">
+      <img src="img/04-yo-nunca.jpg" alt="Carta de Yo nunca">
+      <img src="img/05-quien.jpg" alt="Pregunta de ¿Quién es más probable que…?">
+    </div>
+  </section>
+
+  <section class="support" id="soporte" aria-labelledby="t-support">
+    <h2 class="section-title" id="t-support">Soporte</h2>
+    <p>¿Encontraste un error, tienes una idea para nuevas cartas o necesitas ayuda con la app? Escríbenos y te respondemos lo antes posible.</p>
+    <p class="mail"><a href="mailto:anfezuar270827@gmail.com?subject=Verdad%20o%20Reto%20-%20Soporte">anfezuar270827@gmail.com</a></p>
+    <p class="small">Cuéntanos qué teléfono usas (iPhone o Android) y la versión de la app que aparece en la tienda.</p>
+  </section>
+
+  <footer>
+    <p>Verdad o Reto · Para mayores de 18 años · Juega con responsabilidad</p>
+  </footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  // Enlaces a las tiendas. Cuando la app esté en la App Store, pegar aquí su enlace.
+  const STORES = {
+    android: "https://play.google.com/store/apps/details?id=com.anfezuar.truthordareapp",
+    ios: "",
+  };
+
+  const ICONS = {
+    play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 3.5v17a1 1 0 0 0 1.5.87l14-8.5a1 1 0 0 0 0-1.74l-14-8.5A1 1 0 0 0 5 3.5Z"/></svg>',
+    phone: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  };
+
+  const ua = navigator.userAgent || "";
+  const isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+  const isAndroid = /Android/i.test(ua);
+  const device = isIOS ? "ios" : isAndroid ? "android" : "desktop";
+  document.documentElement.dataset.device = device === "desktop" ? "desktop" : "mobile";
+
+  function storeButton(platform, { secondary = false } = {}) {
+    if (platform === "android") {
+      return `<a class="store${secondary ? " secondary" : ""}" href="${STORES.android}" target="_blank" rel="noopener">
+        ${ICONS.play}<span><small>Descárgalo gratis en</small><b>Google Play</b></span></a>`;
+    }
+    if (STORES.ios) {
+      return `<a class="store ios${secondary ? " secondary" : ""}" href="${STORES.ios}" target="_blank" rel="noopener">
+        ${ICONS.phone}<span><small>Descárgalo gratis en</small><b>App Store</b></span></a>`;
+    }
+    return `<div class="store soon" aria-disabled="true">
+      ${ICONS.phone}<span><small>Muy pronto en</small><b>App Store</b></span></div>`;
+  }
+
+  // Móvil: un solo botón grande con la tienda de este teléfono.
+  const cta = document.getElementById("cta");
+  function renderMobile(platform) {
+    const other = platform === "android" ? "ios" : "android";
+    const otherName = other === "android" ? "Android" : "iPhone";
+    const note = platform === "ios" && !STORES.ios
+      ? '<p class="hint">Estamos terminando la versión para iPhone. Vuelve pronto a este enlace.</p>'
+      : "";
+    cta.innerHTML = storeButton(platform) + note +
+      `<p class="hint">¿Tienes ${otherName}? <button type="button" id="switch">Ver la otra tienda</button></p>`;
+    document.getElementById("switch").addEventListener("click", () => renderMobile(other));
+  }
+  if (device !== "desktop") renderMobile(device);
+
+  // En el teléfono se va directo a su tienda (si ya existe el enlace). Con
+  // ?web la página se queda, para poder verla desde un teléfono.
+  // replace() no deja esta página en el historial: "atrás" no vuelve a redirigir.
+  // Un enlace a una sección (por ejemplo #soporte, la URL de soporte de la App
+  // Store) tampoco redirige: quien lo abre quiere ver esa sección.
+  const stay = new URLSearchParams(location.search).has("web") || location.hash.length > 1;
+  if (!stay && device !== "desktop" && STORES[device]) {
+    location.replace(STORES[device]);
+  }
+
+  // PC: las dos tiendas, cada una con un QR para escanear con el teléfono.
+  const desk = document.getElementById("desktop-stores");
+  function storeCard(platform, label) {
+    const url = STORES[platform];
+    const qrId = `qr-${platform}`;
+    desk.insertAdjacentHTML("beforeend", `<div class="store-card">
+      <div class="qr${url ? "" : " empty"}" id="${qrId}">${url ? "" : "Disponible muy pronto"}</div>
+      ${storeButton(platform)}
+      <p>${label}</p></div>`);
+    if (url && window.QRCode) {
+      new QRCode(document.getElementById(qrId), { text: url, width: 140, height: 140, colorDark: "#10052D", colorLight: "#FFFFFF" });
+    }
+  }
+  if (device === "desktop") {
+    storeCard("android", "Para teléfonos y tablets Android");
+    storeCard("ios", "Para iPhone");
+  }
+</script>
+</body>
+</html>
