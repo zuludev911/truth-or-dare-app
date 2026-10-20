@@ -114,7 +114,7 @@ android {
         applicationId 'com.anfezuar.truthordareapp'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 36
+        versionCode 37
         versionName "1.4.0"
         multiDexEnabled true
     }

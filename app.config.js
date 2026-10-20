@@ -44,7 +44,7 @@ export default {
       backgroundColor: "#10052D",
     },
     ios: {
-      buildNumber: "36",
+      buildNumber: "37",
       // Solo iPhone: en iPad corre en modo compatibilidad y la App Store no pide capturas de iPad.
       supportsTablet: false,
       displayName: "Verdad o Reto 🔥",
@@ -58,7 +58,7 @@ export default {
     },
     android: {
       applicationLabel: "Verdad o Reto 🔥",
-      versionCode: 36,
+      versionCode: 37,
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#10052D",
