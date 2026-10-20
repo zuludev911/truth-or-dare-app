@@ -94,3 +94,7 @@ export const trackAdFailed = (
 
 export const trackRewardEarned = (unlock: string) =>
   track("rewarded_earned", { unlock });
+
+/** Desbloqueo gratis porque no había video disponible (ver useRewardedUnlock). */
+export const trackUnlockWithoutAd = (unlock: string, placement: AdPlacement) =>
+  track("unlock_without_ad", { unlock, placement });

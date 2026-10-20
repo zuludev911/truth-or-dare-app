@@ -11,7 +11,13 @@ import Toast from "react-native-toast-message";
 import { useFocusEffect } from "@react-navigation/native";
 
 import { AD_IDS } from "../services/ads";
-import { AdPlacement, trackAdFailed, trackAdShown, trackRewardEarned } from "../services/analytics";
+import {
+  AdPlacement,
+  trackAdFailed,
+  trackAdShown,
+  trackRewardEarned,
+  trackUnlockWithoutAd,
+} from "../services/analytics";
 import { getConfigNumber } from "../services/remoteConfig";
 import { formatUnlockHours, getUnlockRemainingMs, saveUnlockTime } from "../utils";
 import type { UnlockState } from "../ui";
@@ -44,7 +50,8 @@ export function useRewardedUnlock(
   const pendingId = useRef<string | null>(null);
   const earned = useRef(false);
   const loadTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const showWhenDismissed = useRef(false);
+  /** Lo que se hace cuando el modal termina de cerrarse (ver `afterModalCloses`). */
+  const afterDismiss = useRef<(() => void) | null>(null);
   const dismissFallback = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const onUnlockedRef = useRef(onUnlocked);
   onUnlockedRef.current = onUnlocked;
@@ -66,24 +73,54 @@ export function useRewardedUnlock(
     }, [refresh])
   );
 
-  /** Muestra el video si quedó pendiente de que se cerrara el modal. */
-  const showPending = useCallback(() => {
+  /** Ejecuta la acción que quedó pendiente de que se cerrara el modal. */
+  const runAfterDismiss = useCallback(() => {
     clearTimeout(dismissFallback.current);
-    if (!showWhenDismissed.current) return;
-    showWhenDismissed.current = false;
-    rewarded.show().catch(() => {});
-  }, [rewarded]);
+    const action = afterDismiss.current;
+    afterDismiss.current = null;
+    action?.();
+  }, []);
 
   /**
-   * En iOS el video no se puede abrir encima del modal de desbloqueo: al cerrar
-   * el modal, iOS cierra también el video y deja una capa invisible que bloquea
-   * la app. Por eso primero se cierra el modal y el video se abre en su onDismiss.
+   * En iOS no se puede abrir nada (el video o la hoja de jugadores) encima del
+   * modal de desbloqueo mientras se cierra: al cerrarse, iOS cierra también lo
+   * que tenga encima y deja una capa invisible que bloquea la app. Por eso
+   * primero se cierra el modal y la acción corre en su onDismiss.
    */
-  const present = useCallback(() => {
-    showWhenDismissed.current = true;
-    setModalId(null);
-    dismissFallback.current = setTimeout(showPending, MODAL_DISMISS_FALLBACK_MS);
-  }, [showPending]);
+  const afterModalCloses = useCallback(
+    (action: () => void) => {
+      afterDismiss.current = action;
+      setModalId(null);
+      dismissFallback.current = setTimeout(runAfterDismiss, MODAL_DISMISS_FALLBACK_MS);
+    },
+    [runAfterDismiss]
+  );
+
+  const present = useCallback(
+    () => afterModalCloses(() => rewarded.show().catch(() => {})),
+    [afterModalCloses, rewarded]
+  );
+
+  /**
+   * Si no hay video disponible (sin inventario de AdMob, error de carga…) la
+   * categoría se desbloquea igual, gratis, por el mismo tiempo: nunca queda un
+   * contenido imposible de abrir (requisito de la revisión de Apple, 2.1).
+   */
+  const unlockWithoutAd = useCallback(() => {
+    const id = pendingId.current;
+    pendingId.current = null;
+    if (!id) return;
+    trackUnlockWithoutAd(id, placement);
+    saveUnlockTime(id).then(refresh);
+    afterModalCloses(() => {
+      Toast.show({
+        type: "success",
+        text1: "¡Desbloqueado gratis!",
+        text2: `No hay videos disponibles ahora. Acceso por ${formatUnlockHours(getConfigNumber("rewarded_unlock_hours"))}`,
+      });
+      onUnlockedRef.current(id);
+    });
+  }, [afterModalCloses, placement, refresh]);
 
   useEffect(() => {
     const clearLoadTimeout = () => {
@@ -130,7 +167,7 @@ export function useRewardedUnlock(
         trackAdFailed("rewarded", placement, error);
         if (loadTimeout.current) {
           clearLoadTimeout();
-          setUnlockState("noads");
+          unlockWithoutAd();
         }
       }),
     ];
@@ -140,7 +177,7 @@ export function useRewardedUnlock(
       clearLoadTimeout();
       clearTimeout(dismissFallback.current);
     };
-  }, [rewarded, refresh, placement, present]);
+  }, [rewarded, refresh, placement, present, unlockWithoutAd]);
 
   /** true si el id está bloqueado ahora mismo. */
   const isLocked = (id: string) => unlockIds.includes(id) && !remaining[id];
@@ -164,12 +201,12 @@ export function useRewardedUnlock(
     rewarded.load();
     loadTimeout.current = setTimeout(() => {
       loadTimeout.current = undefined;
-      setUnlockState("noads");
+      unlockWithoutAd();
     }, LOAD_TIMEOUT_MS);
   };
 
   const closeModal = () => {
-    showWhenDismissed.current = false;
+    afterDismiss.current = null;
     clearTimeout(dismissFallback.current);
     clearTimeout(loadTimeout.current);
     loadTimeout.current = undefined;
@@ -186,6 +223,6 @@ export function useRewardedUnlock(
     watch,
     closeModal,
     /** Va en el onDismiss del UnlockModal. */
-    onModalDismiss: showPending,
+    onModalDismiss: runAfterDismiss,
   };
 }
