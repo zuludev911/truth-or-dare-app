@@ -6,7 +6,8 @@ import { Platform } from "react-native";
  * - no hay mecánica de alcohol: castigos en vez de "toma", sin vasitos;
  * - no hay categorías ni niveles para adultos (Picante, Extremo, Chicas), y por
  *   eso tampoco hay nada que desbloquear con video;
- * - los anuncios no son personalizados (sin rastreo ni aviso ATT).
+ * - los anuncios no son personalizados (sin rastreo ni aviso ATT);
+ * - no está la botella (se asocia con juegos de besos).
  * Android sigue con la edición completa.
  */
 export const IOS_EDITION = Platform.OS === "ios";
