@@ -85,7 +85,7 @@ export default function HomeScreen({ navigation }: Props) {
         />
         <GameCard
           title="Herramientas"
-          subtitle="Dado, botella y más"
+          subtitle={IOS_EDITION ? "Dado y más" : "Dado, botella y más"}
           accent="her"
           illustration="her"
           illustrationRotate={6}
