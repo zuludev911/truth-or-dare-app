@@ -1,9 +1,13 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { Reto } from "../types";
 import { extremoReto, extremoVerdad } from "../data/extremo";
+import { HIDDEN_CARDS_IOS } from "../data/hiddenOnIos";
+import { IOS_EDITION } from "../games/edition";
+import { Card, CardType, GameMode } from "../games/modes";
 
-const data: Record<string, string[]> = {
+// Mazos por "nivel-tipo" (Verdad o Reto) o "modo-nivel" (Yo nunca, ¿Quién…?).
+// Las claves de Verdad o Reto son las mismas de antes para conservar el historial.
+const ALL_DECKS: Record<string, string[]> = {
   "clasico-verdad": require("../data/retos/clasico-verdad.json"),
   "clasico-reto": require("../data/retos/clasico-reto.json"),
   "picante-verdad": require("../data/retos/picante-verdad.json"),
@@ -17,12 +21,26 @@ const data: Record<string, string[]> = {
   // Extremo tiene un mazo distinto en iOS (ver src/data/extremo.ios.ts).
   "extremo-verdad": extremoVerdad,
   "extremo-reto": extremoReto,
+
+  "yn-clasico": require("../data/yo-nunca/clasico.json"),
+  "yn-picante": require("../data/yo-nunca/picante.json"),
+  "yn-parejas": require("../data/yo-nunca/parejas.json"),
+
+  "qmp-clasico": require("../data/quien/clasico.json"),
+  "qmp-picante": require("../data/quien/picante.json"),
+  "qmp-amigos": require("../data/quien/amigos.json"),
 };
+
+const DECKS: Record<string, string[]> = IOS_EDITION
+  ? Object.fromEntries(
+      Object.entries(ALL_DECKS).map(([key, cards]) => [key, cards.filter((t) => !HIDDEN_CARDS_IOS.has(t))])
+    )
+  : ALL_DECKS;
 
 const STORAGE_KEY = "usedCards";
 
-// Cartas que ya salieron por "categoria-tipo". Se guardan por texto (no por
-// índice) para que agregar o quitar cartas por OTA no mezcle el historial.
+// Cartas que ya salieron por mazo. Se guardan por texto (no por índice) para
+// que agregar o quitar cartas por OTA no mezcle el historial.
 let usados: Record<string, string[]> = {};
 let saveTimeout: ReturnType<typeof setTimeout> | undefined;
 
@@ -45,22 +63,22 @@ function saveUsedCards() {
   }, 500);
 }
 
-/**
- * Devuelve una carta que no haya salido antes, también entre sesiones. Cuando
- * se acaban las de esa categoría y tipo, el historial vuelve a empezar.
- */
-export function getRandomReto(
-  categoria: string,
-  type: "verdad" | "reto",
-): Reto {
-  const key = `${categoria}-${type}`;
-  const retos = data[key] || data["clasico-verdad"];
-  const vistos = new Set((usados[key] ?? []).filter((text) => retos.includes(text)));
+const deckKey = (mode: GameMode, level: string, type: CardType) =>
+  mode === "vor" ? `${level}-${type}` : `${mode}-${level}`;
 
-  let disponibles = retos.filter((text) => !vistos.has(text));
+/**
+ * Saca una carta que no haya salido antes, también entre sesiones. Cuando se
+ * acaban las de ese mazo, el historial vuelve a empezar.
+ */
+export function drawCard(mode: GameMode, level: string, type: CardType): Card {
+  const key = deckKey(mode, level, type);
+  const deck = DECKS[key] ?? DECKS["clasico-verdad"];
+  const vistos = new Set((usados[key] ?? []).filter((text) => deck.includes(text)));
+
+  let disponibles = deck.filter((text) => !vistos.has(text));
   if (disponibles.length === 0) {
     vistos.clear();
-    disponibles = retos;
+    disponibles = deck;
   }
 
   const text = disponibles[Math.floor(Math.random() * disponibles.length)];
@@ -68,5 +86,5 @@ export function getRandomReto(
   usados[key] = [...vistos];
   saveUsedCards();
 
-  return { text, type };
+  return { type, text, drinks: 1 + Math.floor(Math.random() * 3) };
 }
