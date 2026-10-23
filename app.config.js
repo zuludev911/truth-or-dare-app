@@ -44,7 +44,7 @@ export default {
       backgroundColor: "#10052D",
     },
     ios: {
-      buildNumber: "38",
+      buildNumber: "39",
       // Ícono y splash sin los labios del logo (edición de la App Store, ver src/games/edition.ts).
       icon: "./assets/icon-ios.png",
       splash: {
