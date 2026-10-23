@@ -44,7 +44,14 @@ export default {
       backgroundColor: "#10052D",
     },
     ios: {
-      buildNumber: "37",
+      buildNumber: "38",
+      // Ícono y splash sin los labios del logo (edición de la App Store, ver src/games/edition.ts).
+      icon: "./assets/icon-ios.png",
+      splash: {
+        image: "./assets/splash-icon-ios.png",
+        resizeMode: "contain",
+        backgroundColor: "#10052D",
+      },
       // Solo iPhone: en iPad corre en modo compatibilidad y la App Store no pide capturas de iPad.
       supportsTablet: false,
       displayName: "Verdad o Reto 🔥",
@@ -100,10 +107,8 @@ export default {
           androidAppId:
             process.env.ADMOB_ANDROID_APP_ID || ADMOB_TEST_ANDROID_APP_ID,
           iosAppId: process.env.ADMOB_IOS_APP_ID || ADMOB_TEST_IOS_APP_ID,
-          // Texto del aviso de rastreo de Apple (ATT). Lo muestra el formulario de consentimiento
-          // de Google si en AdMob está publicado el mensaje explicativo de IDFA.
-          userTrackingUsageDescription:
-            "Tu permiso nos ayuda a mostrarte anuncios más relevantes. Gracias a ellos la app es gratis.",
+          // Sin userTrackingUsageDescription: la edición de iOS no rastrea (anuncios no
+          // personalizados, sin aviso ATT). Ver src/games/edition.ts.
           // SKAdNetwork IDs requeridos por Meta, AppLovin y Unity para atribución en iOS 14+
           skAdNetworkItems: [
             "v9wttpbfk9.skadnetwork",

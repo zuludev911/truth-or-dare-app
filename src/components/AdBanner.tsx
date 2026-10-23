@@ -7,7 +7,7 @@ import {
 } from "react-native-google-mobile-ads";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { AD_IDS } from "../services/ads";
+import { AD_IDS, AD_REQUEST_OPTIONS } from "../services/ads";
 import { AdPlacement, trackAdFailed } from "../services/analytics";
 
 interface Props {
@@ -57,6 +57,7 @@ const AdBanner = ({ placement, inline }: Props) => {
       <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+        requestOptions={AD_REQUEST_OPTIONS}
         onAdLoaded={handleAdLoaded}
         onAdFailedToLoad={handleAdFailedToLoad}
       />

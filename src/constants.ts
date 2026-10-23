@@ -1,4 +1,5 @@
 import type { IllustrationName } from "./ui/Illustration";
+import { isAvailable } from "./games/edition";
 
 export interface CategoryConfig {
   id: string;
@@ -11,7 +12,7 @@ export interface CategoryConfig {
   locked?: boolean;
 }
 
-export const CATEGORIES: CategoryConfig[] = [
+const ALL_CATEGORIES: CategoryConfig[] = [
   { id: "clasico", name: "Clásico", illustration: "clasico", level: 1 },
   { id: "picante", name: "Picante", illustration: "vor", level: 2 },
   { id: "extremo", name: "Extremo", illustration: "extremo", level: 3, locked: true },
@@ -19,6 +20,9 @@ export const CATEGORIES: CategoryConfig[] = [
   { id: "amigos", name: "Amigos", illustration: "amigos", level: 1 },
   { id: "chicas", name: "Chicas", illustration: "chicas", level: 2, locked: true },
 ];
+
+/** En iOS no van Picante, Extremo ni Chicas (ver games/edition). */
+export const CATEGORIES = ALL_CATEGORIES.filter((c) => isAvailable(c.id));
 
 // Categorías con cartas nuevas: muestran la etiqueta "¡Nuevas!" hasta esa fecha.
 export const NEW_CONTENT_UNTIL: Record<string, string> = {

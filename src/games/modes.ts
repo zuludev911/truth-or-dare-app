@@ -1,5 +1,6 @@
 import type { AccentColor } from "../theme";
 import type { IllustrationName } from "../ui/Illustration";
+import { IOS_EDITION, isAvailable } from "./edition";
 
 /** vor = Verdad o Reto, yn = Yo nunca, qmp = ¿Quién es más probable que…? */
 export type GameMode = "vor" | "yn" | "qmp";
@@ -10,7 +11,7 @@ export type CardType = "verdad" | "reto" | "yn" | "qmp";
 export interface Card {
   type: CardType;
   text: string;
-  /** Tragos de castigo (1 a 3). */
+  /** Tragos de castigo (1 a 3). En iOS no se muestran. */
   drinks: number;
 }
 
@@ -37,7 +38,7 @@ interface ModeConfig {
   levels: Level[];
 }
 
-export const MODES: Record<GameMode, ModeConfig> = {
+const ALL_MODES: Record<GameMode, ModeConfig> = {
   vor: {
     title: "Verdad o Reto",
     accent: "vor",
@@ -86,13 +87,21 @@ export const MODES: Record<GameMode, ModeConfig> = {
   },
 };
 
+/** En iOS no van los niveles Picante (ver games/edition). */
+export const MODES = Object.fromEntries(
+  Object.entries(ALL_MODES).map(([mode, config]) => [
+    mode,
+    { ...config, levels: config.levels.filter((level) => isAvailable(level.id)) },
+  ])
+) as Record<GameMode, ModeConfig>;
+
 /** Cómo se ve cada tipo de carta. */
 export const CARD_STYLES: Record<
   CardType,
   { tag: string; footer: string; color: AccentColor; watermark: IllustrationName; shareLabel?: string }
 > = {
-  verdad: { tag: "VERDAD", footer: "Si no respondes toma", color: "verdad", watermark: "qmp", shareLabel: "Verdad" },
-  reto: { tag: "RETO", footer: "Si no lo haces toma", color: "reto", watermark: "vor", shareLabel: "Reto" },
-  yn: { tag: "YO NUNCA", footer: "Quien lo haya hecho, toma", color: "yn", watermark: "yn" },
-  qmp: { tag: "¿QUIÉN?", footer: "El más señalado toma", color: "qmp", watermark: "qmp" },
+  verdad: { tag: "VERDAD", footer: IOS_EDITION ? "Si no respondes, cumple un castigo" : "Si no respondes toma", color: "verdad", watermark: "qmp", shareLabel: "Verdad" },
+  reto: { tag: "RETO", footer: IOS_EDITION ? "Si no lo haces, cumple un castigo" : "Si no lo haces toma", color: "reto", watermark: "vor", shareLabel: "Reto" },
+  yn: { tag: "YO NUNCA", footer: IOS_EDITION ? "Quien lo haya hecho, baja un dedo" : "Quien lo haya hecho, toma", color: "yn", watermark: "yn" },
+  qmp: { tag: "¿QUIÉN?", footer: IOS_EDITION ? "El más señalado cumple un castigo" : "El más señalado toma", color: "qmp", watermark: "qmp" },
 };

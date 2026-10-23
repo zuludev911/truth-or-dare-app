@@ -1,11 +1,13 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { extremoReto, extremoVerdad } from "../data/extremo";
+import { HIDDEN_CARDS_IOS } from "../data/hiddenOnIos";
+import { IOS_EDITION } from "../games/edition";
 import { Card, CardType, GameMode } from "../games/modes";
 
 // Mazos por "nivel-tipo" (Verdad o Reto) o "modo-nivel" (Yo nunca, ¿Quién…?).
 // Las claves de Verdad o Reto son las mismas de antes para conservar el historial.
-const DECKS: Record<string, string[]> = {
+const ALL_DECKS: Record<string, string[]> = {
   "clasico-verdad": require("../data/retos/clasico-verdad.json"),
   "clasico-reto": require("../data/retos/clasico-reto.json"),
   "picante-verdad": require("../data/retos/picante-verdad.json"),
@@ -28,6 +30,12 @@ const DECKS: Record<string, string[]> = {
   "qmp-picante": require("../data/quien/picante.json"),
   "qmp-amigos": require("../data/quien/amigos.json"),
 };
+
+const DECKS: Record<string, string[]> = IOS_EDITION
+  ? Object.fromEntries(
+      Object.entries(ALL_DECKS).map(([key, cards]) => [key, cards.filter((t) => !HIDDEN_CARDS_IOS.has(t))])
+    )
+  : ALL_DECKS;
 
 const STORAGE_KEY = "usedCards";
 

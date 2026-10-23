@@ -11,6 +11,7 @@ import { scheduleOnRN } from "react-native-worklets";
 import { Card, CARD_STYLES, GameMode, MODES } from "../games/modes";
 import { colors, glow, motion, radius, space } from "../theme";
 import { Illustration, Spark, Text } from "../ui";
+import { IOS_EDITION } from "../games/edition";
 
 /** Las cartas con más caracteres que esto usan una letra un poco más chica. */
 const LONG_TEXT = 120;
@@ -102,11 +103,14 @@ function CardFront({ card }: { card: Card }) {
         </Text>
       </View>
       <View style={styles.footer}>
-        <View style={styles.drinks}>
-          {Array.from({ length: card.drinks }).map((_, i) => (
-            <Illustration key={i} name="yn" size={32} style={styles.drink} />
-          ))}
-        </View>
+        {/* Los vasitos de castigo no van en la edición de iOS (ver games/edition). */}
+        {!IOS_EDITION && (
+          <View style={styles.drinks}>
+            {Array.from({ length: card.drinks }).map((_, i) => (
+              <Illustration key={i} name="yn" size={32} style={styles.drink} />
+            ))}
+          </View>
+        )}
         <Text variant="bodyMedium" color={colors.onAccent} style={styles.footerText}>
           {style.footer}
         </Text>

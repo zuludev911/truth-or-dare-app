@@ -4,6 +4,7 @@ import Toast from "react-native-toast-message";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../navigation/Navigation";
+import { IOS_EDITION } from "../games/edition";
 import { trackHomeGameSelected } from "../services/analytics";
 import {
   isPrivacyOptionsRequired,
@@ -42,13 +43,14 @@ export default function HomeScreen({ navigation }: Props) {
           </View>
           <Text variant="hero">¿A qué jugamos?</Text>
           <Text variant="body" color={colors.muted}>
-            Gratis, sin trampas y sin pagos.
+            {/* Apple no permite referencias al precio en las capturas (guía 2.3.7). */}
+            {IOS_EDITION ? "Elige un juego y que empiece la diversión." : "Gratis, sin trampas y sin pagos."}
           </Text>
         </View>
 
         <GameCard
           title="Verdad o Reto"
-          subtitle="El clásico, de suave a extremo"
+          subtitle={IOS_EDITION ? "El clásico de siempre" : "El clásico, de suave a extremo"}
           accent="vor"
           illustration="vor"
           illustrationRotate={-8}
