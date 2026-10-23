@@ -4,6 +4,7 @@ import Animated, { Easing, ZoomIn } from "react-native-reanimated";
 
 import { colors, fonts, motion, space } from "../theme";
 import { Text } from "../ui";
+import { CARD_STYLES } from "../games/modes";
 
 interface Props {
   visible: boolean;
@@ -53,7 +54,7 @@ export default function Countdown({ visible, onFinish }: Props) {
               ¡Señalen!
             </Animated.Text>
             <Text variant="title" style={styles.caption}>
-              El más señalado toma
+              {CARD_STYLES.qmp.footer}
             </Text>
           </>
         )}

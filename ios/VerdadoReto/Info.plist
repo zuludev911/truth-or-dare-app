@@ -32,7 +32,7 @@
       </dict>
     </array>
     <key>CFBundleVersion</key>
-    <string>37</string>
+    <string>38</string>
     <key>GADApplicationIdentifier</key>
     <string>ca-app-pub-5238215515115390~7986628119</string>
     <key>GADDelayAppMeasurementInit</key>
@@ -52,8 +52,6 @@
     </dict>
     <key>NSMicrophoneUsageDescription</key>
     <string>Allow $(PRODUCT_NAME) to access your microphone</string>
-    <key>NSUserTrackingUsageDescription</key>
-    <string>Tu permiso nos ayuda a mostrarte anuncios más relevantes. Gracias a ellos la app es gratis.</string>
     <key>RCTNewArchEnabled</key>
     <true/>
     <key>SKAdNetworkItems</key>

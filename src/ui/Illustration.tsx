@@ -2,6 +2,7 @@ import { memo, ReactNode } from "react";
 import { StyleProp, View, ViewStyle } from "react-native";
 import Svg, { Circle, G, Path, Rect } from "react-native-svg";
 
+import { IOS_EDITION } from "../games/edition";
 import { colors } from "../theme";
 
 const INK = colors.base;
@@ -17,7 +18,19 @@ const SHAPES: Record<string, ReactNode> = {
       <Path d="M66 32C66 20 78 12 92 16C86 18 82 24 82 32C78 36 70 36 66 32Z" fill="#3DDC84" />
     </>
   ),
-  yn: (
+  // En la edición de iOS no hay vasos: Yo nunca es "baja un dedo" (ver games/edition).
+  yn: IOS_EDITION ? (
+    <>
+      <Path d="M36 64L20 46Q14 40 20 35Q26 31 32 37L44 50" fill="#FFC83D" />
+      <Rect x={34} y={24} width={14} height={50} rx={7} fill="#FFC83D" />
+      <Rect x={50} y={14} width={14} height={60} rx={7} fill="#FFC83D" />
+      <Rect x={66} y={18} width={14} height={56} rx={7} fill="#FFC83D" />
+      <Rect x={82} y={30} width={13} height={44} rx={6.5} fill="#FFC83D" />
+      <Path d="M34 58H95V82Q95 108 68 108H58Q34 108 34 84Z" fill="#FFC83D" />
+      <Path d="M44 70Q46 92 62 98" stroke="#FFF1B0" strokeOpacity={0.9} strokeWidth={5} />
+      <Path d="M100 10l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#fff" strokeWidth={2.5} />
+    </>
+  ) : (
     <>
       <Path d="M30 24H90L82 100Q81 108 72 108H48Q39 108 38 100Z" fill="#fff" fillOpacity={0.9} />
       <Path d="M34 52H86L82 98Q81 103 73 103H47Q39 103 38 98Z" fill="#FFC83D" />
@@ -85,7 +98,20 @@ const SHAPES: Record<string, ReactNode> = {
       <Path d="M22 42C22 36 28 34 32 36" stroke="#fff" strokeOpacity={0.8} strokeWidth={5} />
     </>
   ),
-  amigos: (
+  // En iOS, dos amigos chocando los cinco en vez de vasos brindando (ver games/edition).
+  amigos: IOS_EDITION ? (
+    <>
+      <Path d="M44 80L58 30" stroke={INK} strokeWidth={14} />
+      <Path d="M44 80L58 30" stroke="#FFC83D" strokeWidth={7} />
+      <Path d="M76 80L62 30" stroke={INK} strokeWidth={14} />
+      <Path d="M76 80L62 30" stroke="#2DE2C6" strokeWidth={7} />
+      <Path d="M12 112C12 88 20 76 36 76C52 76 58 88 58 112Z" fill="#FFC83D" />
+      <Circle cx={34} cy={56} r={13} fill="#FFC83D" />
+      <Path d="M62 112C62 88 68 76 84 76C100 76 108 88 108 112Z" fill="#2DE2C6" />
+      <Circle cx={86} cy={56} r={13} fill="#2DE2C6" />
+      <Path d="M60 2l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#fff" strokeWidth={2.5} />
+    </>
+  ) : (
     <>
       <G rotation={-14} origin="38, 66">
         <Path d="M16 36H62V92Q62 102 52 102H26Q16 102 16 92Z" fill="#FFC83D" />

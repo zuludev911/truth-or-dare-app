@@ -10,7 +10,7 @@ import NetInfo from "@react-native-community/netinfo";
 import Toast from "react-native-toast-message";
 import { useFocusEffect } from "@react-navigation/native";
 
-import { AD_IDS } from "../services/ads";
+import { AD_IDS, AD_REQUEST_OPTIONS } from "../services/ads";
 import {
   AdPlacement,
   trackAdFailed,
@@ -45,7 +45,7 @@ export function useRewardedUnlock(
   const [modalId, setModalId] = useState<string | null>(null);
   const [unlockState, setUnlockState] = useState<UnlockState>("ready");
 
-  const rewarded = useMemo(() => RewardedAd.createForAdRequest(AD_UNIT_ID), []);
+  const rewarded = useMemo(() => RewardedAd.createForAdRequest(AD_UNIT_ID, AD_REQUEST_OPTIONS), []);
   const isLoaded = useRef(false);
   const pendingId = useRef<string | null>(null);
   const earned = useRef(false);
@@ -171,13 +171,14 @@ export function useRewardedUnlock(
         }
       }),
     ];
-    rewarded.load();
+    // Sin nada que desbloquear (edición de iOS) no se pide ningún video.
+    if (idsKey) rewarded.load();
     return () => {
       unsubscribers.forEach((unsubscribe) => unsubscribe());
       clearLoadTimeout();
       clearTimeout(dismissFallback.current);
     };
-  }, [rewarded, refresh, placement, present, unlockWithoutAd]);
+  }, [rewarded, refresh, placement, present, unlockWithoutAd, idsKey]);
 
   /** true si el id está bloqueado ahora mismo. */
   const isLocked = (id: string) => unlockIds.includes(id) && !remaining[id];
