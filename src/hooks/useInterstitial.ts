@@ -6,7 +6,7 @@ import {
   TestIds,
 } from "react-native-google-mobile-ads";
 
-import { AD_IDS } from "../services/ads";
+import { AD_IDS, AD_REQUEST_OPTIONS } from "../services/ads";
 import { trackAdFailed, trackAdShown, AdPlacement } from "../services/analytics";
 import { getConfigNumber } from "../services/remoteConfig";
 
@@ -31,7 +31,7 @@ export function useInterstitial(placement: InterstitialPlacement) {
       });
 
   const interstitial = useMemo(
-    () => (adUnitId ? InterstitialAd.createForAdRequest(adUnitId) : null),
+    () => (adUnitId ? InterstitialAd.createForAdRequest(adUnitId, AD_REQUEST_OPTIONS) : null),
     [adUnitId]
   );
   const actionCount = useRef(0);

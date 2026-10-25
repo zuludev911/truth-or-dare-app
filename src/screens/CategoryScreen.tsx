@@ -1,221 +1,109 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { StyleSheet, ImageBackground, ScrollView } from "react-native";
-import {
-  AdEventType,
-  RewardedAd,
-  RewardedAdEventType,
-  TestIds,
-} from "react-native-google-mobile-ads";
+import { useState } from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { useFocusEffect } from "@react-navigation/native";
 
-import { HomeStackParamList } from "../navigation/HomeStackNavigator";
-import AdBanner from "../components/AdBanner";
-import { COLORS, CATEGORIES, NEW_CONTENT_UNTIL } from "../constants";
-import backgroundEmpty from "../assets/background-empty.webp";
-import chicas from "../assets/chicas.webp";
-import CategoryButton from "../components/CategoryButton";
-import ShowVideoModal from "../components/ShowVideoModal";
-import { isUnlocked, saveUnlockTime, isUnlockedChicas, saveUnlockTimeChicas } from "../utils";
-import { AD_IDS } from "../services/ads";
-import {
-  trackAdFailed,
-  trackAdShown,
-  trackCategorySelected,
-  trackRewardEarned,
-} from "../services/analytics";
+import { RootStackParamList } from "../navigation/Navigation";
+import { CATEGORIES, CategoryConfig, NEW_CONTENT_UNTIL } from "../constants";
+import { trackCategorySelected } from "../services/analytics";
 import { getConfigNumber } from "../services/remoteConfig";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { formatTimeLeft, formatUnlockHours } from "../utils";
+import { useRewardedUnlock } from "../hooks/useRewardedUnlock";
+import { usePlayers } from "../hooks/usePlayers";
+import PlayersSheet from "../components/PlayersSheet";
+import { space } from "../theme";
+import { BannerSlot, CategoryCard, Header, Screen, UnlockModal } from "../ui";
 
-type Props = NativeStackScreenProps<HomeStackParamList, "Categories">;
+type Props = NativeStackScreenProps<RootStackParamList, "Categories">;
 
-const adUnitId = __DEV__ ? TestIds.REWARDED : AD_IDS.REWARD_ID;
-const rewarded = RewardedAd.createForAdRequest(adUnitId);
-const rewardedChicas = RewardedAd.createForAdRequest(adUnitId);
-
-/** Eventos comunes de los videos recompensados: analíticas y recarga al cerrar. */
-const listenRewardedLifecycle = (ad: RewardedAd, onLoadedChange: (loaded: boolean) => void) => {
-  const unsubscribers = [
-    ad.addAdEventListener(AdEventType.OPENED, () =>
-      trackAdShown("rewarded", "categories"),
-    ),
-    ad.addAdEventListener(AdEventType.CLOSED, () => {
-      onLoadedChange(false);
-      ad.load();
-    }),
-    ad.addAdEventListener(AdEventType.ERROR, (error) => {
-      onLoadedChange(false);
-      trackAdFailed("rewarded", "categories", error);
-    }),
-  ];
-  return () => unsubscribers.forEach((unsubscribe) => unsubscribe());
+const LOCKED_TEXT: Record<string, string> = {
+  extremo: "Esta categoría es para adultos y contiene contenido sensible. Para acceder debes ver un video de publicidad, el cual te dará acceso por",
+  chicas: "Esta es la categoría exclusiva para chicas. Para acceder debes ver un video de publicidad, el cual te dará acceso por",
 };
 
+const LOCKED_IDS = CATEGORIES.filter((c) => c.locked).map((c) => c.id);
+
+const isNew = (id: string) =>
+  !!NEW_CONTENT_UNTIL[id] && new Date() < new Date(NEW_CONTENT_UNTIL[id]);
+
+/** Grilla de categorías de Verdad o Reto. Extremo y Chicas se desbloquean con un video. */
 export default function CategoryScreen({ navigation }: Props) {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isCategoryUnlocked, setIsCategoryUnlocked] = useState<boolean>(false);
-  const [loaded, setLoaded] = useState(false);
+  const [players, setPlayers] = usePlayers();
+  // Categoría elegida: antes de jugar se muestra la hoja de jugadores.
+  const [startingCategory, setStartingCategory] = useState<CategoryConfig | null>(null);
 
-  const [isChicasModalVisible, setIsChicasModalVisible] = useState(false);
-  const [isChicasUnlocked, setIsChicasUnlocked] = useState<boolean>(false);
-  const [loadedChicas, setLoadedChicas] = useState(false);
-
-  const load = useCallback(() => {
-    isUnlocked().then(setIsCategoryUnlocked);
-    isUnlockedChicas().then(setIsChicasUnlocked);
-  }, []);
-
-  useFocusEffect(load);
-
-  const onPressItem = useCallback(
-    (id: string) => {
-      trackCategorySelected(id, false);
-      navigation.navigate("Game", { category: id });
-    },
-    [navigation],
+  const unlock = useRewardedUnlock(
+    LOCKED_IDS,
+    (id) => setStartingCategory(CATEGORIES.find((c) => c.id === id) ?? null),
+    "categories"
   );
 
-  const onPressExtremo = useCallback(
-    (id: string) => {
-      if (isCategoryUnlocked) return onPressItem(id);
-      trackCategorySelected(id, true);
-      setIsModalVisible(true);
-    },
-    [isCategoryUnlocked, onPressItem],
-  );
+  const onPressCategory = (category: CategoryConfig) => {
+    const locked = unlock.isLocked(category.id);
+    trackCategorySelected(category.id, locked);
+    if (locked) unlock.requestUnlock(category.id);
+    else setStartingCategory(category);
+  };
 
-  const onPressChicas = useCallback(
-    (id: string) => {
-      if (isChicasUnlocked) return onPressItem(id);
-      trackCategorySelected(id, true);
-      setIsChicasModalVisible(true);
-    },
-    [isChicasUnlocked, onPressItem],
-  );
+  const startGame = () => {
+    if (!startingCategory) return;
+    setStartingCategory(null);
+    navigation.navigate("Game", { mode: "vor", level: startingCategory.id });
+  };
 
-  const unlockHours = getConfigNumber("rewarded_unlock_hours");
-  const unlockLabel = unlockHours === 1 ? "1 hora" : `${unlockHours} horas`;
+  // Grilla de 2 columnas.
+  const rows: CategoryConfig[][] = [];
+  for (let i = 0; i < CATEGORIES.length; i += 2) rows.push(CATEGORIES.slice(i, i + 2));
 
-  useEffect(() => {
-    const unsubscribeLoaded = rewarded.addAdEventListener(
-      RewardedAdEventType.LOADED,
-      () => setLoaded(true),
-    );
-    const unsubscribeEarned = rewarded.addAdEventListener(
-      RewardedAdEventType.EARNED_REWARD,
-      (reward) => {
-        trackRewardEarned("extremo");
-        reward && navigation.navigate("Game", { category: "extremo" });
-        saveUnlockTime();
-      },
-    );
-    const unsubscribeLifecycle = listenRewardedLifecycle(rewarded, setLoaded);
-
-    rewarded.load();
-
-    return () => {
-      unsubscribeLoaded();
-      unsubscribeEarned();
-      unsubscribeLifecycle();
-    };
-  }, []);
-
-  useEffect(() => {
-    const unsubscribeLoaded = rewardedChicas.addAdEventListener(
-      RewardedAdEventType.LOADED,
-      () => setLoadedChicas(true),
-    );
-    const unsubscribeEarned = rewardedChicas.addAdEventListener(
-      RewardedAdEventType.EARNED_REWARD,
-      (reward) => {
-        trackRewardEarned("chicas");
-        reward && navigation.navigate("Game", { category: "chicas" });
-        saveUnlockTimeChicas();
-      },
-    );
-    const unsubscribeLifecycle = listenRewardedLifecycle(
-      rewardedChicas,
-      setLoadedChicas,
-    );
-
-    rewardedChicas.load();
-
-    return () => {
-      unsubscribeLoaded();
-      unsubscribeEarned();
-      unsubscribeLifecycle();
-    };
-  }, []);
-
-  const { bottom, top } = useSafeAreaInsets();
+  const modalCategory = CATEGORIES.find((c) => c.id === unlock.modalId);
+  const hours = formatUnlockHours(getConfigNumber("rewarded_unlock_hours"));
 
   return (
-    <>
-      <ImageBackground
-        source={backgroundEmpty}
-        style={[
-          styles.container,
-          { paddingBottom: bottom + 50, paddingTop: top },
-        ]}
-      >
-        <ScrollView scrollEnabled style={styles.content}>
-          {CATEGORIES.map((item, index) => {
-            const isExtreme = item.id === "extremo";
-            const isChicas = item.id === "chicas";
-            return (
-              <CategoryButton
-                key={item.id}
-                index={index}
-                item={item}
-                onPressItem={
-                  isExtreme ? onPressExtremo
-                  : isChicas ? onPressChicas
-                  : onPressItem
-                }
-                isNew={
-                  !!NEW_CONTENT_UNTIL[item.id] &&
-                  new Date() < new Date(NEW_CONTENT_UNTIL[item.id])
-                }
-                newLabel="¡Nuevas!"
-                isLocked={
-                  (isExtreme && !isCategoryUnlocked) ||
-                  (isChicas && !isChicasUnlocked)
-                }
-              />
-            );
-          })}
-        </ScrollView>
-      </ImageBackground>
-      <AdBanner placement="categories" />
-      {!isCategoryUnlocked && (
-        <ShowVideoModal
-          isModalVisible={isModalVisible}
-          setIsModalVisible={setIsModalVisible}
-          loaded={loaded}
-          rewarded={rewarded}
-          description={`Esta categoría es para adultos y contiene contenido sensible. Para acceder a esta categoría debes ver un video de publicidad el cual te dará acceso por ${unlockLabel}.`}
-        />
-      )}
-      {!isChicasUnlocked && (
-        <ShowVideoModal
-          isModalVisible={isChicasModalVisible}
-          setIsModalVisible={setIsChicasModalVisible}
-          loaded={loadedChicas}
-          rewarded={rewardedChicas}
-          image={chicas}
-          description={`Esta es la categoría exclusiva para chicas. Para acceder debes ver un video de publicidad, el cual te dará acceso por ${unlockLabel}.`}
-        />
-      )}
-    </>
+    <Screen glows={["vor", "yn"]} padBottom={false}>
+      <Header title="Elige una categoría" onLeadingPress={navigation.goBack} />
+      <ScrollView contentContainerStyle={styles.grid} showsVerticalScrollIndicator={false}>
+        {rows.map((row) => (
+          <View key={row[0].id} style={styles.row}>
+            {row.map((category) => {
+              const left = unlock.remaining[category.id] ?? 0;
+              return (
+                <CategoryCard
+                  key={category.id}
+                  name={category.name}
+                  illustration={category.illustration}
+                  level={category.level}
+                  isNew={isNew(category.id)}
+                  locked={unlock.isLocked(category.id)}
+                  timeLeft={category.locked && left ? formatTimeLeft(left) : undefined}
+                  onPress={() => onPressCategory(category)}
+                />
+              );
+            })}
+          </View>
+        ))}
+      </ScrollView>
+      <BannerSlot placement="categories" />
+
+      <UnlockModal
+        visible={!!modalCategory}
+        illustration={modalCategory?.illustration ?? "extremo"}
+        description={`${LOCKED_TEXT[modalCategory?.id ?? "extremo"] ?? LOCKED_TEXT.extremo} ${hours}.`}
+        state={unlock.unlockState}
+        onWatch={unlock.watch}
+        onClose={unlock.closeModal}
+        onDismiss={unlock.onModalDismiss}
+      />
+      <PlayersSheet
+        visible={!!startingCategory}
+        players={players}
+        onChange={setPlayers}
+        onConfirm={startGame}
+        onClose={() => setStartingCategory(null)}
+      />
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.PRIMARY,
-  },
-  content: {
-    paddingHorizontal: 30,
-  },
+  grid: { gap: space.s3, paddingTop: space.s3, paddingBottom: space.s4 },
+  row: { flexDirection: "row", gap: space.s3 },
 });
