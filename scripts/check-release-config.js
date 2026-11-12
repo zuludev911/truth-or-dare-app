@@ -24,6 +24,13 @@ process.stdin.on("end", () => {
     if (!value) errors.push(`${key} está vacío`);
     else if (value.startsWith(TEST_ADMOB_PREFIX)) errors.push(`${key} es un ID de prueba`);
   }
+  // iOS todavía no está en la tienda: si faltan sus IDs solo se avisa, para no
+  // bloquear los updates de Android. Pasarlo a `errors` cuando salga iOS.
+  for (const key of ["admobIosBannerId", "admobIosInterstitialId", "admobIosRewardId"]) {
+    const value = extra[key];
+    if (!value) console.warn(`Aviso: ${key} está vacío (iOS mostraría anuncios vacíos)`);
+    else if (value.startsWith(TEST_ADMOB_PREFIX)) console.warn(`Aviso: ${key} es un ID de prueba`);
+  }
   if (!String(extra.sentryDsn || "").startsWith("https://")) {
     errors.push(`sentryDsn no es una URL válida (${extra.sentryDsn})`);
   }

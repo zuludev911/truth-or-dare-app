@@ -1,5 +1,7 @@
 package com.anfezuar.truthordareapp
 
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 
@@ -16,7 +18,25 @@ class MainActivity : ReactActivity() {
     // coloring the background, status bar, and navigation bar.
     // This is required for expo-splash-screen.
     setTheme(R.style.AppTheme);
+    applyOrientation(resources.configuration)
     super.onCreate(null)
+  }
+
+  override fun onConfigurationChanged(newConfig: Configuration) {
+    super.onConfigurationChanged(newConfig)
+    // Un plegable cambia de tamaño sin recrear la Activity.
+    applyOrientation(newConfig)
+  }
+
+  /**
+   * Vertical solo en teléfonos. En tablets y plegables abiertos (600 dp o más) la
+   * app gira libremente: Android 16 ignora el bloqueo en pantallas grandes y Play
+   * Console lo marca como baja calidad. (En iOS la app es solo para iPhone.)
+   */
+  private fun applyOrientation(config: Configuration) {
+    requestedOrientation =
+      if (config.smallestScreenWidthDp >= 600) ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+      else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
   }
 
   /**

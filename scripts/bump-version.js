@@ -68,6 +68,14 @@ replaceOnce(
   /(<key>CFBundleShortVersionString<\/key>\s*<string>)[^<]+/,
   `$1${version}`
 );
+// El build de iOS usa el mismo número que el versionCode de Android: siempre
+// sube y App Store Connect no acepta dos builds con el mismo número.
+replaceOnce("app.config.js", /(buildNumber:\s*)"[^"]+"/, `$1"${versionCode}"`);
+replaceOnce(
+  "ios/VerdadoReto/Info.plist",
+  /(<key>CFBundleVersion<\/key>\s*<string>)[^<]+/,
+  `$1${versionCode}`
+);
 if (!keepRuntime) {
   replaceOnce("app.config.js", /(runtimeVersion:\s*)"[^"]+"/, `$1"${runtime}"`);
   replaceOnce(
@@ -82,7 +90,7 @@ if (!keepRuntime) {
   );
 }
 
-console.log(`Versión ${current} → ${version} | versionCode ${versionCode} | runtime ${runtime}`);
+console.log(`Versión ${current} → ${version} | versionCode/buildNumber ${versionCode} | runtime ${runtime}`);
 
 // En GitHub Actions deja los valores disponibles para los siguientes pasos.
 if (process.env.GITHUB_OUTPUT) {

@@ -34,6 +34,10 @@ jobs:
       ADMOB_ANDROID_BANNER_ID: ${{ secrets.ADMOB_ANDROID_BANNER_ID }}
       ADMOB_ANDROID_INTERSTITIAL_ID: ${{ secrets.ADMOB_ANDROID_INTERSTITIAL_ID }}
       ADMOB_REWARD_ID: ${{ secrets.ADMOB_REWARD_ID }}
+      ADMOB_IOS_APP_ID: ${{ secrets.ADMOB_IOS_APP_ID }}
+      ADMOB_IOS_BANNER_ID: ${{ secrets.ADMOB_IOS_BANNER_ID }}
+      ADMOB_IOS_INTERSTITIAL_ID: ${{ secrets.ADMOB_IOS_INTERSTITIAL_ID }}
+      ADMOB_IOS_REWARD_ID: ${{ secrets.ADMOB_IOS_REWARD_ID }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
     steps:
       - uses: actions/checkout@v7

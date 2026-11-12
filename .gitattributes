@@ -1,0 +1,19 @@
+# Saltos de línea LF en todo el repo, también al hacer checkout en Windows.
+# `eas build` sube los archivos tal como están en disco: con CRLF, scripts como
+# ios/.xcode.env fallan en el Mac de EAS ("\r: command not found").
+* text=auto eol=lf
+# Scripts de Windows
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ttf binary
+*.otf binary
+*.wav binary
+*.mp3 binary
+*.jar binary
+*.keystore binary
