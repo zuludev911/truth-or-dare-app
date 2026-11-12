@@ -65,7 +65,7 @@ export default {
     },
     android: {
       applicationLabel: "Verdad o Reto 🔥",
-      versionCode: 37,
+      versionCode: 40,
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#10052D",
