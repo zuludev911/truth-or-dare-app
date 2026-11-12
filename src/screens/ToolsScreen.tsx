@@ -24,7 +24,7 @@ const EmojiMedia = ({ emoji }: { emoji: string }) => (
   </View>
 );
 
-/** Lista de herramientas: Dado y Botella, y las que vienen pronto. */
+/** Lista de herramientas: Dado y Botella, y las que vienen pronto (en iOS solo el Dado). */
 export default function ToolsScreen({ navigation }: Props) {
   const comingSoon = () =>
     Toast.show({ type: "info", text1: "Próximamente", text2: "Esta herramienta llegará pronto" });
@@ -52,8 +52,13 @@ export default function ToolsScreen({ navigation }: Props) {
             onPress={() => navigation.navigate("Bottle")}
           />
         )}
-        <ListCard title="Papa caliente" subtitle="Próximamente" soon media={<EmojiMedia emoji="🔥" />} onPress={comingSoon} />
-        <ListCard title="Charadas" subtitle="Próximamente" soon media={<EmojiMedia emoji="🎭" />} onPress={comingSoon} />
+        {/* Apple puede rechazar funciones sin terminar (guía 2.1): en iOS no se anuncian. */}
+        {!IOS_EDITION && (
+          <>
+            <ListCard title="Papa caliente" subtitle="Próximamente" soon media={<EmojiMedia emoji="🔥" />} onPress={comingSoon} />
+            <ListCard title="Charadas" subtitle="Próximamente" soon media={<EmojiMedia emoji="🎭" />} onPress={comingSoon} />
+          </>
+        )}
       </ScrollView>
       <BannerSlot placement="tools" />
     </Screen>

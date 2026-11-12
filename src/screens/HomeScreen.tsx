@@ -85,7 +85,7 @@ export default function HomeScreen({ navigation }: Props) {
         />
         <GameCard
           title="Herramientas"
-          subtitle={IOS_EDITION ? "Dado y más" : "Dado, botella y más"}
+          subtitle={IOS_EDITION ? "Lanza los dados" : "Dado, botella y más"}
           accent="her"
           illustration="her"
           illustrationRotate={6}
@@ -94,19 +94,22 @@ export default function HomeScreen({ navigation }: Props) {
             navigation.navigate("Tools");
           }}
         />
-        <GameCard
-          title="Juego navideño"
-          subtitle="Llega en diciembre"
-          accent="nav"
-          illustration="nav"
-          illustrationRotate={-6}
-          badge="Próximamente"
-          disabled
-          onPress={() => {
-            trackHomeGameSelected("christmas");
-            comingSoon("¡Llega en diciembre! 🎄", "El juego navideño viene en camino")();
-          }}
-        />
+        {/* Apple puede rechazar funciones sin terminar (guía 2.1): en iOS no se anuncian. */}
+        {!IOS_EDITION && (
+          <GameCard
+            title="Juego navideño"
+            subtitle="Llega en diciembre"
+            accent="nav"
+            illustration="nav"
+            illustrationRotate={-6}
+            badge="Próximamente"
+            disabled
+            onPress={() => {
+              trackHomeGameSelected("christmas");
+              comingSoon("¡Llega en diciembre! 🎄", "El juego navideño viene en camino")();
+            }}
+          />
+        )}
 
         {showPrivacyLink && (
           <Pressable onPress={showPrivacyOptions} style={styles.privacy} accessibilityRole="link">

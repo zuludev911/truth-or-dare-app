@@ -7,7 +7,8 @@ import { Platform } from "react-native";
  * - no hay categorías ni niveles para adultos (Picante, Extremo, Chicas), y por
  *   eso tampoco hay nada que desbloquear con video;
  * - los anuncios no son personalizados (sin rastreo ni aviso ATT);
- * - no está la botella (se asocia con juegos de besos).
+ * - no está la botella (se asocia con juegos de besos);
+ * - no se anuncia nada "Próximamente" (guía 2.1, funciones sin terminar).
  * Android sigue con la edición completa.
  */
 export const IOS_EDITION = Platform.OS === "ios";
