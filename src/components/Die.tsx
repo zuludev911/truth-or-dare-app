@@ -7,9 +7,8 @@ import Animated, {
   withTiming,
   Easing,
 } from "react-native-reanimated";
-import { LinearGradient } from "expo-linear-gradient";
 import { useAudioPlayer } from "expo-audio";
-import { COLORS } from "../constants";
+import { colors, glow } from "../theme";
 
 interface DieProps {
   value: number;
@@ -212,97 +211,64 @@ export default function Die({
     return patterns[displayValue] || [];
   };
 
-  const dotSize = size * 0.14;
+  const dotSize = size * 0.16;
   const dotPositions = getDotPositions();
-  const borderRadius = size * 0.22;
+  const borderRadius = size * 0.23;
+  const edge = size * 0.08;
 
   return (
     <View style={{ alignItems: "center" }}>
-      <Animated.View
-        style={[
-          { width: size, height: size, justifyContent: "center", alignItems: "center" },
-          animatedStyle,
-        ]}
-      >
-        <View style={[styles.dieShadowWrap, { width: size, height: size, borderRadius }]}>
-          <View style={[styles.dieClip, { width: size, height: size, borderRadius }]}>
-            <LinearGradient
-              colors={["#FFFFFF", "#F1EEF4", "#DAD5E0"]}
-              start={{ x: 0.15, y: 0.05 }}
-              end={{ x: 0.9, y: 1 }}
-              style={StyleSheet.absoluteFillObject}
-            />
-            {/* Brillo superior para dar sensación de superficie pulida */}
-            <LinearGradient
-              colors={["rgba(255,255,255,0.85)", "rgba(255,255,255,0)"]}
-              start={{ x: 0.1, y: 0 }}
-              end={{ x: 0.6, y: 0.7 }}
-              style={StyleSheet.absoluteFillObject}
-            />
-            {/* Bisel inferior/derecho oscuro para simular canto del cubo */}
+      <Animated.View style={[{ width: size, height: size + edge }, animatedStyle]}>
+        {/* Canto inferior del dado con el brillo turquesa de Herramientas */}
+        <View
+          style={[
+            styles.edge,
+            { top: edge, width: size, height: size, borderRadius },
+            glow(colors.her, 0.5),
+          ]}
+        />
+        <View style={[styles.face, { width: size, height: size, borderRadius }]}>
+          {dotPositions.map((pos, idx) => (
             <View
+              key={idx}
               style={[
-                styles.bevel,
+                styles.dot,
                 {
-                  borderRightWidth: size * 0.02,
-                  borderBottomWidth: size * 0.02,
+                  width: dotSize,
+                  height: dotSize,
+                  borderRadius: dotSize / 2,
+                  left: (size * pos[0]) / 100 - dotSize / 2,
+                  top: (size * pos[1]) / 100 - dotSize / 2,
                 },
               ]}
             />
-            {dotPositions.map((pos, idx) => (
-              <View
-                key={idx}
-                style={[
-                  styles.dot,
-                  {
-                    width: dotSize,
-                    height: dotSize,
-                    borderRadius: dotSize / 2,
-                    left: (size * pos[0]) / 100 - dotSize / 2,
-                    top: (size * pos[1]) / 100 - dotSize / 2,
-                  },
-                ]}
-              />
-            ))}
-          </View>
+          ))}
         </View>
       </Animated.View>
 
       <Animated.View
-        style={[styles.shadow, { width: size * 0.8, height: size * 0.2 }, shadowStyle]}
+        style={[styles.shadow, { width: size * 0.8, height: size * 0.16 }, shadowStyle]}
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  dieShadowWrap: {
-    shadowColor: COLORS.BLACK,
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 8,
+  edge: {
+    position: "absolute",
+    left: 0,
+    backgroundColor: colors.border,
   },
-  dieClip: {
-    position: "relative",
-    overflow: "hidden",
-  },
-  bevel: {
-    ...StyleSheet.absoluteFillObject,
-    borderRightColor: "rgba(0,0,0,0.12)",
-    borderBottomColor: "rgba(0,0,0,0.16)",
+  face: {
+    backgroundColor: "#FFFFFF",
   },
   dot: {
-    backgroundColor: COLORS.PRIMARY,
+    backgroundColor: colors.base,
     position: "absolute",
-    shadowColor: COLORS.BLACK,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.3,
-    shadowRadius: 1,
   },
   shadow: {
-    backgroundColor: "rgba(0, 0, 0, 0.2)",
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
     borderRadius: 50,
-    marginTop: -8,
+    marginTop: -2,
   },
 });

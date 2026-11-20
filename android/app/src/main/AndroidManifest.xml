@@ -10,6 +10,9 @@
   <!-- Los agrega expo-file-system; la app solo usa sus carpetas internas, que no requieren permisos. -->
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove"/>
+  <!-- NetInfo pide ACCESS_WIFI_STATE, y con eso Google Play exige Wi-Fi para instalar
+       (deja fuera Chromebooks, Play Games para PC y Android XR). La app solo necesita internet. -->
+  <uses-feature android:name="android.hardware.wifi" android:required="false"/>
   <queries>
     <intent>
       <action android:name="android.intent.action.VIEW"/>
@@ -28,7 +31,7 @@
     <meta-data android:name="expo.modules.updates.EXPO_UPDATE_URL" android:value="https://u.expo.dev/c527b4ab-0a68-40f0-8c0a-12b494893257"/>
     <service android:name="expo.modules.audio.service.AudioControlsService" tools:node="remove"/>
     <service android:name="expo.modules.audio.service.AudioRecordingService" tools:node="remove"/>
-    <activity android:name=".MainActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode" android:launchMode="singleTask" android:windowSoftInputMode="adjustResize" android:theme="@style/Theme.App.SplashScreen" android:exported="true" android:screenOrientation="portrait">
+    <activity android:name=".MainActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode" android:launchMode="singleTask" android:windowSoftInputMode="adjustResize" android:theme="@style/Theme.App.SplashScreen" android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>

@@ -10,6 +10,11 @@ on:
         type: choice
         options: [production, preview]
         default: production
+      platform:
+        description: "Plataforma (ios y all exigen los IDs de AdMob de iOS)"
+        type: choice
+        options: [all, android, ios]
+        default: all
       message:
         description: "Descripción del update (se ve en EAS y en el tag)"
         type: string
@@ -34,6 +39,10 @@ jobs:
       ADMOB_ANDROID_BANNER_ID: ${{ secrets.ADMOB_ANDROID_BANNER_ID }}
       ADMOB_ANDROID_INTERSTITIAL_ID: ${{ secrets.ADMOB_ANDROID_INTERSTITIAL_ID }}
       ADMOB_REWARD_ID: ${{ secrets.ADMOB_REWARD_ID }}
+      ADMOB_IOS_APP_ID: ${{ secrets.ADMOB_IOS_APP_ID }}
+      ADMOB_IOS_BANNER_ID: ${{ secrets.ADMOB_IOS_BANNER_ID }}
+      ADMOB_IOS_INTERSTITIAL_ID: ${{ secrets.ADMOB_IOS_INTERSTITIAL_ID }}
+      ADMOB_IOS_REWARD_ID: ${{ secrets.ADMOB_IOS_REWARD_ID }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
     steps:
       - uses: actions/checkout@v7
@@ -56,14 +65,14 @@ jobs:
         run: |
           eas env:exec production "npx expo config --type public --json" --non-interactive \
             | sed -n '/^{/,$p' > config.json
-          node scripts/check-release-config.js < config.json
+          node scripts/check-release-config.js "${{ inputs.platform }}" < config.json
           echo "RUNTIME=$(node -p "require('./config.json').runtimeVersion")" >> "$GITHUB_ENV"
 
       - name: Publicar update
         id: update
         run: |
           eas update --channel "${{ inputs.channel }}" --environment production \
-            --platform android --message "${{ inputs.message }}" --non-interactive --json > update.json
+            --platform "${{ inputs.platform }}" --message "${{ inputs.message }}" --non-interactive --json > update.json
           group=$(node -p "require('./update.json')[0].group")
           echo "group=$group" >> "$GITHUB_OUTPUT"
           echo "Update group: $group"
