@@ -3,10 +3,14 @@
  * Revisa la config resuelta de la app antes de publicar un build o un update OTA.
  * Lee la salida de `npx expo config --type public --json` por stdin.
  *
+ *   node scripts/check-release-config.js [android|ios|all] < config.json
+ *
  * Evita repetir errores que ya llegaron a producción: IDs de AdMob vacíos o de
  * prueba, y un DSN de Sentry que no es una URL (quedaba el texto "$DSN_SENTRY").
  */
 const TEST_ADMOB_PREFIX = "ca-app-pub-3940256099942544";
+// Plataforma del build o update: "android", "ios" o "all" (por defecto).
+const platform = process.argv[2] || "all";
 
 let input = "";
 process.stdin.on("data", (chunk) => (input += chunk));
@@ -24,12 +28,14 @@ process.stdin.on("end", () => {
     if (!value) errors.push(`${key} está vacío`);
     else if (value.startsWith(TEST_ADMOB_PREFIX)) errors.push(`${key} es un ID de prueba`);
   }
-  // iOS todavía no está en la tienda: si faltan sus IDs solo se avisa, para no
-  // bloquear los updates de Android. Pasarlo a `errors` cuando salga iOS.
+  // Los IDs de iOS solo bloquean si el update va a iOS ("ios" o "all"); en un
+  // update solo de Android se avisa y nada más.
+  const includesIos = platform !== "android";
   for (const key of ["admobIosBannerId", "admobIosInterstitialId", "admobIosRewardId"]) {
     const value = extra[key];
-    if (!value) console.warn(`Aviso: ${key} está vacío (iOS mostraría anuncios vacíos)`);
-    else if (value.startsWith(TEST_ADMOB_PREFIX)) console.warn(`Aviso: ${key} es un ID de prueba`);
+    const report = includesIos ? (message) => errors.push(message) : (message) => console.warn(`Aviso: ${message}`);
+    if (!value) report(`${key} está vacío (iOS mostraría anuncios vacíos)`);
+    else if (value.startsWith(TEST_ADMOB_PREFIX)) report(`${key} es un ID de prueba`);
   }
   if (!String(extra.sentryDsn || "").startsWith("https://")) {
     errors.push(`sentryDsn no es una URL válida (${extra.sentryDsn})`);
