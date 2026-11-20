@@ -44,7 +44,7 @@ export default {
       backgroundColor: "#10052D",
     },
     ios: {
-      buildNumber: "40",
+      buildNumber: "41",
       // Ícono y splash sin los labios del logo (edición de la App Store, ver src/games/edition.ts).
       icon: "./assets/icon-ios.png",
       splash: {
@@ -65,7 +65,7 @@ export default {
     },
     android: {
       applicationLabel: "Verdad o Reto 🔥",
-      versionCode: 40,
+      versionCode: 41,
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#10052D",
