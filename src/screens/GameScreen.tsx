@@ -23,9 +23,9 @@ import { BannerSlot, Button, Header, Illustration, Pill, Screen, Text } from "..
 
 type Props = NativeStackScreenProps<RootStackParamList, "Game">;
 
-// Página de descarga (site/ en GitHub Pages): quien recibe la carta llega a su
-// tienda, sea Android o iPhone. El enlace de la App Store se agrega allá.
-const STORE_URL = "https://zuludev911.github.io/truth-or-dare-app/";
+// Página de descarga (site/ en GitHub Pages, con dominio propio): quien recibe la
+// carta llega a su tienda, sea Android o iPhone.
+const STORE_URL = "https://verdad-o-reto.zuve.digital/";
 
 /** Juego de cartas para los 3 modos: Verdad o Reto, Yo nunca y ¿Quién es más probable que…? */
 export default function GameScreen({ route, navigation }: Props) {
