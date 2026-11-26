@@ -47,3 +47,6 @@ verdad-o-reto-495115-08b23e9f7800.json
 
 # Claude Code worktrees
 .claude/worktrees/
+
+# Material de marca, tiendas y videos (no va al repositorio; docs/prototipo y docs/specs ya están versionados)
+docs/
