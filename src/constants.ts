@@ -24,6 +24,10 @@ const ALL_CATEGORIES: CategoryConfig[] = [
 /** En iOS no van Picante, Extremo ni Chicas (ver games/edition). */
 export const CATEGORIES = ALL_CATEGORIES.filter((c) => isAvailable(c.id));
 
+// Página de descarga (site/ en GitHub Pages, con dominio propio): quien recibe una
+// carta o un recordatorio llega a su tienda, sea Android o iPhone.
+export const STORE_URL = "https://verdad-o-reto.zuve.digital/";
+
 // Categorías con cartas nuevas: muestran la etiqueta "¡Nuevas!" hasta esa fecha.
 export const NEW_CONTENT_UNTIL: Record<string, string> = {
   picante: "2026-11-09",

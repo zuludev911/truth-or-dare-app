@@ -26,7 +26,8 @@ export type AdPlacement =
   | "dice"
   | "bottle"
   | "categories"
-  | "tools";
+  | "tools"
+  | "secret_santa";
 
 export const trackScreen = (screenName: string) => {
   logScreenView(analytics, {
@@ -98,3 +99,30 @@ export const trackRewardEarned = (unlock: string) =>
 /** Desbloqueo gratis porque no había video disponible (ver useRewardedUnlock). */
 export const trackUnlockWithoutAd = (unlock: string, placement: AdPlacement) =>
   track("unlock_without_ad", { unlock, placement });
+
+// Amigo secreto (juego navideño).
+export const trackSecretSantaStarted = (
+  participants: number,
+  hasAmount: boolean,
+  hasExclusions: boolean
+) =>
+  track("secret_santa_started", {
+    participants,
+    has_amount: hasAmount,
+    has_exclusions: hasExclusions,
+  });
+
+export const trackSecretSantaDrawn = (participants: number) =>
+  track("secret_santa_drawn", { participants });
+
+/** No hubo forma de sortear con las restricciones puestas. */
+export const trackSecretSantaDrawFailed = (participants: number, exclusions: number) =>
+  track("secret_santa_draw_failed", { participants, exclusions });
+
+/** Todos los participantes ya vieron a quién le regalan. */
+export const trackSecretSantaCompleted = (participants: number) =>
+  track("secret_santa_completed", { participants });
+
+export const trackSecretSantaReminderShared = () => track("secret_santa_reminder_shared");
+
+export const trackSecretSantaReset = () => track("secret_santa_reset");

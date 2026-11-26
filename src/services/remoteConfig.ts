@@ -13,6 +13,7 @@ const DEFAULTS = {
   interstitial_every_n_rolls: 20,
   interstitial_every_n_spins: 20,
   rewarded_unlock_hours: 2,
+  christmas_season: 0,
 };
 
 type ConfigKey = keyof typeof DEFAULTS;

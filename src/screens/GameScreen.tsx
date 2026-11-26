@@ -4,7 +4,7 @@ import IconShare from "@tabler/icons-react-native/IconShare";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../navigation/Navigation";
-import { CATEGORIES } from "../constants";
+import { CATEGORIES, STORE_URL } from "../constants";
 import { Card, CARD_STYLES, CardType, MODES } from "../games/modes";
 import { drawCard } from "../utils/getRandomReto";
 import { useInterstitial } from "../hooks/useInterstitial";
@@ -22,10 +22,6 @@ import { colors, space } from "../theme";
 import { BannerSlot, Button, Header, Illustration, Pill, Screen, Text } from "../ui";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Game">;
-
-// Página de descarga (site/ en GitHub Pages, con dominio propio): quien recibe la
-// carta llega a su tienda, sea Android o iPhone.
-const STORE_URL = "https://verdad-o-reto.zuve.digital/";
 
 /** Juego de cartas para los 3 modos: Verdad o Reto, Yo nunca y ¿Quién es más probable que…? */
 export default function GameScreen({ route, navigation }: Props) {
