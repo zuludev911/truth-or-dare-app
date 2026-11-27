@@ -7,6 +7,8 @@ import LevelsScreen from "../screens/LevelsScreen";
 import ToolsScreen from "../screens/ToolsScreen";
 import DiceScreen from "../screens/DiceScreen";
 import BottleScreen from "../screens/BottleScreen";
+import SecretSantaSetupScreen from "../screens/SecretSantaSetupScreen";
+import SecretSantaRevealScreen from "../screens/SecretSantaRevealScreen";
 import DesignSystemScreen from "../screens/DesignSystemScreen";
 import { colors } from "../theme";
 import type { GameMode } from "../games/modes";
@@ -25,6 +27,10 @@ export type RootStackParamList = {
   Tools: undefined;
   Dice: undefined;
   Bottle: undefined;
+  /** Amigo secreto (juego navideño): armar el grupo y sortear. */
+  SecretSantaSetup: undefined;
+  /** Amigo secreto: cada persona ve en secreto a quién le regala. */
+  SecretSantaReveal: undefined;
   /** Catálogo de componentes del rediseño, solo en desarrollo. */
   DesignSystem: undefined;
 };
@@ -48,6 +54,8 @@ export default function Navigation() {
       <Stack.Screen name="Tools" component={ToolsScreen} />
       <Stack.Screen name="Dice" component={DiceScreen} />
       <Stack.Screen name="Bottle" component={BottleScreen} />
+      <Stack.Screen name="SecretSantaSetup" component={SecretSantaSetupScreen} />
+      <Stack.Screen name="SecretSantaReveal" component={SecretSantaRevealScreen} />
       {__DEV__ && <Stack.Screen name="DesignSystem" component={DesignSystemScreen} />}
     </Stack.Navigator>
   );

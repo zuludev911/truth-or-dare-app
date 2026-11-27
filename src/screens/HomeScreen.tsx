@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Pressable, ScrollView, StyleSheet, View } from "react-native";
-import Toast from "react-native-toast-message";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../navigation/Navigation";
 import { IOS_EDITION } from "../games/edition";
 import { trackHomeGameSelected } from "../services/analytics";
+import { isChristmasSeason } from "../services/christmas";
 import {
   isPrivacyOptionsRequired,
   showPrivacyOptions,
@@ -22,9 +22,6 @@ export default function HomeScreen({ navigation }: Props) {
   useEffect(() => {
     isPrivacyOptionsRequired().then(setShowPrivacyLink);
   }, []);
-
-  const comingSoon = (text1: string, text2: string) => () =>
-    Toast.show({ type: "info", text1, text2 });
 
   return (
     <Screen glows={["vor", "yn"]}>
@@ -94,19 +91,18 @@ export default function HomeScreen({ navigation }: Props) {
             navigation.navigate("Tools");
           }}
         />
-        {/* Apple puede rechazar funciones sin terminar (guía 2.1): en iOS no se anuncian. */}
-        {!IOS_EDITION && (
+        {/* Temporada navideña: del 15 de nov al 6 de ene (ver services/christmas). */}
+        {isChristmasSeason() && (
           <GameCard
-            title="Juego navideño"
-            subtitle="Llega en diciembre"
+            title="Amigo secreto"
+            subtitle="Sortea a quién le regalas"
             accent="nav"
             illustration="nav"
             illustrationRotate={-6}
-            badge="Próximamente"
-            disabled
+            badge="Nuevo"
             onPress={() => {
               trackHomeGameSelected("christmas");
-              comingSoon("¡Llega en diciembre! 🎄", "El juego navideño viene en camino")();
+              navigation.navigate("SecretSantaSetup");
             }}
           />
         )}
