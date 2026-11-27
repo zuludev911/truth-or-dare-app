@@ -1,17 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.VIBRATE"/>
-  <!-- expo-audio trae servicios para audio en segundo plano y grabación que la app no usa
-       (solo reproduce sonidos cortos en primer plano). Se quitan para no tener que
-       declarar servicios en primer plano ni pedir el micrófono en Google Play. -->
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" tools:node="remove"/>
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" tools:node="remove"/>
   <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove"/>
-  <!-- Los agrega expo-file-system; la app solo usa sus carpetas internas, que no requieren permisos. -->
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove"/>
-  <!-- NetInfo pide ACCESS_WIFI_STATE, y con eso Google Play exige Wi-Fi para instalar
-       (deja fuera Chromebooks, Play Games para PC y Android XR). La app solo necesita internet. -->
   <uses-feature android:name="android.hardware.wifi" android:required="false"/>
   <queries>
     <intent>
